@@ -11,10 +11,21 @@
 </head>
 <body>
 
-<nav>
+<nav id="navbar">
   <div class="wrap">
     <div class="nav-mark">Sehansi</div>
-    <div class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg class="icon-menu" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8" fill="none">
+        <line x1="4" y1="7" x2="20" y2="7"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="17" x2="20" y2="17"></line>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8" fill="none">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
@@ -42,10 +53,10 @@
 
    <div class="sprout" aria-hidden="true">
       <svg viewBox="0 0 220 320" fill="none">
-        <path d="M110 300 C110 230 108 170 112 120 C114 95 118 75 110 40" />
-        <path class="leaf-fill" d="M112 150 C90 140 68 118 66 90 C96 92 116 110 122 138 C120 143 116 147 112 150 Z" />
-        <path class="leaf-fill" d="M114 100 C136 88 156 64 156 36 C126 40 108 60 104 88 C107 93 110 97 114 100 Z" />
-        <path class="leaf-fill" d="M110 200 C86 194 62 176 56 150 C88 148 112 164 120 190 C117 194 114 197 110 200 Z" />
+        <path class="sprout-stem" d="M110 300 C110 230 108 170 112 120 C114 95 118 75 110 40" />
+        <path class="sprout-leaf" d="M112 150 C90 140 68 118 66 90 C96 92 112 115 112 150 Z" />
+        <path class="sprout-leaf" d="M114 100 C136 88 156 64 156 36 C126 40 114 70 114 100 Z" />
+        <path class="sprout-leaf" d="M110 200 C86 194 62 176 56 150 C88 148 110 175 110 200 Z" />
       </svg>
     </div>
   </div>
@@ -392,6 +403,31 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   els.forEach(el=> io.observe(el));
+
+  const navbar = document.getElementById('navbar');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  if (navToggle && navbar) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target) && navbar.classList.contains('open')) {
+        navbar.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 </script>
 
 </body>
