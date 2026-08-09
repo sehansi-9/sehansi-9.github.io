@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -31,7 +31,7 @@
       <a href="#projects">Projects</a>
       <a href="#education">Education</a>
       <a href="#certifications">Certifications</a>
-      <a href="#community">Community</a>
+      <a href="#events">Events</a>
       <a href="#blog">Writing</a>
       <a href="#contact">Contact</a>
     </div>
@@ -69,12 +69,14 @@
       <h2>Building with restraint, not excess</h2>
     </div>
     <div class="about-grid reveal">
-      <div>
-	<p>I like systems that make you stop noticing because it just works the way it should. Most of my time goes into subtraction and optimization: fewer steps, fewer cost, fewer places for something to break in a way nobody can explain later.</p>
+      <div class="about-col-left">
+        <p>I like systems that make you stop noticing because it just works the way it should. Most of my time goes into subtraction and optimization: fewer steps, fewer cost, fewer places for something to break in a way nobody can explain later.</p>
         <div class="pull">"Bridging the gap between raw data and human-centric systems."</div>
-	
       </div>
-      <ul class="fact-list">
+      <div class="about-col-mid">
+        <img src="https://drive.google.com/thumbnail?id=16U6YnlQniuHm4fTtTtWyCrB0L4BAJxER&sz=w400" alt="Sehansi Perera" class="about-portrait">
+      </div>
+      <ul class="fact-list about-col-right">
         <li><span class="k">BASED IN</span><span>Colombo, Western Province, Sri Lanka</span></li>
         <li><span class="k">FOCUS</span><span>Efficient AI, Open Source Technology, Social-Impact Software</span></li>
         <li><span class="k">ALSO INTO</span><span>Vector Illustration, Violin, Language Learning</span></li>
@@ -113,85 +115,7 @@
       <h2>Selected work</h2>
       <p>A mix of research work, capstone projects, and fun personal projects</p>
     </div>
-
-    <div class="proj-grid">
-      <div class="proj-card reveal">
-        <div class="proj-top">
-          <h3>OpenGIN Bot</h3>
-          <div class="proj-org">Lanka Data Foundation</div>
-          <div class="proj-date">Dec 2025 – May 2026</div>
-        </div>
-        <div class="proj-body">
-          <p>An LLM-powered agent for querying the OpenGIN government-data platform in natural language. Implemented LangGraph-based orchestration, parallel tool execution, topic-shift detection, entity caching, fact distillation, sliding-context memory, and automatic context pruning, engineered specifically to reduce token usage without losing conversational accuracy.</p>
-          <div class="tag-row"><span class="tag">LangGraph</span><span class="tag">Next.js</span><span class="tag">Agent Orchestration</span><span class="tag">Fast API</span></div>
-          <a class="proj-link" href="https://github.com/sehansi-9/research/tree/opengin-bot/opengin-bot" target="_blank" rel="noopener">View repository ↗</a>
-        </div>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-top">
-          <h3>OpenGINXplore</h3>
-          <div class="proj-org">Lanka Data Foundation</div>
-          <div class="proj-date">May 2025 – May 2026</div>
-        </div>
-        <div class="proj-body">
-          <p>A temporal public and government data visualisation platform for Sri Lanka, built as part of an open-government initiative, tracing how the country's administrative structure has shifted over time.</p>
-          <div class="tag-row"><span class="tag">Data Visualization</span><span class="tag">React</span></div>
-	  <a class="proj-link" href="https://openginxplore.opendata.lk/" target="_blank" rel="noopener">View Live Site ↗</a>
-        </div>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-top">
-          <h3>Resilify</h3>
-          <div class="proj-org">University of Westminster · Group Project</div>
-          <div class="proj-date">Oct 2024 – May 2025</div>
-        </div>
-        <div class="proj-body">
-          <p>An AI-powered, gamified OCD therapy assistant, built with mental health professionals to improve therapy adherence. Selected for the Cutting Edge '25 exhibition and Top 15 of the TEDxColombo × John Keells IT Pitch-a-Thon.</p>
-          <div class="tag-row"><span class="tag">Flutter</span><span class="tag">Rive Animations</span><span class="tag">Python</span></div>
-	  <a class="proj-link" href="https://www.sdgp.lk/project/a97414c0-50d4-4db5-ad2e-f19c0c5859c1" target="_blank" rel="noopener">View Project ↗</a>
-	  <a class="proj-link" href="https://www.instagram.com/resilify_/" target="_blank" rel="noopener">View Social Platform ↗</a>
-	  <a class="proj-link" href="https://github.com/Resilify" target="_blank" rel="noopener">View Repository ↗</a>
-        </div>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-top">
-          <h3>Concurrent Ticket Management System</h3>
-          <div class="proj-date">Nov 2024 – Dec 2024</div>
-        </div>
-        <div class="proj-body">
-          <p>Full-stack ticketing system simulating synchronised multi-threaded ticket allocation between customers and vendors, a Java CLI for bulk configuration, real-time WebSocket updates, and transaction logging for debugging concurrent operations.</p>
-          <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">WebSockets</span><span class="tag">Angular</span></div>
-	  <a class="proj-link" href="https://github.com/sehansi-9/Ticketing_System" target="_blank" rel="noopener">View Repository ↗</a>
-        </div>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-top">
-          <h3>Catstagram</h3>
-          <div class="proj-date">May 2024 – Jul 2024</div>
-        </div>
-        <div class="proj-body">
-          <p>A social platform exclusively for cat lovers, using TensorFlow's COCO-SSD image recognition model to enforce cat-only uploads, with JWT auth and a full MERN social feed.</p>
-          <div class="tag-row"><span class="tag">MERN</span><span class="tag">JWT</span><span class="tag">TensorFlow</span></div>
-	  <a class="proj-link" href="https://github.com/sehansi-9/catstagram" target="_blank" rel="noopener">View Repository ↗</a>
-        </div>
-      </div>
-
-	 <div class="proj-card reveal">
-        <div class="proj-top">
-          <h3>Digital Art Portfolio</h3>
-          <div class="proj-date">since May 2020 </div>
-        </div>
-        <div class="proj-body">
-          <p> Making illustrations using MS Powerpoint</p>
-          <div class="tag-row"><span class="tag">PowerPoint Art</span></div>
-	  <a class="proj-link" href="https://www.instagram.com/sp_pptart/" target="_blank" rel="noopener">View Portfolio ↗</a>
-        </div>
-      </div>
-    </div>
+    <div class="proj-grid" id="proj-grid"></div>
   </div>
 </section>
 
@@ -235,77 +159,18 @@
       <div class="eyebrow">Licenses &amp; Certifications</div>
       <h2>Credentials</h2>
     </div>
-    <div class="cert-grid">
-      <div class="cert-card reveal"><div><h4><a href="https://graphacademy.neo4j.com/c/72278eda-abfc-408b-a2a9-1eae771e5db5" target="_blank" rel="noopener">Neo4j Fundamentals<span class="link-icon">↗</span></a></h4><div class="issuer">Neo4j</div></div><div class="cert-date">May 2025</div></div>
-
-      <div class="cert-card reveal"><div><h4><a href="https://www.linkedin.com/learning/certificates/f82e834b28d25b54e633406e521cd447077fac5aa4684913acb720e2cbdc0bf0/" target="_blank" rel="noopener">Spring Boot 2.0 Essential Training<span class="link-icon">↗</span></a></h4><div class="issuer">LinkedIn Learning</div></div><div class="cert-date">Dec 2024</div></div>
-
-      <div class="cert-card reveal"><div><h4><a href="https://www.linkedin.com/learning/certificates/498b7749881b595810b04a7fbddaefa3e7e69a4aa0c32d485ab66950d6624fdf?u=76664938" target="_blank" rel="noopener">Java Object-Oriented Programming<span class="link-icon">↗</span></a></h4><div class="issuer">LinkedIn Learning</div></div><div class="cert-date">Dec 2024</div></div>
-
-      <div class="cert-card reveal"><div><h4><a href="https://www.linkedin.com/learning/certificates/677ac317c373fef7d229d7b25d39186d01c4ceded1ac8633d300cd3644887a98" target="_blank" rel="noopener">Angular Essential Training<span class="link-icon">↗</span></a></h4><div class="issuer">LinkedIn Learning</div></div><div class="cert-date">Dec 2024</div></div>
-
-      <div class="cert-card reveal"><div><h4><a href="https://www.sololearn.com/en/certificates/CC-L5GY1VZ7" target="_blank" rel="noopener">Java (Intermediate)<span class="link-icon">↗</span></a></h4><div class="issuer">Sololearn</div></div><div class="cert-date">Jun 2024</div></div>
-
-      <div class="cert-card reveal">
-        <div>
-          <h4><a href="https://www.linkedin.com/posts/ieee-computer-society-student-chapter-of-iit_ieeecs-iit-mediumblog-activity-7207326822491967488-ERb1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">Article of the Month — May 2024<span class="link-icon">↗</span></a></h4>
-          <div class="issuer">IEEE Computer Society Student Branch, IIT</div>
-          <span class="cert-badge">Winner</span> <a class="proj-link" href="https://www.sdgp.lk/project/a97414c0-50d4-4db5-ad2e-f19c0c5859c1" target="_blank" rel="noopener">Read Article ↗</a>
-        </div>
-        <div class="cert-date">Jun 2024</div>
-      </div>
-
-      <div class="cert-card reveal"><div><h4><a href="https://www.linkedin.com/in/sehansi-perera-542740291/overlay/Certifications/1738624098/treasury/?profileId=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">Artificial Intelligence<span class="link-icon">↗</span></a></h4><div class="issuer">American Institute of Innovation</div></div><div class="cert-date">Sep 2023</div></div>
-
-      <div class="cert-card reveal"><div><h4><a href="https://www.linkedin.com/in/sehansi-perera-542740291/overlay/Certifications/906229528/treasury/?profileId=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">Webspire Front-End Development Workshop<span class="link-icon">↗</span></a></h4><div class="issuer">IEEE Computer Society Student Branch, IIT</div></div><div class="cert-date">Feb 2024</div></div>
-
-      <div class="cert-card reveal">
-        <div>
-          <h4><a href="https://www.linkedin.com/in/sehansi-perera-542740291/overlay/Certifications/904264795/treasury/?profileId=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">All Island Virtual Wesak STEM Competition 2020 (Solo)<span class="link-icon">↗</span></a></h4>
-          <div class="issuer">Dialog Axiata PLC</div>
-          <span class="cert-badge">Winner, Senior Category</span>
-        </div>
-        <div class="cert-date">May 2020</div>
-      </div>
-
-      <div class="cert-card reveal"><div><h4><a href="https://www.linkedin.com/in/sehansi-perera-542740291/overlay/Certifications/904906590/treasury/?profileId=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">Inter-School English Essay Competition 2018<span class="link-icon">↗</span></a></h4><div class="issuer">National Institute of Business Management</div><span class="cert-badge">3rd Place, Under-19</span></div><div class="cert-date">Sep 2018</div></div>
-    </div>
+    <div class="cert-grid" id="cert-grid"></div>
   </div>
 </section>
 
-<section id="community">
+<section id="events">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">Community &amp; Talks</div>
-      <h2>Where I show up</h2>
-      <p>Conferences, hackathons, and events I've taken part in beyond my day-to-day work.</p>
+      <div class="eyebrow">Events</div>
+      <h2>Events &amp; Community</h2>
+      <p>A collection of visuals from my projects and events.</p>
     </div>
-    <div class="hi-grid">
-<a class="hi-card reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7362313701783228416/" target="_blank" rel="noopener">
-        <div class="eyebrow">Jul 2025</div>
-        <p><strong>WSO2Con Asia 2025</strong> — Colombo. Three days on GenAI applications, zero-trust agents, and secure API management</p>
-      </a>
-<a class="hi-card reveal" href="https://www.linkedin.com/posts/sehansi-perera-542740291_tedxcolombo-pitchathon-share-7308820142828724224-Jviz/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">
-        <div class="eyebrow">2025</div>
-        <p><strong>TEDxColombo × John Keells IT Pitch-a-Thon</strong> — Top 15 finalist with Resilify.</p>
-      </a>
-<a class="hi-card reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7342068932788305923/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">
-        <div class="eyebrow">Jun 2025</div>
-        <p><strong>Cutting Edge '25 Exhibition</strong>, Temple Trees — showcased Resilify as one of the selected undergraduate projects.</p>
-      </a>
-<a class="hi-card reveal" href="https://www.linkedin.com/posts/nilni-ariyarathna_hackathon-duothon-teamwork-ugcPost-7201411819326873600-nDta?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">
-        <div class="eyebrow">May 2024</div>
-        <p><strong>Duothon 4.0</strong> (IEEE NSBM) — designed the UI for a web-based Smart Transport Management System hackathon concept.</p>
-      </a>
-<a class="hi-card reveal" href="https://www.linkedin.com/posts/nilni-ariyarathna_robotics-robotnexus-ieeeras-ugcPost-7204054789687508992-GBfL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">
-        <div class="eyebrow">Apr 2024</div>
-        <p><strong>RobotNexus Workshop Series</strong> (IEEE RAS, IIT) — microcontrollers, embedded systems, mechanics, and Micro Mouse.</p>
-      </a>
-<a class="hi-card reveal" href="https://www.linkedin.com/posts/sehansi-perera-542740291_googleio-googleioextended-gdglk-activity-7221782046820425729-Casc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">
-        <div class="eyebrow">May 2024</div>
-        <p><strong>Google I/O Extended Sri Lanka</strong> (GDG Sri Lanka) — sessions on fast web pages and AI in Flutter apps.</p>
-      </a>
-    </div>
+    <div class="events-grid gallery-grid reveal" id="events-grid"></div>
   </div>
 </section>
 
@@ -316,70 +181,7 @@
       <h2>Notes, in longer form</h2>
       <p>Occasional essays on the projects and ideas I spend my time on.</p>
     </div>
-
-    <div class="proj-grid">
-      <a class="blog-card reveal" href="https://medium.com/@sehansi/openginxplore-inside-the-journey-of-building-a-time-aware-map-of-sri-lankan-government-7972bf3c44c6" target="_blank" rel="noopener">
-        <div class="blog-img" style="background-image:url('https://miro.medium.com/v2/resize:fit:1200/1*kYRDmonDLdDe0x2hM8Py9w.png');"></div>
-        <div class="blog-body">
-          <div class="blog-meta">Feb 2026 · 5 min read</div>
-          <h3>OpenGINXplore: Inside the Journey of Building a Time-Aware Map of Sri Lankan Government</h3>
-          <p>On the design decisions behind visualising a government structure that keeps changing; timelines, 3D networks, and tracing entity histories across time.</p>
-          <span class="proj-link">Read on Medium ↗</span>
-        </div>
-      </a>
-
-      <a class="blog-card reveal" href="https://medium.com/@ieeecomputersocietyiit/from-sci-fi-to-reality-how-ibms-influence-keeps-humanity-closer-to-the-future-of-space-travel-3ecd70bf43fe" target="_blank" rel="noopener">
-        <div class="blog-img" style="background-image:url('https://miro.medium.com/v2/resize:fit:975/1*SED2hZEJbBY1n60cyOYvUQ.png');"></div>
-        <div class="blog-body">
-          <div class="blog-meta">May 2024 · 3 min read · IEEE Computer Society SBC of IIT</div>
-          <h3>From Sci-Fi to Reality: How IBM's Influence Keeps Humanity Closer to the Future of Space Travel</h3>
-          <p>A look at IBM's quieter role in space exploration; from Apollo-era computing to CIMON, its AI companion aboard the ISS, and edge computing in orbit.</p>
-          <span class="proj-link">Read on Medium ↗</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="volunteer">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Volunteering &amp; Leadership</div>
-      <h2>Outside the codebase</h2>
-    </div>
-    <div class="tl reveal">
-      <div class="tl-item">
-        <div>
-          <h4><a href="https://www.linkedin.com/in/sehansi-perera-542740291/overlay/VolunteerExperience/415898787/treasury/?profileId=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">Cutting Edge '24 Projexpo Logistics Team<span class="link-icon">↗</span></a></h4>
-          <div class="tl-meta">Informatics Institute of Technology · Jun 2024 – Jul 2024</div>
-        </div>
-        <p>Logistics support for IIT's annual tech exhibition showcasing student projects and solutions.</p>
-      </div>
-      <div class="tl-item">
-        <div>
-          <h4><a href="https://www.linkedin.com/in/sehansi-perera-542740291/overlay/VolunteerExperience/1140756129/treasury/?profileId=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">Vice Treasurer, Senior Mathematics Society<span class="link-icon">↗</span></a></h4>
-          <div class="tl-meta">Musaeus College · Mar 2021 – Sep 2022</div>
-        </div>
-        <p>Organising committee and judge panel for <a href="https://www.instagram.com/project_insurgence/" target="_blank" rel="noopener"><u>Insurgence '21</u>,</a> an inter-school science competition series.</p>
-      </div>
-      <div class="tl-item">
-        <div>
-          <h4>Member, Google Developer Groups, Sri Lanka</h4>
-          <div class="tl-meta">May 2024 – Present</div>
-        </div>
-        <p><a href="https://www.linkedin.com/in/sehansi-perera-542740291/overlay/VolunteerExperience/1469468905/treasury/?profileId=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM" target="_blank" rel="noopener">Got selected out of a pool of 800 applicants to participate in 'Build with AI' event 2024<span class="link-icon">↗</span></a></p>
-      </div>
-      <div class="tl-item">
-        <div>
-          <h4>Girl Guide</h4>
-          <div class="tl-meta">Sri Lanka Girl Guides Association · Jan 2017 – Dec 2019</div>
-        </div>
-	<div>
-        <p>Patrol Vice Leader </p>
-        <p>Event organiser and moderator for the Cultural Day of the 23rd Colombo Girl Guide Association (2018).</p>
-	</div>
-      </div>
-    </div>
+    <div class="proj-grid" id="blog-grid"></div>
   </div>
 </section>
 
@@ -397,37 +199,158 @@
   </div>
 </footer>
 
+<div id="lightboxModal" class="lightbox" onclick="closeLightbox(event)">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <div class="lightbox-content">
+    <img id="lightboxImg" src="" alt="Enlarged picture view">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
 <script>
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  els.forEach(el=> io.observe(el));
+function renderProjects() {
+  document.getElementById('proj-grid').innerHTML = PROJECTS.map(p => `
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <h3>${p.title}</h3>
+        ${p.org ? `<div class="proj-org">${p.org}</div>` : ''}
+        ${p.date ? `<div class="proj-date">${p.date}</div>` : ''}
+      </div>
+      <div class="proj-body">
+        <p>${p.desc}</p>
+        <div class="tag-row">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        ${p.links.map(l => `<a class="proj-link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
 
-  const navbar = document.getElementById('navbar');
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
+function renderCertifications() {
+  document.getElementById('cert-grid').innerHTML = CERTIFICATIONS.map(c => `
+    <div class="cert-card reveal">
+      <div>
+        <h4><a href="${c.url}" target="_blank" rel="noopener">${c.title}<span class="link-icon">↗</span></a></h4>
+        <div class="issuer">${c.issuer}</div>
+        ${c.badge ? `<span class="cert-badge">${c.badge}</span>` : ''}
+        ${c.extraLink ? ` <a class="proj-link" href="${c.extraLink.url}" target="_blank" rel="noopener">${c.extraLink.label}</a>` : ''}
+      </div>
+      <div class="cert-date">${c.date}</div>
+    </div>
+  `).join('');
+}
 
-  if (navToggle && navbar) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navbar.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navbar.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!navbar.contains(e.target) && navbar.classList.contains('open')) {
-        navbar.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
+function renderEvents() {
+  const container = document.getElementById('events-grid') || document.getElementById('gallery-grid');
+  if (container) {
+    const list = typeof EVENTS !== 'undefined' ? EVENTS : (typeof GALLERY !== 'undefined' ? GALLERY : []);
+    container.innerHTML = list.map((g, i) => `
+      <div class="events-card gallery-card" onclick="openLightbox(this)">
+        <div class="events-img-wrapper gallery-img-wrapper">
+          <img src="${g.src}" alt="${g.alt}" class="events-img gallery-img" loading="lazy">
+          <div class="events-overlay gallery-overlay"><span class="events-zoom-icon gallery-zoom-icon">View</span></div>
+        </div>
+        <div class="events-info gallery-info">
+          <h4>${g.title}</h4>
+          <p>${g.desc}</p>
+        </div>
+      </div>
+    `).join('');
   }
+}
+
+function renderBlog() {
+  document.getElementById('blog-grid').innerHTML = BLOG.map(b => `
+    <a class="blog-card reveal" href="${b.url}" target="_blank" rel="noopener">
+      <div class="blog-img" style="background-image:url('${b.img}');"></div>
+      <div class="blog-body">
+        <div class="blog-meta">${b.meta}</div>
+        <h3>${b.title}</h3>
+        <p>${b.desc}</p>
+        <span class="proj-link">Read on Medium ↗</span>
+      </div>
+    </a>
+  `).join('');
+}
+
+renderProjects();
+renderCertifications();
+renderEvents();
+renderBlog();
+
+
+const els = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+els.forEach(el=> io.observe(el));
+
+const navbar = document.getElementById('navbar');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+if (navToggle && navbar) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navbar.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    const closeIcon = navToggle.querySelector('.icon-close');
+    const menuIcon = navToggle.querySelector('.icon-menu');
+    if (closeIcon) closeIcon.style.display = isOpen ? 'block' : 'none';
+    if (menuIcon) menuIcon.style.display = isOpen ? 'none' : 'block';
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      const closeIcon = navToggle.querySelector('.icon-close');
+      const menuIcon = navToggle.querySelector('.icon-menu');
+      if (closeIcon) closeIcon.style.display = 'none';
+      if (menuIcon) menuIcon.style.display = 'block';
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && navbar.classList.contains('open')) {
+      navbar.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      const closeIcon = navToggle.querySelector('.icon-close');
+      const menuIcon = navToggle.querySelector('.icon-menu');
+      if (closeIcon) closeIcon.style.display = 'none';
+      if (menuIcon) menuIcon.style.display = 'block';
+    }
+  });
+}
+
+
+function openLightbox(cardEl) {
+  const img = cardEl.querySelector('.gallery-img');
+  const title = cardEl.querySelector('h4') ? cardEl.querySelector('h4').innerText : '';
+  const desc = cardEl.querySelector('p') ? cardEl.querySelector('p').innerHTML : '';
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const modalCap = document.getElementById('lightboxCaption');
+  if (img && modal && modalImg && modalCap) {
+    modalImg.src = img.src;
+    modalCap.innerHTML = `<strong>${title}</strong> — ${desc}`;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeLightbox(e) {
+  if (!e || e.target.id === 'lightboxModal' || e.target.classList.contains('lightbox-close')) {
+    const modal = document.getElementById('lightboxModal');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
 
 </body>
