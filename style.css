@@ -190,7 +190,7 @@ header.hero{ padding:110px 0 50px; }
   fill: var(--sage-tint);
   stroke: none;
   opacity: 0;
-  animation: fadein 1s ease forwards 1.8s;
+  animation: fadein 1s ease forwards 0.9s;
 }
 
 @keyframes draw{ to{ stroke-dashoffset:0; } }
