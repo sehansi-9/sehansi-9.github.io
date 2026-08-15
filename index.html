@@ -1,216 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sehansi Perera — Mindful, Efficient Software</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sehansi Perera — Mindful, Efficient Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
+
 <body>
 
-<nav id="navbar">
-  <div class="wrap">
-    <div class="nav-mark">Sehansi</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-      <svg class="icon-menu" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8" fill="none">
-        <line x1="4" y1="7" x2="20" y2="7"></line>
-        <line x1="4" y1="12" x2="20" y2="12"></line>
-        <line x1="4" y1="17" x2="20" y2="17"></line>
-      </svg>
-      <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8" fill="none" style="display:none;">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#events">Events</a>
-      <a href="#blog">Writing</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="eyebrow">Computer Science Undergraduate | Aspiring Software Engineer</div>
-      <h1>Sehansi Perera</h1>
-      <p class="lede">I design software that does more with less; AI that use fewer tokens, interfaces that make public data legible instead of overwhelming, and tools built with care rather than excess. My work sits at the intersection of open data, thoughtful AI systems, and social impact.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="#projects">View projects</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  <nav id="navbar">
+    <div class="wrap">
+      <div class="nav-mark">Sehansi</div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg class="icon-menu" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8"
+          fill="none">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8"
+          fill="none" style="display:none;">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#events">Events</a>
+        <a href="#blog">Writing</a>
+        <a href="#contact">Contact</a>
       </div>
-      
     </div>
+  </nav>
 
-   <div class="sprout" aria-hidden="true">
-      <svg viewBox="0 0 220 320" fill="none">
-        <path class="sprout-stem" d="M110 300 C110 230 108 170 112 120 C114 95 118 75 110 40" />
-        <path class="sprout-leaf" d="M112 150 C90 140 68 118 66 90 C96 92 112 115 112 150 Z" />
-        <path class="sprout-leaf" d="M114 100 C136 88 156 64 156 36 C126 40 114 70 114 100 Z" />
-        <path class="sprout-leaf" d="M110 200 C86 194 62 176 56 150 C88 148 110 175 110 200 Z" />
-      </svg>
-    </div>
-  </div>
-</header>
-
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">About</div>
-      <h2>Building with restraint, not excess</h2>
-    </div>
-    <div class="about-grid reveal">
-      <div class="about-col-left">
-        <p>I like systems that make you stop noticing because it just works the way it should. Most of my time goes into subtraction and optimization: fewer steps, fewer cost, fewer places for something to break in a way nobody can explain later.</p>
-        <div class="pull">"Bridging the gap between raw data and human-centric systems."</div>
-      </div>
-      <div class="about-col-mid">
-        <img src="https://drive.google.com/thumbnail?id=16U6YnlQniuHm4fTtTtWyCrB0L4BAJxER&sz=w400" alt="Sehansi Perera" class="about-portrait">
-      </div>
-      <ul class="fact-list about-col-right">
-        <li><span class="k">BASED IN</span><span>Colombo, Western Province, Sri Lanka</span></li>
-        <li><span class="k">FOCUS</span><span>Efficient AI, Open Source Technology, Social-Impact Software</span></li>
-        <li><span class="k">ALSO INTO</span><span>Vector Illustration, Violin, Language Learning</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Experience</div>
-      <h2>Where I've been building</h2>
-    </div>
-    <div class="xp-card reveal">
-      <div class="xp-top">
-        <div>
-          <h3>Software Engineer Intern</h3>
-          <div class="proj-org">Lanka Data Foundation · Full-time</div>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Computer Science Undergraduate | Aspiring Software Engineer</div>
+        <h1>Sehansi Perera</h1>
+        <p class="lede">I design software that does more with less; AI that use fewer tokens, interfaces that make
+          public data legible instead of overwhelming, and tools built with care rather than excess. My work sits at the
+          intersection of open data, thoughtful AI systems, and social impact.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#projects">View projects</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank"
+            rel="noopener">LinkedIn ↗</a>
         </div>
-        <div class="xp-meta">May 2025 – May 2026 · Colombo, Sri Lanka · On-site</div>
+
       </div>
-      <ul>
-        <li>Collaborated on research-driven projects involving open data, graph databases, and AI-assisted systems, contributing to full-stack development across multiple open-source platforms.</li>
-        <li>Built agentic AI workflows with LangGraph, LLM orchestration, context management, multi-model support, and natural language querying over graph data, with a deliberate focus on reducing token usage.</li>
-        <li>Took part in the full development lifecycle: code reviews, documentation, dataset validation, bug investigation, performance optimisation, and open-source releases.</li>
-      </ul>
-    </div>
-  </div>
-</section>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Projects</div>
-      <h2>Selected work</h2>
-      <p>A mix of research work, capstone projects, and fun personal projects</p>
+      <div class="sprout" aria-hidden="true">
+        <svg viewBox="0 0 220 320" fill="none">
+          <path class="sprout-stem" d="M110 300 C110 230 108 170 112 120 C114 95 118 75 110 40" />
+          <path class="sprout-leaf" d="M112 150 C90 140 68 118 66 90 C96 92 112 115 112 150 Z" />
+          <path class="sprout-leaf" d="M114 100 C136 88 156 64 156 36 C126 40 114 70 114 100 Z" />
+          <path class="sprout-leaf" d="M110 200 C86 194 62 176 56 150 C88 148 110 175 110 200 Z" />
+        </svg>
+      </div>
     </div>
-    <div class="proj-grid" id="proj-grid"></div>
-  </div>
-</section>
+  </header>
 
-<section id="education">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Education</div>
-      <h2>Academic background</h2>
-    </div>
-
-    <div class="edu-card reveal">
-      <div class="edu-top">
-        <div>
-          <h3>University of Westminster, UK </h3><h4>via Informatics Institute of Technology, Sri Lanka</h4>
-          <div class="edu-degree">Bachelor of Science (BSc), Computer Science</div>
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">About</div>
+        <h2>Building with restraint, not excess</h2>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-col-left">
+          <p>I like systems that make you stop noticing because it just works the way it should. Most of my time goes
+            into subtraction and optimization: fewer steps, fewer cost, fewer places for something to break in a way
+            nobody can explain later.</p>
+          <div class="pull">"Bridging the gap between raw data and human-centric systems."</div>
         </div>
-        <div class="edu-meta">Sep 2023 – Sep 2027</div>
-      </div>
-      <div class="edu-note"><b>Activities:</b> IEEE Computer Society (IIT), IEEE Robotics and Automation Society (IIT), Mozilla Campus Club (IIT)</div>
-    </div>
-
-    <div class="edu-card reveal">
-      <div class="edu-top">
-        <div>
-          <h3>Musaeus College, Colombo-07</h3>
-          <div class="edu-degree">G.C.E. Advanced Level, Physical Science — Mathematics, Physics, Chemistry</div>
+        <div class="about-col-mid">
+          <img src="https://drive.google.com/thumbnail?id=16U6YnlQniuHm4fTtTtWyCrB0L4BAJxER&sz=w400"
+            alt="Sehansi Perera" class="about-portrait">
         </div>
-        <div class="edu-meta">Jan 2009 – Aug 2022</div>
-      </div>
-      <div class="edu-note">
-        <b>Activities:</b> Quiz Combine, Girl Guiding, Orchestra (Violin), Junior Dancing Troupe<br><br>
-        <b>Positions held:</b> Vice Treasurer, Senior Mathematics Society (2021/2022) · Junior Prefect (2016) · Primary Prefect (2013) · Patrol Vice-Leader, 23rd Colombo Girl Scouts (2017/2018)
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="certifications">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Licenses &amp; Certifications</div>
-      <h2>Credentials</h2>
-    </div>
-    <div class="cert-grid" id="cert-grid"></div>
-  </div>
-</section>
-
-<section id="events">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Events</div>
-      <h2>Events &amp; Community</h2>
-      <p>A collection of visuals from my projects and events.</p>
-    </div>
-    <div class="events-grid gallery-grid reveal" id="events-grid"></div>
-  </div>
-</section>
-
-<section id="blog">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Writing</div>
-      <h2>Notes, in longer form</h2>
-      <p>Occasional essays on the projects and ideas I spend my time on.</p>
-    </div>
-    <div class="proj-grid" id="blog-grid"></div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <div class="foot-grid">
-      <h2>Let's build something worth keeping.</h2>
-      <div class="foot-links">
-	<a href="mailto:sehansi.wsmp9@gmail.com">sehansi.wsmp9@gmail.com</a>
-        <a href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="https://github.com/sehansi-9" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="#about">Back to top ↑</a>
+        <ul class="fact-list about-col-right">
+          <li><span class="k">BASED IN</span><span>Colombo, Western Province, Sri Lanka</span></li>
+          <li><span class="k">FOCUS</span><span>Efficient AI, Open Source Technology, Social-Impact Software</span></li>
+          <li><span class="k">ALSO INTO</span><span>Vector Illustration, Violin, Language Learning</span></li>
+        </ul>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<div id="lightboxModal" class="lightbox" onclick="closeLightbox(event)">
-  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-  <div class="lightbox-content">
-    <img id="lightboxImg" src="" alt="Enlarged picture view">
-    <div id="lightboxCaption" class="lightbox-caption"></div>
-  </div>
-</div>
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Experience</div>
+        <h2>Where I've been building</h2>
+      </div>
+      <div class="xp-card reveal">
+        <div class="xp-top">
+          <div>
+            <h3>Software Engineer Intern</h3>
+            <div class="proj-org">Lanka Data Foundation · Full-time</div>
+          </div>
+          <div class="xp-meta">May 2025 – May 2026 · Colombo, Sri Lanka · On-site</div>
+        </div>
+        <ul>
+          <li>Collaborated on research-driven projects involving open data, graph databases, and AI-assisted systems,
+            contributing to full-stack development across multiple open-source platforms.</li>
+          <li>Built agentic AI workflows with LangGraph, LLM orchestration, context management, multi-model support, and
+            natural language querying over graph data, with a deliberate focus on reducing token usage.</li>
+          <li>Took part in the full development lifecycle: code reviews, documentation, dataset validation, bug
+            investigation, performance optimisation, and open-source releases.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<script src="data.js"></script>
-<script>
-function renderProjects() {
-  document.getElementById('proj-grid').innerHTML = PROJECTS.map(p => `
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Projects</div>
+        <h2>Selected work</h2>
+        <p>A mix of research work, capstone projects, and fun personal projects</p>
+      </div>
+      <div class="proj-grid" id="proj-grid"></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Education</div>
+        <h2>Academic background</h2>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-top">
+          <div>
+            <h3>University of Westminster, UK </h3>
+            <h4>via Informatics Institute of Technology, Sri Lanka</h4>
+            <div class="edu-degree">Bachelor of Science (BSc), Computer Science</div>
+          </div>
+          <div class="edu-meta">Sep 2023 – Sep 2027</div>
+        </div>
+        <div class="edu-note"><b>Activities:</b> IEEE Computer Society (IIT), IEEE Robotics and Automation Society
+          (IIT), Mozilla Campus Club (IIT)</div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-top">
+          <div>
+            <h3>Musaeus College, Colombo-07</h3>
+            <div class="edu-degree">G.C.E. Advanced Level, Physical Science — Mathematics, Physics, Chemistry</div>
+          </div>
+          <div class="edu-meta">Jan 2009 – Aug 2022</div>
+        </div>
+        <div class="edu-note">
+          <b>Activities:</b> Quiz Combine, Girl Guiding, Orchestra (Violin), Junior Dancing Troupe<br><br>
+          <b>Positions held:</b> Vice Treasurer, Senior Mathematics Society (2021/2022) · Junior Prefect (2016) ·
+          Primary Prefect (2013) · Patrol Vice-Leader, 23rd Colombo Girl Scouts (2017/2018)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Licenses &amp; Certifications</div>
+        <h2>Credentials</h2>
+      </div>
+      <div class="cert-grid" id="cert-grid"></div>
+    </div>
+  </section>
+
+  <section id="events">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Events</div>
+        <h2>Events &amp; Community</h2>
+        <p>A collection of visuals from my projects and events.</p>
+      </div>
+      <div class="events-grid gallery-grid reveal" id="events-grid"></div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Writing</div>
+        <h2>Notes, in longer form</h2>
+        <p>Occasional essays on the projects and ideas I spend my time on.</p>
+      </div>
+      <div class="proj-grid" id="blog-grid"></div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="foot-grid">
+        <h2>Let's build something worth keeping.</h2>
+        <div class="foot-links">
+          <a href="mailto:sehansi.wsmp9@gmail.com">sehansi.wsmp9@gmail.com</a>
+          <div class="foot-socials">
+            <a href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank" rel="noopener"
+              class="foot-gh-link" title="LinkedIn Profile" aria-label="LinkedIn Profile"><svg
+                class="gh-icon linkedin-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"
+                aria-hidden="true">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+              </svg></a>
+            <a href="https://github.com/sehansi-9" target="_blank" rel="noopener" class="foot-gh-link"
+              title="GitHub Profile" aria-label="GitHub Profile"><svg class="gh-icon" viewBox="0 0 24 24" width="18"
+                height="18" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg></a>
+          </div>
+          <a href="#about">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="lightboxModal" class="lightbox" onclick="closeLightbox(event)">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="Enlarged picture view">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <div id="projectModal" class="proj-modal" role="dialog" aria-modal="true" aria-labelledby="projModalTitle"
+    onclick="closeProjectModal(event)">
+    <div class="proj-modal-panel">
+      <button class="proj-modal-close" onclick="closeProjectModal()" aria-label="Close project detail">&times;</button>
+      <div class="proj-modal-inner" id="projModalInner"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const GH_SVG = `<svg class="gh-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>`;
+    const INSTA_SVG = `<svg class="gh-icon insta-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>`;
+
+    function renderProjLink(l) {
+      const isGh = (l.url && l.url.includes('github.com')) || (l.label && /repository|github/i.test(l.label));
+      if (isGh) {
+        return `<a class="proj-link gh-link" href="${l.url}" target="_blank" rel="noopener" aria-label="GitHub Repository" title="GitHub Repository">${GH_SVG}</a>`;
+      }
+      const isInsta = (l.url && l.url.includes('instagram.com')) || (l.label && /instagram|social platform/i.test(l.label));
+      if (isInsta) {
+        return `<a class="proj-link gh-link insta-link" href="${l.url}" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">${INSTA_SVG}</a>`;
+      }
+      return `<a class="proj-link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`;
+    }
+
+    function renderProjects() {
+      document.getElementById('proj-grid').innerHTML = PROJECTS.map((p, i) => `
     <div class="proj-card reveal">
       <div class="proj-top">
         <h3>${p.title}</h3>
@@ -220,14 +274,88 @@ function renderProjects() {
       <div class="proj-body">
         <p>${p.desc}</p>
         <div class="tag-row">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-        ${p.links.map(l => `<a class="proj-link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('')}
+        <div class="proj-actions">
+          ${p.detail
+          ? `<button class="proj-more-btn" onclick="openProjectModal(${i})" id="proj-more-btn-${i}">Case study </button>`
+          : p.links.map(l => renderProjLink(l)).join('')}
+        </div>
       </div>
     </div>
   `).join('');
-}
+    }
 
-function renderCertifications() {
-  document.getElementById('cert-grid').innerHTML = CERTIFICATIONS.map(c => `
+    function openProjectModal(idx) {
+      const p = PROJECTS[idx];
+      const d = p.detail;
+      if (!d) return;
+
+      const approachHtml = d.approach.map(a => `
+    <div class="pm-approach-item">
+      <div class="pm-approach-head">${a.heading}</div>
+      <p>${a.body}</p>
+    </div>
+  `).join('');
+
+      const highlightsHtml = d.highlights.map(h => `<li>${h}</li>`).join('');
+
+      const stackHtml = `
+    <div class="pm-stack-cols">
+      ${Object.entries(d.stack || {}).map(([key, items]) => `
+        <div>
+          <div class="pm-stack-label">${key.charAt(0).toUpperCase() + key.slice(1)}</div>
+          <div class="pm-tag-row">${(items || []).map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+      document.getElementById('projModalInner').innerHTML = `
+    <div class="pm-eyebrow">${p.org || ''} · ${p.date || ''}</div>
+    <h2 class="pm-title" id="projModalTitle">${p.title}</h2>
+    <div class="pm-header-meta">
+      <div class="pm-links">
+        ${p.links.map(l => renderProjLink(l)).join('')}
+      </div>
+    </div>
+
+    <div class="pm-section">
+      <div class="pm-section-label">The Problem</div>
+      <p class="pm-body">${d.problem}</p>
+    </div>
+
+    <div class="pm-section">
+      <div class="pm-section-label">My Approach</div>
+      <div class="pm-approach-grid">${approachHtml}</div>
+    </div>
+
+    <div class="pm-section">
+      <div class="pm-section-label">Key Highlights</div>
+      <ul class="pm-highlights">${highlightsHtml}</ul>
+    </div>
+
+    <div class="pm-section">
+      <div class="pm-section-label">Tech Stack</div>
+      ${stackHtml}
+    </div>
+  `;
+
+      const modal = document.getElementById('projectModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal(e) {
+      if (!e || e.target.id === 'projectModal' || e.target.classList.contains('proj-modal-close')) {
+        const modal = document.getElementById('projectModal');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    }
+
+    function renderCertifications() {
+      document.getElementById('cert-grid').innerHTML = CERTIFICATIONS.map(c => `
     <div class="cert-card reveal">
       <div>
         <h4><a href="${c.url}" target="_blank" rel="noopener">${c.title}<span class="link-icon">↗</span></a></h4>
@@ -238,13 +366,13 @@ function renderCertifications() {
       <div class="cert-date">${c.date}</div>
     </div>
   `).join('');
-}
+    }
 
-function renderEvents() {
-  const container = document.getElementById('events-grid') || document.getElementById('gallery-grid');
-  if (container) {
-    const list = typeof EVENTS !== 'undefined' ? EVENTS : (typeof GALLERY !== 'undefined' ? GALLERY : []);
-    container.innerHTML = list.map((g, i) => `
+    function renderEvents() {
+      const container = document.getElementById('events-grid') || document.getElementById('gallery-grid');
+      if (container) {
+        const list = typeof EVENTS !== 'undefined' ? EVENTS : (typeof GALLERY !== 'undefined' ? GALLERY : []);
+        container.innerHTML = list.map((g, i) => `
       <div class="events-card gallery-card" onclick="openLightbox(this)">
         <div class="events-img-wrapper gallery-img-wrapper">
           <img src="${g.src}" alt="${g.alt}" class="events-img gallery-img" loading="lazy">
@@ -256,11 +384,11 @@ function renderEvents() {
         </div>
       </div>
     `).join('');
-  }
-}
+      }
+    }
 
-function renderBlog() {
-  document.getElementById('blog-grid').innerHTML = BLOG.map(b => `
+    function renderBlog() {
+      document.getElementById('blog-grid').innerHTML = BLOG.map(b => `
     <a class="blog-card reveal" href="${b.url}" target="_blank" rel="noopener">
       <div class="blog-img" style="background-image:url('${b.img}');"></div>
       <div class="blog-body">
@@ -271,87 +399,91 @@ function renderBlog() {
       </div>
     </a>
   `).join('');
-}
+    }
 
-renderProjects();
-renderCertifications();
-renderEvents();
-renderBlog();
+    renderProjects();
+    renderCertifications();
+    renderEvents();
+    renderBlog();
 
 
-const els = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-}, { threshold: 0.12 });
-els.forEach(el=> io.observe(el));
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
 
-const navbar = document.getElementById('navbar');
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
 
-if (navToggle && navbar) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = navbar.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
-    const closeIcon = navToggle.querySelector('.icon-close');
-    const menuIcon = navToggle.querySelector('.icon-menu');
-    if (closeIcon) closeIcon.style.display = isOpen ? 'block' : 'none';
-    if (menuIcon) menuIcon.style.display = isOpen ? 'none' : 'block';
-  });
+    if (navToggle && navbar) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navbar.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+        const closeIcon = navToggle.querySelector('.icon-close');
+        const menuIcon = navToggle.querySelector('.icon-menu');
+        if (closeIcon) closeIcon.style.display = isOpen ? 'block' : 'none';
+        if (menuIcon) menuIcon.style.display = isOpen ? 'none' : 'block';
+      });
 
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navbar.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      const closeIcon = navToggle.querySelector('.icon-close');
-      const menuIcon = navToggle.querySelector('.icon-menu');
-      if (closeIcon) closeIcon.style.display = 'none';
-      if (menuIcon) menuIcon.style.display = 'block';
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          const closeIcon = navToggle.querySelector('.icon-close');
+          const menuIcon = navToggle.querySelector('.icon-menu');
+          if (closeIcon) closeIcon.style.display = 'none';
+          if (menuIcon) menuIcon.style.display = 'block';
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target) && navbar.classList.contains('open')) {
+          navbar.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          const closeIcon = navToggle.querySelector('.icon-close');
+          const menuIcon = navToggle.querySelector('.icon-menu');
+          if (closeIcon) closeIcon.style.display = 'none';
+          if (menuIcon) menuIcon.style.display = 'block';
+        }
+      });
+    }
+
+
+    function openLightbox(cardEl) {
+      const img = cardEl.querySelector('.gallery-img');
+      const title = cardEl.querySelector('h4') ? cardEl.querySelector('h4').innerText : '';
+      const desc = cardEl.querySelector('p') ? cardEl.querySelector('p').innerHTML : '';
+      const modal = document.getElementById('lightboxModal');
+      const modalImg = document.getElementById('lightboxImg');
+      const modalCap = document.getElementById('lightboxCaption');
+      if (img && modal && modalImg && modalCap) {
+        modalImg.src = img.src;
+        modalCap.innerHTML = `<strong>${title}</strong> — ${desc}`;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox(e) {
+      if (!e || e.target.id === 'lightboxModal' || e.target.classList.contains('lightbox-close')) {
+        const modal = document.getElementById('lightboxModal');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeProjectModal();
+      }
     });
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target) && navbar.classList.contains('open')) {
-      navbar.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      const closeIcon = navToggle.querySelector('.icon-close');
-      const menuIcon = navToggle.querySelector('.icon-menu');
-      if (closeIcon) closeIcon.style.display = 'none';
-      if (menuIcon) menuIcon.style.display = 'block';
-    }
-  });
-}
-
-
-function openLightbox(cardEl) {
-  const img = cardEl.querySelector('.gallery-img');
-  const title = cardEl.querySelector('h4') ? cardEl.querySelector('h4').innerText : '';
-  const desc = cardEl.querySelector('p') ? cardEl.querySelector('p').innerHTML : '';
-  const modal = document.getElementById('lightboxModal');
-  const modalImg = document.getElementById('lightboxImg');
-  const modalCap = document.getElementById('lightboxCaption');
-  if (img && modal && modalImg && modalCap) {
-    modalImg.src = img.src;
-    modalCap.innerHTML = `<strong>${title}</strong> — ${desc}`;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeLightbox(e) {
-  if (!e || e.target.id === 'lightboxModal' || e.target.classList.contains('lightbox-close')) {
-    const modal = document.getElementById('lightboxModal');
-    if (modal) {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeLightbox();
-});
-</script>
+  </script>
 
 </body>
+
 </html>
