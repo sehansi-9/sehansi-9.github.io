@@ -28,7 +28,7 @@ const PROJECTS = [
         frontend: ["Next.js (App Router)", "TypeScript", "Tailwind CSS"]
       },
       snapshots: [
-        { src: "https://github.com/user-attachments/assets/c7d5a90b-5201-48d6-92ca-9d22680573fd", alt: "LangGraph Architecture" },
+        { src: "https://drive.google.com/thumbnail?id=18VtLLeFPw1GKG7EMp7WF7sKe44IwN-Vl&sz=w1600", alt: "LangGraph Architecture" },
         { src: "https://media.licdn.com/dms/image/v2/D562DAQHIX22oARCsGg/profile-treasury-image-shrink_1920_1920/B56Z_NkXvCJcAc-/0/1785860291778?e=1787378400&v=beta&t=qr5mQ0UHV2DLPda_yz4ZQaTOXnxVuQ1u0Wbm1r66Z-Y", alt: "Org structure query example" },
         { src: "https://media.licdn.com/dms/image/v2/D562DAQG51atWYlAdWg/profile-treasury-image-shrink_800_800/B56Z_Nh7WJJcAM-/0/1785859651193?e=1787378400&v=beta&t=NRe1pJrLF814uZgrQmHAMYvmxi2loH1TLdZ5aHRaIHA", alt: "Data query example" },
       ]
