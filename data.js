@@ -31,6 +31,20 @@ const PROJECTS = [
         { src: "https://drive.google.com/thumbnail?id=18VtLLeFPw1GKG7EMp7WF7sKe44IwN-Vl&sz=w1600", alt: "LangGraph Architecture" },
         { src: "https://media.licdn.com/dms/image/v2/D562DAQHIX22oARCsGg/profile-treasury-image-shrink_1920_1920/B56Z_NkXvCJcAc-/0/1785860291778?e=1787378400&v=beta&t=qr5mQ0UHV2DLPda_yz4ZQaTOXnxVuQ1u0Wbm1r66Z-Y", alt: "Org structure query example" },
         { src: "https://media.licdn.com/dms/image/v2/D562DAQG51atWYlAdWg/profile-treasury-image-shrink_800_800/B56Z_Nh7WJJcAM-/0/1785859651193?e=1787378400&v=beta&t=NRe1pJrLF814uZgrQmHAMYvmxi2loH1TLdZ5aHRaIHA", alt: "Data query example" },
+      ],
+      sdgs: [
+        {
+          id: 16,
+          title: "SDG 16: Peace, Justice & Strong Institutions",
+          desc: "Promotes public access to information and government data transparency by converting complex temporal graph queries into natural language.",
+          img: "https://www.logos.aiesec.org/_next/image?url=https%3A%2F%2Faiesec-logos.s3.eu-west-1.amazonaws.com%2FTGG_Icon_Color_16.png&w=640&q=75"
+        },
+        {
+          id: 9,
+          title: "SDG 9: Industry, Innovation & Infrastructure",
+          desc: "Promotes efficient agentic AI orchestration for digital public data infrastructure.",
+          img: "https://www.logos.aiesec.org/_next/image?url=https%3A%2F%2Faiesec-logos.s3.eu-west-1.amazonaws.com%2FTGG_Icon_Color_09.png&w=640&q=75"
+        }
       ]
     }
   },
@@ -62,7 +76,7 @@ const PROJECTS = [
         },
         {
           heading: "Entity-Associated Statistical Visualization",
-          body: "Created a customizable plotting tool to visualize node-associated numerical metrics across time. Users can select data types and dynamically generate bar charts, line graphs, and pie charts to compare trends across multiple timestamps."
+          body: "Created a customizable plotting tool to visualize node-associated numerical metrics across time. Users can select data types and dynamically generate bar charts and line graphs to compare trends across multiple timestamps."
         },
         {
           heading: "Open Data Export & Shareable Snapshots",
@@ -85,6 +99,26 @@ const PROJECTS = [
         { src: "https://miro.medium.com/v2/resize:fit:1200/1*kYRDmonDLdDe0x2hM8Py9w.png", alt: "Gazette Timeline and Range Selector" },
         { src: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*VecS2jEs2t4N0ihV4CkORA.png", alt: "3D Network View" },
         { src: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*bGNFaCo-G2ZPPBeCp0fayw.png", alt: "Statistics Expolatory View" }
+      ],
+      sdgs: [
+        {
+          id: 16,
+          title: "SDG 16: Peace, Justice & Strong Institutions",
+          desc: "Tracks Sri Lanka's administrative history, cabinet shifts, and gazettes to ensure public institutional accountability and open government transparency.",
+          img: "https://www.logos.aiesec.org/_next/image?url=https%3A%2F%2Faiesec-logos.s3.eu-west-1.amazonaws.com%2FTGG_Icon_Color_16.png&w=640&q=75"
+        },
+        {
+          id: 9,
+          title: "SDG 9: Industry, Innovation & Infrastructure",
+          desc: "Builds time-aware 3D network visualizations and interactive tools for exploring public government datasets.",
+          img: "https://www.logos.aiesec.org/_next/image?url=https%3A%2F%2Faiesec-logos.s3.eu-west-1.amazonaws.com%2FTGG_Icon_Color_09.png&w=640&q=75"
+        },
+        {
+          id: 17,
+          title: "SDG 17: Partnerships for the Goals",
+          desc: "Facilitates multi-stakeholder open-data collaboration and public research through shareable snapshot deep links and data exports.",
+          img: "https://www.logos.aiesec.org/_next/image?url=https%3A%2F%2Faiesec-logos.s3.eu-west-1.amazonaws.com%2FTGG_Icon_Color_17.png&w=640&q=75"
+        }
       ]
     }
   },
@@ -115,7 +149,7 @@ const PROJECTS = [
         },
         {
           heading: "Cross-Platform Audio Architecture",
-          body: "Handles dual runtime environments: native Android uses the record package with path_provider for filesystem storage and permission_handler for mic access, while Web uses the microphone package with blob URLs. Audio playback stream listeners detect cycle completion to toggle mascot talking states without blocking the UI thread."
+          body: "Handles dual runtime environments: native Android uses the record package with path_provider for filesystem storage and permission_handler for mic access, while Web uses the microphone package with blob URLs."
         },
         {
           heading: "Streak System & Hive Data Persistence",
@@ -148,6 +182,20 @@ const PROJECTS = [
         //   src: "https://media.licdn.com/dms/image/v2/D560BAQF6b2-CNTRSxg/company-logo_200_200/company-logo_200_200/0/1734342113378/resilifyapp_logo?e=1788393600&v=beta&t=DM3AKcTW8VRttrHMzeKFDL9Agfqqc9KHPmRN9gacxcw",
         //   alt: "Resilify"
         // }
+      ],
+      sdgs: [
+        {
+          id: 3,
+          title: "SDG 3: Good Health & Well-being",
+          desc: "Supports mental health care adherence by gamifying OCD Exposure & Response Prevention (ERP) therapy alongside clinical professionals.",
+          img: "https://www.logos.aiesec.org/_next/image?url=https%3A%2F%2Faiesec-logos.s3.eu-west-1.amazonaws.com%2FTGG_Icon_Color_03.png&w=640&q=75"
+        },
+        {
+          id: 9,
+          title: "SDG 9: Industry, Innovation & Infrastructure",
+          desc: "Combines real-time state animations, cross-platform audio pipelines, and mobile health technology.",
+          img: "https://www.logos.aiesec.org/_next/image?url=https%3A%2F%2Faiesec-logos.s3.eu-west-1.amazonaws.com%2FTGG_Icon_Color_09.png&w=640&q=75"
+        }
       ]
     }
   },
