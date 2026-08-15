@@ -28,7 +28,7 @@ const PROJECTS = [
         frontend: ["Next.js (App Router)", "TypeScript", "Tailwind CSS"]
       },
       snapshots: [
-        { src: "https://github-production-user-asset-6210df.s3.amazonaws.com/157481761/583847677-c7d5a90b-5201-48d6-92ca-9d22680573fd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260815%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260815T060052Z&X-Amz-Expires=300&X-Amz-Signature=73bcd0007e84aa4536e3c82468e7aced204fb3021f59c0f0e1c32cc6857725c6&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng", alt: "LangGraph Architecture" },
+        { src: "https://github.com/user-attachments/assets/c7d5a90b-5201-48d6-92ca-9d22680573fd", alt: "LangGraph Architecture" },
         { src: "https://media.licdn.com/dms/image/v2/D562DAQHIX22oARCsGg/profile-treasury-image-shrink_1920_1920/B56Z_NkXvCJcAc-/0/1785860291778?e=1787378400&v=beta&t=qr5mQ0UHV2DLPda_yz4ZQaTOXnxVuQ1u0Wbm1r66Z-Y", alt: "Org structure query example" },
         { src: "https://media.licdn.com/dms/image/v2/D562DAQG51atWYlAdWg/profile-treasury-image-shrink_800_800/B56Z_Nh7WJJcAM-/0/1785859651193?e=1787378400&v=beta&t=NRe1pJrLF814uZgrQmHAMYvmxi2loH1TLdZ5aHRaIHA", alt: "Data query example" },
       ]
