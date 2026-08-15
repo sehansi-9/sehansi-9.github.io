@@ -26,7 +26,12 @@ const PROJECTS = [
       stack: {
         backend: ["FastAPI", "LangGraph", "Pydantic", "Python", "Groq API"],
         frontend: ["Next.js (App Router)", "TypeScript", "Tailwind CSS"]
-      }
+      },
+      snapshots: [
+        { src: "https://github-production-user-asset-6210df.s3.amazonaws.com/157481761/583847677-c7d5a90b-5201-48d6-92ca-9d22680573fd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260815%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260815T060052Z&X-Amz-Expires=300&X-Amz-Signature=73bcd0007e84aa4536e3c82468e7aced204fb3021f59c0f0e1c32cc6857725c6&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng", alt: "LangGraph Architecture" },
+        { src: "https://media.licdn.com/dms/image/v2/D562DAQHIX22oARCsGg/profile-treasury-image-shrink_1920_1920/B56Z_NkXvCJcAc-/0/1785860291778?e=1787378400&v=beta&t=qr5mQ0UHV2DLPda_yz4ZQaTOXnxVuQ1u0Wbm1r66Z-Y", alt: "Org structure query example" },
+        { src: "https://media.licdn.com/dms/image/v2/D562DAQG51atWYlAdWg/profile-treasury-image-shrink_800_800/B56Z_Nh7WJJcAM-/0/1785859651193?e=1787378400&v=beta&t=NRe1pJrLF814uZgrQmHAMYvmxi2loH1TLdZ5aHRaIHA", alt: "Data query example" },
+      ]
     }
   },
   {
@@ -69,12 +74,18 @@ const PROJECTS = [
         "Interactive 3D network graph and traditional hierarchy tree views for multi-perspective exploration",
         "Granular entity history timelines tracing past organizational roles and ministerial reassignments",
         "Customizable statistical chart generator (bar, line, pie) for cross-timestamp comparative analysis",
-        "Deep-link state serialization and multi-format data exports (CSV, JSON, XLSX, PDF) for public research transparency"
+        "Deep-link state serialization and multi-format data exports (CSV, JSON, XLSX, PDF) for public research transparency",
+        "Manage caches and sync server data across the client using TanStack Query"
       ],
       stack: {
-        frontend: ["React", "Data Visualization", "3D Network Graphs", "Recharts", "Tailwind CSS"],
+        frontend: ["React", "TanStack Query", "Data Visualization", "3D Network Graphs", "Recharts", "Tailwind CSS"],
         platform: ["Temporal Graph API", "Open Government Data", "Backend-for-Frontend Architecture"]
-      }
+      },
+      snapshots: [
+        { src: "https://miro.medium.com/v2/resize:fit:1200/1*kYRDmonDLdDe0x2hM8Py9w.png", alt: "Gazette Timeline and Range Selector" },
+        { src: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*VecS2jEs2t4N0ihV4CkORA.png", alt: "3D Network View" },
+        { src: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*bGNFaCo-G2ZPPBeCp0fayw.png", alt: "Statistics Expolatory View" }
+      ]
     }
   },
   {
@@ -121,7 +132,23 @@ const PROJECTS = [
       stack: {
         mobile: ["Flutter", "Dart", "Rive Animations", "Hive Storage"],
         backend: ["Python", "Firebase Auth"]
-      }
+      },
+      snapshots: [
+        {
+          type: "embed",
+          src: "https://drive.google.com/file/d/1m8WbFTK1d2nasEJKBAphGcLMpf7Gos7s/preview",
+          alt: "ERP Loop Video Demo"
+        },
+        {
+          type: "embed",
+          src: "https://drive.google.com/file/d/1YiuAZ6utuutimqUGHL9EHTA5ptkBKA0Q/preview",
+          alt: "Rive animations in the making"
+        },
+        // {
+        //   src: "https://media.licdn.com/dms/image/v2/D560BAQF6b2-CNTRSxg/company-logo_200_200/company-logo_200_200/0/1734342113378/resilifyapp_logo?e=1788393600&v=beta&t=DM3AKcTW8VRttrHMzeKFDL9Agfqqc9KHPmRN9gacxcw",
+        //   alt: "Resilify"
+        // }
+      ]
     }
   },
   {
@@ -164,7 +191,12 @@ const PROJECTS = [
       stack: {
         backend: ["Java", "Spring Boot", "WebSockets"],
         frontend: ["Angular", "TypeScript", "RxJS", "WebSockets"]
-      }
+      },
+      // snapshots: [
+      //   { src: "https://placehold.co/600x375/3F6B4E/ffffff?text=Angular+Dashboard", alt: "Angular Realtime Dashboard" },
+      //   { src: "https://placehold.co/600x375/2C4C36/ffffff?text=Java+CLI+Config", alt: "Java CLI Configuration" },
+      //   { src: "https://placehold.co/600x375/9C8558/ffffff?text=WebSocket+Logs", alt: "WebSocket Transaction Logs" }
+      // ]
     }
   },
   {
@@ -202,7 +234,12 @@ const PROJECTS = [
       stack: {
         frontend: ["React.js", "Materialize CSS", "TensorFlow.js (COCO-SSD)"],
         backend: ["Node.js", "Express.js", "MongoDB", "JWT Auth"]
-      }
+      },
+      snapshots: [
+        { src: "https://media.licdn.com/dms/image/v2/D562DAQH_vkkxIUbC9g/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1734680602737?e=1787382000&v=beta&t=AWrmpV_uHHtuA_Gtu9ee7T307L5qRQxDKNWRCfRt3Jk", alt: "Catstagram Social Feed" },
+        { src: "https://media.licdn.com/dms/image/v2/D562DAQEUfitcu2QRKA/profile-treasury-image-shrink_8192_8192/profile-treasury-image-shrink_8192_8192/0/1734680699838?e=1787382000&v=beta&t=UnRYYq2CSkh2Liy3edmTIOWP5qjMNKrRFBXIJwE028E", alt: "TensorFlow COCO-SSD Cat Detector" },
+        { src: "https://media.licdn.com/dms/image/v2/D562DAQH0zHdDIbh8jA/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1734680676511?e=1787382000&v=beta&t=drgB7N-JwY4ta9NqC5HyRpC2d6vAndFHmxDfjqEg8gk", alt: "User Profile View" }
+      ]
     }
   },
   {
