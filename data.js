@@ -192,11 +192,11 @@ const PROJECTS = [
         backend: ["Java", "Spring Boot", "WebSockets"],
         frontend: ["Angular", "TypeScript", "RxJS", "WebSockets"]
       },
-      // snapshots: [
-      //   { src: "https://placehold.co/600x375/3F6B4E/ffffff?text=Angular+Dashboard", alt: "Angular Realtime Dashboard" },
-      //   { src: "https://placehold.co/600x375/2C4C36/ffffff?text=Java+CLI+Config", alt: "Java CLI Configuration" },
-      //   { src: "https://placehold.co/600x375/9C8558/ffffff?text=WebSocket+Logs", alt: "WebSocket Transaction Logs" }
-      // ]
+      snapshots: [
+        { src: "https://drive.google.com/thumbnail?id=14oQDUwd8GVYvsNAz88XyNEFpgykgZbia&sz=w1600", alt: "Angular Realtime Dashboard" },
+        { src: "https://drive.google.com/thumbnail?id=1m2-X3iSMwfBjYRwsLDsA7gfIXqy_xfzN&sz=w1600", alt: "Sequence Diagram" },
+        { src: "https://drive.google.com/thumbnail?id=1aUa7-ZkMyNsG0-pQRe6fZ_YUKCizB6jR&sz=w1600", alt: "Transaction Logs" }
+      ]
     }
   },
   {

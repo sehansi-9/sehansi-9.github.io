@@ -323,7 +323,7 @@
     <div class="pm-gallery-strip">
       ${snapshots.map(s => {
 
-        if (s.type === 'embed' || (s.src && s.src.includes('drive.google.com'))) {
+        if (s.type === 'embed') {
 
           let fileId = null;
 
@@ -384,18 +384,15 @@
             </div>
           `;
         }
-        const snapshotTitle =
-          `${p.title.replace(/'/g, "\\'")} — ${s.alt
-            ? s.alt.replace(/'/g, "\\'")
-            : 'Snapshot'
-          }`;
-
         return `
           <div
             class="pm-gallery-card"
             onclick="openSnapshotLightbox(
               '${s.src}',
-              '${snapshotTitle}'
+              '${p.title.replace(/'/g, "\\'")} — ${s.alt
+            ? s.alt.replace(/'/g, "\\'")
+            : 'Snapshot'
+          }'
             )"
           >
             <div class="pm-gallery-img-wrap">
@@ -416,7 +413,6 @@
             ? `<div class="pm-gallery-cap">${s.alt}</div>`
             : ''
           }
-
           </div>
         `;
 
@@ -424,7 +420,6 @@
     </div>
   </div>
 ` : '';
-
       document.getElementById('projModalInner').innerHTML = `
     <div class="pm-eyebrow">${p.org || ''} · ${p.date || ''}</div>
     <h2 class="pm-title" id="projModalTitle">${p.title}</h2>
