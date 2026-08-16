@@ -420,6 +420,12 @@ const EVENTS = [
     alt: "Senior Science Society",
     title: "Senior Science Society Committee - 2021/2022",
     desc: 'Served as Vice Treasurer of the Senior Mathematics Branch of the Senior Science Society at Musaeus College · Organising committee and part of the judge panel for <a href="https://www.instagram.com/project_insurgence/" target="_blank" rel="noopener"><u>Insurgence \'21</u></a>'
+  },
+  {
+    src: "https://drive.google.com/thumbnail?id=1dvYO6tyt7mO8Lsv114w3zjJIObe71mSn&sz=w1600",
+    alt: "Quiz Competitions - Brainstorm",
+    title: "Quiz Competitions - Brainstorm (2017 & 2019)",
+    desc: "Emerged champions at 2017 Junior Category and 2nd Runner up at 2019 Senior Category at Brainstorm, the annual Table Quiz Competition organized by the Quiz Combine of Musaeus College"
   }
 ];
 
