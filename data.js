@@ -29,8 +29,8 @@ const PROJECTS = [
       },
       snapshots: [
         { src: "https://drive.google.com/thumbnail?id=18VtLLeFPw1GKG7EMp7WF7sKe44IwN-Vl&sz=w1600", alt: "LangGraph Architecture" },
-        { src: "https://media.licdn.com/dms/image/v2/D562DAQHIX22oARCsGg/profile-treasury-image-shrink_1920_1920/B56Z_NkXvCJcAc-/0/1785860291778?e=1787378400&v=beta&t=qr5mQ0UHV2DLPda_yz4ZQaTOXnxVuQ1u0Wbm1r66Z-Y", alt: "Org structure query example" },
-        { src: "https://media.licdn.com/dms/image/v2/D562DAQG51atWYlAdWg/profile-treasury-image-shrink_800_800/B56Z_Nh7WJJcAM-/0/1785859651193?e=1787378400&v=beta&t=NRe1pJrLF814uZgrQmHAMYvmxi2loH1TLdZ5aHRaIHA", alt: "Data query example" },
+        { src: "https://drive.google.com/thumbnail?id=19cMFlLPIOU_8HeU84dh3bT0tdFFIVRQL&sz=w1600", alt: "Org structure query example" },
+        { src: "https://drive.google.com/thumbnail?id=1pePXNb4PLKrHAccD7aZ2AS4mV3eMDTir&sz=w1600", alt: "Data query example" },
       ],
       sdgs: [
         {
@@ -284,9 +284,9 @@ const PROJECTS = [
         backend: ["Node.js", "Express.js", "MongoDB", "JWT Auth"]
       },
       snapshots: [
-        { src: "https://media.licdn.com/dms/image/v2/D562DAQH_vkkxIUbC9g/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1734680602737?e=1787382000&v=beta&t=AWrmpV_uHHtuA_Gtu9ee7T307L5qRQxDKNWRCfRt3Jk", alt: "Catstagram Social Feed" },
-        { src: "https://media.licdn.com/dms/image/v2/D562DAQEUfitcu2QRKA/profile-treasury-image-shrink_8192_8192/profile-treasury-image-shrink_8192_8192/0/1734680699838?e=1787382000&v=beta&t=UnRYYq2CSkh2Liy3edmTIOWP5qjMNKrRFBXIJwE028E", alt: "TensorFlow COCO-SSD Cat Detector" },
-        { src: "https://media.licdn.com/dms/image/v2/D562DAQH0zHdDIbh8jA/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1734680676511?e=1787382000&v=beta&t=drgB7N-JwY4ta9NqC5HyRpC2d6vAndFHmxDfjqEg8gk", alt: "User Profile View" }
+        { src: "https://drive.google.com/thumbnail?id=11VeonuzeYNYX3UGlvurMOXmFw32ah_3g&sz=w1600", alt: "Catstagram Social Feed" },
+        { src: "https://drive.google.com/thumbnail?id=1HLGBJz4KwS6Zs30Yiz4nExtYdTUDYrrd&sz=w1600", alt: "TensorFlow COCO-SSD Cat Detector" },
+        { src: "https://drive.google.com/thumbnail?id=1yhfkrCXZx0hVn7-N2gJpZG8XYzWgt7aL&sz=w1600", alt: "User Profile View" }
       ]
     }
   },
@@ -342,81 +342,81 @@ const CERTIFICATIONS = [
     title: "Artificial Intelligence",
     issuer: "American Institute of Innovation",
     date: "Sep 2023",
-    url: "https://media.licdn.com/dms/image/v2/D562DAQEQZeFtywxlvQ/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1715430692079?e=1786888800&v=beta&t=GlY8nIrMvDS39Oqs71wZlSuQAGJyC6WdR9VbYWpQyas"
+    url: "https://drive.google.com/file/d/1Y-WBJjwmuETHgHMAJYQ7LRkGmN0pmZkt/view?usp=drive_link"
   },
   {
     title: "Webspire Front-End Development Workshop",
     issuer: "IEEE Computer Society Student Branch, IIT",
     date: "Feb 2024",
-    url: "https://media.licdn.com/dms/image/v2/D562DAQFgJp_YnovUlw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1708155709957?e=1786888800&v=beta&t=R1fSgaoPaODXRneqAyzslsw7xF0oVFfL39bXdi9BBcU"
+    url: "https://drive.google.com/file/d/1KsbptcBX5Yr7ZQpr08YTIDoPEXKO1eQw/view?usp=drive_link"
   },
   {
     title: "All Island Virtual Wesak STEM Competition 2020 (Solo)",
     issuer: "Dialog Axiata PLC",
     date: "May 2020",
-    url: "https://media.licdn.com/dms/image/v2/D562DAQGPv_pWK9jsHg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1708153756579?e=1786888800&v=beta&t=3pfjjRk91Se0HfQ-JlPXQpfnxtYLNK2dBVlhZtQIbRo",
+    url: "https://drive.google.com/file/d/1Q1Hy3mQ39Zk23SETVqG4jO6zrCEy7sEw/view?usp=drive_link",
     badge: "Winner, Senior Category"
   },
   {
     title: "Inter-School English Essay Competition 2018",
     issuer: "National Institute of Business Management",
     date: "Sep 2018",
-    url: "https://media.licdn.com/dms/image/v2/D562DAQEE0saX_I_W7g/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1708154378735?e=1786888800&v=beta&t=J4LWTyuF6lfQDdlq_QnKEg24z_QMvGsE0HYYubf1QUE",
+    url: "https://drive.google.com/file/d/1MJqAo5WaX3ZdQxC42itSfILxSwIxjVs1/view?usp=drive_link",
     badge: "3rd Place, Under-19"
   }
 ];
 
 const EVENTS = [
   {
-    src: "https://media.licdn.com/dms/image/v2/D562DAQHaHdtbH_itoQ/profile-treasury-image-shrink_800_800/B56Z6C3zRqI8AI-/0/1780312127223?e=1786888800&v=beta&t=VS-_wlqDMp9upi-kwctQkpcgicC-TGqcnRMR5vTwps0",
+    src: "https://drive.google.com/thumbnail?id=1pjWqsPbdQvAJTqNYpjElDKO7nIdAw6n3&sz=w1600",
     alt: "SWE intern @ LDF",
     title: "Software Engineer Intern at Lanka Data Foundation - 2025/2026",
     desc: "Contributed to the development of open source software for open government initiative"
   },
   {
-    src: "https://media.licdn.com/dms/image/v2/D5622AQFn5UqmN62cUA/feedshare-shrink_480/B56ZiwxOxrHQAY-/0/1755312356235?e=1787788800&v=beta&t=r1dBEWi9CpOvedKLuJ5YsrfsHpVEqZXJfIWYx0TGot4",
+    src: "https://drive.google.com/thumbnail?id=1dp9tJGmiwiALf15FCZO3k2DSHB3jt5SP&sz=w1600",
     alt: "WSO2Con Asia 2025",
     title: "WSO2Con Asia - Jul 2025",
     desc: "Got invited to participate at the 3-day tech conference organised by WSO2 in Colombo"
   },
   {
-    src: "https://media.licdn.com/dms/image/v2/D562DAQETuCIrfpFQ3A/profile-treasury-image-shrink_800_800/B56ZeRR_wgHUAY-/0/1750489105101?e=1786888800&v=beta&t=BBjxYRTg331l-8RdhgS2ehLE8DVvNy5E8nfDeCbR-gU",
+    src: "https://drive.google.com/thumbnail?id=1-M0pcItq2CBYqNwfvCmBfa0aXsH53y_2&sz=w1600",
     alt: "Cutting Edge - Jun 2025",
     title: "Cutting Edge - Jun 2025",
     desc: "Project 'Resilify' was selected to be presented at the annual tech exhibition organised by Informatics Institute of Technology"
   },
   {
-    src: "https://media.licdn.com/dms/image/v2/D562DAQFJHM2EG9Uxkw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1721288449956?e=1786888800&v=beta&t=pgT3ey9mQqxPo4jaYet5AddmfNzdkMznN9aoXkdzkqc",
+    src: "https://drive.google.com/thumbnail?id=1FjadNaYhuhC7p-iGoWdztajwwKn3NZJ_&sz=w1600",
     alt: "Cutting Edge 2024 Logistics Team",
     title: "Cutting Edge - Jul 2024",
     desc: "Served as part of the logistics committee for the annual tech exhibition organised by the Informatics Institute of Technology"
   },
   {
-    src: "https://media.licdn.com/dms/image/v2/D562DAQEBh7TM-ARKJA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1715627067770?e=1786888800&v=beta&t=kFbMybvSeLReNgd7M_8tBMakpW4e5XHw8PlkjYXoixc",
+    src: "https://drive.google.com/thumbnail?id=1A0urTr7s8QI4nuRRq0RLPqAGEX_Llh0T&sz=w1600",
     alt: "Build with AI Event GDG",
     title: "Build with AI - May 2024",
-    desc: 'Selected from an applicant pool of <a href="https://media.licdn.com/dms/image/v2/D562DAQFKoKlbhiyhwA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1719363289447?e=1786888800&v=beta&t=FdkxcPYpVeV6u0Tv4BmZ--GmNb-aiMY7nlXVsgEgJQo" target="_blank" rel="noopener"><u>800</u></a> for the Google Developer Groups Sri Lanka Event'
+    desc: 'Selected from an applicant pool of <a href="https://drive.google.com/file/d/1bbPC3qbtgloC-k9-d6KlubdIgMMxkYt5/view?usp=drive_link" target="_blank" rel="noopener"><u>800</u></a> for the Google Developer Groups Sri Lanka Event'
   },
   {
-    src: "https://media.licdn.com/dms/image/v2/D5622AQEwf8T2RM_zYg/feedshare-shrink_1280/feedshare-shrink_1280/0/1719195653846?e=1787788800&v=beta&t=DJ0_fvyDXIUkSReTAikCGLXtcofgv6J4AUc02_00UDM",
+    src: "https://drive.google.com/thumbnail?id=1QUD_XOGsYKmQbWSSJbi84iIRFljusGx3&sz=w1600",
     alt: "Duothon - 2024",
     title: "Duothon - May 2024",
     desc: "Selected for the finals of the inter-university hackathon organised by IEEE CS Chapter of NSBM Green University"
   },
   {
-    src: "https://media.licdn.com/dms/image/v2/D562DAQFVF5KCabaKbA/profile-treasury-image-shrink_800_800/B56ZVaMnCRHoAY-/0/1740975012332?e=1786888800&v=beta&t=40zBe2I82aL0_XV4G8s5oGVNJzKzSjHJ4Yb9TDGsKsU",
+    src: "https://drive.google.com/thumbnail?id=1mo6q5TOROHZHFpzIR0VWVPTiYabSVEEz&sz=w1600",
     alt: "RobotNexus Workshop Series - Apr 2024",
     title: "RobotNexus - Apr 2024",
     desc: "Robotics Workshop organized by the IEEE Robotics and Automation IIT Chapter"
   },
   {
-    src: "https://media.licdn.com/dms/image/v2/D562DAQGefkHmK6HTNQ/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1721240800043?e=1786896000&v=beta&t=gy_ZXKNv5IfB8ApXolmU89zvMl3jnwHZ2AZ-gfeNS3Q",
+    src: "https://drive.google.com/thumbnail?id=1uxMgxmZr8A7QpTpDBZGDZbEBQ5dzUZ7I&sz=w1600",
     alt: "Awards Day - AII",
     title: "Awards Day at AII Campus - Sep 2023",
     desc: "Successfully completed Introduction to Artificial Intelligence and Machine Learning Course at American Institution of Innovation (first batch)"
   },
   {
-    src: "https://media.licdn.com/dms/image/v2/D562DAQFDIfP239liog/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1721240537067?e=1786888800&v=beta&t=yxRfIl-y1YYgX3dKA4vDDOBSoZoWkGRpHbjqnY2Zjwo",
+    src: "https://drive.google.com/thumbnail?id=18vkFag0sUy2wG0S62XmpN0tNlQLYSCWs&sz=w1600",
     alt: "Senior Science Society",
     title: "Senior Science Society Committee - 2021/2022",
     desc: 'Served as Vice Treasurer of the Senior Mathematics Branch of the Senior Science Society at Musaeus College · Organising committee and part of the judge panel for <a href="https://www.instagram.com/project_insurgence/" target="_blank" rel="noopener"><u>Insurgence \'21</u></a>'
