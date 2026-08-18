@@ -336,7 +336,7 @@ const CERTIFICATIONS = [
     date: "Jun 2024",
     url: "https://www.linkedin.com/posts/ieee-computer-society-student-chapter-of-iit_ieeecs-iit-mediumblog-activity-7207326822491967488-ERb1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbEKwIBN9ML2adM_2MpvZTPPboCVmNrumM",
     badge: "Winner",
-    extraLink: { label: "Read Article ↗", url: "https://www.sdgp.lk/project/a97414c0-50d4-4db5-ad2e-f19c0c5859c1" }
+    extraLink: { label: "Read Article ↗", url: "https://medium.com/@ieeecomputersocietyiit/from-sci-fi-to-reality-how-ibms-influence-keeps-humanity-closer-to-the-future-of-space-travel-3ecd70bf43fe" }
   },
   {
     title: "Artificial Intelligence",
