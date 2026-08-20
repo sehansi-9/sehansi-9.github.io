@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sehansi Perera — Mindful, Efficient Software</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -197,7 +198,12 @@
       <div class="sec-head reveal">
         <div class="eyebrow">Writing</div>
         <h2>Notes, in longer form</h2>
-        <p>Occasional essays on the projects and ideas I spend my time on.</p>
+        <p>Occasional essays on the projects, experiences and ideas I spend my time on.</p>
+        <div class="writing-tabs-bar">
+          <button class="writing-tab-item active" data-tab="all" onclick="switchWritingTab('all')">All</button>
+          <button class="writing-tab-item" data-tab="tech" onclick="switchWritingTab('tech')">Tech</button>
+          <button class="writing-tab-item" data-tab="life" onclick="switchWritingTab('life')">Life</button>
+        </div>
       </div>
       <div class="proj-grid" id="blog-grid"></div>
     </div>
@@ -538,18 +544,55 @@
       }
     }
 
-    function renderBlog() {
-      document.getElementById('blog-grid').innerHTML = BLOG.map(b => `
-    <a class="blog-card reveal" href="${b.url}" target="_blank" rel="noopener">
-      <div class="blog-img" style="background-image:url('${b.img}');"></div>
-      <div class="blog-body">
-        <div class="blog-meta">${b.meta}</div>
-        <h3>${b.title}</h3>
-        <p>${b.desc}</p>
-        <span class="proj-link">Read on Medium ↗</span>
-      </div>
-    </a>
-  `).join('');
+    let currentWritingTab = 'all';
+
+    function switchWritingTab(tab) {
+      currentWritingTab = tab;
+      const buttons = document.querySelectorAll('.writing-tabs-bar .writing-tab-item');
+      buttons.forEach(btn => {
+        if (btn.dataset.tab === tab) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      renderBlog(tab);
+    }
+
+    function renderBlog(category = currentWritingTab) {
+      let articles = [];
+      if (category === 'all') {
+        articles = [
+          ...(BLOG.tech || []),
+          ...(BLOG.life || [])
+        ];
+      } else if (BLOG[category]) {
+        articles = BLOG[category];
+      }
+
+      const container = document.getElementById('blog-grid');
+      if (!container) return;
+
+      if (articles.length === 0) {
+        container.innerHTML = `
+          <div class="empty-writing-state reveal in">
+            <p>No articles published in this category yet.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = articles.map(b => `
+        <a class="blog-card reveal in" href="${b.url}" target="_blank" rel="noopener">
+          <div class="blog-img" style="background-image:url('${b.img}');"></div>
+          <div class="blog-body">
+            <div class="blog-meta">${b.meta}</div>
+            <h3>${b.title}</h3>
+            <p>${b.desc}</p>
+            <span class="proj-link">Read on Medium ↗</span>
+          </div>
+        </a>
+      `).join('');
     }
 
     renderProjects();

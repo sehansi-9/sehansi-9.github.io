@@ -7,12 +7,12 @@ const PROJECTS = [
     tags: ["LangGraph", "Next.js", "Agent Orchestration", "Fast API"],
     links: [{ label: "View repository ↗", url: "https://github.com/sehansi-9/research/tree/opengin-bot/opengin-bot" }],
     detail: {
-      problem: "The OpenGIN platform exposes Sri Lanka's government data as a temporal graph database — a rich but highly technical structure that most users can't query directly. The challenge was building a conversational interface capable of understanding natural language, translating it into multi-step graph querying API endpoints, and doing so within strict token and cost constraints without sacrificing accuracy across multi-turn conversations.",
+      problem: "The OpenGIN platform exposes Sri Lanka's government data as a temporal graph database, which is a rich but highly technical structure that most users can't query directly. The challenge was building a conversational interface capable of understanding natural language, translating it into multi-step graph querying API endpoints, and doing so within strict token and cost constraints without sacrificing accuracy across multi-turn conversations.",
       approach: [
         { heading: "LangGraph Agent Orchestration", body: "Designed a multi-node LangGraph pipeline where each step in the reasoning process is a distinct node. This made the agent's behaviour transparent and predictable." },
-        { heading: "Topic Shift Detection", body: "Integrated a secondary lightweight 8B LLM as a 'topic skeptic' — it compares each new user question against the current knowledge pool and decides whether the conversation is continuing or pivoting. On a pivot, a hard state purge fires, wiping stale facts and entity caches." },
+        { heading: "Topic Shift Detection", body: "Integrated a secondary lightweight 8B LLM as a 'topic skeptic' that compares each new user question against the current knowledge pool to determine whether the conversation is continuing or pivoting. On a pivot, a hard state purge fires, wiping stale facts and entity caches." },
         { heading: "Fact Distillation & Entity Cache", body: "Raw JSON tool results are compressed into concise, structured 'facts' by a Fact-Clerk LLM. A separate entity cache maps internal graph IDs to human-readable names, preventing the primary LLM from ever having to re-resolve the same entity twice." },
-        { heading: "Tiered Truncation & Sliding Context", body: "Older tool results are progressively downgraded in fidelity — recent results get 1000 character summaries, older ones get 300 character thumbnails. The active conversation window is capped at the 10 most recent messages. Together, these mechanisms keep every prompt well within token limits." },
+        { heading: "Tiered Truncation & Sliding Context", body: "Older tool results are progressively downgraded in fidelity, where recent results receive 1000-character summaries and older ones receive 300-character thumbnails. The active conversation window is capped at the 10 most recent messages. Together, these mechanisms keep every prompt well within token limits." },
         { heading: "Auto-Healing & Resilience", body: "A heal_json utility fixes malformed LLM tool call arguments (trailing quotes, stray backticks) before they reach the tool layer. A retry loop with up to 3 attempts handles rate-limit (429) errors with a 5-second backoff, and context-overflow (400/413) errors with an emergency context wipe." },
         { heading: "Parallel Tool Execution", body: "Entity, relation, and attribute searches can be dispatched in parallel batches via LangGraph's ToolNode, significantly cutting latency for queries that require data from multiple graph endpoints simultaneously." }
       ],
@@ -133,7 +133,7 @@ const PROJECTS = [
       { label: "View Repository ↗", url: "https://github.com/Resilify" }
     ],
     detail: {
-      problem: "Loop Tape Exposure & Response Prevention (ERP) — a technique where OCD patients record an intrusive thought out loud and listen to it on repeat until anxiety naturally habituates. Practicing ERP alone is emotionally taxing, tedious, and prone to high drop-out rates. Resilify transforms this clinical exercise into a gamified, supportive experience that keeps patients motivated, tracks therapy adherence accurately, and rewards session persistence.",
+      problem: "Loop Tape Exposure & Response Prevention (ERP) is a technique where OCD patients record an intrusive thought out loud and listen to it on repeat until anxiety naturally habituates. Practicing ERP alone is emotionally taxing, tedious, and prone to high drop-out rates. Resilify transforms this clinical exercise into a gamified, supportive experience that keeps patients motivated, tracks therapy adherence accurately, and rewards session persistence.",
       approach: [
         {
           heading: "Loop Tape Exposure & Response Prevention (ERP)",
@@ -141,7 +141,7 @@ const PROJECTS = [
         },
         {
           heading: "Active Presence Balloon Mechanic",
-          body: "To prevent patients from tuning out or resorting to avoidance behaviors, a floating balloon appears randomly. The patient must tap to pop it within a 10-second window. Missing a balloon ends the session and routes the patient according to progress — awarding 3 stars and a Halfway Victory badge if past 50% duration, or triggering a comforting Game Over if under halfway."
+          body: "To prevent patients from tuning out or resorting to avoidance behaviors, a floating balloon appears randomly. The patient must tap to pop it within a 10-second window. Missing a balloon ends the session and routes the patient according to progress, awarding 3 stars and a Halfway Victory badge if past 50% duration, or triggering a comforting Game Over if under halfway."
         },
         {
           heading: "Rive Animation & Mascot Integration",
@@ -429,19 +429,22 @@ const EVENTS = [
   }
 ];
 
-const BLOG = [
-  {
-    url: "https://medium.com/@sehansi/openginxplore-inside-the-journey-of-building-a-time-aware-map-of-sri-lankan-government-7972bf3c44c6",
-    img: "https://miro.medium.com/v2/resize:fit:1200/1*kYRDmonDLdDe0x2hM8Py9w.png",
-    meta: "Feb 2026 · 5 min read",
-    title: "OpenGINXplore: Inside the Journey of Building a Time-Aware Map of Sri Lankan Government",
-    desc: "On the design decisions behind visualising a government structure that keeps changing; timelines, 3D networks, and tracing entity histories across time."
-  },
-  {
-    url: "https://medium.com/@ieeecomputersocietyiit/from-sci-fi-to-reality-how-ibms-influence-keeps-humanity-closer-to-the-future-of-space-travel-3ecd70bf43fe",
-    img: "https://miro.medium.com/v2/resize:fit:975/1*SED2hZEJbBY1n60cyOYvUQ.png",
-    meta: "May 2024 · 3 min read · IEEE Computer Society SBC of IIT",
-    title: "From Sci-Fi to Reality: How IBM's Influence Keeps Humanity Closer to the Future of Space Travel",
-    desc: "A look at IBM's quieter role in space exploration; from Apollo-era computing to CIMON, its AI companion aboard the ISS, and edge computing in orbit."
-  }
-];
+const BLOG = {
+  tech: [
+    {
+      url: "https://medium.com/@sehansi/openginxplore-inside-the-journey-of-building-a-time-aware-map-of-sri-lankan-government-7972bf3c44c6",
+      img: "https://miro.medium.com/v2/resize:fit:1200/1*kYRDmonDLdDe0x2hM8Py9w.png",
+      meta: "Feb 2026 · 5 min read",
+      title: "OpenGINXplore: Inside the Journey of Building a Time-Aware Map of Sri Lankan Government",
+      desc: "On the design decisions behind visualising a government structure that keeps changing; timelines, 3D networks, and tracing entity histories across time."
+    },
+    {
+      url: "https://medium.com/@ieeecomputersocietyiit/from-sci-fi-to-reality-how-ibms-influence-keeps-humanity-closer-to-the-future-of-space-travel-3ecd70bf43fe",
+      img: "https://miro.medium.com/v2/resize:fit:975/1*SED2hZEJbBY1n60cyOYvUQ.png",
+      meta: "May 2024 · 3 min read · IEEE Computer Society SBC of IIT",
+      title: "From Sci-Fi to Reality: How IBM's Influence Keeps Humanity Closer to the Future of Space Travel",
+      desc: "A look at IBM's quieter role in space exploration; from Apollo-era computing to CIMON, its AI companion aboard the ISS, and edge computing in orbit."
+    }
+  ],
+  life: []
+};

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="35 20 140 290" width="32" height="32">
+  <style>
+    .sprout-stem {
+      fill: none;
+      stroke: #3F6B4E;
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .sprout-leaf {
+      fill: #AFC6A4;
+      stroke: #3F6B4E;
+      stroke-width: 6;
+      stroke-linejoin: round;
+    }
+    @media (prefers-color-scheme: dark) {
+      .sprout-stem {
+        stroke: #9EBFA8;
+      }
+      .sprout-leaf {
+        fill: #2C4C36;
+        stroke: #9EBFA8;
+      }
+    }
+  </style>
+  <path class="sprout-stem" d="M110 300 C110 230 108 170 112 120 C114 95 118 75 110 40" />
+  <path class="sprout-leaf" d="M110 200 C86 194 62 176 56 150 C88 148 110 175 110 200 Z" />
+  <path class="sprout-leaf" d="M112 150 C90 140 68 118 66 90 C96 92 112 115 112 150 Z" />
+  <path class="sprout-leaf" d="M114 100 C136 88 156 64 156 36 C126 40 114 70 114 100 Z" />
+</svg>

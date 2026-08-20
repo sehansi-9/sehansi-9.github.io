@@ -1723,3 +1723,68 @@ footer h2 {
   line-height: 1.5;
   margin: 0;
 }
+
+#blog .sec-head {
+  margin-bottom: 0;
+}
+
+.writing-tabs-bar {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  border-bottom: 1px solid var(--line);
+  margin-top: 22px;
+  margin-bottom: 20px;
+}
+
+.writing-tab-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--ink-dim);
+  background: transparent;
+  border: none;
+  padding: 8px 0 10px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.writing-tab-item::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--moss);
+  opacity: 0;
+  transform: scaleX(0.5);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.writing-tab-item:hover {
+  color: var(--moss);
+}
+
+.writing-tab-item.active {
+  color: var(--moss-deep);
+  font-weight: 500;
+}
+
+.writing-tab-item.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.empty-writing-state {
+  grid-column: 1 / -1;
+  margin-top: 24px;
+  padding: 36px 24px;
+  text-align: center;
+  background: var(--bg-soft);
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+}
