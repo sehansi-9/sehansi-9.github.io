@@ -169,6 +169,10 @@ const PROJECTS = [
       },
       snapshots: [
         {
+          src: "https://drive.google.com/thumbnail?id=15drB0F-ygj7lmYolHv7kxHoYrgrAs4Vk&sz=w1600", 
+          alt: "ERP Loop flow" 
+        },
+        {
           type: "embed",
           src: "https://drive.google.com/file/d/1m8WbFTK1d2nasEJKBAphGcLMpf7Gos7s/preview",
           alt: "ERP Loop Video Demo"
@@ -178,10 +182,6 @@ const PROJECTS = [
           src: "https://drive.google.com/file/d/1YiuAZ6utuutimqUGHL9EHTA5ptkBKA0Q/preview",
           alt: "Rive animations in the making"
         },
-        // {
-        //   src: "https://media.licdn.com/dms/image/v2/D560BAQF6b2-CNTRSxg/company-logo_200_200/company-logo_200_200/0/1734342113378/resilifyapp_logo?e=1788393600&v=beta&t=DM3AKcTW8VRttrHMzeKFDL9Agfqqc9KHPmRN9gacxcw",
-        //   alt: "Resilify"
-        // }
       ],
       sdgs: [
         {
