@@ -169,8 +169,8 @@ const PROJECTS = [
       },
       snapshots: [
         {
-          src: "https://drive.google.com/thumbnail?id=15drB0F-ygj7lmYolHv7kxHoYrgrAs4Vk&sz=w1600", 
-          alt: "ERP Loop flow" 
+          src: "https://drive.google.com/thumbnail?id=15drB0F-ygj7lmYolHv7kxHoYrgrAs4Vk&sz=w1600",
+          alt: "ERP Loop flow"
         },
         {
           type: "embed",
@@ -300,36 +300,6 @@ const PROJECTS = [
 ];
 
 const CERTIFICATIONS = [
-  {
-    title: "Neo4j Fundamentals",
-    issuer: "Neo4j",
-    date: "May 2025",
-    url: "https://graphacademy.neo4j.com/c/72278eda-abfc-408b-a2a9-1eae771e5db5"
-  },
-  {
-    title: "Spring Boot 2.0 Essential Training",
-    issuer: "LinkedIn Learning",
-    date: "Dec 2024",
-    url: "https://www.linkedin.com/learning/certificates/f82e834b28d25b54e633406e521cd447077fac5aa4684913acb720e2cbdc0bf0/"
-  },
-  {
-    title: "Java Object-Oriented Programming",
-    issuer: "LinkedIn Learning",
-    date: "Dec 2024",
-    url: "https://www.linkedin.com/learning/certificates/498b7749881b595810b04a7fbddaefa3e7e69a4aa0c32d485ab66950d6624fdf?u=76664938"
-  },
-  {
-    title: "Angular Essential Training",
-    issuer: "LinkedIn Learning",
-    date: "Dec 2024",
-    url: "https://www.linkedin.com/learning/certificates/677ac317c373fef7d229d7b25d39186d01c4ceded1ac8633d300cd3644887a98"
-  },
-  {
-    title: "Java (Intermediate)",
-    issuer: "Sololearn",
-    date: "Jun 2024",
-    url: "https://www.sololearn.com/en/certificates/CC-L5GY1VZ7"
-  },
   {
     title: "Article of the Month — May 2024",
     issuer: "IEEE Computer Society Student Branch, IIT",

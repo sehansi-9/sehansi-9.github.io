@@ -1311,7 +1311,7 @@ footer h2 {
 
 .proj-modal-panel {
   position: relative;
-  width: min(740px, 94vw);
+  width: min(1100px, 92vw);
   max-height: 86vh;
   background: var(--bg);
   border: 1px solid var(--line);
