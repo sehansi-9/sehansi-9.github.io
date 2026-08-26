@@ -102,14 +102,13 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <div class="eyebrow">About</div>
-        <h2>Building with restraint, not excess</h2>
+        <h2>Bridging the gap between raw data and human-centric systems</h2>
       </div>
       <div class="about-grid reveal">
         <div class="about-col-left">
           <p>I like systems that make you stop noticing because it just works the way it should. Most of my time goes
             into subtraction and optimization: fewer steps, fewer cost, fewer places for something to break in a way
             nobody can explain later.</p>
-          <div class="pull">"Bridging the gap between raw data and human-centric systems."</div>
         </div>
         <div class="about-col-mid">
           <img src="https://drive.google.com/thumbnail?id=16U6YnlQniuHm4fTtTtWyCrB0L4BAJxER&sz=w400"
@@ -240,7 +239,18 @@
         <h2>Events &amp; Community</h2>
         <p>A collection of visuals from my projects and events.</p>
       </div>
-      <div class="events-grid gallery-grid reveal" id="events-grid"></div>
+      <div class="events-grid-wrapper collapsed" id="events-grid-wrapper">
+        <div class="events-grid gallery-grid reveal" id="events-grid"></div>
+        <div class="events-fade-overlay" id="events-fade-overlay"></div>
+      </div>
+      <div class="events-toggle-wrap" id="events-toggle-wrap">
+        <button class="events-toggle-btn" id="events-toggle-btn" onclick="toggleEvents()" aria-expanded="false" aria-label="See more events">
+          <span id="events-toggle-text">See more</span>
+          <svg class="events-arrow-icon" id="events-arrow-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -576,11 +586,14 @@
   `).join('');
     }
 
+    let eventsExpanded = false;
+
     function renderEvents() {
       const container = document.getElementById('events-grid') || document.getElementById('gallery-grid');
+      const toggleWrap = document.getElementById('events-toggle-wrap');
       if (container) {
         const list = typeof EVENTS !== 'undefined' ? EVENTS : (typeof GALLERY !== 'undefined' ? GALLERY : []);
-        container.innerHTML = list.map((g, i) => `
+        container.innerHTML = list.map((g) => `
       <div class="events-card gallery-card" onclick="openLightbox(this)">
         <div class="events-img-wrapper gallery-img-wrapper">
           <img src="${g.src}" alt="${g.alt}" class="events-img gallery-img" loading="lazy">
@@ -592,6 +605,48 @@
         </div>
       </div>
     `).join('');
+
+        if (toggleWrap) {
+          toggleWrap.style.display = list.length > 4 ? 'flex' : 'none';
+        }
+      }
+    }
+
+    function toggleEvents() {
+      eventsExpanded = !eventsExpanded;
+      const wrapper = document.getElementById('events-grid-wrapper');
+      const btn = document.getElementById('events-toggle-btn');
+      const btnText = document.getElementById('events-toggle-text');
+
+      if (wrapper) {
+        if (eventsExpanded) {
+          wrapper.classList.remove('collapsed');
+          wrapper.classList.add('expanded');
+        } else {
+          wrapper.classList.remove('expanded');
+          wrapper.classList.add('collapsed');
+        }
+      }
+
+      if (eventsExpanded) {
+        if (btnText) btnText.textContent = 'See less';
+        if (btn) {
+          btn.classList.add('expanded');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.setAttribute('aria-label', 'See less events');
+        }
+      } else {
+        if (btnText) btnText.textContent = 'See more';
+        if (btn) {
+          btn.classList.remove('expanded');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'See more events');
+        }
+        
+        const section = document.getElementById('events');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
 

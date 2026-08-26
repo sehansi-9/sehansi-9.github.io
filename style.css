@@ -409,7 +409,7 @@ section {
   flex-direction: column;
   gap: 10px;
   margin-bottom: 46px;
-  max-width: 620px;
+  max-width: 780px;
 }
 
 .sec-head h2 {
@@ -524,14 +524,15 @@ section {
 }
 
 .about-drawers {
-  margin-top: 14px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 .drawer-item {
-  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
   padding-top: 10px;
 }
 
@@ -1225,6 +1226,94 @@ section {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   color: var(--ink-dim);
+}
+
+.events-grid-wrapper {
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.events-grid-wrapper.collapsed {
+  max-height: 420px;
+}
+
+.events-grid-wrapper.expanded {
+  max-height: 3000px;
+}
+
+.events-fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, rgba(244, 245, 239, 0) 0%, var(--bg) 85%);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+[data-theme="dark"] .events-fade-overlay {
+  background: linear-gradient(to bottom, rgba(20, 26, 21, 0) 0%, var(--bg) 85%);
+}
+
+.events-grid-wrapper.expanded .events-fade-overlay {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.events-grid-wrapper.collapsed .events-card:nth-child(n+5) {
+  pointer-events: none;
+  user-select: none;
+}
+
+.events-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  position: relative;
+  z-index: 3;
+}
+
+.events-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--moss);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  padding: 10px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.events-toggle-btn:hover {
+  background: var(--sage-tint);
+  border-color: var(--moss);
+  color: var(--moss-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 76, 54, 0.16);
+}
+
+.events-arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.events-toggle-btn.expanded .events-arrow-icon {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 600px) {
+  .events-grid-wrapper.collapsed {
+    max-height: 380px;
+  }
 }
 
 .lightbox {
