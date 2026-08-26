@@ -244,9 +244,11 @@
         <div class="events-fade-overlay" id="events-fade-overlay"></div>
       </div>
       <div class="events-toggle-wrap" id="events-toggle-wrap">
-        <button class="events-toggle-btn" id="events-toggle-btn" onclick="toggleEvents()" aria-expanded="false" aria-label="See more events">
+        <button class="events-toggle-btn" id="events-toggle-btn" onclick="toggleEvents()" aria-expanded="false"
+          aria-label="See more events">
           <span id="events-toggle-text">See more</span>
-          <svg class="events-arrow-icon" id="events-arrow-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none" aria-hidden="true">
+          <svg class="events-arrow-icon" id="events-arrow-icon" viewBox="0 0 24 24" width="16" height="16"
+            stroke="currentColor" stroke-width="2.2" fill="none" aria-hidden="true">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
@@ -586,11 +588,84 @@
   `).join('');
     }
 
-    let eventsExpanded = false;
+    let currentEventsStep = 0;
+
+    function isMobileEventsView() {
+      return window.innerWidth <= 600;
+    }
+
+    function getEventsVisibleCount(step) {
+      if (isMobileEventsView()) {
+        return 3 + (step * 3);
+      } else {
+        return 4 + (step * 8);
+      }
+    }
+
+    function updateEventsDisplay() {
+      const wrapper = document.getElementById('events-grid-wrapper');
+      const container = document.getElementById('events-grid');
+      const btn = document.getElementById('events-toggle-btn');
+      const btnText = document.getElementById('events-toggle-text');
+      const toggleWrap = document.getElementById('events-toggle-wrap');
+      if (!wrapper || !container) return;
+
+      const cards = Array.from(container.querySelectorAll('.events-card'));
+      const totalCards = cards.length;
+      if (totalCards === 0) return;
+
+      const visibleCount = getEventsVisibleCount(currentEventsStep);
+      const isFullyExpanded = visibleCount >= totalCards;
+
+      if (toggleWrap) {
+        const initialCount = isMobileEventsView() ? 3 : 4;
+        toggleWrap.style.display = totalCards > initialCount ? 'flex' : 'none';
+      }
+
+      cards.forEach((card, i) => {
+        if (i < visibleCount || isFullyExpanded) {
+          card.style.pointerEvents = 'auto';
+          card.style.userSelect = 'auto';
+        } else {
+          card.style.pointerEvents = 'none';
+          card.style.userSelect = 'none';
+        }
+      });
+
+      if (isFullyExpanded) {
+        wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+        wrapper.classList.remove('collapsed');
+        wrapper.classList.add('expanded');
+      } else {
+        wrapper.classList.remove('expanded');
+        wrapper.classList.add('collapsed');
+
+        const teaseCard = cards[visibleCount];
+        if (teaseCard) {
+          const targetHeight = teaseCard.offsetTop + 110;
+          wrapper.style.maxHeight = targetHeight + 'px';
+        } else {
+          wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+        }
+      }
+
+      if (btnText && btn) {
+        if (isFullyExpanded) {
+          btnText.textContent = 'See less';
+          btn.classList.add('expanded');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.setAttribute('aria-label', 'See less events');
+        } else {
+          btnText.textContent = 'See more';
+          btn.classList.remove('expanded');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'See more events');
+        }
+      }
+    }
 
     function renderEvents() {
       const container = document.getElementById('events-grid') || document.getElementById('gallery-grid');
-      const toggleWrap = document.getElementById('events-toggle-wrap');
       if (container) {
         const list = typeof EVENTS !== 'undefined' ? EVENTS : (typeof GALLERY !== 'undefined' ? GALLERY : []);
         container.innerHTML = list.map((g) => `
@@ -606,49 +681,34 @@
       </div>
     `).join('');
 
-        if (toggleWrap) {
-          toggleWrap.style.display = list.length > 4 ? 'flex' : 'none';
-        }
+        setTimeout(updateEventsDisplay, 50);
       }
     }
 
     function toggleEvents() {
-      eventsExpanded = !eventsExpanded;
-      const wrapper = document.getElementById('events-grid-wrapper');
-      const btn = document.getElementById('events-toggle-btn');
-      const btnText = document.getElementById('events-toggle-text');
+      const container = document.getElementById('events-grid');
+      if (!container) return;
+      const totalCards = container.querySelectorAll('.events-card').length;
+      const visibleCount = getEventsVisibleCount(currentEventsStep);
 
-      if (wrapper) {
-        if (eventsExpanded) {
-          wrapper.classList.remove('collapsed');
-          wrapper.classList.add('expanded');
-        } else {
-          wrapper.classList.remove('expanded');
-          wrapper.classList.add('collapsed');
-        }
-      }
-
-      if (eventsExpanded) {
-        if (btnText) btnText.textContent = 'See less';
-        if (btn) {
-          btn.classList.add('expanded');
-          btn.setAttribute('aria-expanded', 'true');
-          btn.setAttribute('aria-label', 'See less events');
-        }
-      } else {
-        if (btnText) btnText.textContent = 'See more';
-        if (btn) {
-          btn.classList.remove('expanded');
-          btn.setAttribute('aria-expanded', 'false');
-          btn.setAttribute('aria-label', 'See more events');
-        }
-        
+      if (visibleCount >= totalCards) {
+        currentEventsStep = 0;
+        updateEventsDisplay();
         const section = document.getElementById('events');
         if (section) {
           section.scrollIntoView({ behavior: 'smooth' });
         }
+      } else {
+        currentEventsStep++;
+        updateEventsDisplay();
       }
     }
+
+    let eventsResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(eventsResizeTimer);
+      eventsResizeTimer = setTimeout(updateEventsDisplay, 100);
+    });
 
     let currentWritingTab = 'all';
 
@@ -857,6 +917,7 @@
     }
 
     function openLightbox(cardEl) {
+      if (cardEl && cardEl.style.pointerEvents === 'none') return;
       const img = cardEl.querySelector('.gallery-img');
       const title = cardEl.querySelector('h4') ? cardEl.querySelector('h4').innerText : '';
       const desc = cardEl.querySelector('p') ? cardEl.querySelector('p').innerHTML : '';
