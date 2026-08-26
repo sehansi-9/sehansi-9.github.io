@@ -30,10 +30,7 @@
       <div class="nav-mark">Sehansi</div>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
-        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
         <a href="#events">Events</a>
         <a href="#blog">Writing</a>
         <a href="#contact">Contact</a>
@@ -124,31 +121,103 @@
           <li><span class="k">ALSO INTO</span><span>Vector Illustration, Violin, Language Learning</span></li>
         </ul>
       </div>
-    </div>
-  </section>
 
-  <section id="experience">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">Experience</div>
-        <h2>Where I've been building</h2>
-      </div>
-      <div class="xp-card reveal">
-        <div class="xp-top">
-          <div>
-            <h3>Software Engineer Intern</h3>
-            <div class="proj-org">Lanka Data Foundation · Full-time</div>
+      <div class="about-drawers reveal">
+        <div class="drawer-item" id="experience">
+          <button class="drawer-header" aria-expanded="false" aria-controls="drawer-experience-body"
+            onclick="toggleDrawer('experience')">
+            <svg class="drawer-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+              stroke-width="2.2" fill="none" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <span class="drawer-title">Experience</span>
+          </button>
+          <div class="drawer-body" id="drawer-experience-body">
+            <div class="drawer-content">
+              <div class="xp-card">
+                <div class="xp-top">
+                  <div>
+                    <h3>Software Engineer Intern</h3>
+                    <div class="proj-org">Lanka Data Foundation · Full-time</div>
+                  </div>
+                  <div class="xp-meta">May 2025 – May 2026 · Colombo, Sri Lanka · On-site</div>
+                </div>
+                <ul>
+                  <li>Collaborated on research-driven projects involving open data, graph databases, and AI-assisted
+                    systems,
+                    contributing to full-stack development across multiple open-source platforms.</li>
+                  <li>Built agentic AI workflows with LangGraph, LLM orchestration, context management, multi-model
+                    support, and
+                    natural language querying over graph data, with a deliberate focus on reducing token usage.</li>
+                  <li>Took part in the full development lifecycle: code reviews, documentation, dataset validation, bug
+                    investigation, performance optimisation, and open-source releases.</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="xp-meta">May 2025 – May 2026 · Colombo, Sri Lanka · On-site</div>
         </div>
-        <ul>
-          <li>Collaborated on research-driven projects involving open data, graph databases, and AI-assisted systems,
-            contributing to full-stack development across multiple open-source platforms.</li>
-          <li>Built agentic AI workflows with LangGraph, LLM orchestration, context management, multi-model support, and
-            natural language querying over graph data, with a deliberate focus on reducing token usage.</li>
-          <li>Took part in the full development lifecycle: code reviews, documentation, dataset validation, bug
-            investigation, performance optimisation, and open-source releases.</li>
-        </ul>
+
+        <div class="drawer-item" id="education">
+          <button class="drawer-header" aria-expanded="false" aria-controls="drawer-education-body"
+            onclick="toggleDrawer('education')">
+            <svg class="drawer-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+              stroke-width="2.2" fill="none" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <span class="drawer-title">Education</span>
+          </button>
+          <div class="drawer-body" id="drawer-education-body">
+            <div class="drawer-content">
+              <div class="edu-card">
+                <div class="edu-top">
+                  <div>
+                    <h3>University of Westminster, UK </h3>
+                    <h4>via Informatics Institute of Technology, Sri Lanka</h4>
+                    <div class="edu-degree">Bachelor of Science (BSc), Computer Science</div>
+                  </div>
+                  <div class="edu-meta">Sep 2023 – Sep 2027</div>
+                </div>
+                <div class="edu-note"><b>Activities:</b> IEEE Computer Society (IIT), IEEE Robotics and Automation
+                  Society
+                  (IIT), Mozilla Campus Club (IIT)</div>
+              </div>
+
+              <div class="edu-card">
+                <div class="edu-top">
+                  <div>
+                    <h3>Musaeus College, Colombo-07</h3>
+                    <div class="edu-degree">G.C.E. Advanced Level, Physical Science — Mathematics, Physics, Chemistry
+                    </div>
+                  </div>
+                  <div class="edu-meta">Jan 2009 – Aug 2022</div>
+                </div>
+                <div class="edu-note">
+                  <b>Activities:</b> Quiz Combine, Girl Guiding, Orchestra (Violin), Junior Dancing Troupe<br><br>
+                  <b>Positions held:</b> Vice Treasurer, Senior Mathematics Society (2021/2022) · Junior Prefect (2016)
+                  ·
+                  Primary Prefect (2013) · Patrol Vice-Leader, 23rd Colombo Girl Scouts (2017/2018)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications Drawer -->
+        <div class="drawer-item" id="certifications">
+          <button class="drawer-header" aria-expanded="false" aria-controls="drawer-certifications-body"
+            onclick="toggleDrawer('certifications')">
+            <svg class="drawer-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+              stroke-width="2.2" fill="none" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <span class="drawer-title">Certifications</span>
+          </button>
+          <div class="drawer-body" id="drawer-certifications-body">
+            <div class="drawer-content">
+              <div class="cert-grid" id="cert-grid"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -161,53 +230,6 @@
         <p>A mix of research work, capstone projects, and fun personal projects</p>
       </div>
       <div class="proj-grid" id="proj-grid"></div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">Education</div>
-        <h2>Academic background</h2>
-      </div>
-
-      <div class="edu-card reveal">
-        <div class="edu-top">
-          <div>
-            <h3>University of Westminster, UK </h3>
-            <h4>via Informatics Institute of Technology, Sri Lanka</h4>
-            <div class="edu-degree">Bachelor of Science (BSc), Computer Science</div>
-          </div>
-          <div class="edu-meta">Sep 2023 – Sep 2027</div>
-        </div>
-        <div class="edu-note"><b>Activities:</b> IEEE Computer Society (IIT), IEEE Robotics and Automation Society
-          (IIT), Mozilla Campus Club (IIT)</div>
-      </div>
-
-      <div class="edu-card reveal">
-        <div class="edu-top">
-          <div>
-            <h3>Musaeus College, Colombo-07</h3>
-            <div class="edu-degree">G.C.E. Advanced Level, Physical Science — Mathematics, Physics, Chemistry</div>
-          </div>
-          <div class="edu-meta">Jan 2009 – Aug 2022</div>
-        </div>
-        <div class="edu-note">
-          <b>Activities:</b> Quiz Combine, Girl Guiding, Orchestra (Violin), Junior Dancing Troupe<br><br>
-          <b>Positions held:</b> Vice Treasurer, Senior Mathematics Society (2021/2022) · Junior Prefect (2016) ·
-          Primary Prefect (2013) · Patrol Vice-Leader, 23rd Colombo Girl Scouts (2017/2018)
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="certifications">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">Licenses &amp; Certifications</div>
-        <h2>Credentials</h2>
-      </div>
-      <div class="cert-grid" id="cert-grid"></div>
     </div>
   </section>
 
@@ -690,6 +712,12 @@
           const menuIcon = navToggle.querySelector('.icon-menu');
           if (closeIcon) closeIcon.style.display = 'none';
           if (menuIcon) menuIcon.style.display = 'block';
+
+          const href = link.getAttribute('href');
+          if (href && (href === '#experience' || href === '#education')) {
+            const targetId = href.replace('#', '');
+            toggleDrawer(targetId, true);
+          }
         });
       });
 
@@ -703,6 +731,42 @@
           if (menuIcon) menuIcon.style.display = 'block';
         }
       });
+    }
+
+    function toggleDrawer(id, forceOpen = false) {
+      const drawer = document.getElementById(id);
+      if (!drawer) return;
+
+      const header = drawer.querySelector('.drawer-header');
+      const isCurrentlyOpen = drawer.classList.contains('open');
+      const shouldOpen = forceOpen ? true : !isCurrentlyOpen;
+
+      if (shouldOpen) {
+        drawer.classList.add('open');
+        if (header) header.setAttribute('aria-expanded', 'true');
+        drawer.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+      } else {
+        drawer.classList.remove('open');
+        if (header) header.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    function handleDrawerHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'experience' || hash === 'education') {
+        toggleDrawer(hash, true);
+        const target = document.getElementById(hash);
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    }
+
+    window.addEventListener('hashchange', handleDrawerHash);
+    if (window.location.hash) {
+      handleDrawerHash();
     }
 
 
@@ -758,7 +822,6 @@
         if (modal) {
           modal.classList.remove('active');
           document.body.style.overflow = '';
-          // Stop video playback by clearing iframe src
           const iframe = document.getElementById('lightboxIframe');
           if (iframe) iframe.src = '';
         }
