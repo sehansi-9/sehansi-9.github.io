@@ -61,6 +61,38 @@ a {
   padding: 0 30px;
 }
 
+@media (min-width: 1200px) {
+  :root {
+    --maxw: 1180px;
+  }
+
+  .wrap {
+    padding: 0 32px;
+  }
+
+  .sec-head {
+    max-width: 880px;
+  }
+
+  .hero-copy h1 {
+    max-width: 20ch;
+  }
+
+  .hero-copy p.lede {
+    max-width: 56ch;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr 340px;
+    gap: 56px;
+  }
+
+  .mac-window,
+  .mac-desktop-screen {
+    height: clamp(500px, 66vh, 620px);
+  }
+}
+
 h1,
 h2,
 h3,
@@ -304,15 +336,7 @@ header.hero {
   margin-bottom: 34px;
 }
 
-.hero-loc {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--ink-dim);
-  margin-top: 30px;
-  display: flex;
-  gap: 22px;
-  flex-wrap: wrap;
-}
+
 
 .btn-row {
   display: flex;
@@ -532,15 +556,7 @@ section {
   font-size: 11.5px;
 }
 
-.pull {
-  border-left: 2px solid var(--moss);
-  padding: 4px 0 4px 20px;
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--ink);
-  margin: 26px 0;
-}
+
 
 .about-drawers {
   margin-top: 20px;
@@ -688,39 +704,7 @@ section {
   width: 100%;
 }
 
-.view-mode-toggle-group {
-  display: flex;
-  background: var(--line);
-  padding: 3px;
-  border-radius: 999px;
-  gap: 4px;
-}
 
-.mode-toggle-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11.5px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: none;
-  background: transparent;
-  color: var(--ink-dim);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.mode-toggle-btn:hover {
-  color: var(--ink);
-}
-
-.mode-toggle-btn.active {
-  background: var(--bg);
-  color: var(--moss);
-  font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
 
 .mac-desktop-frame {
   background: linear-gradient(135deg, rgba(235, 239, 230, 0.95), rgba(225, 232, 220, 0.95));
@@ -1049,34 +1033,7 @@ section {
   font-size: 14px;
 }
 
-.mac-tag-pills {
-  display: flex;
-  gap: 8px;
-  padding-left: 8px;
-}
 
-.mac-tag-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.mac-tag-dot.red {
-  background: #ef4444;
-}
-
-.mac-tag-dot.orange {
-  background: #f97316;
-}
-
-.mac-tag-dot.green {
-  background: #22c55e;
-}
-
-.mac-tag-dot.blue {
-  background: #3b82f6;
-}
 
 .mac-content-canvas {
   flex: 1;
@@ -1088,10 +1045,23 @@ section {
 
 .mac-app-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 28px 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px;
   justify-items: center;
   align-items: start;
+}
+
+@media (min-width: 480px) {
+  .mac-app-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 680px) {
+  .mac-app-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px 16px;
+  }
 }
 
 .mac-app-item {
@@ -1432,12 +1402,9 @@ section {
     display: none;
   }
 
-  .mac-dock-wrapper {
-    display: none;
-  }
+
 }
 
-/* Extra-small screens */
 @media (max-width: 480px) {
   .mac-window {
     margin: 4px;
@@ -1847,162 +1814,24 @@ section {
   display: inline-block;
 }
 
-.skill-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
 
-.skill-pill {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  padding: 8px 15px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  color: var(--ink-dim);
-  transition: .2s;
-}
-
-.skill-pill:hover {
-  border-color: var(--moss);
-  color: var(--moss);
-  background: var(--sage-tint);
-}
-
-.hi-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-
-@media(min-width:700px) {
-  .hi-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.hi-card {
-  padding: 22px 24px 22px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-@media(min-width:700px) {
-  .hi-card:nth-child(odd) {
-    border-right: 1px solid var(--line);
-    padding-right: 28px;
-  }
-
-  .hi-card:nth-child(even) {
-    padding-left: 28px;
-  }
-}
-
-.hi-card .eyebrow {
-  font-size: 10.5px;
-  margin-bottom: 10px;
-}
-
-.hi-card p {
-  font-size: 13.5px;
-  color: var(--ink-dim);
-  font-weight: 300;
-}
-
-.hi-card strong {
-  color: var(--ink);
-  font-weight: 500;
-}
-
-.hi-card {
-  display: block;
-  transition: .2s;
-}
-
-.hi-card:hover {
-  background: var(--sage-tint);
-}
-
-.hi-card:hover .eyebrow {
-  color: var(--moss-deep);
-}
-
-.hi-card:hover p strong {
-  color: var(--moss);
-}
-
-.tl {
-  display: flex;
-  flex-direction: column;
-}
-
-.tl-item {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4px;
-}
-
-@media(min-width:700px) {
-  .tl-item {
-    grid-template-columns: 260px 1fr;
-    gap: 20px;
-  }
-}
-
-.tl-item h4 {
-  font-size: 1rem;
-  font-weight: 500;
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-}
-
-.tl-meta {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--clay);
-  margin-top: 4px;
-}
-
-.tl-item p {
-  color: var(--ink-dim);
-  font-size: 13.5px;
-  font-weight: 300;
-}
-
-.tl-item h4 a,
-.tl-item p a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--ink);
-  transition: color .2s;
-}
-
-.tl-item h4 a .link-icon,
-.tl-item p a .link-icon {
-  font-size: 11px;
-  color: var(--moss);
-  opacity: 0;
-  transform: translateX(-3px);
-  transition: opacity .2s, transform .2s;
-}
-
-.tl-item h4 a:hover,
-.tl-item p a:hover {
-  color: var(--moss);
-}
-
-.tl-item h4 a:hover .link-icon,
-.tl-item p a:hover .link-icon {
-  opacity: 1;
-  transform: translateX(0);
-}
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
+}
+
+@media (min-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .gallery-card {
