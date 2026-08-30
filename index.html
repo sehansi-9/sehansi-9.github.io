@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=34">
   <script>
     (function () {
       const savedTheme = localStorage.getItem('theme');
@@ -200,7 +200,6 @@
           </div>
         </div>
 
-        <!-- Certifications Drawer -->
         <div class="drawer-item" id="certifications">
           <button class="drawer-header" aria-expanded="false" aria-controls="drawer-certifications-body"
             onclick="toggleDrawer('certifications')">
@@ -223,11 +222,123 @@
   <section id="projects">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div class="eyebrow">Projects</div>
-        <h2>Selected work</h2>
-        <p>A mix of research work, capstone projects, and fun personal projects</p>
+        <div class="sec-head-top">
+          <div>
+            <div class="eyebrow">Projects</div>
+            <h2>Selected work</h2>
+            <p>A mix of research work, capstone projects, and fun personal projects</p>
+          </div>
+        </div>
       </div>
-      <div class="proj-grid" id="proj-grid"></div>
+
+      <div class="mac-desktop-frame reveal" id="mac-desktop-frame">
+        <div class="mac-menubar">
+          <div class="mac-menubar-left">
+            <img src="favicon.svg" alt="Sehansi OS" style="width:22px; height:20px; display:block; flex-shrink:0;">
+            <span class="mac-app-name" id="mac-active-app-name">Finder</span>
+            <span class="mac-menu-item">File</span>
+            <span class="mac-menu-item">Edit</span>
+            <span class="mac-menu-item">View</span>
+            <span class="mac-menu-item">Go</span>
+            <span class="mac-menu-item">Window</span>
+          </div>
+          <div class="mac-menubar-right">
+            <span class="mac-status-tag">Sehansi OS v2.4</span>
+            <span class="mac-status-clock" id="mac-clock">10:42 AM</span>
+          </div>
+        </div>
+
+        <div class="mac-desktop-screen" id="mac-desktop-screen" style="display: none;">
+          <div class="mac-desktop-app" onclick="openMacWindow()" title="Click to launch Finder">
+            <div class="mac-desktop-app-icon">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <span class="mac-desktop-app-name">Finder</span>
+          </div>
+        </div>
+
+        <div class="mac-window" id="mac-window">
+          <div class="mac-titlebar">
+            <div class="mac-traffic-lights">
+              <span class="mac-light close" onclick="closeMacWindow()" title="Close Finder Window"></span>
+              <span class="mac-light minimize disabled" title="Minimize"></span>
+              <span class="mac-light expand disabled" title="Expand"></span>
+            </div>
+            <div class="mac-window-path">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span id="mac-path-text">Applications / All Projects</span>
+            </div>
+            <div class="mac-window-controls">
+              <div class="mac-subview-toggles">
+                <button class="mac-icon-btn" id="mac-subview-icons" onclick="setMacSubView('grid')" title="Icons View">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                  </svg>
+                </button>
+                <button class="mac-icon-btn active" id="mac-subview-list" onclick="setMacSubView('list')"
+                  title="List View">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+              <div class="mac-search-box">
+                <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="mac-search-input" placeholder="Search..."
+                  oninput="onMacSearchChange(this.value)">
+              </div>
+            </div>
+          </div>
+          <div class="mac-window-body">
+            <aside class="mac-sidebar">
+              <div class="mac-sidebar-group">
+                <div class="mac-sidebar-title">Favorites</div>
+                <button class="mac-sidebar-item active" data-cat="all" onclick="filterMacProjects('all')">
+                  <span class="mac-sidebar-icon">📂</span> All Projects
+                </button>
+                <button class="mac-sidebar-item" data-cat="ai" onclick="filterMacProjects('ai')">
+                  <span class="mac-sidebar-icon"></span> AI &amp; Agents
+                </button>
+                <button class="mac-sidebar-item" data-cat="data" onclick="filterMacProjects('data')">
+                  <span class="mac-sidebar-icon"></span> Open Data
+                </button>
+                <button class="mac-sidebar-item" data-cat="health" onclick="filterMacProjects('health')">
+                  <span class="mac-sidebar-icon"></span> Health &amp; Apps
+                </button>
+                <button class="mac-sidebar-item" data-cat="tools" onclick="filterMacProjects('tools')">
+                  <span class="mac-sidebar-icon"></span> Systems &amp; Tools
+                </button>
+                <button class="mac-sidebar-item" data-cat="apps" onclick="filterMacProjects('apps')">
+                  <span class="mac-sidebar-icon"></span> Fun Apps
+                </button>
+                <button class="mac-sidebar-item" data-cat="art" onclick="filterMacProjects('art')">
+                  <span class="mac-sidebar-icon"></span> Creative &amp; Art
+                </button>
+              </div>
+            </aside>
+
+            <main class="mac-content-canvas" id="mac-content-canvas">
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-grid" id="proj-grid" style="display:none;"></div>
     </div>
   </section>
 
@@ -295,6 +406,9 @@
           <a href="#">Back to top ↑</a>
         </div>
       </div>
+      <div class="foot-bottom">
+        <span>© <span id="foot-year">2026</span> Sehansi Perera. All rights reserved.</span>
+      </div>
     </div>
   </footer>
 
@@ -323,6 +437,39 @@
     const GH_SVG = `<svg class="gh-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>`;
     const INSTA_SVG = `<svg class="gh-icon insta-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>`;
 
+    let currentMacCategory = 'all';
+    let currentMacSubView = 'list';
+    let macSearchQuery = '';
+    let projectsViewMode = 'macos';
+
+    function getProjectIconSvg(iconType) {
+      switch (iconType) {
+        case 'bot':
+          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8.01" y2="16"></line><line x1="16" y1="16" x2="16.01" y2="16"></line></svg>`;
+        case 'globe':
+          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`;
+        case 'heart':
+          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`;
+        case 'cpu':
+          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>`;
+        case 'cat':
+          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-4 0-7.5 2.5-7.5 6 0 2.5 1.5 4.5 3.5 5.5V19l3-1.5c.3.1.7.2 1 .2s.7-.1 1-.2L16 19v-2.5c2-1 3.5-3 3.5-5.5 0-3.5-3.5-6-7.5-6z"></path><circle cx="9" cy="10" r="1" fill="currentColor"></circle><circle cx="15" cy="10" r="1" fill="currentColor"></circle></svg>`;
+        case 'palette':
+        default:
+          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.5-.72 1.5-1.5 0-.4-.15-.76-.4-1.04-.26-.29-.42-.66-.42-1.06 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9z"></path></svg>`;
+      }
+    }
+
+    function darkenColor(hex, percent) {
+      if (!hex || hex[0] !== '#') return hex || '#4f46e5';
+      let num = parseInt(hex.slice(1), 16),
+        amt = Math.round(2.55 * percent),
+        R = (num >> 16) - amt,
+        G = (num >> 8 & 0x00FF) - amt,
+        B = (num & 0x0000FF) - amt;
+      return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 + (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+    }
+
     function renderProjLink(l) {
       const isGh = (l.url && l.url.includes('github.com')) || (l.label && /repository|github/i.test(l.label));
       if (isGh) {
@@ -333,6 +480,233 @@
         return `<a class="proj-link gh-link insta-link" href="${l.url}" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">${INSTA_SVG}</a>`;
       }
       return `<a class="proj-link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`;
+    }
+
+    // Formats "Dec 2025 – May 2026" with date-block spans for responsive stacking
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const parts = dateStr.split(/\s*[–—-]\s*/);
+      if (parts.length === 2) {
+        const formatPart = (p) => {
+          const m = p.trim().match(/^([A-Za-z]+)\s*(\d{4})$/);
+          return m ? `<span class="date-block"><span>${m[1]}</span><span>${m[2]}</span></span>` : `<span class="date-block"><span>${p.trim()}</span></span>`;
+        };
+        return `${formatPart(parts[0])} <span class="date-sep">–</span> ${formatPart(parts[1])}`;
+      }
+      const m = dateStr.trim().match(/^([A-Za-z]+)\s*(\d{4})$/);
+      if (m) {
+        return `<span class="date-block"><span>${m[1]}</span><span>${m[2]}</span></span>`;
+      }
+      return dateStr;
+    }
+
+    function updateMacPathText() {
+      const pathEl = document.getElementById('mac-path-text');
+      if (pathEl) {
+        const names = {
+          all: 'Applications / All Projects',
+          ai: 'Applications / AI & Agents',
+          data: 'Applications / Open Data',
+          health: 'Applications / Health & Apps',
+          tools: 'Applications / Systems & Tools',
+          apps: 'Applications / Fun Apps',
+          art: 'Applications / Creative & Art'
+        };
+        pathEl.textContent = names[currentMacCategory] || 'Applications / Selected Work';
+      }
+    }
+
+    function closeMacWindow() {
+      const win = document.getElementById('mac-window');
+      const screen = document.getElementById('mac-desktop-screen');
+      const appName = document.getElementById('mac-active-app-name');
+      if (win && screen) {
+        win.style.display = 'none';
+        screen.style.display = 'flex';
+      }
+      if (appName) {
+        appName.textContent = 'Desktop';
+      }
+    }
+
+    function openMacWindow() {
+      const win = document.getElementById('mac-window');
+      const screen = document.getElementById('mac-desktop-screen');
+      const appName = document.getElementById('mac-active-app-name');
+      if (win && screen) {
+        screen.style.display = 'none';
+        win.style.display = 'flex';
+      }
+      if (appName) {
+        appName.textContent = 'Finder';
+      }
+    }
+
+    function renderMacProjects() {
+      updateMacPathText();
+      const canvas = document.getElementById('mac-content-canvas');
+      if (!canvas) return;
+
+      const q = macSearchQuery.toLowerCase().trim();
+      const filtered = PROJECTS.map((p, originalIndex) => ({ ...p, originalIndex }))
+        .filter(p => {
+          const matchCat = currentMacCategory === 'all' || p.category === currentMacCategory;
+          const matchSearch = !q || p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || (p.tags && p.tags.some(t => t.toLowerCase().includes(q)));
+          return matchCat && matchSearch;
+        });
+
+      if (filtered.length === 0) {
+        canvas.innerHTML = `<div style="text-align:center; padding: 60px 20px; color: var(--ink-dim);"><div style="font-size:32px; margin-bottom:10px;">🔍</div><p>No projects found matching "${macSearchQuery}"</p></div>`;
+        return;
+      }
+
+      if (currentMacSubView === 'grid') {
+        canvas.innerHTML = `
+          <div class="mac-app-grid">
+            ${filtered.map(p => `
+              <div class="mac-app-item" onclick="openProjectModal(${p.originalIndex})" title="${p.title} — Click to view details">
+                <div class="mac-app-icon-wrap" style="background: linear-gradient(135deg, ${p.color || '#6366f1'}, ${darkenColor(p.color || '#6366f1', 20)});">
+                  ${getProjectIconSvg(p.icon)}
+                  ${p.detail ? `<span class="mac-app-badge">App</span>` : ''}
+                </div>
+                <div>
+                  <div class="mac-app-title">${p.title}</div>
+                  <div class="mac-app-subtitle">${p.tags ? p.tags[0] : ''}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else {
+        canvas.innerHTML = `
+          <table class="mac-list-table">
+            <thead>
+              <tr>
+                <th style="width: 40%;">Name</th>
+                <th style="width: 30%;">Tags</th>
+                <th style="width: 14%;">SDGs</th>
+                <th style="width: 18%; text-align: right;">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${filtered.map(p => `
+                <tr class="mac-list-row" onclick="openProjectModal(${p.originalIndex})">
+                  <td>
+                    <div class="mac-list-name-col">
+                      <div class="mac-list-mini-icon" style="background: ${p.color || '#6366f1'};">
+                        ${getProjectIconSvg(p.icon)}
+                      </div>
+                      <div>
+                        <div style="font-weight:600;">${p.title}</div>
+                        <div style="font-size:11px; color:var(--ink-dim);">${p.org || ''}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mac-list-tags-wrap">
+                      ${p.tags ? p.tags.map(t => `<span class="tag">${t}</span>`).join('') : ''}
+                    </div>
+                  </td>
+                  <td>
+                    ${(p.detail && p.detail.sdgs && p.detail.sdgs.length) ? `
+                      <div class="mac-list-sdg-row">
+                        ${p.detail.sdgs.map(s => `
+                          <div class="mac-list-sdg-badge" title="${s.title}">
+                            ${s.img ? `<img src="${s.img}" alt="${s.title}" class="mac-list-sdg-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''}
+                            <span class="mac-list-sdg-num" ${s.img ? 'style="display:none;"' : ''}>${s.id}</span>
+                          </div>
+                        `).join('')}
+                      </div>
+                    ` : '<span style="color:var(--ink-dim); opacity:0.4;">—</span>'}
+                  </td>
+                  <td class="mac-date-cell" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-dim); text-align: right; white-space: nowrap;">${formatDate(p.date || '')}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        `;
+      }
+
+      renderMacDock();
+    }
+
+    function renderMacDock() {
+      const dock = document.getElementById('mac-dock');
+      if (!dock) return;
+
+      dock.innerHTML = PROJECTS.map((p, i) => `
+        <div class="mac-dock-item" onclick="openProjectModal(${i})">
+          <div class="mac-dock-tooltip">${p.title}</div>
+          <div class="mac-dock-icon" style="background: linear-gradient(135deg, ${p.color || '#6366f1'}, ${darkenColor(p.color || '#6366f1', 20)});">
+            ${getProjectIconSvg(p.icon)}
+          </div>
+          <div class="mac-dock-dot"></div>
+        </div>
+      `).join('');
+    }
+
+    function filterMacProjects(cat) {
+      currentMacCategory = cat;
+      document.querySelectorAll('.mac-sidebar-item').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-cat') === cat);
+      });
+      const pathEl = document.getElementById('mac-path-text');
+      if (pathEl) {
+        const names = {
+          all: 'Applications / All Projects',
+          ai: 'Applications / AI & Agents',
+          data: 'Applications / Open Data',
+          health: 'Applications / Health & Apps',
+          tools: 'Applications / Systems & Tools',
+          apps: 'Applications / Fun Apps',
+          art: 'Applications / Creative & Art'
+        };
+        pathEl.textContent = names[cat] || 'Applications / Selected Work';
+      }
+      renderMacProjects();
+    }
+
+    function setMacSubView(mode) {
+      currentMacSubView = mode;
+      const iconBtn = document.getElementById('mac-subview-icons');
+      const listBtn = document.getElementById('mac-subview-list');
+      if (iconBtn) iconBtn.classList.toggle('active', mode === 'grid');
+      if (listBtn) listBtn.classList.toggle('active', mode === 'list');
+      renderMacProjects();
+    }
+
+    function onMacSearchChange(val) {
+      macSearchQuery = val;
+      renderMacProjects();
+    }
+
+    function setProjectsViewMode(mode) {
+      projectsViewMode = mode;
+      const frame = document.getElementById('mac-desktop-frame');
+      const grid = document.getElementById('proj-grid');
+      const btnMac = document.getElementById('mode-btn-macos');
+      const btnClassic = document.getElementById('mode-btn-classic');
+
+      if (mode === 'macos') {
+        if (frame) frame.style.display = 'block';
+        if (grid) grid.style.display = 'none';
+        if (btnMac) btnMac.classList.add('active');
+        if (btnClassic) btnClassic.classList.remove('active');
+        renderMacProjects();
+      } else {
+        if (frame) frame.style.display = 'none';
+        if (grid) grid.style.display = 'flex';
+        if (btnClassic) btnClassic.classList.add('active');
+        if (btnMac) btnMac.classList.remove('active');
+        renderProjects();
+      }
+    }
+
+    function updateMacClock() {
+      const el = document.getElementById('mac-clock');
+      if (!el) return;
+      const now = new Date();
+      el.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     }
 
     function renderProjects() {
@@ -370,8 +744,14 @@
 
     function openProjectModal(idx) {
       const p = PROJECTS[idx];
+      if (!p) return;
       const d = p.detail;
-      if (!d) return;
+      if (!d) {
+        if (p.links && p.links.length > 0) {
+          window.open(p.links[0].url, '_blank');
+        }
+        return;
+      }
 
       const approachHtml = d.approach.map(a => `
     <div class="pm-approach-item">
@@ -524,7 +904,7 @@
     </div>
   </div>
 ` : '';
-      document.getElementById('projModalInner').innerHTML = `
+      const innerHtml = `
     <div class="pm-eyebrow">${p.org || ''} · ${p.date || ''}</div>
     <h2 class="pm-title" id="projModalTitle">${p.title}</h2>
     <div class="pm-header-meta">
@@ -558,9 +938,37 @@
     </div>
   `;
 
-      const modal = document.getElementById('projectModal');
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      if (projectsViewMode === 'macos') {
+        const canvas = document.getElementById('mac-content-canvas');
+        const pathEl = document.getElementById('mac-path-text');
+        if (pathEl) {
+          pathEl.textContent = `Applications / ${p.title} / Case Study`;
+        }
+        if (canvas) {
+          canvas.innerHTML = `
+            <div class="mac-app-case-study">
+              <div class="mac-case-study-bar">
+                <button class="mac-back-btn" onclick="renderMacProjects()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="mac-case-study-title-pill">
+                  <span class="mac-mini-dot" style="background:${p.color || '#6366f1'};"></span>
+                  <span>${p.title}</span>
+                </div>
+              </div>
+              <div class="mac-case-study-inner">
+                ${innerHtml}
+              </div>
+            </div>
+          `;
+          canvas.scrollTop = 0;
+        }
+      } else {
+        document.getElementById('projModalInner').innerHTML = innerHtml;
+        const modal = document.getElementById('projectModal');
+        if (modal) modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
     }
 
     function closeProjectModal(e) {
@@ -760,6 +1168,9 @@
       `).join('');
     }
 
+    renderMacProjects();
+    updateMacClock();
+    setInterval(updateMacClock, 10000);
     renderProjects();
     renderCertifications();
     renderEvents();
@@ -942,6 +1353,9 @@
         }
       }
     }
+
+    const yrEl = document.getElementById('foot-year');
+    if (yrEl) yrEl.textContent = new Date().getFullYear();
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {

@@ -3,6 +3,9 @@ const PROJECTS = [
     title: "OpenGIN Bot",
     org: "Lanka Data Foundation",
     date: "Dec 2025 – May 2026",
+    category: "ai",
+    icon: "bot",
+    color: "#6366f1",
     desc: "An LLM-powered agent for querying the OpenGIN government-data platform in natural language. Implemented LangGraph-based orchestration, parallel tool execution, topic-shift detection, entity caching, fact distillation, sliding-context memory, and automatic context pruning, engineered specifically to reduce token usage without losing conversational accuracy.",
     tags: ["LangGraph", "Next.js", "Agent Orchestration", "Fast API"],
     links: [{ label: "View repository ↗", url: "https://github.com/sehansi-9/research/tree/opengin-bot/opengin-bot" }],
@@ -52,6 +55,9 @@ const PROJECTS = [
     title: "OpenGINXplore",
     org: "Lanka Data Foundation",
     date: "May 2025 – May 2026",
+    category: "data",
+    icon: "globe",
+    color: "#059669",
     desc: "A temporal public and government data visualisation platform for Sri Lanka, built as part of an open-government initiative, tracing how the country's administrative structure has shifted over time.",
     tags: ["Data Visualization", "React", "Backend-for-Frontend Architecture"],
     links: [
@@ -126,6 +132,9 @@ const PROJECTS = [
     title: "Resilify",
     org: "University of Westminster · Group Project",
     date: "Oct 2024 – May 2025",
+    category: "health",
+    icon: "heart",
+    color: "#f43f5e",
     desc: "An AI-powered, gamified OCD therapy assistant, built with mental health professionals to improve therapy adherence. Selected for the Cutting Edge '25 exhibition and Top 15 of the TEDxColombo × John Keells IT Pitch-a-Thon.",
     tags: ["Flutter", "Rive Animations", "Python"],
     links: [
@@ -202,6 +211,9 @@ const PROJECTS = [
   {
     title: "Concurrent Ticket Management System",
     date: "Nov 2024 – Dec 2024",
+    category: "tools",
+    icon: "cpu",
+    color: "#d97706",
     desc: "Full-stack ticketing system simulating synchronised multi-threaded ticket allocation between customers and vendors, a Java CLI for bulk configuration, real-time WebSocket updates, and transaction logging for debugging concurrent operations.",
     tags: ["Java", "Spring Boot", "WebSockets", "Angular"],
     links: [{ label: "View Repository ↗", url: "https://github.com/sehansi-9/Ticketing_System" }],
@@ -250,6 +262,9 @@ const PROJECTS = [
   {
     title: "Catstagram",
     date: "May 2024 – Jul 2024",
+    category: "apps",
+    icon: "cat",
+    color: "#ec4899",
     desc: "A social platform exclusively for cat lovers, using TensorFlow's COCO-SSD image recognition model to enforce cat-only uploads, with JWT auth and a full MERN social feed.",
     tags: ["MERN", "JWT", "TensorFlow"],
     links: [{ label: "View Repository ↗", url: "https://github.com/sehansi-9/catstagram" }],
@@ -293,6 +308,9 @@ const PROJECTS = [
   {
     title: "Digital Art Portfolio",
     date: "since May 2020",
+    category: "art",
+    icon: "palette",
+    color: "#8b5cf6",
     desc: "Making illustrations using MS Powerpoint",
     tags: ["PowerPoint Art"],
     links: [{ label: "View Portfolio ↗", url: "https://www.instagram.com/sp_pptart/" }]

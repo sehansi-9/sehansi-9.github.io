@@ -679,6 +679,831 @@ section {
   top: .2em;
 }
 
+.sec-head-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.view-mode-toggle-group {
+  display: flex;
+  background: var(--line);
+  padding: 3px;
+  border-radius: 999px;
+  gap: 4px;
+}
+
+.mode-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--ink-dim);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-toggle-btn:hover {
+  color: var(--ink);
+}
+
+.mode-toggle-btn.active {
+  background: var(--bg);
+  color: var(--moss);
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.mac-desktop-frame {
+  background: linear-gradient(135deg, rgba(235, 239, 230, 0.95), rgba(225, 232, 220, 0.95));
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.09), 0 4px 16px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  position: relative;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  margin-top: 10px;
+}
+
+[data-theme="dark"] .mac-desktop-frame {
+  background: linear-gradient(135deg, rgba(24, 32, 26, 0.95), rgba(18, 24, 20, 0.95));
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.mac-menubar {
+  height: 28px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  color: var(--ink);
+  user-select: none;
+}
+
+[data-theme="dark"] .mac-menubar {
+  background: rgba(30, 38, 32, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.mac-menubar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mac-apple-logo {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.mac-app-name {
+  font-weight: 600;
+}
+
+.mac-menu-item {
+  color: var(--ink-dim);
+  transition: color 0.15s;
+}
+
+.mac-menubar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-dim);
+}
+
+.mac-window {
+  margin: 16px;
+  background: var(--bg);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: clamp(480px, 68vh, 580px);
+  overflow: hidden;
+}
+
+.mac-titlebar {
+  height: 44px;
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.mac-traffic-lights {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mac-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.mac-light:hover {
+  transform: scale(1.15);
+}
+
+.mac-light.close {
+  background: #ff5f56;
+  border: 1px solid #e0443e;
+}
+
+.mac-light.minimize {
+  background: #ffbd2e;
+  border: 1px solid #dea123;
+}
+
+.mac-light.expand {
+  background: #27c93f;
+  border: 1px solid #1aab29;
+}
+
+.mac-light.disabled {
+  cursor: default !important;
+  opacity: 0.85;
+}
+
+.mac-light.disabled:hover {
+  transform: none !important;
+}
+
+.mac-desktop-screen {
+  margin: 16px;
+  height: clamp(480px, 68vh, 580px);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: url('https://drive.google.com/thumbnail?id=1wyBxnHh0J_Q-8OXRTWavSCW2ZDj_MCHM&sz=w1600') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mac-desktop-app {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.mac-desktop-app:hover {
+  transform: translateY(-6px);
+}
+
+.mac-desktop-app-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--moss), #2b3b2e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.2s ease;
+}
+
+.mac-desktop-app:hover .mac-desktop-app-icon {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+}
+
+.mac-desktop-app-name {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #3f3535;
+  padding: 3px 10px;
+
+}
+
+.mac-window-path {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-dim);
+}
+
+.mac-window-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mac-subview-toggles {
+  display: flex;
+  background: var(--line);
+  padding: 2px;
+  border-radius: 6px;
+  gap: 2px;
+}
+
+.mac-icon-btn {
+  width: 26px;
+  height: 24px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: var(--ink-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.mac-icon-btn.active {
+  background: var(--bg);
+  color: var(--moss);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mac-search-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: var(--ink-dim);
+  width: 170px;
+}
+
+.mac-search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 12px;
+  color: var(--ink);
+  width: 100%;
+}
+
+.mac-window-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.mac-sidebar {
+  width: 200px;
+  background: rgba(0, 0, 0, 0.015);
+  border-right: 1px solid var(--line);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.mac-sidebar-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  margin-bottom: 8px;
+  padding-left: 8px;
+  opacity: 0.7;
+}
+
+.mac-sidebar-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--ink-dim);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mac-sidebar-item:hover {
+  background: var(--sage-tint);
+  color: var(--ink);
+}
+
+.mac-sidebar-item.active {
+  background: var(--moss);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.mac-sidebar-icon {
+  font-size: 14px;
+}
+
+.mac-tag-pills {
+  display: flex;
+  gap: 8px;
+  padding-left: 8px;
+}
+
+.mac-tag-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mac-tag-dot.red {
+  background: #ef4444;
+}
+
+.mac-tag-dot.orange {
+  background: #f97316;
+}
+
+.mac-tag-dot.green {
+  background: #22c55e;
+}
+
+.mac-tag-dot.blue {
+  background: #3b82f6;
+}
+
+.mac-content-canvas {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  min-height: 0;
+  height: 100%;
+}
+
+.mac-app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 28px 20px;
+  justify-items: center;
+  align-items: start;
+}
+
+.mac-app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  cursor: pointer;
+  width: 120px;
+  padding: 10px 6px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.mac-app-item:hover {
+  background: var(--sage-tint);
+  border-color: var(--line);
+  transform: translateY(-4px);
+}
+
+.mac-app-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mac-app-item:hover .mac-app-icon-wrap {
+  transform: scale(1.06);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.mac-app-icon-wrap svg {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.mac-app-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--moss);
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+
+.mac-app-title {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mac-app-subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-dim);
+  margin-top: 2px;
+}
+
+/* Finder List View Table */
+.mac-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+/* Date cell block formatting */
+.date-block {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.date-sep {
+  margin: 0 3px;
+}
+
+.mac-list-table th {
+  text-align: left;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-dim);
+  font-weight: 400;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mac-list-row {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.mac-list-row:hover {
+  background: var(--sage-tint);
+}
+
+.mac-list-row td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  vertical-align: middle;
+}
+
+.mac-list-name-col {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.mac-list-mini-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.mac-list-mini-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mac-list-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.mac-list-sdg-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mac-list-sdg-badge {
+  width: 27px;
+  height: 27px;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sage-tint);
+  border: 1px solid var(--sage);
+  flex-shrink: 0;
+  transition: border-color 0.15s ease, filter 0.15s ease;
+}
+
+.mac-list-sdg-badge:hover {
+  border-color: var(--moss);
+  filter: brightness(1.06);
+}
+
+.mac-list-sdg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mac-list-sdg-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--moss);
+}
+
+/* Mobile Responsiveness for macOS Desktop */
+@media (max-width: 768px) {
+  .sec-head-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Window frame: reduce margins, use viewport height */
+  .mac-window {
+    margin: 8px;
+    height: clamp(420px, 65vh, 560px);
+  }
+
+  /* ── Titlebar ── */
+  .mac-titlebar {
+    height: auto;
+    min-height: 44px;
+    flex-wrap: wrap;
+    padding: 6px 10px;
+    gap: 8px;
+    row-gap: 6px;
+  }
+
+  .mac-window-path {
+    display: none;
+  }
+
+  .mac-search-box {
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mac-window-controls {
+    flex: 1;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .mac-content-canvas {
+    padding: 12px 16px;
+    overflow-x: hidden;
+  }
+
+  .mac-list-table {
+    table-layout: fixed;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .mac-list-table th:nth-child(2),
+  .mac-list-table td:nth-child(2),
+  .mac-list-table th:nth-child(3),
+  .mac-list-table td:nth-child(3) {
+    display: none;
+  }
+
+  .mac-list-table th:nth-child(1),
+  .mac-list-table td:nth-child(1) {
+    width: 62% !important;
+  }
+
+  .mac-list-table th:nth-child(4),
+  .mac-list-table td:nth-child(4) {
+    width: 38% !important;
+  }
+
+  /* Hide mini icon to give name text more room */
+
+  .mac-list-name-col {
+    gap: 6px;
+  }
+
+  .mac-list-name-col>div>div:first-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+
+  .mac-list-row td:last-child {
+    white-space: nowrap !important;
+    text-align: right;
+    font-size: 11px;
+    vertical-align: middle;
+  }
+
+  /* Stack month on top and year underneath for each date block on mobile */
+  .date-block {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 1.15;
+  }
+
+  .date-block span {
+    font-size: 10px;
+    color: var(--ink-dim);
+    font-weight: 400;
+  }
+
+  .date-sep {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 3px;
+    opacity: 0.5;
+  }
+
+  .mac-list-row td {
+    padding: 8px 0;
+  }
+
+  .mac-window-body {
+    flex-direction: column;
+  }
+
+  .mac-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: 8px 10px;
+    gap: 6px;
+    overflow-y: visible;
+  }
+
+  .mac-sidebar-group {
+    display: flex;
+    overflow-x: auto;
+    gap: 6px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mac-sidebar-title {
+    display: none;
+  }
+
+  .mac-sidebar-item {
+    white-space: nowrap;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .mac-menubar-right {
+    display: none;
+  }
+
+  .mac-dock-wrapper {
+    display: none;
+  }
+}
+
+/* Extra-small screens */
+@media (max-width: 480px) {
+  .mac-window {
+    margin: 4px;
+  }
+
+  .mac-titlebar {
+    padding: 5px 8px;
+  }
+
+  .mac-list-table {
+    font-size: 11px;
+  }
+
+  .mac-list-name-col>div>div:first-child {
+    max-width: 120px;
+  }
+
+  .mac-content-canvas {
+    padding: 8px 16px;
+  }
+}
+
+.mac-app-case-study {
+  animation: fadeIn 0.25s ease-out;
+}
+
+.mac-case-study-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mac-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--moss);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mac-back-btn:hover {
+  background: var(--sage-tint);
+  border-color: var(--moss);
+  transform: translateX(-2px);
+}
+
+.mac-case-study-title-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-dim);
+}
+
+.mac-mini-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
 .proj-grid {
   display: flex;
   flex-direction: column;
@@ -738,8 +1563,11 @@ section {
   color: var(--moss);
   border: 1px solid var(--sage);
   background: var(--sage-tint);
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 999px;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1.25;
 }
 
 .proj-link {
@@ -1444,13 +2272,16 @@ footer h2 {
 }
 
 .foot-bottom {
-  margin-top: 60px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
+  font-size: 11.5px;
   color: var(--ink-dim);
 }
 
