@@ -862,7 +862,7 @@ section {
   height: clamp(480px, 68vh, 580px);
   border-radius: 12px;
   border: 1px solid var(--line);
-  background: url('https://drive.google.com/thumbnail?id=1wyBxnHh0J_Q-8OXRTWavSCW2ZDj_MCHM&sz=w1600') center/cover no-repeat;
+  background: linear-gradient(135deg, var(--sage-tint) 0%, #d4dfcf 50%, #c4d5bf 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -872,6 +872,10 @@ section {
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+[data-theme="dark"] .mac-desktop-screen {
+  background: linear-gradient(135deg, #1b261e 0%, #253328 50%, #151f18 100%);
 }
 
 .mac-desktop-app {
@@ -900,21 +904,22 @@ section {
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 24px rgba(60, 82, 64, 0.35);
   transition: box-shadow 0.2s ease;
 }
 
 .mac-desktop-app:hover .mac-desktop-app-icon {
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 32px rgba(60, 82, 64, 0.5);
 }
 
 .mac-desktop-app-name {
   font-family: 'Work Sans', sans-serif;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 500;
-  color: #3f3535;
-  padding: 3px 10px;
-
+  color: var(--ink);
+  background: none;
+  padding: 0;
+  border: none;
 }
 
 .mac-window-path {
