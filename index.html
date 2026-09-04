@@ -75,7 +75,9 @@
   <header class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <div class="eyebrow">Computer Science Undergraduate | Aspiring Software Engineer</div>
+        <div class="eyebrow hero-eyebrow">
+          <span class="typing-text">Computer Science Undergraduate | Aspiring Software Engineer</span><span class="typing-cursor" aria-hidden="true">|</span>
+        </div>
         <h1>Sehansi Perera</h1>
         <div class="btn-row">
           <a class="btn btn-primary" href="#projects">View projects</a>
@@ -1175,6 +1177,59 @@
     renderCertifications();
     renderEvents();
     renderBlog();
+
+    function initHeroTypewriter() {
+      const textEl = document.querySelector('.hero-eyebrow .typing-text');
+      const cursorEl = document.querySelector('.hero-eyebrow .typing-cursor');
+      if (!textEl) return;
+
+      const titles = [
+        "Computer Science Undergraduate | Aspiring Software Engineer",
+        "Open Data & AI Researcher | Systems Builder",
+        "Building Human-Centric Software with Care",
+        "IIT Sri Lanka Undergraduate • Technical Writer"
+      ];
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        textEl.textContent = titles[0];
+        if (cursorEl) cursorEl.style.display = 'none';
+        return;
+      }
+
+      let titleIndex = 0;
+      let charIndex = titles[0].length;
+      let isDeleting = false;
+      let typingSpeed = 60;
+
+      function type() {
+        const currentTitle = titles[titleIndex];
+
+        if (isDeleting) {
+          charIndex--;
+          typingSpeed = 28;
+        } else {
+          charIndex++;
+          typingSpeed = 45 + Math.random() * 35;
+        }
+
+        textEl.textContent = currentTitle.substring(0, charIndex);
+
+        if (!isDeleting && charIndex === currentTitle.length) {
+          typingSpeed = 2800;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          titleIndex = (titleIndex + 1) % titles.length;
+          typingSpeed = 450;
+        }
+
+        setTimeout(type, typingSpeed);
+      }
+
+      setTimeout(type, 2200);
+    }
+
+    initHeroTypewriter();
 
 
     const els = document.querySelectorAll('.reveal');
