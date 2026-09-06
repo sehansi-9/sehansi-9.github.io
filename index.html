@@ -1134,6 +1134,19 @@
       renderBlog(tab);
     }
 
+    function getBlogTimestamp(b) {
+      if (b.date) {
+        const ts = Date.parse(b.date);
+        if (!isNaN(ts)) return ts;
+      }
+      if (b.meta) {
+        const rawDateStr = b.meta.split('·')[0].trim();
+        const ts = Date.parse(rawDateStr);
+        if (!isNaN(ts)) return ts;
+      }
+      return 0;
+    }
+
     function renderBlog(category = currentWritingTab) {
       let articles = [];
       if (category === 'all') {
@@ -1142,8 +1155,10 @@
           ...(BLOG.life || [])
         ];
       } else if (BLOG[category]) {
-        articles = BLOG[category];
+        articles = [...BLOG[category]];
       }
+
+      articles.sort((a, b) => getBlogTimestamp(b) - getBlogTimestamp(a));
 
       const container = document.getElementById('blog-grid');
       if (!container) return;

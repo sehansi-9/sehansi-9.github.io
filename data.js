@@ -422,6 +422,7 @@ const BLOG = {
     {
       url: "https://medium.com/@sehansi/openginxplore-inside-the-journey-of-building-a-time-aware-map-of-sri-lankan-government-7972bf3c44c6",
       img: "https://miro.medium.com/v2/resize:fit:1200/1*kYRDmonDLdDe0x2hM8Py9w.png",
+      date: "Feb 2026",
       meta: "Feb 2026 · 5 min read",
       title: "OpenGINXplore: Inside the Journey of Building a Time-Aware Map of Sri Lankan Government",
       desc: "On the design decisions behind visualising a government structure that keeps changing; timelines, 3D networks, and tracing entity histories across time."
@@ -429,10 +430,20 @@ const BLOG = {
     {
       url: "https://medium.com/@ieeecomputersocietyiit/from-sci-fi-to-reality-how-ibms-influence-keeps-humanity-closer-to-the-future-of-space-travel-3ecd70bf43fe",
       img: "https://miro.medium.com/v2/resize:fit:975/1*SED2hZEJbBY1n60cyOYvUQ.png",
+      date: "May 2024",
       meta: "May 2024 · 3 min read · IEEE Computer Society SBC of IIT",
       title: "From Sci-Fi to Reality: How IBM's Influence Keeps Humanity Closer to the Future of Space Travel",
       desc: "A look at IBM's quieter role in space exploration; from Apollo-era computing to CIMON, its AI companion aboard the ISS, and edge computing in orbit."
     }
   ],
-  life: []
+  life: [
+    {
+      url: "https://medium.com/@sehansi/exiting-the-singularity-of-samsara-d20ae5000c83",
+      img: "https://miro.medium.com/v2/resize:fit:1100/format:webp/0*e8jArH-FvaPpOBcW",
+      date: "September 2026",
+      meta: "September 2026 · 6 min read",
+      title: "Exiting the Singularity of ‘Samsara’: A Conceptual Mathematical Mapping of Theravada Buddhist Metaphysics",
+      desc: "A thought experiment connecting Buddhist cosmology, infinity, information theory, and the mathematics of escape."
+    }
+  ]
 };
