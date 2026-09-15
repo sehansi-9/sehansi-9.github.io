@@ -5,19 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="4bC1YlpWCX2nNT6sa5HBINbTCz35ldp6sXuR56ETQLQ" />
-  <title>Sehansi Perera — Mindful, Efficient Software</title>
+  <title>Sehansi Perera — FrutigerOS Hub</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=35">
+  <link rel="stylesheet" href="style.css?v=38">
   <script>
     (function () {
       const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
       }
     })();
@@ -26,1415 +25,493 @@
 
 <body>
 
-  <nav id="navbar">
-    <div class="wrap">
-      <div class="nav-mark">Sehansi</div>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#events">Events</a>
-        <a href="#blog">Writing</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">
-          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.8"
-            fill="none">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.8"
-            fill="none" style="display:none;">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-        </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <svg class="icon-menu" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8"
-            fill="none">
-            <line x1="4" y1="7" x2="20" y2="7"></line>
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="17" x2="20" y2="17"></line>
-          </svg>
-          <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8"
-            fill="none" style="display:none;">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </nav>
+  <div class="aero-bubbles-container" id="aeroBubblesContainer" aria-hidden="true"></div>
+  <audio id="aeroBackgroundMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow hero-eyebrow">
-          <span class="typing-text">Computer Science Undergraduate | Aspiring Software Engineer</span><span
-            class="typing-cursor" aria-hidden="true">|</span>
-        </div>
-        <h1>Sehansi Perera</h1>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#projects">View projects</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank"
-            rel="noopener">LinkedIn ↗</a>
+  <div class="aero-desktop" id="aero-desktop">
+
+    <header class="aero-top-tabs-bar" role="tablist">
+      <a href="#home" class="aero-tab-btn active" role="tab" aria-selected="true" data-tab="home"
+        onclick="switchAeroTab('home', event)">
+        <span>🏠 Home</span>
+      </a>
+      <a href="#about" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="about"
+        onclick="switchAeroTab('about', event)">
+        <span>👤 About</span>
+      </a>
+      <a href="#projects" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="projects"
+        onclick="switchAeroTab('projects', event)">
+        <span>📁 Projects</span>
+      </a>
+      <a href="#events" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="events"
+        onclick="switchAeroTab('events', event)">
+        <span>📅 Events</span>
+      </a>
+      <a href="#writing" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="writing"
+        onclick="switchAeroTab('writing', event)">
+        <span>✍️ Writing</span>
+      </a>
+      <a href="#fun" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="fun"
+        onclick="switchAeroTab('fun', event)">
+        <span>🌤️ Weather &amp; Fun</span>
+      </a>
+    </header>
+
+    <div class="mobile-icon-bar" id="mobileIconBar">
+      <div class="mobile-brand">
+        <div class="mobile-orb" onclick="playAeroChime('chime'); switchAeroTab('home', event)" title="SehansiOS Orb">
+          <img src="favicon.svg" alt="Aero Orb">
         </div>
 
+        <span class="mobile-brand-name">SehansiOS</span>
       </div>
 
-      <div class="sprout" aria-hidden="true">
-        <svg viewBox="0 0 220 320" fill="none">
-          <path class="sprout-stem" d="M110 300 C110 230 108 170 112 120 C114 95 118 75 110 40" />
-          <path class="sprout-leaf" d="M112 150 C90 140 68 118 66 90 C96 92 112 115 112 150 Z" />
-          <path class="sprout-leaf" d="M114 100 C136 88 156 64 156 36 C126 40 114 70 114 100 Z" />
-          <path class="sprout-leaf" d="M110 200 C86 194 62 176 56 150 C88 148 110 175 110 200 Z" />
+
+      <a class="mobile-icon-btn" href="mailto:sehansi.wsmp9@gmail.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-      </div>
+      </a>
+      <a class="mobile-icon-btn" href="https://github.com/sehansi-9" target="_blank" rel="noopener" title="GitHub">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path
+            d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.031 1.531 1.031.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .267.18.578.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.522 2 12 2z" />
+        </svg>
+      </a>
+      <a class="mobile-icon-btn" href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank"
+        rel="noopener" title="LinkedIn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path
+            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
+      </a>
+      <button class="mobile-icon-btn" onclick="toggleAeroTheme()" title="Toggle Theme">
+        <svg id="themeIconSunMob" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+          stroke-width="2.2" style="display:none;">
+
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+
+        </svg>
+        <svg id="themeIconMoonMob" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+          stroke-width="2.2">
+
+          <path d="M21 12.79A9 9 0 1 1 11.21 3
+             7 7 0 0 0 21 12.79z"></path>
+
+        </svg>
+
+      </button>
+      <button class="mobile-icon-btn" id="soundToggleMob" onclick="toggleAeroAudio()" title="Sound">
+        <svg id="soundIconOnMob" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+          stroke-width="2.2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+        <svg id="soundIconOffMob" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+          stroke-width="2.2" style="display:none;">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+      </button>
     </div>
-  </header>
 
-  <section id="about">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">About</div>
-        <h2>Bridging the gap between raw data and human-centric systems</h2>
-      </div>
-      <div class="about-grid reveal">
-        <div class="about-col-left">
-          <p class="lede">I design software that does more with less; AI that use fewer tokens, interfaces that make
-            public data legible instead of overwhelming, and tools built with care rather than excess. My work sits at
-            the
-            intersection of open data, thoughtful AI systems, and social impact.</p>
-        </div>
-        <div class="about-col-mid">
-          <img src="https://drive.google.com/thumbnail?id=16U6YnlQniuHm4fTtTtWyCrB0L4BAJxER&sz=w400"
-            alt="Sehansi Perera" class="about-portrait">
-        </div>
-        <ul class="fact-list about-col-right">
-          <li><span class="k">BASED IN</span><span>Colombo, Western Province, Sri Lanka</span></li>
-          <li><span class="k">FOCUS</span><span>Efficient AI, Open Source Technology, Social-Impact Software</span></li>
-          <li><span class="k">ALSO INTO</span><span>Vector Illustration, Violin, Language Learning</span></li>
-        </ul>
-      </div>
-
-      <div class="about-drawers reveal">
-        <div class="drawer-item" id="experience">
-          <button class="drawer-header" aria-expanded="false" aria-controls="drawer-experience-body"
-            onclick="toggleDrawer('experience')">
-            <svg class="drawer-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
-              stroke-width="2.2" fill="none" aria-hidden="true">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-            <span class="drawer-title">Experience</span>
-          </button>
-          <div class="drawer-body" id="drawer-experience-body">
-            <div class="drawer-content">
-              <div class="xp-card">
-                <div class="xp-top">
-                  <div>
-                    <h3>Software Engineer Intern</h3>
-                    <div class="proj-org">Lanka Data Foundation · Full-time</div>
-                  </div>
-                  <div class="xp-meta">May 2025 – May 2026 · Colombo, Sri Lanka · On-site</div>
-                </div>
-                <ul>
-                  <li>Collaborated on research-driven projects involving open data, graph databases, and AI-assisted
-                    systems,
-                    contributing to full-stack development across multiple open-source platforms.</li>
-                  <li>Built agentic AI workflows with LangGraph, LLM orchestration, context management, multi-model
-                    support, and
-                    natural language querying over graph data, with a deliberate focus on reducing token usage.</li>
-                  <li>Took part in the full development lifecycle: code reviews, documentation, dataset validation, bug
-                    investigation, performance optimisation, and open-source releases.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="drawer-item" id="education">
-          <button class="drawer-header" aria-expanded="false" aria-controls="drawer-education-body"
-            onclick="toggleDrawer('education')">
-            <svg class="drawer-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
-              stroke-width="2.2" fill="none" aria-hidden="true">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-            <span class="drawer-title">Education</span>
-          </button>
-          <div class="drawer-body" id="drawer-education-body">
-            <div class="drawer-content">
-              <div class="edu-card">
-                <div class="edu-top">
-                  <div>
-                    <h3>University of Westminster, UK </h3>
-                    <h4>via Informatics Institute of Technology, Sri Lanka</h4>
-                    <div class="edu-degree">Bachelor of Science (BSc), Computer Science</div>
-                  </div>
-                  <div class="edu-meta">Sep 2023 – Sep 2027</div>
-                </div>
-                <div class="edu-note"><b>Activities:</b> IEEE Computer Society (IIT), IEEE Robotics and Automation
-                  Society
-                  (IIT), Mozilla Campus Club (IIT)</div>
-              </div>
-
-              <div class="edu-card">
-                <div class="edu-top">
-                  <div>
-                    <h3>Musaeus College, Colombo-07</h3>
-                    <div class="edu-degree">G.C.E. Advanced Level, Physical Science — Mathematics, Physics, Chemistry
-                    </div>
-                  </div>
-                  <div class="edu-meta">Jan 2009 – Aug 2022</div>
-                </div>
-                <div class="edu-note">
-                  <b>Activities:</b> Quiz Combine, Girl Guiding, Orchestra (Violin), Junior Dancing Troupe<br><br>
-                  <b>Positions held:</b> Vice Treasurer, Senior Mathematics Society (2021/2022) · Junior Prefect (2016)
-                  ·
-                  Primary Prefect (2013) · Patrol Vice-Leader, 23rd Colombo Girl Scouts (2017/2018)
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="drawer-item" id="certifications">
-          <button class="drawer-header" aria-expanded="false" aria-controls="drawer-certifications-body"
-            onclick="toggleDrawer('certifications')">
-            <svg class="drawer-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
-              stroke-width="2.2" fill="none" aria-hidden="true">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-            <span class="drawer-title">Certifications</span>
-          </button>
-          <div class="drawer-body" id="drawer-certifications-body">
-            <div class="drawer-content">
-              <div class="cert-grid" id="cert-grid"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="sec-head-top">
-          <div>
-            <div class="eyebrow">Projects</div>
-            <h2>Selected work</h2>
-            <p>A mix of research work, capstone projects, and fun personal projects</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mac-desktop-frame reveal" id="mac-desktop-frame">
-        <div class="mac-menubar">
-          <div class="mac-menubar-left">
-            <img src="favicon.svg" alt="Sehansi OS" style="width:22px; height:20px; display:block; flex-shrink:0;">
-            <span class="mac-app-name" id="mac-active-app-name">Finder</span>
-            <span class="mac-menu-item">File</span>
-            <span class="mac-menu-item">Edit</span>
-            <span class="mac-menu-item">View</span>
-            <span class="mac-menu-item">Go</span>
-            <span class="mac-menu-item">Window</span>
-          </div>
-          <div class="mac-menubar-right">
-            <span class="mac-status-tag">Sehansi OS v2.4</span>
-            <span class="mac-status-clock" id="mac-clock">10:42 AM</span>
-          </div>
-        </div>
-
-        <div class="mac-desktop-screen" id="mac-desktop-screen" style="display: none;">
-          <div class="mac-desktop-app" onclick="openMacWindow()" title="Click to launch Finder">
-            <div class="mac-desktop-app-icon">
-              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-              </svg>
-            </div>
-            <span class="mac-desktop-app-name">Finder</span>
-          </div>
-        </div>
-
-        <div class="mac-window" id="mac-window">
-          <div class="mac-titlebar">
-            <div class="mac-traffic-lights">
-              <span class="mac-light close" onclick="closeMacWindow()" title="Close Finder Window"></span>
-              <span class="mac-light minimize disabled" title="Minimize"></span>
-              <span class="mac-light expand disabled" title="Expand"></span>
-            </div>
-            <div class="mac-window-path">
-              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
-                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-              </svg>
-              <span id="mac-path-text">Applications / All Projects</span>
-            </div>
-            <div class="mac-window-controls">
-              <div class="mac-subview-toggles">
-                <button class="mac-icon-btn" id="mac-subview-icons" onclick="setMacSubView('grid')" title="Icons View">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="14" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
-                  </svg>
-                </button>
-                <button class="mac-icon-btn active" id="mac-subview-list" onclick="setMacSubView('list')"
-                  title="List View">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="8" y1="6" x2="21" y2="6"></line>
-                    <line x1="8" y1="12" x2="21" y2="12"></line>
-                    <line x1="8" y1="18" x2="21" y2="18"></line>
-                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                  </svg>
-                </button>
-              </div>
-              <div class="mac-search-box">
-                <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input type="text" id="mac-search-input" placeholder="Search..."
-                  oninput="onMacSearchChange(this.value)">
-              </div>
-            </div>
-          </div>
-          <div class="mac-window-body">
-            <aside class="mac-sidebar">
-              <div class="mac-sidebar-group">
-                <div class="mac-sidebar-title">Favorites</div>
-                <button class="mac-sidebar-item active" data-cat="all" onclick="filterMacProjects('all')">
-                  <span class="mac-sidebar-icon">📂</span> All Projects
-                </button>
-                <button class="mac-sidebar-item" data-cat="ai" onclick="filterMacProjects('ai')">
-                  <span class="mac-sidebar-icon"></span> AI &amp; Agents
-                </button>
-                <button class="mac-sidebar-item" data-cat="data" onclick="filterMacProjects('data')">
-                  <span class="mac-sidebar-icon"></span> Open Data
-                </button>
-                <button class="mac-sidebar-item" data-cat="health" onclick="filterMacProjects('health')">
-                  <span class="mac-sidebar-icon"></span> Health &amp; Apps
-                </button>
-                <button class="mac-sidebar-item" data-cat="tools" onclick="filterMacProjects('tools')">
-                  <span class="mac-sidebar-icon"></span> Systems &amp; Tools
-                </button>
-                <button class="mac-sidebar-item" data-cat="apps" onclick="filterMacProjects('apps')">
-                  <span class="mac-sidebar-icon"></span> Fun Apps
-                </button>
-                <button class="mac-sidebar-item" data-cat="art" onclick="filterMacProjects('art')">
-                  <span class="mac-sidebar-icon"></span> Creative &amp; Art
-                </button>
-              </div>
-            </aside>
-
-            <main class="mac-content-canvas" id="mac-content-canvas">
-            </main>
-          </div>
-        </div>
-      </div>
-
-      <div class="proj-grid" id="proj-grid" style="display:none;"></div>
-    </div>
-  </section>
-
-  <section id="events">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">Events</div>
-        <h2>Events &amp; Community</h2>
-        <p> Collection of events, meetups, and communities I've been involved in</p>
-      </div>
-      <div class="events-grid-wrapper collapsed" id="events-grid-wrapper">
-        <div class="events-grid gallery-grid reveal" id="events-grid"></div>
-        <div class="events-fade-overlay" id="events-fade-overlay"></div>
-      </div>
-      <div class="events-toggle-wrap" id="events-toggle-wrap">
-        <button class="events-toggle-btn" id="events-toggle-btn" onclick="toggleEvents()" aria-expanded="false"
-          aria-label="See more events">
-          <span id="events-toggle-text">See more</span>
-          <svg class="events-arrow-icon" id="events-arrow-icon" viewBox="0 0 24 24" width="16" height="16"
-            stroke="currentColor" stroke-width="2.2" fill="none" aria-hidden="true">
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-bar">
+        <div class="mobile-nav-active" id="mobileNavActiveLabel"> 🏠 Home</div>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" onclick="toggleMobileDrawer()"
+          aria-label="Open navigation">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
       </div>
-    </div>
-  </section>
-
-  <section id="blog">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">Writing</div>
-        <h2>Notes, in longer form</h2>
-        <p>Occasional essays on the projects, experiences and ideas I spend my time on.</p>
-        <div class="writing-tabs-bar">
-          <button class="writing-tab-item active" data-tab="all" onclick="switchWritingTab('all')">All</button>
-          <button class="writing-tab-item" data-tab="tech" onclick="switchWritingTab('tech')">Tech</button>
-          <button class="writing-tab-item" data-tab="life" onclick="switchWritingTab('life')">Life</button>
-        </div>
+      <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <a href="#home" class="mobile-drawer-item active" data-mob-tab="home" onclick="switchAeroTab('home', event)">🏠
+          Home</a>
+        <a href="#about" class="mobile-drawer-item" data-mob-tab="about" onclick="switchAeroTab('about', event)">👤
+          About</a>
+        <a href="#projects" class="mobile-drawer-item" data-mob-tab="projects"
+          onclick="switchAeroTab('projects', event)">📁 Projects</a>
+        <a href="#events" class="mobile-drawer-item" data-mob-tab="events" onclick="switchAeroTab('events', event)">📅
+          Events</a>
+        <a href="#writing" class="mobile-drawer-item" data-mob-tab="writing"
+          onclick="switchAeroTab('writing', event)">✍️ Writing</a>
+        <a href="#fun" class="mobile-drawer-item" data-mob-tab="fun" onclick="switchAeroTab('fun', event)">🌤️ Weather
+          &amp; Fun</a>
       </div>
-      <div class="proj-grid" id="blog-grid"></div>
     </div>
-  </section>
 
-  <footer id="contact">
-    <div class="wrap">
-      <div class="foot-grid">
-        <h2>Let's build something worth keeping.</h2>
-        <div class="foot-links">
-          <a href="mailto:sehansi.wsmp9@gmail.com">sehansi.wsmp9@gmail.com</a>
-          <div class="foot-socials">
-            <a href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank" rel="noopener"
-              class="foot-gh-link" title="LinkedIn Profile" aria-label="LinkedIn Profile"><svg
-                class="gh-icon linkedin-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"
-                aria-hidden="true">
-                <path
-                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-              </svg></a>
-            <a href="https://github.com/sehansi-9" target="_blank" rel="noopener" class="foot-gh-link"
-              title="GitHub Profile" aria-label="GitHub Profile"><svg class="gh-icon" viewBox="0 0 24 24" width="18"
-                height="18" fill="currentColor" aria-hidden="true">
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-              </svg></a>
+    <main class="aero-desktop-body">
+
+      <aside class="aero-sidebar">
+        <div class="sidebar-top">
+          <div class="sidebar-orb" onclick="playAeroChime('chime'); switchAeroTab('home', event)" title="SehansiOS Orb">
+            <img src="favicon.svg" alt="Aero Orb">
           </div>
-          <a href="#">Back to top ↑</a>
+          <div class="sidebar-os-title">SehansiOS</div>
+
+          <nav class="sidebar-nav-list">
+            <a class="sidebar-pill-btn" href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank"
+              rel="noopener">
+              <span>💼 LinkedIn ↗</span>
+            </a>
+            <a class="sidebar-pill-btn" href="mailto:sehansi.wsmp9@gmail.com" target="_blank" rel="noopener">
+              <span>📧 Email ↗</span>
+            </a>
+            <a class="sidebar-pill-btn" href="https://github.com/sehansi-9" target="_blank" rel="noopener">
+              <span>🐙 GitHub ↗</span>
+            </a>
+            <a class="sidebar-pill-btn" href="https://instagram.com/sp_pptart" target="_blank" rel="noopener">
+              <span>🎨 Digital Art ↗</span>
+            </a>
+          </nav>
+
+          <div class="sidebar-app-grid">
+            <button class="sidebar-app-tile" onclick="toggleAeroTheme()" title="Toggle Wallpaper Theme">
+
+              <svg id="themeIconSun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+                stroke-width="2.2">
+
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+
+              </svg>
+
+              <svg id="themeIconMoon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+                stroke-width="2.2" style="display:none;">
+
+                <path d="M21 12.79A9 9 0 1 1 11.21 3
+             7 7 0 0 0 21 12.79z"></path>
+
+              </svg>
+
+            </button>
+            <button class="sidebar-app-tile" id="soundToggle" onclick="toggleAeroAudio()" title="Sound On / Off">
+              <svg id="soundIconOn" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+                stroke-width="2.2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+              <svg id="soundIconOff" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+                stroke-width="2.2" style="display:none;">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="foot-bottom">
-        <span>© <span id="foot-year">2026</span> Sehansi Perera. All rights reserved.</span>
-      </div>
+
+        <div class="sidebar-footer-text">© 2026 Sehansi Perera</div>
+      </aside>
+
+      <section class="aero-main-window">
+
+        <div class="window-title-header">
+          <h1 class="window-title" id="activeWindowTitle">Home</h1>
+        </div>
+        <div class="window-content-canvas" id="windowContentCanvas">
+
+          <div class="aero-tab-panel active" id="tab-home">
+            <div class="aero-intro-card">
+              <div class="intro-avatar-frame">
+                <img src="https://drive.google.com/thumbnail?id=16U6YnlQniuHm4fTtTtWyCrB0L4BAJxER&sz=w400"
+                  alt="Sehansi Perera" class="intro-avatar-img">
+              </div>
+              <div class="intro-text-col">
+                <div class="intro-heading">Sehansi Says:</div>
+                <p class="intro-body">
+                  Welcome to my corner on the web! I'm a Computer Science undergraduate, building mindful AI systems,
+                  open data platforms, and social-impact technology. Click through
+                  the tabs above or the buttons on the left to explore my projects, writing, events, and background!
+                </p>
+              </div>
+            </div>
+
+            <section class="aero-card clock-widget">
+              <div class="glass-pool"></div>
+              <div class="glass-sheen-bottom"></div>
+              <div class="widget-label">LOCAL TIME</div>
+              <div class="clock-face-wrap">
+                <div class="clock-face" id="clockFace">
+                  <div class="hand hour" id="hourHand"></div>
+                  <div class="hand minute" id="minuteHand"></div>
+                  <div class="hand second" id="secondHand"></div>
+                  <div class="clock-pin"></div>
+                </div>
+              </div>
+              <div class="digital-readout" id="digitalTime">00:00:00</div>
+              <div class="digital-date" id="digitalDate">Loading…</div>
+            </section>
+
+            <div class="aero-pill-row" onclick="switchAeroTab('projects')">
+              <div class="row-thumb-wrap">
+                <img src="https://drive.google.com/thumbnail?id=18VtLLeFPw1GKG7EMp7WF7sKe44IwN-Vl&sz=w800"
+                  alt="OpenGIN Bot" class="row-thumb-img">
+              </div>
+              <div class="row-info-col">
+                <div class="row-title">OpenGIN Bot - AI Graph Reasoning Agent</div>
+                <div class="row-desc">LangGraph-powered LLM agent querying government temporal graph data with reduced
+                  token consumption.</div>
+                <div class="row-tags">
+                  <span class="row-tag">LangGraph</span>
+                  <span class="row-tag">FastAPI</span>
+                  <span class="row-tag">Agent Orchestration</span>
+                </div>
+              </div>
+              <div class="row-action-arrow">➔</div>
+            </div>
+
+            <div class="aero-pill-row" onclick="switchAeroTab('projects')">
+              <div class="row-thumb-wrap">
+                <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*VecS2jEs2t4N0ihV4CkORA.png"
+                  onerror="this.src='favicon.svg'" alt="OpenGINXplore" class="row-thumb-img">
+              </div>
+              <div class="row-info-col">
+                <div class="row-title">OpenGINXplore - Temporal Government Data Platform</div>
+                <div class="row-desc">Interactive 3D network &amp; temporal administrative structure visualization of
+                  Sri Lanka.</div>
+                <div class="row-tags">
+                  <span class="row-tag">React</span>
+                  <span class="row-tag">3D Network Graph</span>
+                  <span class="row-tag">Open Data</span>
+                </div>
+              </div>
+              <div class="row-action-arrow">➔</div>
+            </div>
+
+            <div class="aero-pill-row" onclick="switchAeroTab('writing')">
+              <div class="row-thumb-wrap">
+                <img src="https://miro.medium.com/v2/resize:fit:975/1*SED2hZEJbBY1n60cyOYvUQ.png"
+                  onerror="this.src='favicon.svg'" alt="Writing" class="row-thumb-img">
+              </div>
+              <div class="row-info-col">
+                <div class="row-title">How IBM's Influence Keeps Humanity Closer to the Future of Space Travel</div>
+                <div class="row-desc">A look at IBM's quieter role in space exploration; from Apollo-era computing to
+                  CIMON</div>
+                <div class="row-tags">
+                  <span class="row-tag">Medium Article</span>
+                  <span class="row-tag">Space Tech</span>
+                </div>
+              </div>
+              <div class="row-action-arrow">➔</div>
+            </div>
+          </div>
+
+          <div class="aero-tab-panel" id="tab-about">
+            <div class="aero-intro-card">
+              <div class="intro-avatar-frame">
+                <img src="https://drive.google.com/thumbnail?id=16U6YnlQniuHm4fTtTtWyCrB0L4BAJxER&sz=w400"
+                  alt="Sehansi Perera" class="intro-avatar-img">
+              </div>
+              <div class="intro-text-col">
+                <div class="intro-heading">Sehansi Perera</div>
+                <p class="intro-body">
+                  <strong>Based in Colombo, Sri Lanka</strong> · Computer Science Undergraduate at University of
+                  Westminster UK / Informatics Institute of Technology. Focused on Efficient AI, Open Source Platforms,
+                  and Social-Impact Software.
+                </p>
+              </div>
+            </div>
+
+            <div class="tab-filter-bar">
+              <button class="tab-filter-btn active" data-about="experience" onclick="filterAeroAbout('experience')">💼
+                Experience</button>
+              <button class="tab-filter-btn" data-about="education" onclick="filterAeroAbout('education')">🎓
+                Education</button>
+              <button class="tab-filter-btn" data-about="certs" onclick="filterAeroAbout('certs')">📜
+                Certifications</button>
+            </div>
+
+            <div id="about-section-experience" style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="aero-pill-row aero-pill-row--static">
+                <div class="row-info-col">
+                  <div class="row-title">Software Engineer Intern · Lanka Data Foundation</div>
+                  <div class="row-desc">May 2025 – May 2026 · Colombo, Sri Lanka (Full-time)</div>
+                  <ul class="cs-highlights-list"
+                    style="margin-top: 8px; padding-left: 18px; line-height: 1.5; font-size: 0.85rem;">
+                    <li>Collaborated on research-driven projects involving open data, graph databases, and AI-assisted
+                      systems, contributing to full-stack development across multiple open-source platforms.</li>
+                    <li>Built agentic AI workflows with LangGraph, LLM orchestration, context management, multi-model
+                      support, and natural language querying over graph data, with a deliberate focus on reducing token
+                      usage.</li>
+                    <li>Took part in the full development lifecycle: code reviews, documentation, dataset validation,
+                      bug investigation, performance optimisation, and open-source releases.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div id="about-section-education" style="display: none; flex-direction: column; gap: 10px;">
+              <div class="aero-pill-row aero-pill-row--static">
+                <div class="row-info-col">
+                  <div class="row-title">BSc (Hons) Computer Science · University of Westminster, UK</div>
+                  <div class="row-desc">Sep 2023 – Sep 2027 · via Informatics Institute of Technology (IIT), Sri Lanka
+                  </div>
+                  <div class="row-tags">
+                    <span class="row-desc">Societies:</span>
+                    <span class="row-tag">IEEE Computer Society</span>
+                    <span class="row-tag">IEEE Robotics & Automation Society</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="aero-pill-row aero-pill-row--static">
+                <div class="row-info-col">
+                  <div class="row-title">G.C.E A/L in Physical Science - Musaeus College, Colombo-07</div>
+                  <div class="row-desc"> Jan 2009 – Aug 2022 · <span> Subjects - Pure & Applied Mathematics, Physics,
+                      Chemistry
+                  </div>
+                  <div class="row-tags">
+                    <span class="row-desc">Activities:</span>
+                    <span class="row-tag">Quiz Combine</span>
+                    <span class="row-tag">23rd Colombo Girl Guide</span>
+                    <span class="row-tag">Junior Dancing Troupe</span>
+                  </div>
+                  <div class="row-tags">
+                    <span class="row-desc">Positions:</span>
+                    <span class="row-tag">Vice Treasurer, Senior Mathematics Society (2021/2022)</span>
+                    <span class="row-tag">Junior Prefect (2016)</span>
+                    <span class="row-tag">Primary Prefect (2013)</span>
+                    <span class="row-tag">Patrol Vice-Leader, 23rd Colombo Girl Scouts (2017/2018)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="about-section-certs" style="display: none; flex-direction: column; gap: 10px;">
+              <div id="aero-certs-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
+            </div>
+          </div>
+
+          <div class="aero-tab-panel" id="tab-projects">
+            <div id="projects-overview-view" style="display: flex; flex-direction: column; gap: 14px;">
+              <div class="tab-filter-bar">
+                <button class="tab-filter-btn active" data-cat="all" onclick="filterAeroProjects('all')">All</button>
+                <button class="tab-filter-btn" data-cat="ai" onclick="filterAeroProjects('ai')">AI &amp; Agents</button>
+                <button class="tab-filter-btn" data-cat="data" onclick="filterAeroProjects('data')">Open Data</button>
+                <button class="tab-filter-btn" data-cat="health" onclick="filterAeroProjects('health')">Health &amp;
+                  Apps</button>
+                <button class="tab-filter-btn" data-cat="tools" onclick="filterAeroProjects('tools')">Systems &amp;
+                  Tools</button>
+                <button class="tab-filter-btn" data-cat="apps" onclick="filterAeroProjects('apps')">Fun Apps</button>
+                <button class="tab-filter-btn" data-cat="art" onclick="filterAeroProjects('art')">Creative &amp;
+                  Art</button>
+              </div>
+
+              <div id="aero-projects-grid" class="aero-card-grid"></div>
+            </div>
+
+            <div id="projects-detail-view" style="display: none; flex-direction: column; gap: 14px;"></div>
+          </div>
+
+          <div class="aero-tab-panel" id="tab-events">
+            <div id="aero-events-grid" class="aero-gallery-grid"></div>
+          </div>
+
+          <div class="aero-tab-panel" id="tab-writing">
+            <div class="tab-filter-bar">
+              <button class="tab-filter-btn active" data-writing="all" onclick="filterAeroWriting('all')">All</button>
+              <button class="tab-filter-btn" data-writing="tech" onclick="filterAeroWriting('tech')">Tech</button>
+              <button class="tab-filter-btn" data-writing="life" onclick="filterAeroWriting('life')">Life</button>
+            </div>
+            <div id="aero-writing-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
+          </div>
+
+          <div class="aero-tab-panel" id="tab-fun">
+            <div class="aero-intro-card" style="grid-template-columns: 100px 1fr;">
+              <div class="intro-avatar-frame"
+                style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+
+                <img id="weatherImage" alt="Current weather"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 15%; display: none;">
+
+                <div id="weatherEmoji"
+                  style="font-size: 52px; line-height: 1; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+                  ⛅
+                </div>
+
+              </div>
+
+              <div class="intro-text-col">
+                <div class="intro-heading" id="weatherLocation">
+                  Colombo, Western Province
+                </div>
+                <p class="intro-body">
+                  <strong id="weatherMain">
+                    Loading weather...
+                  </strong>
+                  <br>
+                  <span id="weatherDetails">
+                    Humidity: -- · Wind: -- km/h
+                  </span>
+                  <br>
+                  <span id="weatherAtmosphere">
+                    Atmosphere: Loading...
+                  </span>
+
+                </p>
+
+              </div>
+            </div>
+
+            <div class="aero-pill-row" onclick="spawnBubbleBurst()" style="cursor: pointer;">
+              <div class="row-thumb-wrap"
+                style="background: #06b6d4; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px;">
+                🫧</div>
+              <div class="row-info-col">
+                <div class="row-title">Release Aero Bubble Burst</div>
+                <div class="row-desc">Spawn a shimmering cascade of interactive water bubbles on the desktop screen.
+                </div>
+              </div>
+              <div class="row-action-arrow">✦</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="projectModal" class="proj-modal" role="dialog" aria-modal="true" onclick="closeProjectModal(event)">
+    <div class="proj-modal-panel">
+      <button class="proj-modal-close" onclick="closeProjectModal()">&times;</button>
+      <div id="projModalInner"></div>
     </div>
-  </footer>
+  </div>
 
   <div id="lightboxModal" class="lightbox" onclick="closeLightbox(event)">
     <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
     <div class="lightbox-content">
-      <img id="lightboxImg" src="" alt="Enlarged picture view">
-      <div id="lightboxVideo" class="lightbox-video-wrap" style="display:none;">
-        <iframe id="lightboxIframe" src="" style="width:100%;height:100%;border:0;border-radius:8px;" allow="autoplay"
-          allowfullscreen></iframe>
+      <img id="lightboxImg" src="" alt="Enlarged view">
+      <div id="lightboxVideoWrap" class="lightbox-video-wrap" style="display:none;">
+        <iframe id="lightboxIframe" src="" allow="autoplay; fullscreen" allowfullscreen frameborder="0"></iframe>
       </div>
       <div id="lightboxCaption" class="lightbox-caption"></div>
     </div>
   </div>
 
-  <div id="projectModal" class="proj-modal" role="dialog" aria-modal="true" aria-labelledby="projModalTitle"
-    onclick="closeProjectModal(event)">
-    <div class="proj-modal-panel">
-      <button class="proj-modal-close" onclick="closeProjectModal()" aria-label="Close project detail">&times;</button>
-      <div class="proj-modal-inner" id="projModalInner"></div>
-    </div>
-  </div>
-
   <script src="data.js"></script>
-  <script>
-    const GH_SVG = `<svg class="gh-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>`;
-    const INSTA_SVG = `<svg class="gh-icon insta-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>`;
-
-    let currentMacCategory = 'all';
-    let currentMacSubView = 'list';
-    let macSearchQuery = '';
-    let projectsViewMode = 'macos';
-
-    function getProjectIconSvg(iconType) {
-      switch (iconType) {
-        case 'bot':
-          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8.01" y2="16"></line><line x1="16" y1="16" x2="16.01" y2="16"></line></svg>`;
-        case 'globe':
-          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`;
-        case 'heart':
-          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`;
-        case 'cpu':
-          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>`;
-        case 'cat':
-          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-4 0-7.5 2.5-7.5 6 0 2.5 1.5 4.5 3.5 5.5V19l3-1.5c.3.1.7.2 1 .2s.7-.1 1-.2L16 19v-2.5c2-1 3.5-3 3.5-5.5 0-3.5-3.5-6-7.5-6z"></path><circle cx="9" cy="10" r="1" fill="currentColor"></circle><circle cx="15" cy="10" r="1" fill="currentColor"></circle></svg>`;
-        case 'palette':
-        default:
-          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.5-.72 1.5-1.5 0-.4-.15-.76-.4-1.04-.26-.29-.42-.66-.42-1.06 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9z"></path></svg>`;
-      }
-    }
-
-    function darkenColor(hex, percent) {
-      if (!hex || hex[0] !== '#') return hex || '#4f46e5';
-      let num = parseInt(hex.slice(1), 16),
-        amt = Math.round(2.55 * percent),
-        R = (num >> 16) - amt,
-        G = (num >> 8 & 0x00FF) - amt,
-        B = (num & 0x0000FF) - amt;
-      return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 + (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
-    }
-
-    function renderProjLink(l) {
-      const isGh = (l.url && l.url.includes('github.com')) || (l.label && /repository|github/i.test(l.label));
-      if (isGh) {
-        return `<a class="proj-link gh-link" href="${l.url}" target="_blank" rel="noopener" aria-label="GitHub Repository" title="GitHub Repository">${GH_SVG}</a>`;
-      }
-      const isInsta = (l.url && l.url.includes('instagram.com')) || (l.label && /instagram|social platform/i.test(l.label));
-      if (isInsta) {
-        return `<a class="proj-link gh-link insta-link" href="${l.url}" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">${INSTA_SVG}</a>`;
-      }
-      return `<a class="proj-link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`;
-    }
-
-    // Formats "Dec 2025 – May 2026" with date-block spans for responsive stacking
-    function formatDate(dateStr) {
-      if (!dateStr) return '';
-      const parts = dateStr.split(/\s*[–—-]\s*/);
-      if (parts.length === 2) {
-        const formatPart = (p) => {
-          const m = p.trim().match(/^([A-Za-z]+)\s*(\d{4})$/);
-          return m ? `<span class="date-block"><span>${m[1]}</span><span>${m[2]}</span></span>` : `<span class="date-block"><span>${p.trim()}</span></span>`;
-        };
-        return `${formatPart(parts[0])} <span class="date-sep">–</span> ${formatPart(parts[1])}`;
-      }
-      const m = dateStr.trim().match(/^([A-Za-z]+)\s*(\d{4})$/);
-      if (m) {
-        return `<span class="date-block"><span>${m[1]}</span><span>${m[2]}</span></span>`;
-      }
-      return dateStr;
-    }
-
-    function updateMacPathText() {
-      const pathEl = document.getElementById('mac-path-text');
-      if (pathEl) {
-        const names = {
-          all: 'Applications / All Projects',
-          ai: 'Applications / AI & Agents',
-          data: 'Applications / Open Data',
-          health: 'Applications / Health & Apps',
-          tools: 'Applications / Systems & Tools',
-          apps: 'Applications / Fun Apps',
-          art: 'Applications / Creative & Art'
-        };
-        pathEl.textContent = names[currentMacCategory] || 'Applications / Selected Work';
-      }
-    }
-
-    function closeMacWindow() {
-      const win = document.getElementById('mac-window');
-      const screen = document.getElementById('mac-desktop-screen');
-      const appName = document.getElementById('mac-active-app-name');
-      if (win && screen) {
-        win.style.display = 'none';
-        screen.style.display = 'flex';
-      }
-      if (appName) {
-        appName.textContent = 'Desktop';
-      }
-    }
-
-    function openMacWindow() {
-      const win = document.getElementById('mac-window');
-      const screen = document.getElementById('mac-desktop-screen');
-      const appName = document.getElementById('mac-active-app-name');
-      if (win && screen) {
-        screen.style.display = 'none';
-        win.style.display = 'flex';
-      }
-      if (appName) {
-        appName.textContent = 'Finder';
-      }
-    }
-
-    function renderMacProjects() {
-      updateMacPathText();
-      const canvas = document.getElementById('mac-content-canvas');
-      if (!canvas) return;
-
-      const q = macSearchQuery.toLowerCase().trim();
-      const filtered = PROJECTS.map((p, originalIndex) => ({ ...p, originalIndex }))
-        .filter(p => {
-          const matchCat = currentMacCategory === 'all' || p.category === currentMacCategory;
-          const matchSearch = !q || p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || (p.tags && p.tags.some(t => t.toLowerCase().includes(q)));
-          return matchCat && matchSearch;
-        });
-
-      if (filtered.length === 0) {
-        canvas.innerHTML = `<div style="text-align:center; padding: 60px 20px; color: var(--ink-dim);"><div style="font-size:32px; margin-bottom:10px;">🔍</div><p>No projects found matching "${macSearchQuery}"</p></div>`;
-        return;
-      }
-
-      if (currentMacSubView === 'grid') {
-        canvas.innerHTML = `
-          <div class="mac-app-grid">
-            ${filtered.map(p => `
-              <div class="mac-app-item" onclick="openProjectModal(${p.originalIndex})" title="${p.title} — Click to view details">
-                <div class="mac-app-icon-wrap" style="background: linear-gradient(135deg, ${p.color || '#6366f1'}, ${darkenColor(p.color || '#6366f1', 20)});">
-                  ${getProjectIconSvg(p.icon)}
-                  ${p.detail ? `<span class="mac-app-badge">App</span>` : ''}
-                </div>
-                <div>
-                  <div class="mac-app-title">${p.title}</div>
-                  <div class="mac-app-subtitle">${p.tags ? p.tags[0] : ''}</div>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        `;
-      } else {
-        canvas.innerHTML = `
-          <table class="mac-list-table">
-            <thead>
-              <tr>
-                <th style="width: 40%;">Name</th>
-                <th style="width: 30%;">Tags</th>
-                <th style="width: 14%;">SDGs</th>
-                <th style="width: 18%; text-align: right;">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${filtered.map(p => `
-                <tr class="mac-list-row" onclick="openProjectModal(${p.originalIndex})">
-                  <td>
-                    <div class="mac-list-name-col">
-                      <div class="mac-list-mini-icon" style="background: ${p.color || '#6366f1'};">
-                        ${getProjectIconSvg(p.icon)}
-                      </div>
-                      <div>
-                        <div style="font-weight:600;">${p.title}</div>
-                        <div style="font-size:11px; color:var(--ink-dim);">${p.org || ''}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="mac-list-tags-wrap">
-                      ${p.tags ? p.tags.map(t => `<span class="tag">${t}</span>`).join('') : ''}
-                    </div>
-                  </td>
-                  <td>
-                    ${(p.detail && p.detail.sdgs && p.detail.sdgs.length) ? `
-                      <div class="mac-list-sdg-row">
-                        ${p.detail.sdgs.map(s => `
-                          <div class="mac-list-sdg-badge" title="${s.title}">
-                            ${s.img ? `<img src="${s.img}" alt="${s.title}" class="mac-list-sdg-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''}
-                            <span class="mac-list-sdg-num" ${s.img ? 'style="display:none;"' : ''}>${s.id}</span>
-                          </div>
-                        `).join('')}
-                      </div>
-                    ` : '<span style="color:var(--ink-dim); opacity:0.4;">—</span>'}
-                  </td>
-                  <td class="mac-date-cell" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-dim); text-align: right; white-space: nowrap;">${formatDate(p.date || '')}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        `;
-      }
-
-      renderMacDock();
-    }
-
-    function renderMacDock() {
-      const dock = document.getElementById('mac-dock');
-      if (!dock) return;
-
-      dock.innerHTML = PROJECTS.map((p, i) => `
-        <div class="mac-dock-item" onclick="openProjectModal(${i})">
-          <div class="mac-dock-tooltip">${p.title}</div>
-          <div class="mac-dock-icon" style="background: linear-gradient(135deg, ${p.color || '#6366f1'}, ${darkenColor(p.color || '#6366f1', 20)});">
-            ${getProjectIconSvg(p.icon)}
-          </div>
-          <div class="mac-dock-dot"></div>
-        </div>
-      `).join('');
-    }
-
-    function filterMacProjects(cat) {
-      currentMacCategory = cat;
-      document.querySelectorAll('.mac-sidebar-item').forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-cat') === cat);
-      });
-      const pathEl = document.getElementById('mac-path-text');
-      if (pathEl) {
-        const names = {
-          all: 'Applications / All Projects',
-          ai: 'Applications / AI & Agents',
-          data: 'Applications / Open Data',
-          health: 'Applications / Health & Apps',
-          tools: 'Applications / Systems & Tools',
-          apps: 'Applications / Fun Apps',
-          art: 'Applications / Creative & Art'
-        };
-        pathEl.textContent = names[cat] || 'Applications / Selected Work';
-      }
-      renderMacProjects();
-    }
-
-    function setMacSubView(mode) {
-      currentMacSubView = mode;
-      const iconBtn = document.getElementById('mac-subview-icons');
-      const listBtn = document.getElementById('mac-subview-list');
-      if (iconBtn) iconBtn.classList.toggle('active', mode === 'grid');
-      if (listBtn) listBtn.classList.toggle('active', mode === 'list');
-      renderMacProjects();
-    }
-
-    function onMacSearchChange(val) {
-      macSearchQuery = val;
-      renderMacProjects();
-    }
-
-    function setProjectsViewMode(mode) {
-      projectsViewMode = mode;
-      const frame = document.getElementById('mac-desktop-frame');
-      const grid = document.getElementById('proj-grid');
-      const btnMac = document.getElementById('mode-btn-macos');
-      const btnClassic = document.getElementById('mode-btn-classic');
-
-      if (mode === 'macos') {
-        if (frame) frame.style.display = 'block';
-        if (grid) grid.style.display = 'none';
-        if (btnMac) btnMac.classList.add('active');
-        if (btnClassic) btnClassic.classList.remove('active');
-        renderMacProjects();
-      } else {
-        if (frame) frame.style.display = 'none';
-        if (grid) grid.style.display = 'flex';
-        if (btnClassic) btnClassic.classList.add('active');
-        if (btnMac) btnMac.classList.remove('active');
-        renderProjects();
-      }
-    }
-
-    function updateMacClock() {
-      const el = document.getElementById('mac-clock');
-      if (!el) return;
-      const now = new Date();
-      el.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-
-    function renderProjects() {
-      document.getElementById('proj-grid').innerHTML = PROJECTS.map((p, i) => `
-    <div class="proj-card reveal">
-      <div class="proj-top">
-        <h3>${p.title}</h3>
-        ${p.org ? `<div class="proj-org">${p.org}</div>` : ''}
-        ${p.date ? `<div class="proj-date">${p.date}</div>` : ''}
-      </div>
-      <div class="proj-body">
-        <p>${p.desc}</p>
-        <div class="tag-row">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-        ${(p.detail && p.detail.sdgs && p.detail.sdgs.length) ? `
-          <div class="sdg-square-row">
-            ${p.detail.sdgs.map(s => `
-              <div class="sdg-square" title="${s.title}">
-                ${s.img ? `<img src="${s.img}" alt="${s.title}" class="sdg-square-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''}
-                <div class="sdg-square-placeholder" ${s.img ? 'style="display:none;"' : ''}>
-                  <span>${s.id}</span>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        ` : ''}
-        <div class="proj-actions">
-          ${p.detail
-          ? `<button class="proj-more-btn" onclick="openProjectModal(${i})" id="proj-more-btn-${i}">Case study ↗</button>`
-          : p.links.map(l => renderProjLink(l)).join('')}
-        </div>
-      </div>
-    </div>
-  `).join('');
-    }
-
-    function openProjectModal(idx) {
-      const p = PROJECTS[idx];
-      if (!p) return;
-      const d = p.detail;
-      if (!d) {
-        if (p.links && p.links.length > 0) {
-          window.open(p.links[0].url, '_blank');
-        }
-        return;
-      }
-
-      const approachHtml = d.approach.map(a => `
-    <div class="pm-approach-item">
-      <div class="pm-approach-head">${a.heading}</div>
-      <p>${a.body}</p>
-    </div>
-  `).join('');
-
-      const highlightsHtml = d.highlights.map(h => `<li>${h}</li>`).join('');
-
-      const stackHtml = `
-    <div class="pm-stack-cols">
-      ${Object.entries(d.stack || {}).map(([key, items]) => `
-        <div>
-          <div class="pm-stack-label">${key.charAt(0).toUpperCase() + key.slice(1)}</div>
-          <div class="pm-tag-row">${(items || []).map(t => `<span class="tag">${t}</span>`).join('')}</div>
-        </div>
-      `).join('')}
-    </div>
-  `;
-
-      const sdgs = d.sdgs || [];
-      const sdgsHtml = sdgs.length ? `
-    <div class="pm-section">
-      <div class="pm-section-label">Sustainable Development Goals (SDGs)</div>
-      <div class="pm-sdgs-grid">
-        ${sdgs.map(s => `
-          <div class="pm-sdg-card">
-            <div class="pm-sdg-img-wrap">
-              ${s.img ? `<img src="${s.img}" alt="${s.title}" class="pm-sdg-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''}
-              <div class="pm-sdg-placeholder" ${s.img ? 'style="display:none;"' : ''}>
-                <span class="pm-sdg-num">SDG ${s.id || ''}</span>
-                <span class="pm-sdg-hint">Add Image</span>
-              </div>
-            </div>
-            <div class="pm-sdg-info">
-              <div class="pm-sdg-title">${s.title}</div>
-              ${s.desc ? `<p class="pm-sdg-desc">${s.desc}</p>` : ''}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  ` : '';
-
-      const snapshots = d.snapshots || [];
-      if (d.embed && !snapshots.some(s => s.type === 'embed')) {
-        snapshots.unshift({ type: 'embed', src: d.embed, alt: 'Video Preview' });
-      }
-
-      const galleryHtml = snapshots.length ? `
-  <div class="pm-gallery-wrapper">
-    <div class="pm-gallery-strip">
-      ${snapshots.map(s => {
-
-        if (s.type === 'embed') {
-
-          let fileId = null;
-
-          if (s.src) {
-            const fileMatch = s.src.match(/\/file\/d\/([^/]+)/);
-            const idMatch = s.src.match(/[?&]id=([^&]+)/);
-
-            if (fileMatch) {
-              fileId = fileMatch[1];
-            } else if (idMatch) {
-              fileId = idMatch[1];
-            }
-          }
-
-          const thumbnail = fileId
-            ? `https://drive.google.com/thumbnail?id=${fileId}&sz=w800`
-            : '';
-
-          const videoTitle = s.alt
-            ? s.alt.replace(/'/g, "\\'")
-            : 'Video';
-
-          return `
-            <div
-              class="pm-gallery-card pm-gallery-embed-card"
-              onclick="openVideoLightbox('${s.src}', '${videoTitle}')"
-            >
-              <div
-                class="pm-gallery-img-wrap pm-gallery-video-thumb"
-                ${thumbnail
-              ? `style="background-image:url('${thumbnail}')"`
-              : ''
-            }
-              >
-
-                <div class="pm-gallery-video-overlay"></div>
-
-                <div
-                  class="pm-gallery-play-btn"
-                  aria-label="Play video"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="32"
-                    height="32"
-                    fill="white"
-                  >
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-
-              </div>
-
-              ${s.alt
-              ? `<div class="pm-gallery-cap">${s.alt}</div>`
-              : ''
-            }
-            </div>
-          `;
-        }
-        return `
-          <div
-            class="pm-gallery-card"
-            onclick="openSnapshotLightbox(
-              '${s.src}',
-              '${p.title.replace(/'/g, "\\'")} — ${s.alt
-            ? s.alt.replace(/'/g, "\\'")
-            : 'Snapshot'
-          }'
-            )"
-          >
-            <div class="pm-gallery-img-wrap">
-
-              <img
-                src="${s.src}"
-                alt="${s.alt || p.title}"
-                loading="lazy"
-              >
-
-              <div class="pm-gallery-overlay">
-                <span>Enlarge ↗</span>
-              </div>
-
-            </div>
-
-            ${s.alt
-            ? `<div class="pm-gallery-cap">${s.alt}</div>`
-            : ''
-          }
-          </div>
-        `;
-
-      }).join('')}
-    </div>
-  </div>
-` : '';
-      const innerHtml = `
-    <div class="pm-eyebrow">${p.org || ''} · ${p.date || ''}</div>
-    <h2 class="pm-title" id="projModalTitle">${p.title}</h2>
-    <div class="pm-header-meta">
-      <div class="pm-links">
-        ${p.links.map(l => renderProjLink(l)).join('')}
-      </div>
-    </div>
-
-    ${galleryHtml}
-
-    <div class="pm-section">
-      <div class="pm-section-label">The Problem</div>
-      <p class="pm-body">${d.problem}</p>
-    </div>
-
-    <div class="pm-section">
-      <div class="pm-section-label">My Approach</div>
-      <div class="pm-approach-grid">${approachHtml}</div>
-    </div>
-
-    <div class="pm-section">
-      <div class="pm-section-label">Key Highlights</div>
-      <ul class="pm-highlights">${highlightsHtml}</ul>
-    </div>
-
-    ${sdgsHtml}
-
-    <div class="pm-section">
-      <div class="pm-section-label">Tech Stack</div>
-      ${stackHtml}
-    </div>
-  `;
-
-      if (projectsViewMode === 'macos') {
-        const canvas = document.getElementById('mac-content-canvas');
-        const pathEl = document.getElementById('mac-path-text');
-        if (pathEl) {
-          pathEl.textContent = `Applications / ${p.title} / Case Study`;
-        }
-        if (canvas) {
-          canvas.innerHTML = `
-            <div class="mac-app-case-study">
-              <div class="mac-case-study-bar">
-                <button class="mac-back-btn" onclick="renderMacProjects()">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                <div class="mac-case-study-title-pill">
-                  <span class="mac-mini-dot" style="background:${p.color || '#6366f1'};"></span>
-                  <span>${p.title}</span>
-                </div>
-              </div>
-              <div class="mac-case-study-inner">
-                ${innerHtml}
-              </div>
-            </div>
-          `;
-          canvas.scrollTop = 0;
-        }
-      } else {
-        document.getElementById('projModalInner').innerHTML = innerHtml;
-        const modal = document.getElementById('projectModal');
-        if (modal) modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeProjectModal(e) {
-      if (!e || e.target.id === 'projectModal' || e.target.classList.contains('proj-modal-close')) {
-        const modal = document.getElementById('projectModal');
-        if (modal) {
-          modal.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      }
-    }
-
-    function renderCertifications() {
-      document.getElementById('cert-grid').innerHTML = CERTIFICATIONS.map(c => `
-    <div class="cert-card reveal">
-      <div>
-        <h4><a href="${c.url}" target="_blank" rel="noopener">${c.title}<span class="link-icon">↗</span></a></h4>
-        <div class="issuer">${c.issuer}</div>
-        ${c.badge ? `<span class="cert-badge">${c.badge}</span>` : ''}
-        ${c.extraLink ? ` <a class="proj-link" href="${c.extraLink.url}" target="_blank" rel="noopener">${c.extraLink.label}</a>` : ''}
-      </div>
-      <div class="cert-date">${c.date}</div>
-    </div>
-  `).join('');
-    }
-
-    let currentEventsStep = 0;
-
-    function isMobileEventsView() {
-      return window.innerWidth <= 600;
-    }
-
-    function getEventsVisibleCount(step) {
-      if (isMobileEventsView()) {
-        return 3 + (step * 3);
-      } else {
-        return 4 + (step * 8);
-      }
-    }
-
-    function updateEventsDisplay() {
-      const wrapper = document.getElementById('events-grid-wrapper');
-      const container = document.getElementById('events-grid');
-      const btn = document.getElementById('events-toggle-btn');
-      const btnText = document.getElementById('events-toggle-text');
-      const toggleWrap = document.getElementById('events-toggle-wrap');
-      if (!wrapper || !container) return;
-
-      const cards = Array.from(container.querySelectorAll('.events-card'));
-      const totalCards = cards.length;
-      if (totalCards === 0) return;
-
-      const visibleCount = getEventsVisibleCount(currentEventsStep);
-      const isFullyExpanded = visibleCount >= totalCards;
-
-      if (toggleWrap) {
-        const initialCount = isMobileEventsView() ? 3 : 4;
-        toggleWrap.style.display = totalCards > initialCount ? 'flex' : 'none';
-      }
-
-      cards.forEach((card, i) => {
-        if (i < visibleCount || isFullyExpanded) {
-          card.style.pointerEvents = 'auto';
-          card.style.userSelect = 'auto';
-        } else {
-          card.style.pointerEvents = 'none';
-          card.style.userSelect = 'none';
-        }
-      });
-
-      if (isFullyExpanded) {
-        wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
-        wrapper.classList.remove('collapsed');
-        wrapper.classList.add('expanded');
-      } else {
-        wrapper.classList.remove('expanded');
-        wrapper.classList.add('collapsed');
-
-        const teaseCard = cards[visibleCount];
-        if (teaseCard) {
-          const targetHeight = teaseCard.offsetTop + 110;
-          wrapper.style.maxHeight = targetHeight + 'px';
-        } else {
-          wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
-        }
-      }
-
-      if (btnText && btn) {
-        if (isFullyExpanded) {
-          btnText.textContent = 'See less';
-          btn.classList.add('expanded');
-          btn.setAttribute('aria-expanded', 'true');
-          btn.setAttribute('aria-label', 'See less events');
-        } else {
-          btnText.textContent = 'See more';
-          btn.classList.remove('expanded');
-          btn.setAttribute('aria-expanded', 'false');
-          btn.setAttribute('aria-label', 'See more events');
-        }
-      }
-    }
-
-    function renderEvents() {
-      const container = document.getElementById('events-grid') || document.getElementById('gallery-grid');
-      if (container) {
-        const list = typeof EVENTS !== 'undefined' ? EVENTS : (typeof GALLERY !== 'undefined' ? GALLERY : []);
-        container.innerHTML = list.map((g) => `
-      <div class="events-card gallery-card" onclick="openLightbox(this)">
-        <div class="events-img-wrapper gallery-img-wrapper">
-          <img src="${g.src}" alt="${g.alt}" class="events-img gallery-img" loading="lazy">
-          <div class="events-overlay gallery-overlay"><span class="events-zoom-icon gallery-zoom-icon">View</span></div>
-        </div>
-        <div class="events-info gallery-info">
-          <h4>${g.title}</h4>
-          <p>${g.desc}</p>
-        </div>
-      </div>
-    `).join('');
-
-        setTimeout(updateEventsDisplay, 50);
-      }
-    }
-
-    function toggleEvents() {
-      const container = document.getElementById('events-grid');
-      if (!container) return;
-      const totalCards = container.querySelectorAll('.events-card').length;
-      const visibleCount = getEventsVisibleCount(currentEventsStep);
-
-      if (visibleCount >= totalCards) {
-        currentEventsStep = 0;
-        updateEventsDisplay();
-        const section = document.getElementById('events');
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else {
-        currentEventsStep++;
-        updateEventsDisplay();
-      }
-    }
-
-    let eventsResizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(eventsResizeTimer);
-      eventsResizeTimer = setTimeout(updateEventsDisplay, 100);
-    });
-
-    let currentWritingTab = 'all';
-
-    function switchWritingTab(tab) {
-      currentWritingTab = tab;
-      const buttons = document.querySelectorAll('.writing-tabs-bar .writing-tab-item');
-      buttons.forEach(btn => {
-        if (btn.dataset.tab === tab) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
-      renderBlog(tab);
-    }
-
-    function getBlogTimestamp(b) {
-      if (b.date) {
-        const ts = Date.parse(b.date);
-        if (!isNaN(ts)) return ts;
-      }
-      if (b.meta) {
-        const rawDateStr = b.meta.split('·')[0].trim();
-        const ts = Date.parse(rawDateStr);
-        if (!isNaN(ts)) return ts;
-      }
-      return 0;
-    }
-
-    function renderBlog(category = currentWritingTab) {
-      let articles = [];
-      if (category === 'all') {
-        articles = [
-          ...(BLOG.tech || []),
-          ...(BLOG.life || [])
-        ];
-      } else if (BLOG[category]) {
-        articles = [...BLOG[category]];
-      }
-
-      articles.sort((a, b) => getBlogTimestamp(b) - getBlogTimestamp(a));
-
-      const container = document.getElementById('blog-grid');
-      if (!container) return;
-
-      if (articles.length === 0) {
-        container.innerHTML = `
-          <div class="empty-writing-state reveal in">
-            <p>No articles published in this category yet.</p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = articles.map(b => `
-        <a class="blog-card reveal in" href="${b.url}" target="_blank" rel="noopener">
-          <div class="blog-img" style="background-image:url('${b.img}');"></div>
-          <div class="blog-body">
-            <div class="blog-meta">${b.meta}</div>
-            <h3>${b.title}</h3>
-            <p>${b.desc}</p>
-            <span class="proj-link">Read on Medium ↗</span>
-          </div>
-        </a>
-      `).join('');
-    }
-
-    renderMacProjects();
-    updateMacClock();
-    setInterval(updateMacClock, 10000);
-    renderProjects();
-    renderCertifications();
-    renderEvents();
-    renderBlog();
-
-    function initHeroTypewriter() {
-      const textEl = document.querySelector('.hero-eyebrow .typing-text');
-      const cursorEl = document.querySelector('.hero-eyebrow .typing-cursor');
-      if (!textEl) return;
-
-      const titles = [
-        "Computer Science Undergraduate | Aspiring Software Engineer",
-        "Open Data & AI Researcher | Systems Builder",
-        "Building Human-Centric Software with Care",
-        "IIT Sri Lanka Undergraduate • Technical Writer"
-      ];
-
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        textEl.textContent = titles[0];
-        if (cursorEl) cursorEl.style.display = 'none';
-        return;
-      }
-
-      let titleIndex = 0;
-      let charIndex = titles[0].length;
-      let isDeleting = false;
-      let typingSpeed = 60;
-
-      function type() {
-        const currentTitle = titles[titleIndex];
-
-        if (isDeleting) {
-          charIndex--;
-          typingSpeed = 28;
-        } else {
-          charIndex++;
-          typingSpeed = 45 + Math.random() * 35;
-        }
-
-        textEl.textContent = currentTitle.substring(0, charIndex);
-
-        if (!isDeleting && charIndex === currentTitle.length) {
-          typingSpeed = 2800;
-          isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-          isDeleting = false;
-          titleIndex = (titleIndex + 1) % titles.length;
-          typingSpeed = 450;
-        }
-
-        setTimeout(type, typingSpeed);
-      }
-
-      setTimeout(type, 2200);
-    }
-
-    initHeroTypewriter();
-
-
-    const els = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    els.forEach(el => io.observe(el));
-
-    function initThemeToggle() {
-      const themeToggle = document.getElementById('themeToggle');
-      if (!themeToggle) return;
-
-      const sunIcon = themeToggle.querySelector('.icon-sun');
-      const moonIcon = themeToggle.querySelector('.icon-moon');
-
-      function updateIcons(isDark) {
-        if (sunIcon && moonIcon) {
-          sunIcon.style.display = isDark ? 'block' : 'none';
-          moonIcon.style.display = isDark ? 'none' : 'block';
-        }
-      }
-
-      const isInitialDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      updateIcons(isInitialDark);
-
-      themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const nextTheme = isDark ? 'light' : 'dark';
-        if (nextTheme === 'dark') {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-          document.documentElement.removeAttribute('data-theme');
-        }
-        localStorage.setItem('theme', nextTheme);
-        updateIcons(!isDark);
-      });
-    }
-
-    initThemeToggle();
-
-    const navbar = document.getElementById('navbar');
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    if (navToggle && navbar) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = navbar.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', isOpen);
-        const closeIcon = navToggle.querySelector('.icon-close');
-        const menuIcon = navToggle.querySelector('.icon-menu');
-        if (closeIcon) closeIcon.style.display = isOpen ? 'block' : 'none';
-        if (menuIcon) menuIcon.style.display = isOpen ? 'none' : 'block';
-      });
-
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navbar.classList.remove('open');
-          navToggle.setAttribute('aria-expanded', 'false');
-          const closeIcon = navToggle.querySelector('.icon-close');
-          const menuIcon = navToggle.querySelector('.icon-menu');
-          if (closeIcon) closeIcon.style.display = 'none';
-          if (menuIcon) menuIcon.style.display = 'block';
-
-          const href = link.getAttribute('href');
-          if (href && (href === '#experience' || href === '#education')) {
-            const targetId = href.replace('#', '');
-            toggleDrawer(targetId, true);
-          }
-        });
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target) && navbar.classList.contains('open')) {
-          navbar.classList.remove('open');
-          navToggle.setAttribute('aria-expanded', 'false');
-          const closeIcon = navToggle.querySelector('.icon-close');
-          const menuIcon = navToggle.querySelector('.icon-menu');
-          if (closeIcon) closeIcon.style.display = 'none';
-          if (menuIcon) menuIcon.style.display = 'block';
-        }
-      });
-    }
-
-    function toggleDrawer(id, forceOpen = false) {
-      const drawer = document.getElementById(id);
-      if (!drawer) return;
-
-      const header = drawer.querySelector('.drawer-header');
-      const isCurrentlyOpen = drawer.classList.contains('open');
-      const shouldOpen = forceOpen ? true : !isCurrentlyOpen;
-
-      if (shouldOpen) {
-        drawer.classList.add('open');
-        if (header) header.setAttribute('aria-expanded', 'true');
-        drawer.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
-      } else {
-        drawer.classList.remove('open');
-        if (header) header.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    function handleDrawerHash() {
-      const hash = window.location.hash.replace('#', '');
-      if (hash === 'experience' || hash === 'education') {
-        toggleDrawer(hash, true);
-        const target = document.getElementById(hash);
-        if (target) {
-          setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 100);
-        }
-      }
-    }
-
-    window.addEventListener('hashchange', handleDrawerHash);
-    if (window.location.hash) {
-      handleDrawerHash();
-    }
-
-
-    function openSnapshotLightbox(src, caption) {
-      const modal = document.getElementById('lightboxModal');
-      const modalImg = document.getElementById('lightboxImg');
-      const modalCap = document.getElementById('lightboxCaption');
-      const videoWrap = document.getElementById('lightboxVideo');
-      if (modal && modalImg && modalCap) {
-        modalImg.src = src;
-        modalImg.style.display = '';
-        if (videoWrap) videoWrap.style.display = 'none';
-        modalCap.innerHTML = `<strong>${caption}</strong>`;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function openVideoLightbox(src, caption) {
-      const modal = document.getElementById('lightboxModal');
-      const modalImg = document.getElementById('lightboxImg');
-      const modalCap = document.getElementById('lightboxCaption');
-      const videoWrap = document.getElementById('lightboxVideo');
-      const iframe = document.getElementById('lightboxIframe');
-      if (modal && videoWrap && iframe) {
-        modalImg.style.display = 'none';
-        videoWrap.style.display = '';
-        iframe.src = src;
-        modalCap.innerHTML = `<strong>${caption}</strong>`;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function openLightbox(cardEl) {
-      if (cardEl && cardEl.style.pointerEvents === 'none') return;
-      const img = cardEl.querySelector('.gallery-img');
-      const title = cardEl.querySelector('h4') ? cardEl.querySelector('h4').innerText : '';
-      const desc = cardEl.querySelector('p') ? cardEl.querySelector('p').innerHTML : '';
-      const modal = document.getElementById('lightboxModal');
-      const modalImg = document.getElementById('lightboxImg');
-      const modalCap = document.getElementById('lightboxCaption');
-      if (img && modal && modalImg && modalCap) {
-        modalImg.src = img.src;
-        modalCap.innerHTML = `<strong>${title}</strong> — ${desc}`;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeLightbox(e) {
-      if (!e || e.target.id === 'lightboxModal' || e.target.classList.contains('lightbox-close')) {
-        const modal = document.getElementById('lightboxModal');
-        if (modal) {
-          modal.classList.remove('active');
-          document.body.style.overflow = '';
-          const iframe = document.getElementById('lightboxIframe');
-          if (iframe) iframe.src = '';
-        }
-      }
-    }
-
-    const yrEl = document.getElementById('foot-year');
-    if (yrEl) yrEl.textContent = new Date().getFullYear();
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeLightbox();
-        closeProjectModal();
-      }
-    });
-  </script>
+  <script src="app.js?v=1"></script>
 
 </body>
 

@@ -134,7 +134,7 @@ const PROJECTS = [
     date: "Oct 2024 – May 2025",
     category: "health",
     icon: "heart",
-    color: "#f43f5e",
+    color: "#fd92a2ff",
     desc: "An AI-powered, gamified OCD therapy assistant, built with mental health professionals to improve therapy adherence. Selected for the Cutting Edge '25 exhibition and Top 15 of the TEDxColombo × John Keells IT Pitch-a-Thon.",
     tags: ["Flutter", "Rive Animations", "Python"],
     links: [
@@ -213,7 +213,7 @@ const PROJECTS = [
     date: "Nov 2024 – Dec 2024",
     category: "tools",
     icon: "cpu",
-    color: "#d97706",
+    color: "#f0c38bff",
     desc: "Full-stack ticketing system simulating synchronised multi-threaded ticket allocation between customers and vendors, a Java CLI for bulk configuration, real-time WebSocket updates, and transaction logging for debugging concurrent operations.",
     tags: ["Java", "Spring Boot", "WebSockets", "Angular"],
     links: [{ label: "View Repository ↗", url: "https://github.com/sehansi-9/Ticketing_System" }],
