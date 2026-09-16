@@ -442,65 +442,58 @@
           </div>
 
           <div class="aero-tab-panel" id="tab-fun">
-            <div class="aero-intro-card" style="grid-template-columns: 100px 1fr;">
-              <div class="intro-avatar-frame"
-                style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            <div class="aero-bento-grid">
 
-                <img id="weatherImage" alt="Current weather"
-                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 15%; display: none;">
-
-                <div id="weatherEmoji"
-                  style="font-size: 52px; line-height: 1; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
-                  ⛅
+              <div class="bento-card bento-weather">
+                <div class="bento-glass-shine"></div>
+                <div class="bento-header">
+                  <div class="bento-location" id="weatherLocation">📍 Colombo, Sri Lanka</div>
+                  <span class="bento-tag">Weather</span>
                 </div>
-
-              </div>
-
-              <div class="intro-text-col">
-                <div class="intro-heading" id="weatherLocation">
-                  Colombo, Western Province
+                <div class="bento-card-body">
+                  <div class="weather-avatar-frame">
+                    <img id="weatherImage" alt="Current weather" style="display: none;">
+                    <div id="weatherEmoji">⛅</div>
+                  </div>
+                  <div class="weather-temp-col">
+                    <div class="weather-temp-num" id="weatherMain">Loading...</div>
+                    <div class="weather-desc" id="weatherAtmosphere">Fetching atmosphere...</div>
+                  </div>
                 </div>
-                <p class="intro-body">
-                  <strong id="weatherMain">
-                    Loading weather...
-                  </strong>
-                  <br>
-                  <span id="weatherDetails">
-                    Humidity: -- · Wind: -- km/h
-                  </span>
-                  <br>
-                  <span id="weatherAtmosphere">
-                    Atmosphere: Loading...
-                  </span>
-
-                </p>
-
-              </div>
-            </div>
-
-            <div class="aero-pill-row" onclick="spawnBubbleBurst()" style="cursor: pointer;">
-              <div class="row-thumb-wrap"
-                style="background: #06b6d4; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px;">
-                🫧</div>
-              <div class="row-info-col">
-                <div class="row-title">Release Aero Bubble Burst</div>
-                <div class="row-desc">Spawn a shimmering cascade of interactive water bubbles on the desktop screen.
+                <div class="bento-card-footer">
+                  <div class="weather-stats-pills" id="weatherDetails">
+                    <span class="w-stat">💧 Humidity: --</span>
+                    <span class="w-stat">💨 Wind: -- km/h</span>
+                  </div>
                 </div>
               </div>
-              <div class="row-action-arrow">✦</div>
-            </div>
 
-            <a class="lastfm-widget" id="lastfmWidget" href="https://www.last.fm/user/seh9x" target="_blank"
-              rel="noopener noreferrer" title="Open my Last.fm profile">
-              <div class="lastfm-widget-inner">
+              <a class="bento-card lastfm-widget bento-music" id="lastfmWidget" href="https://www.last.fm/user/seh9x"
+                target="_blank" rel="noopener noreferrer" title="Open my Last.fm profile">
+                <div class="bento-glass-shine"></div>
+                <div class="bento-header">
+                  <div class="bento-location"></div>
+                  <span class="bento-tag"> Music Player</span>
+                </div>
+                <div class="bento-card-body" style="margin-top: -10px;">
+                  <div class="aero-cd-wrap">
+                    <div class="aero-cd-disc" id="aeroCdDisc">
+                      <div class="aero-cd-sheen"></div>
+                      <div class="aero-cd-center">
+                        <img class="lastfm-art" id="lastfmArt" src="" alt="Album artwork" style="display:none;">
+                        <div class="lastfm-art-placeholder" id="lastfmPlaceholder">🎵</div>
+                      </div>
+                    </div>
+                  </div>
 
-                <div class="lastfm-art-wrap">
-                  <img class="lastfm-art" id="lastfmArt" src="" alt="Album artwork" style="display:none;">
-                  <div class="lastfm-art-placeholder" id="lastfmPlaceholder">🎵</div>
+                  <div class="lastfm-info">
+                    <div class="lastfm-track" id="lastfmTrack">Loading music...</div>
+                    <div class="lastfm-artist" id="lastfmArtist">Last.fm</div>
+                    <div class="lastfm-album" id="lastfmAlbum"></div>
+                  </div>
                 </div>
 
-                <div class="lastfm-info">
-
+                <div class="bento-card-footer">
                   <div class="lastfm-status" id="lastfmStatus">
                     <span class="lastfm-status-dot" id="lastfmDot"></span>
                     <span id="lastfmStatusText">LAST PLAYED</span>
@@ -511,25 +504,25 @@
                       <span></span>
                     </div>
                   </div>
+                  <span class="lastfm-brand" id="lastfmRefresh">updating...</span>
+                </div>
+              </a>
 
-                  <div class="lastfm-track" id="lastfmTrack">
-                    Loading music...
+              <div class="bento-card bento-bubbles" onclick="spawnBubbleBurst()">
+                <div class="bento-glass-shine"></div>
+                <div class="bento-header">
+                </div>
+                <div class="bento-card-body">
+                  <div class="bento-icon-sphere">🫧</div>
+                  <div class="bento-body">
+                    <div class="bento-title">Aero Bubble Burst</div>
+                    <div class="bento-sub">Click to unleash a shimmering cascade of glossy water bubbles
+                      across your screen. Pop them before they disappear!</div>
                   </div>
-
-                  <div class="lastfm-artist" id="lastfmArtist">
-                    Last.fm
-                  </div>
-
-                  <div class="lastfm-album" id="lastfmAlbum"></div>
-
                 </div>
               </div>
 
-              <div class="lastfm-footer">
-                <span class="lastfm-brand">LAST.FM • SEH9X</span>
-                <span class="lastfm-refresh" id="lastfmRefresh">updating...</span>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </section>

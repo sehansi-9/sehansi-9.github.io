@@ -6,7 +6,7 @@
   gap: 16px;
 }
 
-.widgets-row > * {
+.widgets-row>* {
   flex: 1 1 0;
   min-width: 0;
 }
@@ -166,18 +166,9 @@
   position: relative;
   width: 100%;
   min-width: 0;
-  padding: 8px;
   box-sizing: border-box;
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--glass-bg);
-  border: 2px solid var(--glass-border);
-  box-shadow: var(--glass-bevel), var(--glass-shadow);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
   text-decoration: none;
   color: inherit;
-  display: block;
   transition: transform .22s cubic-bezier(.34, 1.56, .64, 1), box-shadow .22s ease;
 }
 
@@ -203,21 +194,19 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 12px;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
   align-items: center;
+  justify-content: center;
+  margin: auto 0;
+  width: 100%;
 }
 
-.lastfm-art-wrap {
+.aero-cd-wrap {
   position: relative;
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   flex-shrink: 0;
-  border-radius: 14px;
-  overflow: hidden;
-  background: linear-gradient(145deg, rgba(255, 255, 255, .72), rgba(186, 230, 253, .65));
-  border: 1.5px solid rgba(255, 255, 255, .95);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, .22), inset 0 1px 2px rgba(255, 255, 255, .9);
 }
 
 .lastfm-art {
@@ -258,6 +247,9 @@
   text-transform: uppercase;
   color: #15803d;
   text-shadow: 0 1px 1px rgba(255, 255, 255, .8);
+  margin-top: 1px;
+  margin-bottom: 3px;
+  margin-left: 5px;
 }
 
 .lastfm-status-dot {
@@ -274,10 +266,13 @@
 }
 
 @keyframes lastfmPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(.8);
     opacity: .65;
   }
+
   50% {
     transform: scale(1.2);
     opacity: 1;
@@ -346,6 +341,7 @@
   from {
     height: 2px;
   }
+
   to {
     height: 9px;
   }
@@ -445,15 +441,19 @@
     transform: translateY(105vh) translateX(0px) scale(0.8);
     opacity: 0;
   }
+
   10% {
     opacity: 0.85;
   }
+
   50% {
     transform: translateY(50vh) translateX(25px) scale(1);
   }
+
   90% {
     opacity: 0.85;
   }
+
   100% {
     transform: translateY(-10vh) translateX(-20px) scale(1.1);
     opacity: 0;
@@ -468,12 +468,12 @@
     gap: 14px;
   }
 
-  .widgets-row > .clock-widget {
+  .widgets-row>.clock-widget {
     flex: 0 1 200px;
     width: 200px;
   }
 
-  .widgets-row > .duolingo-glass {
+  .widgets-row>.duolingo-glass {
     flex: 1 1 0;
     width: auto;
     margin-left: 50px;
@@ -499,17 +499,12 @@
   }
 
   .lastfm-widget {
-    padding: 7px;
+    padding: 12px 14px;
   }
 
   .lastfm-widget-inner {
-    grid-template-columns: 66px 1fr;
-    gap: 10px;
-  }
-
-  .lastfm-art-wrap {
-    width: 66px;
-    height: 66px;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
   }
 
   .lastfm-track {
@@ -522,7 +517,7 @@
     gap: 10px;
   }
 
-  .widgets-row > .clock-widget {
+  .widgets-row>.clock-widget {
     flex: 0 1 180px;
     width: 180px;
   }
@@ -548,38 +543,33 @@
 
   .lastfm-widget {
     border-radius: 18px;
-    padding: 6px;
+    padding: 12px;
   }
 
   .lastfm-widget-inner {
-    grid-template-columns: 58px 1fr;
-    gap: 9px;
-  }
-
-  .lastfm-art-wrap {
-    width: 58px;
-    height: 58px;
-    border-radius: 12px;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
   }
 
   .lastfm-track {
-    font-size: .86rem;
+    font-size: .92rem;
   }
 
   .lastfm-artist {
-    font-size: .72rem;
+    font-size: .78rem;
   }
 
   .lastfm-album {
-    font-size: .64rem;
+    font-size: .70rem;
   }
 
   .lastfm-status {
-    font-size: 8px;
+    font-size: 8.5px;
+    margin-bottom: 2px;
   }
 
   .lastfm-footer {
-    margin-top: 5px;
+    margin-top: 6px;
   }
 }
 
@@ -588,12 +578,12 @@
     flex-wrap: wrap;
   }
 
-  .widgets-row > .clock-widget {
+  .widgets-row>.clock-widget {
     flex: 1 1 100%;
     width: 100%;
   }
 
-  .widgets-row > .duolingo-glass {
+  .widgets-row>.duolingo-glass {
     flex: 1 1 100%;
     width: 100%;
   }
@@ -628,29 +618,24 @@
   }
 
   .lastfm-widget {
-    padding: 5px;
-    border-radius: 17px;
+    padding: 10px 12px;
+    border-radius: 16px;
   }
 
   .lastfm-widget-inner {
-    grid-template-columns: 54px 1fr;
-    gap: 8px;
-  }
-
-  .lastfm-art-wrap {
-    width: 54px;
-    height: 54px;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
   }
 
   .lastfm-track {
-    font-size: .82rem;
+    font-size: .84rem;
   }
 
   .lastfm-artist {
-    font-size: .69rem;
+    font-size: .70rem;
   }
 
   .lastfm-album {
-    font-size: .61rem;
+    font-size: .62rem;
   }
 }

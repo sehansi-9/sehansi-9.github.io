@@ -35,8 +35,10 @@ async function loadWeather() {
         const atmosEl = document.getElementById("weatherAtmosphere");
 
         if (mainEl) mainEl.textContent = `${temperature}°C · ${weatherInfo.description}`;
-        if (detailsEl) detailsEl.textContent = `Humidity: ${humidity}% · Wind: ${wind} km/h`;
-        if (atmosEl) atmosEl.textContent = `Atmosphere: ${weatherInfo.atmosphere}`;
+        if (detailsEl) {
+            detailsEl.innerHTML = `<span class="w-stat">💧 Humidity: ${humidity}%</span><span class="w-stat">💨 Wind: ${wind} km/h</span>`;
+        }
+        if (atmosEl) atmosEl.textContent = `${weatherInfo.atmosphere}`;
 
         const weatherImage = document.getElementById("weatherImage");
         const weatherEmoji = document.getElementById("weatherEmoji");
@@ -70,7 +72,7 @@ async function loadWeather() {
         const atmosEl = document.getElementById("weatherAtmosphere");
 
         if (mainEl) mainEl.textContent = "Weather unavailable";
-        if (detailsEl) detailsEl.textContent = "Unable to retrieve current conditions";
+        if (detailsEl) detailsEl.innerHTML = '<span class="w-stat">Offline</span>';
         if (atmosEl) atmosEl.textContent = "Atmosphere: Offline";
 
         const weatherImage = document.getElementById("weatherImage");
@@ -170,7 +172,7 @@ function getWeatherInfo(code, isDay) {
 /* Analog & Digital Clock Widget */
 function setupClockFace() {
     const clockFace = document.getElementById('clockFace');
-    if (!clockFace || clockFace.children.length > 4) return; // Already generated
+    if (!clockFace || clockFace.children.length > 4) return;
 
     for (let i = 0; i < 60; i++) {
         const tick = document.createElement('div');
@@ -221,7 +223,7 @@ function updateClock() {
 }
 
 /* Last.fm Scrobbler Widget */
-const LASTFM_API_KEY = '';
+const LASTFM_API_KEY = 'e0881582f1e9b8a2a7022d18d03434f4';
 const LASTFM_USERNAME = 'seh9x';
 const REFRESH_INTERVAL = 30000;
 
@@ -255,15 +257,18 @@ function setPlaying(isPlaying) {
     const widget = document.getElementById('lastfmWidget');
     const dot = document.getElementById('lastfmDot');
     const statusText = document.getElementById('lastfmStatusText');
+    const cdDisc = document.getElementById('aeroCdDisc');
     if (!widget || !dot || !statusText) return;
 
     if (isPlaying) {
         widget.classList.add('is-playing');
         dot.classList.add('playing');
+        if (cdDisc) cdDisc.classList.add('playing');
         statusText.textContent = 'NOW PLAYING';
     } else {
         widget.classList.remove('is-playing');
         dot.classList.remove('playing');
+        if (cdDisc) cdDisc.classList.remove('playing');
         statusText.textContent = 'LAST PLAYED';
     }
 }
@@ -272,7 +277,7 @@ function setTime() {
     const refreshText = document.getElementById('lastfmRefresh');
     if (!refreshText) return;
     const now = new Date();
-    refreshText.textContent = 'updated ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    refreshText.textContent = 'last.fm · seh9x · updated ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
 async function loadLastFM() {
@@ -364,7 +369,6 @@ async function loadLastFM() {
     }
 }
 
-/* Aero Bubbles Floating Effect */
 function initAeroBubbles() {
     const container = document.getElementById('aeroBubblesContainer');
     if (!container) return;
