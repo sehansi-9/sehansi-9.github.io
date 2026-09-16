@@ -183,8 +183,10 @@ function toggleAeroTheme() {
         if (moonIconMob) moonIconMob.style.display = 'block';
 
     }
+    updateDuolingoTheme();
 
     playAeroChime('chime');
+
 }
 
 const TAB_TITLES = {
@@ -697,6 +699,16 @@ function spawnBubbleBurst() {
             b.style.height = size + 'px';
             b.style.left = (15 + Math.random() * 70) + '%';
             b.style.animation = `floatBubble ${8 + Math.random() * 6}s ease-in-out`;
+            b.addEventListener('click', (e) => {
+                e.stopPropagation();
+                playAeroChime('pop');
+                b.style.transform = 'scale(1.8)';
+                b.style.opacity = '0';
+                setTimeout(() => {
+                    b.remove();
+                    createBubble(i, false);
+                }, 200);
+            });
             container.appendChild(b);
             setTimeout(() => b.remove(), 14000);
         }, i * 80);
@@ -902,12 +914,27 @@ function getWeatherInfo(code, isDay) {
     };
 }
 
+const duolingoStats = document.getElementById('duolingoStats');
+
+function updateDuolingoTheme() {
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark') {
+        duolingoStats.src =
+            'https://duolingo-stats-card.vercel.app/api?username=Sehansi.P&theme=tokyonight';
+    } else {
+        duolingoStats.src =
+            'https://duolingo-stats-card.vercel.app/api?username=Sehansi.P&theme=light';
+    }
+}
+
+updateDuolingoTheme();
+
 const clockFace = document.getElementById('clockFace');
 const hourHand = document.getElementById('hourHand');
 const minuteHand = document.getElementById('minuteHand');
 const secondHand = document.getElementById('secondHand');
 const digitalTime = document.getElementById('digitalTime');
-const digitalDate = document.getElementById('digitalDate');
 
 for (let i = 0; i < 60; i++) {
     const tick = document.createElement('div');
@@ -944,7 +971,6 @@ function updateClock() {
     secondHand.style.transform = `rotate(${secDeg}deg)`;
 
     digitalTime.textContent = now.toLocaleTimeString([], { hour12: false });
-    digitalDate.textContent = now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
 }
 updateClock();
 setInterval(updateClock, 1000);
