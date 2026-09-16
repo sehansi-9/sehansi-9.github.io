@@ -3,56 +3,87 @@ let isSoundEnabled = localStorage.getItem('aero_sound') !== 'false';
 
 function initAudio() {
     if (!audioCtx) {
-        const AudioContext =
-            window.AudioContext;
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
         if (AudioContext) {
             audioCtx = new AudioContext();
         }
     }
+
     if (audioCtx && audioCtx.state === 'suspended') {
         audioCtx.resume().catch(() => { });
     }
 }
 
+function startBackgroundMusic() {
+    if (!isSoundEnabled) return;
+
+    const music = document.getElementById('aeroBackgroundMusic');
+    if (!music) return;
+
+    music.volume = 0.155;
+
+    music.play().then(() => {
+        removeMusicGestureListener();
+    }).catch(() => {
+        addMusicGestureListener();
+    });
+}
+
+let musicGestureListenerAdded = false;
+
+function musicGestureHandler() {
+    if (!isSoundEnabled) return;
+
+    const music = document.getElementById('aeroBackgroundMusic');
+    if (!music) return;
+
+    initAudio();
+
+    music.play().then(() => {
+        removeMusicGestureListener();
+    }).catch(() => { });
+}
+
+function addMusicGestureListener() {
+    if (musicGestureListenerAdded) return;
+
+    musicGestureListenerAdded = true;
+
+    document.addEventListener('pointerdown', musicGestureHandler, {
+        once: true,
+        passive: true
+    });
+}
+
+function removeMusicGestureListener() {
+    musicGestureListenerAdded = false;
+    document.removeEventListener('pointerdown', musicGestureHandler);
+}
 
 function playAeroChime(type = 'chime') {
     if (!isSoundEnabled) return;
+
     try {
         if (type === 'music') {
-            const music = document.getElementById('aeroBackgroundMusic');
-            if (!music) return;
-            music.volume = 0.155;
-            music.play().catch(() => {
-                const startMusic = () => {
-                    if (!isSoundEnabled) return;
-                    music.play().catch(() => { });
-
-                    document.removeEventListener('scroll', startMusic);
-                    document.removeEventListener('click', startMusic);
-                    document.removeEventListener('touchstart', startMusic);
-                    document.removeEventListener('keydown', startMusic);
-                };
-
-                document.addEventListener('scroll', startMusic, { once: true, passive: true });
-                document.addEventListener('click', startMusic, { once: true });
-                document.addEventListener('touchstart', startMusic, { once: true });
-                document.addEventListener('keydown', startMusic, { once: true });
-            });
+            startBackgroundMusic();
             return;
         }
 
         if (type === 'musicStop') {
-            const music =
-                document.getElementById('aeroBackgroundMusic');
+            const music = document.getElementById('aeroBackgroundMusic');
+
             if (music) {
                 music.pause();
                 music.currentTime = 0;
             }
+
             return;
         }
+
         initAudio();
 
         if (!audioCtx) return;
+
         const now = audioCtx.currentTime;
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
@@ -63,22 +94,25 @@ function playAeroChime(type = 'chime') {
         if (type === 'pop') {
             osc.type = 'sine';
             osc.frequency.setValueAtTime(800 + Math.random() * 400, now);
-            osc.frequency.exponentialRampToValueAtTime(1400 + Math.random() * 400, now + 0.08);
+            osc.frequency.exponentialRampToValueAtTime(
+                1400 + Math.random() * 400,
+                now + 0.08
+            );
             gain.gain.setValueAtTime(0.25, now);
-
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
             osc.start(now);
             osc.stop(now + 0.13);
 
         } else if (type === 'click') {
-
             const clickSound = new Audio(
                 'https://sfxmint.com/dl/office-mouse-click-01.wav'
             );
+
             clickSound.volume = 0.35;
             clickSound.play().catch(() => { });
 
             return;
+
         } else {
             osc.type = 'sine';
             osc.frequency.setValueAtTime(523.25, now);
@@ -98,41 +132,39 @@ function playAeroChime(type = 'chime') {
         console.warn("Aero sound error:", err);
     }
 }
-function toggleAeroAudio() {
 
+function toggleAeroAudio() {
     isSoundEnabled = !isSoundEnabled;
 
     localStorage.setItem(
         'aero_sound',
         isSoundEnabled ? 'true' : 'false'
     );
+
     const onIcon = document.getElementById('soundIconOn');
     const offIcon = document.getElementById('soundIconOff');
 
     if (onIcon && offIcon) {
-        onIcon.style.display =
-            isSoundEnabled ? 'block' : 'none';
-
-        offIcon.style.display =
-            isSoundEnabled ? 'none' : 'block';
+        onIcon.style.display = isSoundEnabled ? 'block' : 'none';
+        offIcon.style.display = isSoundEnabled ? 'none' : 'block';
     }
+
     const onIconMob = document.getElementById('soundIconOnMob');
     const offIconMob = document.getElementById('soundIconOffMob');
 
     if (onIconMob && offIconMob) {
-        onIconMob.style.display =
-            isSoundEnabled ? 'block' : 'none';
-
-        offIconMob.style.display =
-            isSoundEnabled ? 'none' : 'block';
+        onIconMob.style.display = isSoundEnabled ? 'block' : 'none';
+        offIconMob.style.display = isSoundEnabled ? 'none' : 'block';
     }
+
     const music = document.getElementById('aeroBackgroundMusic');
 
     if (isSoundEnabled) {
-        playAeroChime('music');
+        startBackgroundMusic();
         playAeroChime('chime');
-
     } else {
+        removeMusicGestureListener();
+
         if (music) {
             music.pause();
             music.currentTime = 0;
@@ -142,7 +174,7 @@ function toggleAeroAudio() {
 
 window.addEventListener('load', () => {
     if (isSoundEnabled) {
-        playAeroChime('music');
+        startBackgroundMusic();
     }
 });
 
