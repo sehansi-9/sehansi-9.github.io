@@ -169,25 +169,6 @@
   box-sizing: border-box;
   text-decoration: none;
   color: inherit;
-  transition: transform .22s cubic-bezier(.34, 1.56, .64, 1), box-shadow .22s ease;
-}
-
-.lastfm-widget::before {
-  content: '';
-  position: absolute;
-  top: 1px;
-  left: 3px;
-  right: 3px;
-  height: 22%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .48) 0%, rgba(255, 255, 255, 0) 100%);
-  border-radius: 16px 16px 45% 45%;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.lastfm-widget:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(2, 132, 199, .28), var(--glass-bevel);
 }
 
 .lastfm-widget-inner {
