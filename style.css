@@ -705,6 +705,15 @@ body {
   word-break: break-word;
 }
 
+.highlights {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: var(--ink-emboss);
+  white-space: normal;
+  line-height: 1.35;
+}
+
 .row-desc {
   font-size: 0.84rem;
   color: var(--ink-body);
