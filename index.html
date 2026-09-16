@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="4bC1YlpWCX2nNT6sa5HBINbTCz35ldp6sXuR56ETQLQ" />
   <title>Sehansi Perera</title>
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=38">
+  <link rel="stylesheet" href="css/style.css?v=39">
   <script>
     (function () {
       const savedTheme = localStorage.getItem('theme');
@@ -27,7 +27,7 @@
 
   <div class="aero-bubbles-container" id="aeroBubblesContainer" aria-hidden="true"></div>
   <audio id="aeroBackgroundMusic" loop preload="auto">
-    <source src="music.mp3" type="audio/mpeg">
+    <source src="assets/audio/music.mp3" type="audio/mpeg">
   </audio>
 
   <div class="aero-desktop" id="aero-desktop">
@@ -62,10 +62,9 @@
     <div class="mobile-icon-bar" id="mobileIconBar">
       <div class="mobile-brand">
         <div class="mobile-orb" onclick="playAeroChime('chime'); switchAeroTab('home', event)" title="SehansiOS Orb">
-          <img src="logo.png" alt="Aero Orb">
+          <img src="assets/images/logo.png" alt="Aero Orb">
         </div>
       </div>
-
 
       <a class="mobile-icon-btn" href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank"
         rel="noopener" title="LinkedIn">
@@ -87,11 +86,9 @@
         </svg>
       </a>
 
-
       <button class="mobile-icon-btn" onclick="toggleAeroTheme()" title="Toggle Theme">
         <svg id="themeIconSunMob" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
           stroke-width="2.2" style="display:none;">
-
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
           <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -101,16 +98,11 @@
           <line x1="21" y1="12" x2="23" y2="12"></line>
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-
         </svg>
         <svg id="themeIconMoonMob" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
           stroke-width="2.2">
-
-          <path d="M21 12.79A9 9 0 1 1 11.21 3
-             7 7 0 0 0 21 12.79z"></path>
-
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
-
       </button>
       <button class="mobile-icon-btn" id="soundToggleMob" onclick="toggleAeroAudio()" title="Sound">
         <svg id="soundIconOnMob" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
@@ -158,7 +150,7 @@
       <aside class="aero-sidebar">
         <div class="sidebar-top">
           <div class="sidebar-orb" onclick="playAeroChime('chime'); switchAeroTab('home', event)" title="SehansiOS Orb">
-            <img src="logo.png" alt="Aero Orb">
+            <img src="assets/images/logo.png" alt="Aero Orb">
           </div>
 
           <nav class="sidebar-nav-list">
@@ -188,7 +180,6 @@
 
               <svg id="themeIconSun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
                 stroke-width="2.2">
-
                 <circle cx="12" cy="12" r="5"></circle>
                 <line x1="12" y1="1" x2="12" y2="3"></line>
                 <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -198,15 +189,11 @@
                 <line x1="21" y1="12" x2="23" y2="12"></line>
                 <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                 <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-
               </svg>
 
               <svg id="themeIconMoon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
                 stroke-width="2.2" style="display:none;">
-
-                <path d="M21 12.79A9 9 0 1 1 11.21 3
-             7 7 0 0 0 21 12.79z"></path>
-
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
               </svg>
 
             </button>
@@ -300,7 +287,7 @@
             <div class="aero-pill-row" onclick="switchAeroTab('projects')">
               <div class="row-thumb-wrap">
                 <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*VecS2jEs2t4N0ihV4CkORA.png"
-                  onerror="this.src='favicon.svg'" alt="OpenGINXplore" class="row-thumb-img">
+                  onerror="this.src='assets/images/favicon.svg'" alt="OpenGINXplore" class="row-thumb-img">
               </div>
               <div class="row-info-col">
                 <div class="row-title">OpenGINXplore - Temporal Government Data Platform</div>
@@ -318,7 +305,7 @@
             <div class="aero-pill-row" onclick="switchAeroTab('writing')">
               <div class="row-thumb-wrap">
                 <img src="https://miro.medium.com/v2/resize:fit:975/1*SED2hZEJbBY1n60cyOYvUQ.png"
-                  onerror="this.src='favicon.svg'" alt="Writing" class="row-thumb-img">
+                  onerror="this.src='assets/images/favicon.svg'" alt="Writing" class="row-thumb-img">
               </div>
               <div class="row-info-col">
                 <div class="row-title">How IBM's Influence Keeps Humanity Closer to the Future of Space Travel</div>
@@ -502,6 +489,47 @@
               </div>
               <div class="row-action-arrow">✦</div>
             </div>
+
+            <a class="lastfm-widget" id="lastfmWidget" href="https://www.last.fm/user/seh9x" target="_blank"
+              rel="noopener noreferrer" title="Open my Last.fm profile">
+              <div class="lastfm-widget-inner">
+
+                <div class="lastfm-art-wrap">
+                  <img class="lastfm-art" id="lastfmArt" src="" alt="Album artwork" style="display:none;">
+                  <div class="lastfm-art-placeholder" id="lastfmPlaceholder">🎵</div>
+                </div>
+
+                <div class="lastfm-info">
+
+                  <div class="lastfm-status" id="lastfmStatus">
+                    <span class="lastfm-status-dot" id="lastfmDot"></span>
+                    <span id="lastfmStatusText">LAST PLAYED</span>
+                    <div class="lastfm-eq" id="lastfmEq">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+
+                  <div class="lastfm-track" id="lastfmTrack">
+                    Loading music...
+                  </div>
+
+                  <div class="lastfm-artist" id="lastfmArtist">
+                    Last.fm
+                  </div>
+
+                  <div class="lastfm-album" id="lastfmAlbum"></div>
+
+                </div>
+              </div>
+
+              <div class="lastfm-footer">
+                <span class="lastfm-brand">LAST.FM • SEH9X</span>
+                <span class="lastfm-refresh" id="lastfmRefresh">updating...</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -527,8 +555,13 @@
     </div>
   </div>
 
-  <script src="data.js"></script>
-  <script src="app.js?v=1"></script>
+  <script src="js/data.js"></script>
+  <script src="js/modules/audio.js"></script>
+  <script src="js/modules/theme.js"></script>
+  <script src="js/modules/navigation.js"></script>
+  <script src="js/modules/renderers.js"></script>
+  <script src="js/modules/widgets.js"></script>
+  <script src="js/app.js?v=2"></script>
 
 </body>
 

@@ -1,0 +1,223 @@
+/* Case Study Detail View */
+.cs-header-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.cs-tag-badge {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--ink-title);
+  background: var(--card-subbox-bg);
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 1px #ffffff;
+}
+
+.cs-meta {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--aero-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: var(--ink-emboss);
+}
+
+.cs-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 4px 0 16px 0;
+  color: var(--ink-title);
+  text-shadow: var(--ink-emboss);
+  letter-spacing: -0.01em;
+}
+
+.cs-section {
+  margin-bottom: 18px;
+}
+
+.cs-section-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--aero-blue-dark);
+  text-shadow: var(--ink-emboss);
+}
+
+[data-theme="dark"] .cs-section-title {
+  color: var(--aero-blue-bright);
+}
+
+.cs-body-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-body);
+  font-weight: 500;
+}
+
+.cs-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.cs-approach-card,
+.cs-sdg-card,
+.cs-stack-box {
+  background: var(--glass-bg);
+  border: 1.5px solid var(--card-subbox-border);
+  box-shadow: var(--card-subbox-shadow);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.cs-approach-title {
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--aero-blue-dark);
+  margin-bottom: 5px;
+  text-shadow: var(--ink-emboss);
+}
+
+[data-theme="dark"] .cs-approach-title {
+  color: var(--aero-blue-bright);
+}
+
+.cs-approach-body {
+  font-size: 0.86rem;
+  line-height: 1.48;
+  color: var(--ink-body);
+  font-weight: 500;
+}
+
+.cs-highlights-list {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--ink-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.cs-sdg-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cs-sdg-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cs-sdg-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+
+.cs-sdg-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cs-sdg-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--ink-title);
+  text-shadow: var(--ink-emboss);
+}
+
+.cs-sdg-desc {
+  font-size: 0.8rem;
+  color: var(--ink-body);
+  line-height: 1.38;
+  font-weight: 500;
+}
+
+.cs-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.cs-stack-box {
+  padding: 12px 14px;
+}
+
+.cs-stack-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--aero-blue-dark);
+  margin-bottom: 6px;
+}
+
+[data-theme="dark"] .cs-stack-label {
+  color: var(--aero-blue-bright);
+}
+
+.cs-links-wrap {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1032px) {
+  .cs-sdg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-sdg-card {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 3px;
+    align-items: start;
+    padding: 10px;
+  }
+
+  .cs-sdg-thumb {
+    width: 58px;
+    height: 58px;
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 1px;
+  }
+
+  .cs-sdg-card>div:last-child {
+    display: contents !important;
+  }
+
+  .cs-sdg-title {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    font-size: 0.88rem;
+    line-height: 1.3;
+  }
+
+  .cs-sdg-desc {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin-top: 2px;
+  }
+}
