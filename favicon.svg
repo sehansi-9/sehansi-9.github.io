@@ -1,30 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="35 20 140 290" width="32" height="32">
-  <style>
-    .sprout-stem {
-      fill: none;
-      stroke: #3F6B4E;
-      stroke-width: 10;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .sprout-leaf {
-      fill: #AFC6A4;
-      stroke: #3F6B4E;
-      stroke-width: 6;
-      stroke-linejoin: round;
-    }
-    @media (prefers-color-scheme: dark) {
-      .sprout-stem {
-        stroke: #9EBFA8;
-      }
-      .sprout-leaf {
-        fill: #2C4C36;
-        stroke: #9EBFA8;
-      }
-    }
-  </style>
-  <path class="sprout-stem" d="M110 300 C110 230 108 170 112 120 C114 95 118 75 110 40" />
-  <path class="sprout-leaf" d="M110 200 C86 194 62 176 56 150 C88 148 110 175 110 200 Z" />
-  <path class="sprout-leaf" d="M112 150 C90 140 68 118 66 90 C96 92 112 115 112 150 Z" />
-  <path class="sprout-leaf" d="M114 100 C136 88 156 64 156 36 C126 40 114 70 114 100 Z" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <defs>
+    <!-- Background Sphere Radial Gradient -->
+    <radialGradient id="aeroSphere" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#a5f3fc" />
+      <stop offset="30%" stop-color="#38bdf8" />
+      <stop offset="70%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </radialGradient>
+    
+    <!-- Top Glass Gloss Sheen -->
+    <linearGradient id="glossGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Bottom Rim Glow -->
+    <linearGradient id="rimGlow" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#a3e635" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#4ade80" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Sprout Gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d9f99d" />
+      <stop offset="50%" stop-color="#84cc16" />
+      <stop offset="100%" stop-color="#4d7c0f" />
+    </linearGradient>
+
+    <!-- Specular Highlight Spot -->
+    <radialGradient id="specularGlint" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Drop Shadow -->
+  <ellipse cx="50" cy="90" rx="36" ry="7" fill="#0369a1" opacity="0.3" filter="blur(2px)" />
+
+  <!-- Base Orb -->
+  <circle cx="50" cy="48" r="42" fill="url(#aeroSphere)" />
+
+  <!-- Rim / Horizon Under-Glow (Frutiger Eco Green Glow) -->
+  <circle cx="50" cy="48" r="42" fill="url(#rimGlow)" />
+
+  <!-- Inner Sprout / Eco Silhouette -->
+  <!-- Stem -->
+  <path d="M50 72 C50 58 48 44 50 30" fill="none" stroke="#f7fee7" stroke-width="3.5" stroke-linecap="round" />
+  <!-- Left Leaf -->
+  <path d="M50 52 C38 50 30 40 32 26 C46 26 50 38 50 52 Z" fill="url(#leafGrad)" stroke="#ecfccb" stroke-width="1.2" />
+  <!-- Right Leaf -->
+  <path d="M50 40 C62 34 70 22 68 12 C54 14 50 26 50 40 Z" fill="url(#leafGrad)" stroke="#ecfccb" stroke-width="1.2" />
+
+  <!-- Top Glass Highlight Dome (Skeuomorphic Gloss) -->
+  <path d="M12 44 C14 22 30 10 50 10 C70 10 86 22 88 44 C72 34 28 34 12 44 Z" fill="url(#glossGrad)" />
+
+  <!-- Specular Lens Flare Dots -->
+  <ellipse cx="36" cy="22" rx="7" ry="4" transform="rotate(-30 36 22)" fill="url(#specularGlint)" />
+  <circle cx="28" cy="30" r="2.5" fill="#ffffff" opacity="0.8" />
+  <circle cx="70" cy="65" r="3" fill="#ffffff" opacity="0.4" />
 </svg>
