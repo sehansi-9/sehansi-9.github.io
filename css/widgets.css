@@ -181,6 +181,8 @@
 .github-stats-fallback {
   display: none;
   min-height: 110px;
+  width: 100%;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -201,6 +203,64 @@
   border-radius: 50%;
   border: 1px solid var(--glass-border);
   flex-shrink: 0;
+}
+
+.github-stats-loading {
+  min-height: 110px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-shadow: var(--ink-emboss);
+}
+
+.github-loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--glass-border);
+  border-top-color: var(--aero-blue-dark);
+  border-radius: 50%;
+  animation: githubStatsSpin 0.8s linear infinite;
+}
+
+[data-theme="dark"] .github-loading-spinner {
+  border-top-color: var(--aero-blue-bright);
+}
+
+@media (min-width: 901px) {
+
+  .github-stats-fallback,
+  .github-stats-loading {
+    transform: translateY(45px);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+  .github-stats-fallback,
+  .github-stats-loading {
+    transform: translateY(14px);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .github-stats-fallback,
+  .github-stats-loading {
+    transform: none;
+  }
+}
+
+
+@keyframes githubStatsSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .github-graph-card {

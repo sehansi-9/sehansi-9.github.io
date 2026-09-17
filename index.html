@@ -246,10 +246,16 @@
 
                 <div class="duolingo-glass-shine"></div>
 
+                <div class="github-stats-loading" id="githubStatsLoading">
+                  <span class="github-loading-spinner"></span>
+                  <span>Loading GitHub stats...</span>
+                </div>
+
                 <img id="githubStats"
                   src="https://streak-stats.demolab.com/?user=sehansi-9&theme=default&hide_border=true&background=00000000&ring=0284c7&fire=0284c7&currStreakNum=0284c7"
                   alt="sehansi-9's GitHub Streak Stats"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  onload="this.style.display='block'; document.getElementById('githubStatsLoading').style.display='none';"
+                  onerror="this.style.display='none'; document.getElementById('githubStatsLoading').style.display='none'; this.nextElementSibling.style.display='flex';">
 
                 <div class="github-stats-fallback">
                   <span class="github-fallback-icon">↗</span>

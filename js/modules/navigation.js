@@ -37,7 +37,9 @@ function closeMobileDrawer() {
 
 function switchAeroTab(tabId, event, updateHash = true) {
     if (event && event.preventDefault) event.preventDefault();
+
     activeTabId = tabId;
+
     if (typeof playAeroChime === 'function') {
         playAeroChime('click');
     }
@@ -53,6 +55,7 @@ function switchAeroTab(tabId, event, updateHash = true) {
     if (tabId !== 'projects') {
         const overview = document.getElementById('projects-overview-view');
         const detail = document.getElementById('projects-detail-view');
+
         if (overview && detail) {
             detail.style.display = 'none';
             overview.style.display = 'flex';
@@ -66,22 +69,48 @@ function switchAeroTab(tabId, event, updateHash = true) {
     });
 
     const mobileLabel = document.getElementById('mobileNavActiveLabel');
-    if (mobileLabel) mobileLabel.textContent = MOBILE_TAB_LABELS[tabId] || tabId;
+
+    if (mobileLabel) {
+        mobileLabel.textContent = MOBILE_TAB_LABELS[tabId] || tabId;
+    }
+
     document.querySelectorAll('.mobile-drawer-item').forEach(item => {
-        item.classList.toggle('active', item.getAttribute('data-mob-tab') === tabId);
+        item.classList.toggle(
+            'active',
+            item.getAttribute('data-mob-tab') === tabId
+        );
     });
 
     const titleEl = document.getElementById('activeWindowTitle');
+
     if (titleEl) {
         titleEl.textContent = TAB_TITLES[tabId] || 'Home';
     }
 
     document.querySelectorAll('.aero-tab-panel').forEach(panel => {
-        panel.classList.toggle('active', panel.id === `tab-${tabId}`);
+        panel.classList.toggle(
+            'active',
+            panel.id === `tab-${tabId}`
+        );
     });
 
+    if (tabId === 'about' && typeof filterAeroAbout === 'function') {
+        filterAeroAbout(currentAboutFilter);
+    }
+
+    if (tabId === 'projects' && typeof filterAeroProjects === 'function') {
+        filterAeroProjects(currentProjectFilter);
+    }
+
+    if (tabId === 'writing' && typeof filterAeroWriting === 'function') {
+        filterAeroWriting(currentWritingFilter);
+    }
+
     const canvas = document.getElementById('windowContentCanvas');
-    if (canvas) canvas.scrollTop = 0;
+
+    if (canvas) {
+        canvas.scrollTop = 0;
+    }
 }
 
 function handleHashRouting() {
