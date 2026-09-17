@@ -1,4 +1,3 @@
-/* Open-Meteo Weather Widget */
 async function loadWeather() {
     const latitude = 6.9271;
     const longitude = 79.8612;
@@ -169,7 +168,6 @@ function getWeatherInfo(code, isDay) {
     };
 }
 
-/* Analog & Digital Clock Widget */
 function setupClockFace() {
     const clockFace = document.getElementById('clockFace');
     if (!clockFace || clockFace.children.length > 4) return;
@@ -222,7 +220,6 @@ function updateClock() {
     digitalTime.textContent = now.toLocaleTimeString([], { hour12: false });
 }
 
-/* Last.fm Scrobbler Widget */
 const LASTFM_API_KEY = 'e0881582f1e9b8a2a7022d18d03434f4';
 const LASTFM_USERNAME = 'seh9x';
 const REFRESH_INTERVAL = 30000;
@@ -353,11 +350,6 @@ async function loadLastFM() {
         setPlaying(isPlaying);
         setTime();
 
-        if (song.url) {
-            widget.href = song.url;
-            widget.title = 'Open this track on Last.fm';
-        }
-
     } catch (error) {
         console.warn('Last.fm widget error:', error);
         track.textContent = 'Music unavailable';
@@ -435,3 +427,99 @@ function spawnBubbleBurst() {
         }, i * 80);
     }
 }
+
+(function initBentoCalendar() {
+    const monthEl = document.getElementById("calendarMonth");
+    const daysEl = document.getElementById("calendarDays");
+    const prevBtn = document.getElementById("calendarPrev");
+    const nextBtn = document.getElementById("calendarNext");
+
+    if (!monthEl || !daysEl || !prevBtn || !nextBtn) return;
+
+    const today = new Date();
+
+    let displayedYear = today.getFullYear();
+    let displayedMonth = today.getMonth();
+
+    const monthFormatter = new Intl.DateTimeFormat("en-US", {
+        month: window.innerWidth <= 600 ? "short" : "long",
+        year: "numeric"
+    });
+
+    function renderCalendar() {
+        const displayedDate = new Date(
+            displayedYear,
+            displayedMonth,
+            1
+        );
+
+        monthEl.textContent = monthFormatter.format(displayedDate);
+
+        const firstDay = new Date(
+            displayedYear,
+            displayedMonth,
+            1
+        ).getDay();
+
+        const daysInMonth = new Date(
+            displayedYear,
+            displayedMonth + 1,
+            0
+        ).getDate();
+
+        daysEl.innerHTML = "";
+        for (let i = 0; i < firstDay; i++) {
+            const empty = document.createElement("div");
+            empty.className = "calendar-day empty";
+            daysEl.appendChild(empty);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayEl = document.createElement("div");
+
+            dayEl.className = "calendar-day";
+            dayEl.textContent = day;
+
+            if (
+                day === today.getDate() &&
+                displayedMonth === today.getMonth() &&
+                displayedYear === today.getFullYear()
+            ) {
+                dayEl.classList.add("today");
+                dayEl.setAttribute("aria-label", "Today");
+            }
+
+            daysEl.appendChild(dayEl);
+        }
+    }
+
+    prevBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        displayedMonth--;
+
+        if (displayedMonth < 0) {
+            displayedMonth = 11;
+            displayedYear--;
+        }
+
+        renderCalendar();
+    });
+
+    nextBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        displayedMonth++;
+
+        if (displayedMonth > 11) {
+            displayedMonth = 0;
+            displayedYear++;
+        }
+
+        renderCalendar();
+    });
+
+    renderCalendar();
+})();

@@ -4,7 +4,7 @@ const TAB_TITLES = {
     projects: 'Projects',
     events: 'Events & Community',
     writing: 'Writing',
-    fun: 'Weather & Fun',
+    widgets: 'Widgets',
 };
 
 const MOBILE_TAB_LABELS = {
@@ -13,7 +13,7 @@ const MOBILE_TAB_LABELS = {
     projects: '📁 Projects',
     events: '📅 Events',
     writing: '✍️ Writing',
-    fun: '🌤️ Weather & Fun',
+    widgets: '🧩 Widgets',
 };
 
 let activeTabId = 'home';

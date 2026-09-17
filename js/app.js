@@ -7,12 +7,15 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (typeof updateDuolingoTheme === 'function') renderAeroProjects();
+    if (typeof updateDuolingoTheme === 'function') updateDuolingoTheme();
+    if (typeof updateGithubTheme === 'function') updateGithubTheme();
+    if (typeof renderAeroProjects === 'function') renderAeroProjects();
     if (typeof renderAeroCertifications === 'function') renderAeroCertifications();
     if (typeof renderAeroEvents === 'function') renderAeroEvents();
     if (typeof renderAeroWriting === 'function') renderAeroWriting();
     if (typeof filterAeroAbout === 'function') filterAeroAbout('experience');
     if (typeof filterAeroWriting === 'function') filterAeroWriting('all');
+    if (typeof renderAeroWatched === 'function') renderAeroWatched();
     if (typeof initAeroBubbles === 'function') initAeroBubbles();
     if (typeof updateClock === 'function') {
         updateClock();

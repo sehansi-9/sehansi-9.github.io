@@ -28,6 +28,7 @@ function toggleAeroTheme() {
     }
 
     updateDuolingoTheme();
+    updateGithubTheme();
 
     if (typeof playAeroChime === 'function') {
         playAeroChime('chime');
@@ -44,5 +45,27 @@ function updateDuolingoTheme() {
         duolingoStats.src = 'https://duolingo-stats-card.vercel.app/api?username=Sehansi.P&theme=tokyonight';
     } else {
         duolingoStats.src = 'https://duolingo-stats-card.vercel.app/api?username=Sehansi.P&theme=light';
+    }
+}
+
+function updateGithubTheme() {
+    const githubStats = document.getElementById('githubStats');
+    const githubGraph = document.getElementById('githubGraph');
+    const savedTheme = localStorage.getItem('theme');
+
+    if (githubStats) {
+        if (savedTheme === 'dark') {
+            githubStats.src = 'https://streak-stats.demolab.com/?user=sehansi-9&theme=tokyonight&hide_border=true&background=00000000&ring=38bdf8&fire=38bdf8&currStreakNum=38bdf8';
+        } else {
+            githubStats.src = 'https://streak-stats.demolab.com/?user=sehansi-9&theme=default&hide_border=true&background=00000000&ring=0284c7&fire=0284c7&currStreakNum=0284c7';
+        }
+    }
+
+    if (githubGraph) {
+        if (savedTheme === 'dark') {
+            githubGraph.src = 'https://ghchart.rshah.org/38bdf8/sehansi-9';
+        } else {
+            githubGraph.src = 'https://ghchart.rshah.org/0284c7/sehansi-9';
+        }
     }
 }

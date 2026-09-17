@@ -447,3 +447,276 @@ const BLOG = {
     }
   ]
 };
+
+const WATCHED = {
+  scifi: [
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BMDdkYWZiZWYtMzA0Yi00NzNlLThkODktY2Q3N2NjN2ExZmMwXkEyXkFqcGc@._V1_.jpg",
+      year: "2024",
+      type: "TV Series",
+      title: "3 Body Problem",
+      category: "Sci-Fi / Mystery"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BMTExMzU0ODcxNDheQTJeQWpwZ15BbWU4MDE1OTI4MzAy._V1_FMjpg_UX1000_.jpg",
+      year: "2016",
+      type: "Film",
+      title: "Arrival",
+      category: "Sci-Fi / Mystery"
+    },
+    {
+      img: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+      year: "2014",
+      type: "Film",
+      title: "Interstellar",
+      category: "Sci-Fi / Adventure"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BYjZmNWFjMjUtM2FmZC00NjgzLTg0MDctZDczMjBhZGZlZTU3XkEyXkFqcGc@._V1_.jpg",
+      year: "2015",
+      type: "Film",
+      title: "The Martian",
+      category: "Sci-Fi / Survival"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReqAbvtofPA9Lks4-SMgTIzURBLW_VDl-7ggTznUvJ6ncZEiREVdvdVetO&s=10",
+      year: "2020",
+      type: "Japanese Drama",
+      title: "Alice in Borderland",
+      category: "Sci-Fi / Survival"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BMjUyNTA3MTAyM15BMl5BanBnXkFtZTgwOTEyMTkyMjE@._V1_FMjpg_UX1000_.jpg",
+      year: "2014",
+      type: "Film",
+      title: "The Maze Runner",
+      category: "Sci-Fi / Dystopian"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BOWY0YzViYzgtMzM5YS00YzI1LTk5MTQtZjdiZjUyZjQ5ZGMwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      year: "2022",
+      type: "Film",
+      title: "Moonfall",
+      category: "Sci-Fi / Disaster"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BZDZiNDdhY2UtNDU2Zi00OTIwLTg3MDItZjNkNmM1ZDFiNTNiXkEyXkFqcGc@._V1_.jpg",
+      year: "2009",
+      type: "Film",
+      title: "Knowing",
+      category: "Sci-Fi / Mystery"
+    },
+    {
+      img: "https://upload.wikimedia.org/wikipedia/en/4/42/HungerGamesPoster.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+      year: "2012",
+      type: "Film",
+      title: "The Hunger Games",
+      category: "Sci-Fi / Dystopian"
+    }
+  ],
+
+  psychological: [
+    {
+      img: "https://upload.wikimedia.org/wikipedia/en/2/2a/Perfectblueposter.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+      year: "1997",
+      type: "Anime Film",
+      title: "Perfect Blue",
+      category: "Psycho / Thriller"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvlyrKszsCFXYLey8Lql2c2Zi3P8d_PqnY_rpwDND5Rwsnq5NXYkKKE_3T&s=10",
+      year: "2004",
+      type: "Anime Series",
+      title: "Paranoia Agent",
+      category: "Psycho / Mystery"
+    },
+    {
+      img: "https://m.media-amazon.com/images/S/pv-target-images/16eb4a75eab8caefc8759ae5f546f1550f56eb7886d3d0089beb557340aefe54.jpg",
+      year: "2006",
+      type: "Film",
+      title: "Like Minds",
+      category: "Psycho / Mystery"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BZjZkNGQ2NDAtZjVkNC00ZTU3LWJkZDctNjU1OWEyNjZiMmFhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      year: "2019",
+      type: "K-Drama",
+      title: "Strangers from Hell",
+      category: "Psycho / Thriller"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BOGZmNjNiY2MtNWE0YS00Y2MxLWJlNzEtMjIyMzZjODE5NGMwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      year: "2014",
+      type: "Anime Series",
+      title: "Terror in Resonance",
+      category: "Psycho / Thriller"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BOTdlMmFkYTgtOTU5NC00ZGNjLTg1MjMtOWEzMjBjZDk0MDM3XkEyXkFqcGc@._V1_.jpg",
+      year: "2018",
+      type: "Film",
+      title: "Level 16",
+      category: "Psycho / Thriller"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BYmY0YzZiY2QtMjcxYi00MzkwLWFiMGEtMDBiMDdjNTVkMjM2XkEyXkFqcGc@._V1_.jpg",
+      year: "2003",
+      type: "Japanese Film",
+      title: "Blue Light",
+      category: "Psycho / Crime"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5c3dOTyPRyNl8BOK7DPk9Cg3CQwmXVLlIYXAHdx3dxQE9D01NRgJKji8&s=10",
+      year: "2019",
+      type: "Film",
+      title: "Parasite",
+      category: "Psycho / Social"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BOGQ5NDNjOTktMGE1MS00OGIyLTk2ZTEtYWUwNDg2ODAxZTNjXkEyXkFqcGc@._V1_.jpg",
+      year: "2024",
+      type: "Film",
+      title: "The Substance",
+      category: "Psycho / Horror"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BYmZjYjAxMDEtOTE2My00MmM5LTkyYjctOWRjMjgyM2JhMDI0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      year: "2022",
+      type: "Film",
+      title: "Fall",
+      category: "Psycho / Survival"
+    }
+  ],
+  tech: [
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BMjlkNTE5ZTUtNGEwNy00MGVhLThmZjMtZjU1NDE5Zjk1NDZkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      year: "2010",
+      type: "Film",
+      title: "The Social Network",
+      category: "Tech / Drama"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BMjhhYmZjZjgtOTc3Mi00ZmY3LWI3MTUtYzcyOGMxYWFmN2YyXkEyXkFqcGc@._V1_.jpg",
+      year: "2014",
+      type: "TV Series",
+      title: "Silicon Valley",
+      category: "Tech / Comedy"
+    }
+  ],
+  science: [
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BYzJkOWMwY2QtZDQ3YS00YzA4LWFjZDYtMWMwYzA4YTU3ODUyXkEyXkFqcGc@._V1_.jpg",
+      year: "2019",
+      type: "Historical Drama",
+      title: "Chernobyl",
+      category: "Science / History"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BOTg1NGFkYWQtNDg4Mi00ODYzLWI2MGEtZDc3N2RhZjQ1YjMzXkEyXkFqcGc@._V1_.jpg",
+      year: "2014",
+      type: "Biographical Film",
+      title: "The Theory of Everything",
+      category: "Science / Biography"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BNjRmMThlN2EtYTM0Ni00MjBjLWFmZmMtOGYxZWI1MzUzNzJhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      year: "2024",
+      type: "Anime Series",
+      title: "Orb: On the Movements of the Earth",
+      category: "Science / History"
+    }
+  ],
+  mystery: [
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BZDRmZWYwNmItZDkxNy00Nzk5LWE2MmQtZWM2MDI1MzM3YjgzXkEyXkFqcGc@._V1_.jpg",
+      year: "2016",
+      type: "Japanese Drama",
+      title: "Criminologist Himura and Mystery Writer Arisugawa",
+      category: "Mystery"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BZmEwZmZlNjQtM2VhYi00YWVlLWJhZjItNTc2ZmM3MjZkZjdiXkEyXkFqcGc@._V1_.jpg",
+      year: "2023",
+      type: "Chinese Drama",
+      title: "Mysterious Lotus Casebook",
+      category: "Mystery"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BYTgyZDhmMTEtZDFhNi00MTc4LTg3NjUtYWJlNGE5Mzk2NzMxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      year: "2006",
+      type: "Anime",
+      title: "Death Note",
+      category: "Mystery"
+    }
+  ],
+
+  sliceOfLife: [
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhlsz1hgvV5-9cH1w1uB9LfJWqXWQt_bbTLGyBz6rj3Q&s=10",
+      year: "2011",
+      type: "Anime Film: Studio Ghibli",
+      title: "From Up on Poppy Hill",
+      category: "Romance"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BMTU4NDg0MzkzNV5BMl5BanBnXkFtZTgwODA3Mzc1MDE@._V1_.jpg",
+      year: "2013",
+      type: "Anime Film: Studio Ghibli",
+      title: "The Wind Rises",
+      category: "Historical"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BOWFhN2EyYTItZjVjMi00MzNiLWFkZTItODcwMzFhMjBmZmIzXkEyXkFqcGc@._V1_.jpg",
+      year: "1995",
+      type: "Anime Film: Studio Ghibli",
+      title: "Whisper of the Heart",
+      category: "Romance"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuEWutt3JS7U4ygLGLvs-K2S_gvvRmTOhCgpY-aUFhwCglsqIPEy0YR2Q&s=10",
+      year: "1988",
+      type: "Anime Film: Studio Ghibli",
+      title: "Grave of the Fireflies",
+      category: "Historical"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSpDCCOfYzrFVxUTNzeRAoSGEwURWrvxH1LJYFgSERchMiCZlihNAsSP8&s=10",
+      year: "2004",
+      type: "Anime Film: Studio Ghibli",
+      title: "Howl's Moving Castle",
+      category: "Fantasy"
+    },
+    {
+      img: "https://images.justwatch.com/poster/173574304/s718/haikyu.jpg",
+      year: "2014",
+      type: "Anime Series",
+      title: "Haikyuu!!",
+      category: "Coming-of-age"
+    }
+
+  ],
+
+  music: [
+    {
+      img: "https://m.media-amazon.com/images/I/91Fdn--vgML._AC_UF894,1000_QL80_.jpg",
+      year: "2014",
+      type: "Tour Documentary",
+      title: "BUMP OF CHICKEN WILLPOLIS 2014",
+      category: "Music & Live"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BYmJlMzYzOTQtZTA1NC00MjgyLTlmNTMtYzI0YjFkNjUzMDA4XkEyXkFqcGc@._V1_.jpg",
+      year: "2010",
+      type: "Coming-of-age Drama",
+      title: "BECK: Mongolian Chop Squad",
+      category: "Music & Live"
+    },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BYjBmOGJjZmEtMDIxYy00NTFiLThiMTgtZGNlN2QxZjQ4ZGQyXkEyXkFqcGc@._V1_.jpg",
+      year: "2025",
+      type: "Japanese Drama",
+      title: "Glass Heart",
+      category: "Music & Live"
+    }
+  ],
+};

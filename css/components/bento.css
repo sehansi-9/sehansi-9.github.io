@@ -1,30 +1,48 @@
-/* Bento Grid Layout */
 .aero-bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
+  grid-template-areas:
+    "weather weather weather weather weather clock clock clock calendar calendar calendar calendar"
+    "music   music   music   music   music   music music bubbles bubbles bubbles bubbles bubbles";
+  gap: 18px;
   width: 100%;
 }
 
 .bento-card {
   position: relative;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(56, 189, 248, 0.2) 100%);
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(56, 189, 248, 0.2) 100%);
   border: 2px solid var(--glass-border);
   box-shadow: var(--glass-bevel), var(--glass-shadow);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   border-radius: 22px;
-  padding: 18px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 12px;
+  gap: 5px;
   overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 [data-theme="dark"] .bento-card {
-  background: linear-gradient(135deg, rgba(14, 45, 68, 0.85) 0%, rgba(2, 132, 199, 0.25) 100%);
+  background: linear-gradient(135deg,
+      rgba(14, 45, 68, 0.85) 0%,
+      rgba(2, 132, 199, 0.25) 100%);
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  border-color: #ffffff;
+}
+
+[data-theme="dark"] .bento-card:hover {
+  border-color: rgba(56, 189, 248, 0.8);
 }
 
 .bento-glass-shine {
@@ -33,7 +51,9 @@
   left: 3px;
   right: 3px;
   height: 25%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0) 100%);
   border-radius: 16px 16px 45% 45%;
   pointer-events: none;
   z-index: 5;
@@ -41,17 +61,9 @@
 
 [data-theme="dark"] .bento-glass-shine {
   height: 22%;
-  background: linear-gradient(180deg, rgba(56, 189, 248, 0.25) 0%, rgba(56, 189, 248, 0) 100%);
-}
-
-.bento-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.3), var(--glass-bevel);
-  border-color: #ffffff;
-}
-
-[data-theme="dark"] .bento-card:hover {
-  border-color: rgba(56, 189, 248, 0.8);
+  background: linear-gradient(180deg,
+      rgba(56, 189, 248, 0.25) 0%,
+      rgba(56, 189, 248, 0) 100%);
 }
 
 .bento-header {
@@ -89,13 +101,40 @@
 }
 
 .bento-weather {
-  grid-column: span 6;
+  grid-area: weather;
 }
 
 .bento-music {
-  grid-column: span 6;
+  grid-area: music;
   text-decoration: none;
   color: inherit;
+}
+
+.bento-bubbles {
+  grid-area: bubbles;
+  cursor: pointer;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  overflow: visible;
+  transition: none;
+  text-align: center;
+  padding: 16px 14px;
+}
+
+.bento-bubbles .bento-glass-shine {
+  display: none !important;
+}
+
+.standalone-clock-widget {
+  grid-area: clock;
+}
+
+.bento-calendar {
+  grid-area: calendar;
 }
 
 .bento-card-body {
@@ -115,33 +154,10 @@
   margin-top: 4px;
 }
 
-.bento-bubbles {
-  grid-column: span 12;
-  cursor: pointer;
-}
-
-.bento-icon-sphere {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #bae6fd 45%, #0284c7 90%);
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), inset 0 -3px 6px rgba(2, 132, 199, 0.6), 0 6px 18px rgba(2, 132, 199, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.bento-bubbles:hover .bento-icon-sphere {
-  transform: scale(1.12) rotate(8deg);
-}
-
 .bento-body {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0;
 }
 
 .bento-title {
@@ -159,25 +175,81 @@
   line-height: 1.35;
 }
 
+.bento-icon-sphere {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+      #ffffff 0%,
+      #bae6fd 45%,
+      #0284c7 90%);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.9),
+    inset 0 -3px 6px rgba(2, 132, 199, 0.6),
+    0 6px 18px rgba(2, 132, 199, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bento-bubbles .bento-card-body {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bento-bubbles .bento-body {
+  align-items: center;
+}
+
+.bento-bubbles .bento-sub {
+  font-size: 0.74rem;
+  max-width: 180px;
+}
+
+.bento-bubbles:hover {
+  transform: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.bento-bubbles:hover .bento-icon-sphere {
+  transform: scale(1.12) rotate(8deg);
+}
+
 .bento-action-btn {
   font-family: inherit;
   font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.03em;
   color: #ffffff;
-  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%);
+  background: linear-gradient(180deg,
+      #38bdf8 0%,
+      #0284c7 50%,
+      #0369a1 100%);
   border: 1.5px solid rgba(255, 255, 255, 0.85);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.7), 0 4px 12px rgba(2, 132, 199, 0.35);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.7),
+    0 4px 12px rgba(2, 132, 199, 0.35);
   padding: 5px 15px;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .bento-action-btn:hover {
   transform: translateY(-1px) scale(1.04);
-  box-shadow: inset 0 1px 3px #ffffff, 0 6px 16px rgba(2, 132, 199, 0.5);
+  box-shadow:
+    inset 0 1px 3px #ffffff,
+    0 6px 16px rgba(2, 132, 199, 0.5);
   filter: brightness(1.1);
 }
 
@@ -185,78 +257,87 @@
   transform: translateY(1px) scale(0.97);
 }
 
-.aero-cd-wrap {
+.standalone-clock-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px;
   position: relative;
-  width: 64px;
-  height: 64px;
-  flex-shrink: 0;
 }
 
-.aero-cd-disc {
+.standalone-clock-widget .clock-face-wrap {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  padding: 5px;
+  position: relative;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.standalone-clock-widget .clock-face-wrap:hover {
+  transform: scale(1.04);
+}
+
+.standalone-clock-widget .clock-face {
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: radial-gradient(circle, #222 0%, #111 50%, #333 70%, #1a1a1a 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.5);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.5s ease;
+  background: radial-gradient(circle at 35% 30%,
+      rgba(255, 255, 255, 0.75) 0%,
+      rgba(186, 230, 253, 0.45) 45%,
+      rgba(56, 189, 248, 0.25) 100%);
+  border: 2.5px solid var(--glass-border);
+  box-shadow:
+    var(--glass-bevel),
+    0 12px 32px rgba(2, 132, 199, 0.28),
+    inset 0 2px 5px rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
 }
 
-.is-playing .aero-cd-disc,
-.aero-cd-disc.playing {
-  animation: spinCd 6s linear infinite;
+[data-theme="dark"] .standalone-clock-widget .clock-face {
+  background: radial-gradient(circle at 35% 30%,
+      rgba(14, 45, 68, 0.9) 0%,
+      rgba(8, 30, 48, 0.8) 50%,
+      rgba(2, 132, 199, 0.25) 100%);
+  box-shadow:
+    var(--glass-bevel),
+    0 12px 32px rgba(0, 0, 0, 0.55),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
-@keyframes spinCd {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.aero-cd-sheen {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: conic-gradient(from 45deg,
-      transparent 0deg,
-      rgba(255, 255, 255, 0.45) 30deg,
-      transparent 60deg,
-      rgba(56, 189, 248, 0.35) 120deg,
-      transparent 180deg,
-      rgba(255, 255, 255, 0.35) 240deg,
-      transparent 300deg);
-  pointer-events: none;
-}
-
-.aero-cd-center {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1.5px solid #ffffff;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-  background: #0284c7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
+.digital-readout-standalone {
+  padding: 5px 15px;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  border: 1.5px solid var(--glass-border);
+  box-shadow: var(--glass-bevel), var(--glass-shadow);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  font-variant-numeric: tabular-nums;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--ink-title);
+  text-shadow: var(--ink-emboss);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .weather-avatar-frame {
-  width: 64px;
-  height: 64px;
+  width: 90px;
+  height: 90px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(186, 230, 253, 0.8) 100%);
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(186, 230, 253, 0.8) 100%);
   border: 1.5px solid #ffffff;
-  box-shadow: inset 0 1px 2px #ffffff, 0 4px 12px rgba(2, 132, 199, 0.2);
+  box-shadow:
+    inset 0 1px 2px #ffffff,
+    0 4px 12px rgba(2, 132, 199, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,8 +346,18 @@
 }
 
 [data-theme="dark"] .weather-avatar-frame {
-  background: linear-gradient(135deg, rgba(14, 45, 68, 0.9) 0%, rgba(4, 18, 30, 0.8) 100%);
+  background: linear-gradient(135deg,
+      rgba(14, 45, 68, 0.9) 0%,
+      rgba(4, 18, 30, 0.8) 100%);
   border-color: rgba(56, 189, 248, 0.45);
+}
+
+.weather-avatar-frame #weatherImage,
+.weather-avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .weather-avatar-frame #weatherEmoji {
@@ -312,31 +403,157 @@
   background: var(--card-subbox-bg);
   border: 1px solid var(--glass-border);
   color: var(--ink-title);
-  box-shadow: inset 0 1px 1px #ffffff, 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    inset 0 1px 1px #ffffff,
+    0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 640px) {
-  .bento-weather {
-    grid-column: span 12;
+.bento-music .bento-card-body {
+  margin-top: -5px;
+  margin-left: 3px;
+}
+
+.bento-music .aero-cd-wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.bento-music .aero-cd-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      #222 0%,
+      #111 50%,
+      #333 70%,
+      #1a1a1a 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    inset 0 0 8px rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+}
+
+.is-playing .aero-cd-disc,
+.aero-cd-disc.playing {
+  animation: spinCd 6s linear infinite;
+}
+
+@keyframes spinCd {
+  0% {
+    transform: rotate(0deg);
   }
 
-  .bento-music {
-    grid-column: span 12;
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.bento-music .aero-cd-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 45deg,
+      transparent 0deg,
+      rgba(255, 255, 255, 0.45) 30deg,
+      transparent 60deg,
+      rgba(56, 189, 248, 0.35) 120deg,
+      transparent 180deg,
+      rgba(255, 255, 255, 0.35) 240deg,
+      transparent 300deg);
+  pointer-events: none;
+}
+
+.bento-music .aero-cd-center {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid #ffffff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  background: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .aero-bento-grid {
+    grid-template-areas:
+      "weather weather weather weather weather weather clock clock clock calendar calendar calendar"
+      "music music music music music music music bubbles bubbles bubbles bubbles bubbles";
+  }
+
+  .standalone-clock-widget .clock-face-wrap {
+    width: 120px;
+    height: 120px;
   }
 
   .bento-bubbles {
-    grid-column: span 12;
+    text-align: left;
   }
 
-  .aero-cd-wrap,
-  .weather-avatar-frame,
-  .bento-icon-sphere {
-    width: 64px;
-    height: 64px;
+  .bento-bubbles .bento-card-body {
+    flex-direction: row;
   }
 
-  .aero-cd-center {
-    width: 40px;
-    height: 40px;
+  .bento-bubbles .bento-body {
+    align-items: flex-start;
+  }
+
+  .bento-bubbles .bento-sub {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .aero-bento-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "weather weather"
+      "clock calendar"
+      "music music"
+      "bubbles bubbles";
+    gap: 14px;
+  }
+
+  .bento-card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .standalone-clock-widget .clock-face-wrap {
+    width: 110px;
+    height: 110px;
+  }
+
+  .standalone-clock-widget {
+    min-width: 0;
+    padding: 10px;
+  }
+
+  .bento-music .aero-cd-wrap {
+    width: 70px;
+    height: 70px;
+  }
+
+  .bento-tag {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--aero-blue-dark);
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    padding: 2px 5px;
+    border-radius: 999px;
+    text-shadow: var(--ink-emboss);
+    text-transform: uppercase;
   }
 }

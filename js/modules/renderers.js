@@ -3,35 +3,35 @@ let currentAboutFilter = 'experience';
 let currentWritingFilter = 'all';
 
 function filterAeroProjects(cat) {
-    currentProjectFilter = cat;
-    if (typeof playAeroChime === 'function') playAeroChime('click');
-    document.querySelectorAll('.tab-filter-btn').forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-cat') === cat);
-    });
-    renderAeroProjects();
+  currentProjectFilter = cat;
+  if (typeof playAeroChime === 'function') playAeroChime('click');
+  document.querySelectorAll('.tab-filter-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-cat') === cat);
+  });
+  renderAeroProjects();
 }
 
 function getProjectIcon(icon) {
-    switch (icon) {
-        case 'bot': return '🤖';
-        case 'globe': return '🌐';
-        case 'heart': return '❤️';
-        case 'cpu': return '⚡';
-        case 'cat': return '🐱';
-        default: return '📁';
-    }
+  switch (icon) {
+    case 'bot': return '🤖';
+    case 'globe': return '🌐';
+    case 'heart': return '❤️';
+    case 'cpu': return '⚡';
+    case 'cat': return '🐱';
+    default: return '📁';
+  }
 }
 
 function renderAeroProjects() {
-    const gridContainer = document.getElementById('aero-projects-grid') || document.getElementById('aero-projects-list');
-    if (!gridContainer || typeof PROJECTS === 'undefined') return;
+  const gridContainer = document.getElementById('aero-projects-grid') || document.getElementById('aero-projects-list');
+  if (!gridContainer || typeof PROJECTS === 'undefined') return;
 
-    const filtered = PROJECTS.map((p, originalIndex) => ({ ...p, originalIndex }))
-        .filter(p => currentProjectFilter === 'all' || p.category === currentProjectFilter);
+  const filtered = PROJECTS.map((p, originalIndex) => ({ ...p, originalIndex }))
+    .filter(p => currentProjectFilter === 'all' || p.category === currentProjectFilter);
 
-    gridContainer.innerHTML = filtered.map(p => {
-        const sdgs = p.detail && p.detail.sdgs ? p.detail.sdgs : [];
-        return `
+  gridContainer.innerHTML = filtered.map(p => {
+    const sdgs = p.detail && p.detail.sdgs ? p.detail.sdgs : [];
+    return `
     <div class="aero-proj-card" onclick="openAeroProjectDetail(${p.originalIndex})">
       <div class="proj-card-top">
         <div class="proj-card-icon-badge" style="background: ${p.color || '#0284c7'};">
@@ -63,14 +63,14 @@ function renderAeroProjects() {
       </div>
     </div>
   `;
-    }).join('');
+  }).join('');
 }
 
 function renderAeroCertifications() {
-    const container = document.getElementById('aero-certs-container');
-    if (!container || typeof CERTIFICATIONS === 'undefined') return;
+  const container = document.getElementById('aero-certs-container');
+  if (!container || typeof CERTIFICATIONS === 'undefined') return;
 
-    container.innerHTML = CERTIFICATIONS.map(c => `
+  container.innerHTML = CERTIFICATIONS.map(c => `
     <a class="aero-pill-row" href="${c.url}" target="_blank" rel="noopener">
       <div class="row-info-col">
         <div class="row-title">${c.title}</div>
@@ -83,10 +83,10 @@ function renderAeroCertifications() {
 }
 
 function renderAeroEvents() {
-    const gridContainer = document.getElementById('aero-events-grid') || document.getElementById('aero-events-list');
-    if (!gridContainer || typeof EVENTS === 'undefined') return;
+  const gridContainer = document.getElementById('aero-events-grid') || document.getElementById('aero-events-list');
+  if (!gridContainer || typeof EVENTS === 'undefined') return;
 
-    gridContainer.innerHTML = EVENTS.map((e, idx) => `
+  gridContainer.innerHTML = EVENTS.map((e, idx) => `
     <div class="aero-event-card" onclick="openAeroLightbox('${e.src}', '${e.title.replace(/'/g, "\\'")}')">
       <div class="event-img-wrap">
         <img src="${e.src}" alt="${e.title}" class="event-img" loading="lazy">
@@ -101,53 +101,53 @@ function renderAeroEvents() {
 }
 
 function filterAeroAbout(cat) {
-    currentAboutFilter = cat;
-    if (typeof playAeroChime === 'function') playAeroChime('click');
-    document.querySelectorAll('[data-about]').forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-about') === cat);
-    });
+  currentAboutFilter = cat;
+  if (typeof playAeroChime === 'function') playAeroChime('click');
+  document.querySelectorAll('[data-about]').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-about') === cat);
+  });
 
-    const expSec = document.getElementById('about-section-experience');
-    const eduSec = document.getElementById('about-section-education');
-    const certSec = document.getElementById('about-section-certs');
+  const expSec = document.getElementById('about-section-experience');
+  const eduSec = document.getElementById('about-section-education');
+  const certSec = document.getElementById('about-section-certs');
 
-    if (expSec) expSec.style.display = (cat === 'experience') ? 'flex' : 'none';
-    if (eduSec) eduSec.style.display = (cat === 'education') ? 'flex' : 'none';
-    if (certSec) certSec.style.display = (cat === 'certs') ? 'flex' : 'none';
+  if (expSec) expSec.style.display = (cat === 'experience') ? 'flex' : 'none';
+  if (eduSec) eduSec.style.display = (cat === 'education') ? 'flex' : 'none';
+  if (certSec) certSec.style.display = (cat === 'certs') ? 'flex' : 'none';
 }
 
 function filterAeroWriting(cat) {
-    currentWritingFilter = cat;
-    if (typeof playAeroChime === 'function') playAeroChime('click');
-    document.querySelectorAll('[data-writing]').forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-writing') === cat);
-    });
-    renderAeroWriting();
+  currentWritingFilter = cat;
+  if (typeof playAeroChime === 'function') playAeroChime('click');
+  document.querySelectorAll('[data-writing]').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-writing') === cat);
+  });
+  renderAeroWriting();
 }
 
 function getBlogTimestamp(b) {
-    return new Date(b.date).getTime();
+  return new Date(b.date).getTime();
 }
 
 function renderAeroWriting() {
-    const container = document.getElementById('aero-writing-list');
-    if (!container || typeof BLOG === 'undefined') return;
+  const container = document.getElementById('aero-writing-list');
+  if (!container || typeof BLOG === 'undefined') return;
 
-    let list = [];
+  let list = [];
 
-    if (currentWritingFilter === 'all') {
-        list = [
-            ...(BLOG.tech || []),
-            ...(BLOG.life || [])
-        ];
-        list.sort((a, b) => getBlogTimestamp(b) - getBlogTimestamp(a));
-    } else if (currentWritingFilter === 'tech') {
-        list = BLOG.tech || [];
-    } else if (currentWritingFilter === 'life') {
-        list = BLOG.life || [];
-    }
+  if (currentWritingFilter === 'all') {
+    list = [
+      ...(BLOG.tech || []),
+      ...(BLOG.life || [])
+    ];
+    list.sort((a, b) => getBlogTimestamp(b) - getBlogTimestamp(a));
+  } else if (currentWritingFilter === 'tech') {
+    list = BLOG.tech || [];
+  } else if (currentWritingFilter === 'life') {
+    list = BLOG.life || [];
+  }
 
-    container.innerHTML = list.map(b => `
+  container.innerHTML = list.map(b => `
     <a class="aero-pill-row" href="${b.url}" target="_blank" rel="noopener">
       <div class="row-thumb-wrap">
         <img src="${b.img}" alt="${b.title}" class="row-thumb-img" loading="lazy" onerror="this.src='assets/images/favicon.svg'">
@@ -165,30 +165,30 @@ function renderAeroWriting() {
 }
 
 function openAeroProjectDetail(idx, updateHash = true) {
-    const p = PROJECTS[idx];
-    if (!p) return;
+  const p = PROJECTS[idx];
+  if (!p) return;
 
-    const d = p.detail;
-    if (!d) {
-        if (p.links && p.links.length > 0) window.open(p.links[0].url, '_blank');
-        return;
-    }
+  const d = p.detail;
+  if (!d) {
+    if (p.links && p.links.length > 0) window.open(p.links[0].url, '_blank');
+    return;
+  }
 
-    if (updateHash) {
-        window.location.hash = '#project-' + idx;
-    }
-    if (typeof switchAeroTab === 'function') {
-        switchAeroTab('projects', null, false);
-    }
+  if (updateHash) {
+    window.location.hash = '#project-' + idx;
+  }
+  if (typeof switchAeroTab === 'function') {
+    switchAeroTab('projects', null, false);
+  }
 
-    const overview = document.getElementById('projects-overview-view');
-    const detail = document.getElementById('projects-detail-view');
-    if (!overview || !detail) return;
+  const overview = document.getElementById('projects-overview-view');
+  const detail = document.getElementById('projects-detail-view');
+  if (!overview || !detail) return;
 
-    overview.style.display = 'none';
-    detail.style.display = 'flex';
+  overview.style.display = 'none';
+  detail.style.display = 'flex';
 
-    detail.innerHTML = `
+  detail.innerHTML = `
     <div class="cs-header-wrap">
       <button class="sidebar-pill-btn cs-back-btn" onclick="backToProjectsList()" style="width: auto; padding: 7px 18px; margin: 0; cursor: pointer;">
         <span>← Back to Projects</span>
@@ -299,79 +299,200 @@ function openAeroProjectDetail(idx, updateHash = true) {
     </div>
   `;
 
-    const canvas = document.getElementById('windowContentCanvas');
-    if (canvas) canvas.scrollTop = 0;
+  const canvas = document.getElementById('windowContentCanvas');
+  if (canvas) canvas.scrollTop = 0;
 }
 
 function backToProjectsList(updateHash = true) {
-    if (typeof playAeroChime === 'function') playAeroChime('click');
-    if (updateHash) {
-        window.location.hash = '#projects';
-    }
-    const overview = document.getElementById('projects-overview-view');
-    const detail = document.getElementById('projects-detail-view');
-    if (overview && detail) {
-        detail.style.display = 'none';
-        overview.style.display = 'flex';
-    }
-    const canvas = document.getElementById('windowContentCanvas');
-    if (canvas) canvas.scrollTop = 0;
+  if (typeof playAeroChime === 'function') playAeroChime('click');
+  if (updateHash) {
+    window.location.hash = '#projects';
+  }
+  const overview = document.getElementById('projects-overview-view');
+  const detail = document.getElementById('projects-detail-view');
+  if (overview && detail) {
+    detail.style.display = 'none';
+    overview.style.display = 'flex';
+  }
+  const canvas = document.getElementById('windowContentCanvas');
+  if (canvas) canvas.scrollTop = 0;
 }
 
 function openAeroLightbox(src, title, altText, isVideo = false) {
-    const modal = document.getElementById('lightboxModal');
-    const img = document.getElementById('lightboxImg');
-    const videoWrap = document.getElementById('lightboxVideoWrap');
-    const iframe = document.getElementById('lightboxIframe');
-    const cap = document.getElementById('lightboxCaption');
-    if (!modal) return;
+  const modal = document.getElementById('lightboxModal');
+  const img = document.getElementById('lightboxImg');
+  const videoWrap = document.getElementById('lightboxVideoWrap');
+  const iframe = document.getElementById('lightboxIframe');
+  const cap = document.getElementById('lightboxCaption');
+  if (!modal) return;
 
-    if (isVideo) {
-        if (img) {
-            img.style.display = 'none';
-            img.src = '';
-        }
-        if (videoWrap && iframe) {
-            videoWrap.style.display = 'block';
-            iframe.src = src;
-        }
-    } else {
-        if (videoWrap && iframe) {
-            videoWrap.style.display = 'none';
-            iframe.src = '';
-        }
-        if (img) {
-            img.style.display = 'block';
-            img.src = src;
-        }
+  if (isVideo) {
+    if (img) {
+      img.style.display = 'none';
+      img.src = '';
     }
-
-    if (cap) {
-        cap.innerHTML = (altText && altText.trim())
-            ? `<span class="lb-project">${title}</span><span class="lb-sep">·</span><span class="lb-alt">${altText}</span>`
-            : `<span class="lb-project">${title}</span>`;
+    if (videoWrap && iframe) {
+      videoWrap.style.display = 'block';
+      iframe.src = src;
     }
+  } else {
+    if (videoWrap && iframe) {
+      videoWrap.style.display = 'none';
+      iframe.src = '';
+    }
+    if (img) {
+      img.style.display = 'block';
+      img.src = src;
+    }
+  }
 
-    modal.classList.add('active');
-    if (typeof playAeroChime === 'function') playAeroChime('chime');
+  if (cap) {
+    cap.innerHTML = (altText && altText.trim())
+      ? `<span class="lb-project">${title}</span><span class="lb-sep">·</span><span class="lb-alt">${altText}</span>`
+      : `<span class="lb-project">${title}</span>`;
+  }
+
+  modal.classList.add('active');
+  if (typeof playAeroChime === 'function') playAeroChime('chime');
 }
 
 function openAeroLightboxVideo(src, title, altText) {
-    openAeroLightbox(src, title, altText, true);
+  openAeroLightbox(src, title, altText, true);
 }
 
 function closeLightbox(e) {
-    if (!e || e.target.id === 'lightboxModal' || e.target.classList.contains('lightbox-close')) {
-        const modal = document.getElementById('lightboxModal');
-        if (modal) modal.classList.remove('active');
-        const iframe = document.getElementById('lightboxIframe');
-        if (iframe) iframe.src = '';
-    }
+  if (!e || e.target.id === 'lightboxModal' || e.target.classList.contains('lightbox-close')) {
+    const modal = document.getElementById('lightboxModal');
+    if (modal) modal.classList.remove('active');
+    const iframe = document.getElementById('lightboxIframe');
+    if (iframe) iframe.src = '';
+  }
 }
 
 function closeProjectModal(e) {
-    if (!e || e.target.id === 'projectModal' || e.target.classList.contains('proj-modal-close')) {
-        const modal = document.getElementById('projectModal');
-        if (modal) modal.classList.remove('active');
-    }
+  if (!e || e.target.id === 'projectModal' || e.target.classList.contains('proj-modal-close')) {
+    const modal = document.getElementById('projectModal');
+    if (modal) modal.classList.remove('active');
+  }
+}
+
+/* ==========================================================================
+   Aero Media Vault Renderer (WATCHED Showcase)
+   ========================================================================== */
+let currentWatchedFilter = 'all';
+let currentWatchedSearch = '';
+
+function getWatchedCategories() {
+  return [
+    { id: 'all', label: 'All Media', icon: '🎬' },
+    { id: 'scifi', label: 'Sci-Fi', icon: '🚀' },
+    { id: 'psychological', label: 'Psychological', icon: '🧠' },
+    { id: 'tech', label: 'tech', icon: '💻' },
+    { id: 'science', label: 'Science', icon: '🧪' },
+    { id: 'mystery', label: 'Mystery', icon: '🔍' },
+    { id: 'sliceOfLife', label: 'Slice of Life', icon: '🌱' },
+    { id: 'music', label: 'Music & Live', icon: '🎵' },
+  ];
+}
+
+function filterAeroWatched(cat) {
+  currentWatchedFilter = cat;
+  if (typeof playAeroChime === 'function') playAeroChime('click');
+  document.querySelectorAll('[data-watched]').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-watched') === cat);
+  });
+  renderAeroWatched();
+}
+
+function searchAeroWatched(query) {
+  currentWatchedSearch = (query || '').toLowerCase().trim();
+  renderAeroWatched();
+}
+
+function renderAeroWatchedFilterBar() {
+  const bar = document.getElementById('watchedFilterBar');
+  if (!bar || typeof WATCHED === 'undefined') return;
+
+  const cats = getWatchedCategories();
+  const counts = { all: 0 };
+
+  Object.keys(WATCHED).forEach(catKey => {
+    const count = (WATCHED[catKey] || []).length;
+    counts[catKey] = count;
+    counts.all += count;
+  });
+
+  bar.innerHTML = cats.map(c => {
+    const count = counts[c.id] || 0;
+    const isActive = currentWatchedFilter === c.id;
+    return `
+            <button class="genre-list-btn ${isActive ? 'active' : ''}" data-watched="${c.id}" onclick="filterAeroWatched('${c.id}')">
+                <span class="genre-btn-left">
+                    <span class="genre-icon">${c.icon}</span>
+                    <span class="genre-label">${c.label}</span>
+                </span>
+                <span class="genre-count">${count}</span>
+            </button>
+        `;
+  }).join('');
+}
+
+function renderAeroWatched() {
+  const grid = document.getElementById('aero-watched-grid');
+  const badge = document.getElementById('watchedCountBadge');
+  if (!grid || typeof WATCHED === 'undefined') return;
+
+  renderAeroWatchedFilterBar();
+
+  let allItems = [];
+  Object.keys(WATCHED).forEach(catKey => {
+    const items = WATCHED[catKey] || [];
+    items.forEach(item => {
+      allItems.push({
+        ...item,
+        catKey: catKey
+      });
+    });
+  });
+
+  const filtered = allItems.filter(item => {
+    return currentWatchedFilter === 'all' || item.catKey === currentWatchedFilter;
+  });
+
+  if (badge) {
+    badge.textContent = `${filtered.length} Title${filtered.length === 1 ? '' : 's'}`;
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+            <div class="watched-empty-state">
+                <div class="empty-icon">🛸</div>
+                <div class="empty-title">No matching titles found</div>
+                <div class="empty-desc">Try choosing another category.</div>
+            </div>
+        `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(item => {
+    const safeTitle = (item.title || '').replace(/'/g, "\\'");
+    const safeCategory = (item.category || '').replace(/'/g, "\\'");
+    return `
+            <div class="aero-poster-card" onclick="openAeroLightbox('${item.img}', '${safeTitle} (${item.year})', '${safeCategory} · ${item.type}')">
+                <div class="poster-img-wrap">
+                    <img src="${item.img}" alt="${item.title}" class="poster-img" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/600x900/0284c7/ffffff?text=${encodeURIComponent(item.title)}';">
+                    <div class="poster-gloss"></div>
+                    <div class="poster-badge-top-left">${item.category}</div>
+                    <div class="poster-badge-top-right">${item.year}</div>
+                    <div class="poster-overlay-btn">View Poster 🔍</div>
+                </div>
+                <div class="poster-info">
+                    <div class="poster-title" title="${item.title}">${item.title}</div>
+                    <div class="poster-meta">
+                        <span class="poster-type">${item.type}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+  }).join('');
 }
