@@ -243,10 +243,19 @@
             <div class="widgets-row">
               <a class="duolingo-glass github-glass" href="https://github.com/sehansi-9" target="_blank"
                 rel="noopener noreferrer">
+
                 <div class="duolingo-glass-shine"></div>
+
                 <img id="githubStats"
                   src="https://streak-stats.demolab.com/?user=sehansi-9&theme=default&hide_border=true&background=00000000&ring=0284c7&fire=0284c7&currStreakNum=0284c7"
-                  alt="sehansi-9's GitHub Streak Stats">
+                  alt="sehansi-9's GitHub Streak Stats"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                <div class="github-stats-fallback">
+                  <span class="github-fallback-icon">↗</span>
+                  <span>GitHub streak stats are temporarily unavailable</span>
+                </div>
+
                 <div class="duolingo-username">github: sehansi-9</div>
               </a>
               <div class="duolingo-glass">
