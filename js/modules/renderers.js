@@ -58,7 +58,7 @@ function renderAeroProjects() {
       </div>
       <div class="proj-card-bottom">
         <div class="proj-card-action">
-          ${p.detail ? `<span>Case study ➔</span>` : `<span> </span>`}
+          ${p.detail ? `<span>Case study ➔</span>` : `<span> Visit ↗</span>`}
         </div>
       </div>
     </div>
@@ -190,7 +190,7 @@ function openAeroProjectDetail(idx, updateHash = true) {
 
   detail.innerHTML = `
     <div class="cs-header-wrap">
-      <button class="sidebar-pill-btn cs-back-btn" onclick="backToProjectsList()" style="width: auto; padding: 7px 18px; margin: 0; cursor: pointer;">
+      <button class="project-link-btn cs-back-btn" onclick="backToProjectsList()" style="width: auto; padding: 7px 18px; margin: 0; cursor: pointer;">
         <span>← Back to Projects</span>
       </button>
       <div class="cs-tag-badge">
@@ -294,7 +294,7 @@ function openAeroProjectDetail(idx, updateHash = true) {
 
     <div class="cs-links-wrap">
       ${(p.links || []).map(l => `
-        <a href="${l.url}" target="_blank" rel="noopener" class="sidebar-pill-btn" style="width:auto; padding:8px 18px;">${l.label}</a>
+        <a href="${l.url}" target="_blank" rel="noopener" class="project-link-btn" style="width:auto; padding:8px 18px;">${l.label}</a>
       `).join('')}
     </div>
   `;
@@ -384,14 +384,14 @@ let currentWatchedSearch = '';
 
 function getWatchedCategories() {
   return [
-    { id: 'all', label: 'All Media', icon: '🎬' },
-    { id: 'scifi', label: 'Sci-Fi', icon: '🚀' },
-    { id: 'psychological', label: 'Psychological', icon: '🧠' },
-    { id: 'tech', label: 'tech', icon: '💻' },
-    { id: 'science', label: 'Science', icon: '🧪' },
-    { id: 'mystery', label: 'Mystery', icon: '🔍' },
-    { id: 'sliceOfLife', label: 'Slice of Life', icon: '🌱' },
-    { id: 'music', label: 'Music & Live', icon: '🎵' },
+    { id: 'all', label: 'All Media', icon: '' },
+    { id: 'scifi', label: 'Sci-Fi', icon: '' },
+    { id: 'psychological', label: 'Psychological', icon: '' },
+    { id: 'tech', label: 'tech', icon: '' },
+    { id: 'science', label: 'Science', icon: '' },
+    { id: 'mystery', label: 'Mystery', icon: '' },
+    { id: 'sliceOfLife', label: 'Slice of Life', icon: '' },
+    { id: 'music', label: 'Music & Live', icon: '' },
   ];
 }
 

@@ -8,12 +8,12 @@ const TAB_TITLES = {
 };
 
 const MOBILE_TAB_LABELS = {
-    home: '🏠 Home',
-    about: '👤 About',
-    projects: '📁 Projects',
-    events: '📅 Events',
-    writing: '✍️ Writing',
-    widgets: '🧩 Widgets',
+    home: 'Home',
+    about: 'About',
+    projects: 'Projects',
+    events: 'Events',
+    writing: 'Writing',
+    widgets: 'Widgets',
 };
 
 let activeTabId = 'home';
@@ -68,10 +68,15 @@ function switchAeroTab(tabId, event, updateHash = true) {
         btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
     });
 
-    const mobileLabel = document.getElementById('mobileNavActiveLabel');
+    const mobileText = document.getElementById('mobileActiveText');
+    const mobileIcon = document.getElementById('mobileActiveIcon');
 
-    if (mobileLabel) {
-        mobileLabel.textContent = MOBILE_TAB_LABELS[tabId] || tabId;
+    if (mobileText) {
+        mobileText.textContent = MOBILE_TAB_LABELS[tabId] || tabId;
+    }
+
+    if (mobileIcon) {
+        mobileIcon.src = `assets/icons/${tabId}.png`;
     }
 
     document.querySelectorAll('.mobile-drawer-item').forEach(item => {

@@ -35,27 +35,38 @@
     <header class="aero-top-tabs-bar" role="tablist">
       <a href="#home" class="aero-tab-btn active" role="tab" aria-selected="true" data-tab="home"
         onclick="switchAeroTab('home', event)">
-        <span>🏠 Home</span>
+        <img class="tab-icon" src="assets/icons/home.png" alt="">
+        <span>Home</span>
       </a>
+
       <a href="#about" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="about"
         onclick="switchAeroTab('about', event)">
-        <span>👤 About</span>
+        <img class="tab-icon" style="transform: scale(1.4)" src="assets/icons/about.png" alt="">
+        <span>About</span>
       </a>
+
       <a href="#projects" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="projects"
         onclick="switchAeroTab('projects', event)">
-        <span>📁 Projects</span>
+        <img class="tab-icon" style="transform: scale(1.1)" src="assets/icons/projects.png" alt="">
+        <span>Projects</span>
       </a>
+
       <a href="#events" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="events"
         onclick="switchAeroTab('events', event)">
-        <span>📅 Events</span>
+        <img class="tab-icon" src="assets/icons/events.png" alt="">
+        <span>Events</span>
       </a>
+
       <a href="#writing" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="writing"
         onclick="switchAeroTab('writing', event)">
-        <span>✍️ Writing</span>
+        <img class="tab-icon" style="transform: scale(2.3)" src="assets/icons/writing.png" alt="">
+        <span>Writing</span>
       </a>
+
       <a href="#widgets" class="aero-tab-btn" role="tab" aria-selected="false" data-tab="widgets"
         onclick="switchAeroTab('widgets', event)">
-        <span>🧩 Widgets</span>
+        <img class="tab-icon" src="assets/icons/widgets.png" alt="">
+        <span>Widgets</span>
       </a>
     </header>
 
@@ -121,7 +132,10 @@
 
     <div class="mobile-nav" id="mobileNav">
       <div class="mobile-nav-bar">
-        <div class="mobile-nav-active" id="mobileNavActiveLabel"> 🏠 Home</div>
+        <div class="mobile-nav-active" id="mobileNavActiveLabel">
+          <img id="mobileActiveIcon" class="mobile-tab-icon" src="assets/icons/home.png" alt="">
+          <span id="mobileActiveText">Home</span>
+        </div>
         <button class="mobile-nav-toggle" id="mobileNavToggle" onclick="toggleMobileDrawer()"
           aria-label="Open navigation">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -130,19 +144,36 @@
         </button>
       </div>
       <div class="mobile-nav-drawer" id="mobileNavDrawer">
-        <a href="#home" class="mobile-drawer-item active" data-mob-tab="home" onclick="switchAeroTab('home', event)">🏠
-          Home</a>
-        <a href="#about" class="mobile-drawer-item" data-mob-tab="about" onclick="switchAeroTab('about', event)">👤
-          About</a>
+        <a href="#home" class="mobile-drawer-item active" data-mob-tab="home" onclick="switchAeroTab('home', event)">
+          <img class="mobile-tab-icon" src="assets/icons/home.png" alt="">
+          <span>Home</span>
+        </a>
+        <a href="#about" class="mobile-drawer-item" data-mob-tab="about" onclick="switchAeroTab('about', event)">
+          <img class="mobile-tab-icon" style="width: 40px; height: 40px;" src="assets/icons/about.png" alt="">
+          <span>About</span>
+        </a>
+
         <a href="#projects" class="mobile-drawer-item" data-mob-tab="projects"
-          onclick="switchAeroTab('projects', event)">📁 Projects</a>
-        <a href="#events" class="mobile-drawer-item" data-mob-tab="events" onclick="switchAeroTab('events', event)">📅
-          Events</a>
-        <a href="#writing" class="mobile-drawer-item" data-mob-tab="writing"
-          onclick="switchAeroTab('writing', event)">✍️ Writing</a>
-        <a href="#widgets" class="mobile-drawer-item" data-mob-tab="widgets"
-          onclick="switchAeroTab('widgets', event)">🧩
-          Widgets</a>
+          onclick="switchAeroTab('projects', event)">
+          <img class="mobile-tab-icon" style="margin-left:10px 32px; height: 32px;" src="assets/icons/projects.png"
+            alt="">
+          <span>Projects</span>
+        </a>
+
+        <a href="#events" class="mobile-drawer-item" data-mob-tab="events" onclick="switchAeroTab('events', event)">
+          <img class="mobile-tab-icon" src="assets/icons/events.png" alt="">
+          <span>Events</span>
+        </a>
+
+        <a href="#writing" class="mobile-drawer-item" data-mob-tab="writing" onclick="switchAeroTab('writing', event)">
+          <img class="mobile-tab-icon" style="width: 60px; height: 60px;" src="assets/icons/writing.png" alt="">
+          <span>Writing</span>
+        </a>
+
+        <a href="#widgets" class="mobile-drawer-item" data-mob-tab="widgets" onclick="switchAeroTab('widgets', event)">
+          <img class="mobile-tab-icon" src="assets/icons/widgets.png" alt="">
+          <span>Widgets</span>
+        </a>
       </div>
     </div>
 
@@ -157,22 +188,33 @@
           <nav class="sidebar-nav-list">
             <a class="sidebar-pill-btn" href="https://www.linkedin.com/in/sehansi-perera-542740291/" target="_blank"
               rel="noopener">
-              <span>💼 LinkedIn ↗</span>
+              <img class="sidebar-pill-icon" src="assets/icons/linkedin.png" alt="">
+              <span>LinkedIn</span>
             </a>
+
             <a class="sidebar-pill-btn" href="https://github.com/sehansi-9" target="_blank" rel="noopener">
-              <span>🐙 GitHub ↗</span>
+              <img class="sidebar-pill-icon" src="assets/icons/github.png" alt="">
+              <span>GitHub</span>
             </a>
+
             <a class="sidebar-pill-btn" href="mailto:sehansi.wsmp9@gmail.com" target="_blank" rel="noopener">
-              <span>📧 Email ↗</span>
+              <img class="sidebar-pill-icon" src="assets/icons/email.png" alt="">
+              <span>Email</span>
             </a>
+
             <a class="sidebar-pill-btn" href="https://medium.com/@sehansi" target="_blank" rel="noopener">
-              <span> ✍️ Medium ↗</span>
+              <img class="sidebar-pill-icon" src="assets/icons/medium.png" alt="">
+              <span>Medium</span>
             </a>
+
             <a class="sidebar-pill-btn" href="https://twitter.com/sehansi_perera" target="_blank" rel="noopener">
-              <span> 🐦 Twitter ↗</span>
+              <img class="sidebar-pill-icon" src="assets/icons/twitter.png" alt="">
+              <span>Twitter</span>
             </a>
+
             <a class="sidebar-pill-btn" href="https://instagram.com/sp_pptart" target="_blank" rel="noopener">
-              <span>🎨 Digital Art ↗</span>
+              <img class="sidebar-pill-icon" src="assets/icons/art.png" alt="">
+              <span>Digital Art</span>
             </a>
           </nav>
 
@@ -346,19 +388,19 @@
                 <div class="intro-heading">Sehansi Perera</div>
                 <ul class="intro-body" style="list-style:none">
                   <li>📍 <strong>Based in Colombo, Sri Lanka</strong></li>
-                  <li>🎓 Computer Science Undergraduate at University of Westminster UK / Informatics Institute of
-                    Technology</li>
-                  <li>🤖 Focused on Efficient AI, Open Source Platforms, and Social-Impact Software</li>
+                  <li> Computer Science Undergraduate at University of Westminster UK / Informatics Institute of
+                    Technology.</li>
+                  <li> Focused on Efficient AI, Open Source Platforms, and Social-Impact Software</li>
                 </ul>
               </div>
             </div>
 
             <div class="tab-filter-bar">
-              <button class="tab-filter-btn active" data-about="experience" onclick="filterAeroAbout('experience')">💼
+              <button class="tab-filter-btn active" data-about="experience" onclick="filterAeroAbout('experience')">
                 Experience</button>
-              <button class="tab-filter-btn" data-about="education" onclick="filterAeroAbout('education')">🎓
+              <button class="tab-filter-btn" data-about="education" onclick="filterAeroAbout('education')">
                 Education</button>
-              <button class="tab-filter-btn" data-about="certs" onclick="filterAeroAbout('certs')">📜
+              <button class="tab-filter-btn" data-about="certs" onclick="filterAeroAbout('certs')">
                 Certifications</button>
             </div>
 
