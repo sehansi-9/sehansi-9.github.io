@@ -387,7 +387,7 @@ function getWatchedCategories() {
     { id: 'all', label: 'All Media', icon: '' },
     { id: 'scifi', label: 'Sci-Fi', icon: '' },
     { id: 'psychological', label: 'Psychological', icon: '' },
-    { id: 'tech', label: 'tech', icon: '' },
+    { id: 'tech', label: 'Tech', icon: '' },
     { id: 'science', label: 'Science', icon: '' },
     { id: 'mystery', label: 'Mystery', icon: '' },
     { id: 'sliceOfLife', label: 'Slice of Life', icon: '' },
