@@ -259,14 +259,14 @@
   margin-top: auto;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 3px;
 }
 
 .sidebar-app-tile {
   aspect-ratio: 1;
   background: var(--glass-bg);
   border: 1.5px solid rgba(255, 255, 255, 0.95);
-  border-radius: 14px;
+  border-radius: 8px;
   box-shadow: inset 0 1px 2px #ffffff, 0 4px 10px rgba(0, 0, 0, 0.15);
   display: flex;
   width: 50px;
@@ -480,7 +480,7 @@
   }
 
   .mobile-drawer-item.active {
-    background: var(--btn-tab-active-grad);
+    background: linear-gradient(180deg, rgba(43, 214, 241, 0.25) 0%, rgba(9, 136, 200, 0.45) 100%);
     color: #ffffff;
     font-weight: 800;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
