@@ -20,9 +20,7 @@
   border-radius: 50%;
   background: var(--glass-bg);
   border: 2px solid var(--glass-border);
-  box-shadow: var(--glass-bevel), var(--glass-shadow);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
+
 }
 
 .clock-face-wrap {
@@ -102,9 +100,6 @@
   border-radius: 999px;
   background: var(--glass-bg);
   border: 2px solid var(--glass-border);
-  box-shadow: var(--glass-bevel), var(--glass-shadow);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
   font-variant-numeric: tabular-nums;
   font-size: 12px;
   font-weight: 500;
@@ -119,12 +114,9 @@
   width: 100%;
   min-width: 0;
   padding: 5px;
-  border-radius: 20px;
+  border-radius: 16px;
   background: var(--glass-bg);
   border: 2px solid var(--glass-border);
-  box-shadow: var(--glass-bevel), var(--glass-shadow);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -135,7 +127,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-radius: 14px;
+  border-radius: 16px;
   opacity: 0.88;
   z-index: 2;
 }
@@ -268,12 +260,9 @@
   display: block;
   margin-top: 14px;
   padding: 12px 16px 14px;
-  border-radius: 20px;
+  border-radius: 16px;
   background: var(--glass-bg);
   border: 2px solid var(--glass-border);
-  box-shadow: var(--glass-bevel), var(--glass-shadow);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -654,7 +643,7 @@
   }
 
   .lastfm-widget {
-    border-radius: 18px;
+    border-radius: 16px;
     padding: 12px;
   }
 
