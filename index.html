@@ -238,7 +238,8 @@
           </div>
         </div>
 
-        <div class="sidebar-footer-text">© 2026 Sehansi Perera</div>
+        <div class="sidebar-footer-text">© <span id="currentYear"></span> Sehansi Perera</div>
+        <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
       </aside>
 
       <section class="aero-main-window">
