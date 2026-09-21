@@ -35,6 +35,40 @@ function toggleAeroTheme() {
     }
 }
 
+function initializeAeroTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+
+    const sunIcon = document.getElementById('themeIconSun');
+    const moonIcon = document.getElementById('themeIconMoon');
+    const sunIconMob = document.getElementById('themeIconSunMob');
+    const moonIconMob = document.getElementById('themeIconMoonMob');
+
+    if (savedTheme === 'dark') {
+        if (sunIcon) sunIcon.style.display = 'block';
+        if (moonIcon) moonIcon.style.display = 'none';
+
+        if (sunIconMob) sunIconMob.style.display = 'block';
+        if (moonIconMob) moonIconMob.style.display = 'none';
+    } else {
+        if (sunIcon) sunIcon.style.display = 'none';
+        if (moonIcon) moonIcon.style.display = 'block';
+
+        if (sunIconMob) sunIconMob.style.display = 'none';
+        if (moonIconMob) moonIconMob.style.display = 'block';
+    }
+
+    updateDuolingoTheme();
+    updateGithubTheme();
+}
+
+document.addEventListener('DOMContentLoaded', initializeAeroTheme);
+
 function updateDuolingoTheme() {
     const duolingoStats = document.getElementById('duolingoStats');
     if (!duolingoStats) return;

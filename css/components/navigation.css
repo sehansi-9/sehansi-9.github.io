@@ -312,6 +312,13 @@
   color: var(--aero-cyan);
 }
 
+.sidebar-app-tile img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+}
+
 .sidebar-footer-text {
   font-size: 11px;
   font-weight: 700;
