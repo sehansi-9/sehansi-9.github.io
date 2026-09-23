@@ -73,8 +73,6 @@ function setSoundIcons(on) {
 }
 
 function playAeroChime(type = 'chime') {
-    if (!isSoundEnabled) return;
-
     try {
         if (type === 'music') {
             startBackgroundMusic();
@@ -156,7 +154,6 @@ function toggleAeroAudio() {
 
     if (isSoundEnabled) {
         startBackgroundMusic();
-        playAeroChime('chime');
     } else {
         removeMusicGestureListener();
 
