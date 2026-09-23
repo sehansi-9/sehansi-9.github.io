@@ -1,19 +1,10 @@
-const TAB_TITLES = {
-    home: 'Home',
-    about: 'About Me',
-    projects: 'Projects',
-    events: 'Events & Community',
-    writing: 'Writing',
-    widgets: 'Widgets',
-};
-
-const MOBILE_TAB_LABELS = {
-    home: 'Home',
-    about: 'About',
-    projects: 'Projects',
-    events: 'Events',
-    writing: 'Writing',
-    widgets: 'Widgets',
+const TAB_CONFIG = {
+    home: { title: 'Home', label: 'Home' },
+    about: { title: 'About Me', label: 'About' },
+    projects: { title: 'Projects', label: 'Projects' },
+    events: { title: 'Events & Community', label: 'Events' },
+    writing: { title: 'Writing', label: 'Writing' },
+    widgets: { title: 'Widgets', label: 'Widgets' },
 };
 
 let activeTabId = 'home';
@@ -72,7 +63,7 @@ function switchAeroTab(tabId, event, updateHash = true) {
     const mobileIcon = document.getElementById('mobileActiveIcon');
 
     if (mobileText) {
-        mobileText.textContent = MOBILE_TAB_LABELS[tabId] || tabId;
+        mobileText.textContent = (TAB_CONFIG[tabId] || {}).label || tabId;
     }
 
     if (mobileIcon) {
@@ -89,7 +80,7 @@ function switchAeroTab(tabId, event, updateHash = true) {
     const titleEl = document.getElementById('activeWindowTitle');
 
     if (titleEl) {
-        titleEl.textContent = TAB_TITLES[tabId] || 'Home';
+        titleEl.textContent = (TAB_CONFIG[tabId] || {}).title || 'Home';
     }
 
     document.querySelectorAll('.aero-tab-panel').forEach(panel => {
@@ -135,7 +126,7 @@ function handleHashRouting() {
         }
     }
 
-    if (TAB_TITLES[hash]) {
+    if (TAB_CONFIG[hash]) {
         switchAeroTab(hash, null, false);
     } else {
         switchAeroTab('home', null, false);

@@ -2,25 +2,65 @@ let currentProjectFilter = 'all';
 let currentAboutFilter = 'experience';
 let currentWritingFilter = 'all';
 
+
+function _chime() {
+  if (typeof playAeroChime === 'function') playAeroChime('click');
+}
+
+function toggleProjectView(showDetail) {
+  const overview = document.getElementById('projects-overview-view');
+  const detail = document.getElementById('projects-detail-view');
+  if (!overview || !detail) return;
+  overview.style.display = showDetail ? 'none' : 'flex';
+  detail.style.display = showDetail ? 'flex' : 'none';
+}
+
+function _scrollCanvasTop() {
+  const canvas = document.getElementById('windowContentCanvas');
+  if (canvas) canvas.scrollTop = 0;
+}
+
 function filterAeroProjects(cat) {
   currentProjectFilter = cat;
-  if (typeof playAeroChime === 'function') playAeroChime('click');
+  _chime();
   document.querySelectorAll('.tab-filter-btn').forEach(b => {
     b.classList.toggle('active', b.getAttribute('data-cat') === cat);
   });
   renderAeroProjects();
 }
 
-function getProjectIcon(icon) {
-  switch (icon) {
-    case 'bot': return '🤖';
-    case 'globe': return '🌐';
-    case 'heart': return '❤️';
-    case 'cpu': return '⚡';
-    case 'cat': return '🐱';
-    default: return '📁';
-  }
+function filterAeroAbout(cat) {
+  currentAboutFilter = cat;
+  _chime();
+  document.querySelectorAll('[data-about]').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-about') === cat);
+  });
+
+  const sections = {
+    experience: document.getElementById('about-section-experience'),
+    education: document.getElementById('about-section-education'),
+    certs: document.getElementById('about-section-certs'),
+  };
+  Object.entries(sections).forEach(([key, el]) => {
+    if (el) el.style.display = (cat === key) ? 'flex' : 'none';
+  });
 }
+
+function filterAeroWriting(cat) {
+  currentWritingFilter = cat;
+  _chime();
+  document.querySelectorAll('[data-writing]').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-writing') === cat);
+  });
+  renderAeroWriting();
+}
+
+
+function getProjectIcon(icon) {
+  const map = { bot: '🤖', globe: '🌐', heart: '❤️', cpu: '⚡', cat: '🐱' };
+  return map[icon] || '📁';
+}
+
 
 function renderAeroProjects() {
   const gridContainer = document.getElementById('aero-projects-grid') || document.getElementById('aero-projects-list');
@@ -86,7 +126,7 @@ function renderAeroEvents() {
   const gridContainer = document.getElementById('aero-events-grid') || document.getElementById('aero-events-list');
   if (!gridContainer || typeof EVENTS === 'undefined') return;
 
-  gridContainer.innerHTML = EVENTS.map((e, idx) => `
+  gridContainer.innerHTML = EVENTS.map((e) => `
     <div class="aero-event-card" onclick="openAeroLightbox('${e.src}', '${e.title.replace(/'/g, "\\'")}')">
       <div class="event-img-wrap">
         <img src="${e.src}" alt="${e.title}" class="event-img" loading="lazy">
@@ -100,52 +140,13 @@ function renderAeroEvents() {
   `).join('');
 }
 
-function filterAeroAbout(cat) {
-  currentAboutFilter = cat;
-  if (typeof playAeroChime === 'function') playAeroChime('click');
-  document.querySelectorAll('[data-about]').forEach(b => {
-    b.classList.toggle('active', b.getAttribute('data-about') === cat);
-  });
-
-  const expSec = document.getElementById('about-section-experience');
-  const eduSec = document.getElementById('about-section-education');
-  const certSec = document.getElementById('about-section-certs');
-
-  if (expSec) expSec.style.display = (cat === 'experience') ? 'flex' : 'none';
-  if (eduSec) eduSec.style.display = (cat === 'education') ? 'flex' : 'none';
-  if (certSec) certSec.style.display = (cat === 'certs') ? 'flex' : 'none';
-}
-
-function filterAeroWriting(cat) {
-  currentWritingFilter = cat;
-  if (typeof playAeroChime === 'function') playAeroChime('click');
-  document.querySelectorAll('[data-writing]').forEach(b => {
-    b.classList.toggle('active', b.getAttribute('data-writing') === cat);
-  });
-  renderAeroWriting();
-}
-
-function getBlogTimestamp(b) {
-  return new Date(b.date).getTime();
-}
-
 function renderAeroWriting() {
   const container = document.getElementById('aero-writing-list');
   if (!container || typeof BLOG === 'undefined') return;
 
-  let list = [];
-
-  if (currentWritingFilter === 'all') {
-    list = [
-      ...(BLOG.tech || []),
-      ...(BLOG.life || [])
-    ];
-    list.sort((a, b) => getBlogTimestamp(b) - getBlogTimestamp(a));
-  } else if (currentWritingFilter === 'tech') {
-    list = BLOG.tech || [];
-  } else if (currentWritingFilter === 'life') {
-    list = BLOG.life || [];
-  }
+  let list = currentWritingFilter === 'all'
+    ? [...(BLOG.tech || []), ...(BLOG.life || [])].sort((a, b) => new Date(b.date) - new Date(a.date))
+    : (BLOG[currentWritingFilter] || []);
 
   container.innerHTML = list.map(b => `
     <a class="aero-pill-row" href="${b.url}" target="_blank" rel="noopener">
@@ -181,12 +182,10 @@ function openAeroProjectDetail(idx, updateHash = true) {
     switchAeroTab('projects', null, false);
   }
 
-  const overview = document.getElementById('projects-overview-view');
-  const detail = document.getElementById('projects-detail-view');
-  if (!overview || !detail) return;
+  toggleProjectView(true);
 
-  overview.style.display = 'none';
-  detail.style.display = 'flex';
+  const detail = document.getElementById('projects-detail-view');
+  if (!detail) return;
 
   detail.innerHTML = `
     <div class="cs-header-wrap">
@@ -299,23 +298,16 @@ function openAeroProjectDetail(idx, updateHash = true) {
     </div>
   `;
 
-  const canvas = document.getElementById('windowContentCanvas');
-  if (canvas) canvas.scrollTop = 0;
+  _scrollCanvasTop();
 }
 
 function backToProjectsList(updateHash = true) {
-  if (typeof playAeroChime === 'function') playAeroChime('click');
+  _chime();
   if (updateHash) {
     window.location.hash = '#projects';
   }
-  const overview = document.getElementById('projects-overview-view');
-  const detail = document.getElementById('projects-detail-view');
-  if (overview && detail) {
-    detail.style.display = 'none';
-    overview.style.display = 'flex';
-  }
-  const canvas = document.getElementById('windowContentCanvas');
-  if (canvas) canvas.scrollTop = 0;
+  toggleProjectView(false);
+  _scrollCanvasTop();
 }
 
 function openAeroLightbox(src, title, altText, isVideo = false) {
@@ -327,23 +319,11 @@ function openAeroLightbox(src, title, altText, isVideo = false) {
   if (!modal) return;
 
   if (isVideo) {
-    if (img) {
-      img.style.display = 'none';
-      img.src = '';
-    }
-    if (videoWrap && iframe) {
-      videoWrap.style.display = 'block';
-      iframe.src = src;
-    }
+    if (img) { img.style.display = 'none'; img.src = ''; }
+    if (videoWrap && iframe) { videoWrap.style.display = 'block'; iframe.src = src; }
   } else {
-    if (videoWrap && iframe) {
-      videoWrap.style.display = 'none';
-      iframe.src = '';
-    }
-    if (img) {
-      img.style.display = 'block';
-      img.src = src;
-    }
+    if (videoWrap && iframe) { videoWrap.style.display = 'none'; iframe.src = ''; }
+    if (img) { img.style.display = 'block'; img.src = src; }
   }
 
   if (cap) {
@@ -384,20 +364,20 @@ let currentWatchedSearch = '';
 
 function getWatchedCategories() {
   return [
-    { id: 'all', label: 'All Media', icon: '' },
-    { id: 'scifi', label: 'Sci-Fi', icon: '' },
-    { id: 'psychological', label: 'Psychological', icon: '' },
-    { id: 'tech', label: 'Tech', icon: '' },
-    { id: 'science', label: 'Science', icon: '' },
-    { id: 'mystery', label: 'Mystery', icon: '' },
-    { id: 'sliceOfLife', label: 'Slice of Life', icon: '' },
-    { id: 'music', label: 'Music & Live', icon: '' },
+    { id: 'all', label: 'All Media' },
+    { id: 'scifi', label: 'Sci-Fi' },
+    { id: 'psychological', label: 'Psychological' },
+    { id: 'tech', label: 'Tech' },
+    { id: 'science', label: 'Science' },
+    { id: 'mystery', label: 'Mystery' },
+    { id: 'sliceOfLife', label: 'Slice of Life' },
+    { id: 'music', label: 'Music & Live' },
   ];
 }
 
 function filterAeroWatched(cat) {
   currentWatchedFilter = cat;
-  if (typeof playAeroChime === 'function') playAeroChime('click');
+  _chime();
   document.querySelectorAll('[data-watched]').forEach(b => {
     b.classList.toggle('active', b.getAttribute('data-watched') === cat);
   });
@@ -428,7 +408,6 @@ function renderAeroWatchedFilterBar() {
     return `
             <button class="genre-list-btn ${isActive ? 'active' : ''}" data-watched="${c.id}" onclick="filterAeroWatched('${c.id}')">
                 <span class="genre-btn-left">
-                    <span class="genre-icon">${c.icon}</span>
                     <span class="genre-label">${c.label}</span>
                 </span>
                 <span class="genre-count">${count}</span>
@@ -444,20 +423,13 @@ function renderAeroWatched() {
 
   renderAeroWatchedFilterBar();
 
-  let allItems = [];
-  Object.keys(WATCHED).forEach(catKey => {
-    const items = WATCHED[catKey] || [];
-    items.forEach(item => {
-      allItems.push({
-        ...item,
-        catKey: catKey
-      });
-    });
-  });
+  const allItems = Object.entries(WATCHED).flatMap(([catKey, items]) =>
+    (items || []).map(item => ({ ...item, catKey }))
+  );
 
-  const filtered = allItems.filter(item => {
-    return currentWatchedFilter === 'all' || item.catKey === currentWatchedFilter;
-  });
+  const filtered = currentWatchedFilter === 'all'
+    ? allItems
+    : allItems.filter(item => item.catKey === currentWatchedFilter);
 
   if (badge) {
     badge.textContent = `${filtered.length} Title${filtered.length === 1 ? '' : 's'}`;

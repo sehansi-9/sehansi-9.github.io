@@ -59,6 +59,19 @@ function removeMusicGestureListener() {
     document.removeEventListener('pointerdown', musicGestureHandler);
 }
 
+function setSoundIcons(on) {
+    const pairs = [
+        ['soundIconOn', 'soundIconOff'],
+        ['soundIconOnMob', 'soundIconOffMob']
+    ];
+    pairs.forEach(([onId, offId]) => {
+        const onEl = document.getElementById(onId);
+        const offEl = document.getElementById(offId);
+        if (onEl) onEl.style.display = on ? 'block' : 'none';
+        if (offEl) offEl.style.display = on ? 'none' : 'block';
+    });
+}
+
 function playAeroChime(type = 'chime') {
     if (!isSoundEnabled) return;
 
@@ -135,26 +148,9 @@ function playAeroChime(type = 'chime') {
 function toggleAeroAudio() {
     isSoundEnabled = !isSoundEnabled;
 
-    localStorage.setItem(
-        'aero_sound',
-        isSoundEnabled ? 'true' : 'false'
-    );
+    localStorage.setItem('aero_sound', isSoundEnabled ? 'true' : 'false');
 
-    const onIcon = document.getElementById('soundIconOn');
-    const offIcon = document.getElementById('soundIconOff');
-
-    if (onIcon && offIcon) {
-        onIcon.style.display = isSoundEnabled ? 'block' : 'none';
-        offIcon.style.display = isSoundEnabled ? 'none' : 'block';
-    }
-
-    const onIconMob = document.getElementById('soundIconOnMob');
-    const offIconMob = document.getElementById('soundIconOffMob');
-
-    if (onIconMob && offIconMob) {
-        onIconMob.style.display = isSoundEnabled ? 'block' : 'none';
-        offIconMob.style.display = isSoundEnabled ? 'none' : 'block';
-    }
+    setSoundIcons(isSoundEnabled);
 
     const music = document.getElementById('aeroBackgroundMusic');
 

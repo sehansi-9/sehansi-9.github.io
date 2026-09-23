@@ -1,3 +1,5 @@
+const AVATAR_URL = 'https://drive.google.com/thumbnail?id=16U6YnlQniuHm4fTtTtWyCrB0L4BAJxER&sz=w400';
+
 window.addEventListener('load', () => {
     if (typeof isSoundEnabled !== 'undefined' && isSoundEnabled) {
         if (typeof startBackgroundMusic === 'function') {
@@ -7,6 +9,14 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    ['introAvatarHome', 'introAvatarAbout'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.src = AVATAR_URL;
+    });
+
     if (typeof updateDuolingoTheme === 'function') updateDuolingoTheme();
     if (typeof updateGithubTheme === 'function') updateGithubTheme();
     if (typeof renderAeroProjects === 'function') renderAeroProjects();
@@ -17,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof filterAeroWriting === 'function') filterAeroWriting('all');
     if (typeof renderAeroWatched === 'function') renderAeroWatched();
     if (typeof initAeroBubbles === 'function') initAeroBubbles();
+
     if (typeof updateClock === 'function') {
         updateClock();
         setInterval(updateClock, 1000);
@@ -26,9 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(loadWeather, 15 * 60 * 1000);
     }
     if (typeof loadLastFM === 'function') {
+        const interval = (typeof REFRESH_INTERVAL !== 'undefined') ? REFRESH_INTERVAL : 30000;
         loadLastFM();
-        setInterval(loadLastFM, 30000);
+        setInterval(loadLastFM, interval);
     }
+
     if (typeof handleHashRouting === 'function') handleHashRouting();
 });
 

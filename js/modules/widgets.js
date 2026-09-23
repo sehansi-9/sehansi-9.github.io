@@ -1,3 +1,4 @@
+
 async function loadWeather() {
     const latitude = 6.9271;
     const longitude = 79.8612;
@@ -10,6 +11,12 @@ async function loadWeather() {
         `&temperature_unit=celsius` +
         `&wind_speed_unit=kmh` +
         `&timezone=Asia%2FColombo`;
+
+    const mainEl = document.getElementById("weatherMain");
+    const detailsEl = document.getElementById("weatherDetails");
+    const atmosEl = document.getElementById("weatherAtmosphere");
+    const weatherImage = document.getElementById("weatherImage");
+    const weatherEmoji = document.getElementById("weatherEmoji");
 
     try {
         const response = await fetch(url);
@@ -24,37 +31,16 @@ async function loadWeather() {
         const temperature = Math.round(weather.temperature_2m);
         const humidity = Math.round(weather.relative_humidity_2m);
         const wind = Math.round(weather.wind_speed_10m);
-        const weatherCode = weather.weather_code;
-        const isDay = weather.is_day === 1;
-
-        const weatherInfo = getWeatherInfo(weatherCode, isDay);
-
-        const mainEl = document.getElementById("weatherMain");
-        const detailsEl = document.getElementById("weatherDetails");
-        const atmosEl = document.getElementById("weatherAtmosphere");
+        const weatherInfo = getWeatherInfo(weather.weather_code, weather.is_day === 1);
 
         if (mainEl) mainEl.textContent = `${temperature}°C · ${weatherInfo.description}`;
-        if (detailsEl) {
-            detailsEl.innerHTML = `<span class="w-stat">💧 Humidity: ${humidity}%</span><span class="w-stat">💨 Wind: ${wind} km/h</span>`;
-        }
+        if (detailsEl) detailsEl.innerHTML = `<span class="w-stat">💧 Humidity: ${humidity}%</span><span class="w-stat">💨 Wind: ${wind} km/h</span>`;
         if (atmosEl) atmosEl.textContent = `${weatherInfo.atmosphere}`;
-
-        const weatherImage = document.getElementById("weatherImage");
-        const weatherEmoji = document.getElementById("weatherEmoji");
 
         if (weatherImage && weatherEmoji) {
             if (weatherInfo.image) {
-                weatherImage.onload = function () {
-                    weatherImage.style.display = "block";
-                    weatherEmoji.style.display = "none";
-                };
-
-                weatherImage.onerror = function () {
-                    weatherImage.style.display = "none";
-                    weatherEmoji.style.display = "flex";
-                    weatherEmoji.textContent = weatherInfo.emoji;
-                };
-
+                weatherImage.onload = () => { weatherImage.style.display = "block"; weatherEmoji.style.display = "none"; };
+                weatherImage.onerror = () => { weatherImage.style.display = "none"; weatherEmoji.style.display = "flex"; weatherEmoji.textContent = weatherInfo.emoji; };
                 weatherImage.src = weatherInfo.image;
                 weatherImage.alt = weatherInfo.description;
             } else {
@@ -66,22 +52,11 @@ async function loadWeather() {
 
     } catch (error) {
         console.error("Weather error:", error);
-        const mainEl = document.getElementById("weatherMain");
-        const detailsEl = document.getElementById("weatherDetails");
-        const atmosEl = document.getElementById("weatherAtmosphere");
-
         if (mainEl) mainEl.textContent = "Weather unavailable";
         if (detailsEl) detailsEl.innerHTML = '<span class="w-stat">Offline</span>';
         if (atmosEl) atmosEl.textContent = "Atmosphere: Offline";
-
-        const weatherImage = document.getElementById("weatherImage");
         if (weatherImage) weatherImage.style.display = "none";
-
-        const weatherEmoji = document.getElementById("weatherEmoji");
-        if (weatherEmoji) {
-            weatherEmoji.style.display = "flex";
-            weatherEmoji.textContent = "⛅";
-        }
+        if (weatherEmoji) { weatherEmoji.style.display = "flex"; weatherEmoji.textContent = "⛅"; }
     }
 }
 
@@ -400,31 +375,34 @@ function initAeroBubbles() {
     }
 }
 
+function _createOneShotBubble(container, opts = {}) {
+    const b = document.createElement('div');
+    b.className = 'aero-bubble';
+    const size = (opts.minSize || 20) + Math.random() * (opts.sizeRange || 30);
+    const left = (opts.minLeft || 15) + Math.random() * (opts.leftRange || 70);
+    const dur = (opts.minDur || 8) + Math.random() * (opts.durRange || 6);
+    b.style.width = size + 'px';
+    b.style.height = size + 'px';
+    b.style.left = left + '%';
+    b.style.animation = `floatBubble ${dur}s ease-in-out`;
+    b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (typeof playAeroChime === 'function') playAeroChime('pop');
+        b.style.transform = 'scale(1.8)';
+        b.style.opacity = '0';
+        setTimeout(() => b.remove(), 200);
+    });
+    container.appendChild(b);
+    if (opts.ttl) setTimeout(() => b.remove(), opts.ttl);
+    return b;
+}
+
 function spawnBubbleBurst() {
     if (typeof playAeroChime === 'function') playAeroChime('chime');
+    const container = document.getElementById('aero-desktop');
+    if (!container) return;
     for (let i = 0; i < 8; i++) {
-        setTimeout(() => {
-            const container = document.getElementById('aero-desktop');
-            if (!container) return;
-            const b = document.createElement('div');
-            b.className = 'aero-bubble';
-            const size = 20 + Math.random() * 30;
-            b.style.width = size + 'px';
-            b.style.height = size + 'px';
-            b.style.left = (15 + Math.random() * 70) + '%';
-            b.style.animation = `floatBubble ${8 + Math.random() * 6}s ease-in-out`;
-            b.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (typeof playAeroChime === 'function') playAeroChime('pop');
-                b.style.transform = 'scale(1.8)';
-                b.style.opacity = '0';
-                setTimeout(() => {
-                    b.remove();
-                }, 200);
-            });
-            container.appendChild(b);
-            setTimeout(() => b.remove(), 14000);
-        }, i * 80);
+        setTimeout(() => _createOneShotBubble(container, { ttl: 14000 }), i * 80);
     }
 }
 
