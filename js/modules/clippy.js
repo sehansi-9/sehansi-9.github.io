@@ -201,12 +201,54 @@
       console.error('Clippy failed to load:', err);
     }
   }
+  function patchClippyBalloonAboveOnly() {
+    if (!clippyAgent || !clippyAgent._balloon) return;
+    const balloon = clippyAgent._balloon;
+    const MARGIN_FROM_EDGE = 5;
+
+    balloon.reposition = function () {
+      const targetRect = this._targetEl.getBoundingClientRect();
+      const targetW = this._targetEl.offsetWidth;
+      const bW = this._balloon.offsetWidth;
+      const bH = this._balloon.offsetHeight;
+      const winW = window.innerWidth;
+
+      let left = targetRect.left + targetW - bW;
+      left = Math.max(MARGIN_FROM_EDGE, Math.min(left, winW - bW - MARGIN_FROM_EDGE));
+
+      let top = targetRect.top - bH - this._BALLOON_MARGIN;
+      top = Math.max(MARGIN_FROM_EDGE, top);
+
+      this._balloon.style.top = top + 'px';
+      this._balloon.style.left = left + 'px';
+      this._positionTip('top-left');
+    };
+  }
+
+  function speakInstant(text, holdMs) {
+    if (!clippyAgent || !clippyAgent._balloon) return;
+    const balloon = clippyAgent._balloon;
+    balloon._hidden = false;
+    balloon.show();
+    const c = balloon._content;
+    c.style.height = 'auto';
+    c.style.width = 'auto';
+    c.textContent = text;
+    balloon.reposition();
+
+    clearTimeout(balloon._instantHideTimer);
+    if (holdMs) {
+      balloon._instantHideTimer = setTimeout(() => balloon.hide(), holdMs);
+    }
+  }
 
   function setupClippyAgent() {
     const el = clippyAgent._el;
     el.id = 'clippyRealAvatar';
     el.classList.add('clippy-real-avatar');
     el.title = 'Click me to search anything!';
+
+    patchClippyBalloonAboveOnly();
 
     positionClippyBottomRight();
 
@@ -221,10 +263,7 @@
     window.addEventListener('resize', () => {
       if (isClippyOpen) positionClippyDialog();
     });
-    window.addEventListener('resize', () => {
-      positionClippyBottomRight();
-      if (isClippyOpen) positionClippyDialog();
-    });
+
 
     startIdleTeaser();
   }
@@ -245,7 +284,7 @@
     if (idleTeaserTimer) clearInterval(idleTeaserTimer);
     idleTeaserTimer = setInterval(() => {
       if (!clippyAgent || isClippyOpen) return;
-      clippyAgent.speak("Wanna find something? Click me!");
+      speakInstant("Wanna find something? Click me!", 4000);
     }, 22000);
   }
 
