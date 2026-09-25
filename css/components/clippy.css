@@ -45,7 +45,6 @@
   }
 }
 
-/* Comic-balloon tail, pointing down toward Clippy */
 .clippy-dialog::after {
   content: '';
   position: absolute;
@@ -231,6 +230,10 @@
 .clippy-results::-webkit-scrollbar-thumb {
   background: #2b2b2b;
   border-radius: 999px;
+}
+
+[data-theme="dark"] .clippy-results::-webkit-scrollbar-thumb {
+  background: #f5e17a;
 }
 
 .clippy-category-group {
