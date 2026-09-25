@@ -106,6 +106,45 @@ function renderAeroProjects() {
   }).join('');
 }
 
+function renderAeroExperience() {
+  const container = document.getElementById('about-section-experience');
+  if (!container || typeof EXPERIENCE === 'undefined') return;
+
+  container.innerHTML = EXPERIENCE.map(exp => `
+    <div class="aero-pill-row aero-pill-row--static">
+      <div class="row-info-col">
+        <div class="row-title">${exp.title}</div>
+        <div class="row-desc">${exp.period} · ${exp.location} (${exp.type})</div>
+        ${exp.highlights && exp.highlights.length ? `
+          <ul class="cs-highlights-list" style="margin-top: 8px; padding-left: 18px; line-height: 1.5; font-size: 0.85rem;">
+            ${exp.highlights.map(h => `<li>${h}</li>`).join('')}
+          </ul>
+        ` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderAeroEducation() {
+  const container = document.getElementById('about-section-education');
+  if (!container || typeof EDUCATION === 'undefined') return;
+
+  container.innerHTML = EDUCATION.map(edu => `
+    <div class="aero-pill-row aero-pill-row--static">
+      <div class="row-info-col">
+        <div class="row-title">${edu.title}</div>
+        <div class="row-desc">${edu.period}${edu.affiliation ? ` · <span>${edu.affiliation}</span>` : ''}${edu.details ? ` · <span>${edu.details}</span>` : ''}</div>
+        ${edu.sections ? edu.sections.map(sec => `
+          <div class="row-tags">
+            <span class="row-desc">${sec.label}</span>
+            ${sec.tags.map(tag => `<span class="row-tag">${tag}</span>`).join('')}
+          </div>
+        `).join('') : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
 function renderAeroCertifications() {
   const container = document.getElementById('aero-certs-container');
   if (!container || typeof CERTIFICATIONS === 'undefined') return;

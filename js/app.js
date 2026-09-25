@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof updateDuolingoTheme === 'function') updateDuolingoTheme();
     if (typeof updateGithubTheme === 'function') updateGithubTheme();
     if (typeof renderAeroProjects === 'function') renderAeroProjects();
+    if (typeof renderAeroExperience === 'function') renderAeroExperience();
+    if (typeof renderAeroEducation === 'function') renderAeroEducation();
     if (typeof renderAeroCertifications === 'function') renderAeroCertifications();
     if (typeof renderAeroEvents === 'function') renderAeroEvents();
     if (typeof renderAeroWriting === 'function') renderAeroWriting();

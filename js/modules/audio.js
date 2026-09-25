@@ -21,7 +21,7 @@ function startBackgroundMusic() {
     const music = document.getElementById('aeroBackgroundMusic');
     if (!music) return;
 
-    music.volume = 0.60;
+    music.volume = 0.20;
 
     music.play().then(() => {
         removeMusicGestureListener();

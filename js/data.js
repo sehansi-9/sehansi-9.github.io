@@ -317,6 +317,60 @@ const PROJECTS = [
   }
 ];
 
+const EXPERIENCE = [
+  {
+    title: "Software Engineer Intern · Lanka Data Foundation",
+    role: "Software Engineer Intern",
+    company: "Lanka Data Foundation",
+    period: "May 2025 – May 2026",
+    location: "Colombo, Sri Lanka",
+    type: "Full-time",
+    highlights: [
+      "Collaborated on research-driven projects involving open data, graph databases, and AI-assisted systems, contributing to full-stack development across multiple open-source platforms.",
+      "Built agentic AI workflows with LangGraph, LLM orchestration, context management, multi-model support, and natural language querying over graph data, with a deliberate focus on reducing token usage.",
+      "Took part in the full development lifecycle: code reviews, documentation, dataset validation, bug investigation, performance optimisation, and open-source releases."
+    ]
+  }
+];
+
+const EDUCATION = [
+  {
+    title: "BSc (Hons) Computer Science · University of Westminster, UK",
+    degree: "BSc (Hons) Computer Science",
+    institution: "University of Westminster, UK",
+    affiliation: "via Informatics Institute of Technology (IIT), Sri Lanka",
+    period: "Sep 2023 – Sep 2027",
+    sections: [
+      {
+        label: "Societies:",
+        tags: ["IEEE Computer Society", "IEEE Robotics & Automation Society"]
+      }
+    ]
+  },
+  {
+    title: "G.C.E A/L in Physical Science - Musaeus College, Colombo-07",
+    degree: "G.C.E A/L in Physical Science",
+    institution: "Musaeus College, Colombo-07",
+    period: "Jan 2009 – Aug 2022",
+    details: "Subjects - Pure & Applied Mathematics, Physics, Chemistry",
+    sections: [
+      {
+        label: "Activities:",
+        tags: ["Quiz Combine", "23rd Colombo Girl Guide", "Junior Dancing Troupe"]
+      },
+      {
+        label: "Positions:",
+        tags: [
+          "Vice Treasurer, Senior Mathematics Society (2021/2022)",
+          "Junior Prefect (2016)",
+          "Primary Prefect (2013)",
+          "Patrol Vice-Leader, 23rd Colombo Girl Scouts (2017/2018)"
+        ]
+      }
+    ]
+  }
+];
+
 const CERTIFICATIONS = [
   {
     title: "Article of the Month — May 2024",
