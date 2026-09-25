@@ -492,6 +492,7 @@
         const el = resultsContainer.querySelector(`[data-clippy-idx="${targetIdx}"]`);
         if (el) {
           el.addEventListener('click', () => {
+            if (typeof closeLightbox === 'function') closeLightbox();
             item.action();
             toggleClippyDialog(false);
           });
