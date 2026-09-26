@@ -253,6 +253,7 @@
     positionClippyBottomRight();
 
     clippyAgent.show();
+    disableClippyAnimationSounds();
 
     el.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -501,6 +502,11 @@
     });
   }
 
+  function disableClippyAnimationSounds() {
+    if (clippyAgent?._animator) {
+      clippyAgent._animator._playSound = function () { };
+    }
+  }
   function extractContextualSubtitle(item, phraseRegex, rawInput) {
     const blocks = item.textBlocks || [];
     if (!phraseRegex) {
