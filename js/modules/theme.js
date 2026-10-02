@@ -56,9 +56,13 @@ function updateDuolingoTheme(isDark) {
 
     if (isDark === undefined) isDark = localStorage.getItem('theme') === 'dark';
 
-    duolingoStats.src = isDark
+    const targetSrc = isDark
         ? `https://duolingo-stats-card.vercel.app/api?username=${DUOLINGO_USER}&theme=tokyonight`
         : `https://duolingo-stats-card.vercel.app/api?username=${DUOLINGO_USER}&theme=light`;
+
+    if (duolingoStats.src !== targetSrc && duolingoStats.getAttribute('src') !== targetSrc) {
+        duolingoStats.src = targetSrc;
+    }
 }
 
 function updateGithubTheme(isDark) {
@@ -68,14 +72,20 @@ function updateGithubTheme(isDark) {
     if (isDark === undefined) isDark = localStorage.getItem('theme') === 'dark';
 
     if (githubStats) {
-        githubStats.src = isDark
+        const targetStats = isDark
             ? `https://streak-stats.demolab.com/?user=${GITHUB_USER}&theme=tokyonight&hide_border=true&background=00000000&ring=38bdf8&fire=38bdf8&currStreakNum=38bdf8`
             : `https://streak-stats.demolab.com/?user=${GITHUB_USER}&theme=default&hide_border=true&background=00000000&ring=0284c7&fire=0284c7&currStreakNum=0284c7`;
+        if (githubStats.src !== targetStats && githubStats.getAttribute('src') !== targetStats) {
+            githubStats.src = targetStats;
+        }
     }
 
     if (githubGraph) {
-        githubGraph.src = isDark
+        const targetGraph = isDark
             ? `https://ghchart.rshah.org/38bdf8/${GITHUB_USER}`
             : `https://ghchart.rshah.org/0284c7/${GITHUB_USER}`;
+        if (githubGraph.src !== targetGraph && githubGraph.getAttribute('src') !== targetGraph) {
+            githubGraph.src = targetGraph;
+        }
     }
 }

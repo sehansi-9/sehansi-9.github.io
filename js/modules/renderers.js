@@ -366,9 +366,10 @@ function openAeroLightbox(src, title, altText, isVideo = false) {
   }
 
   if (cap) {
+    const icon = isVideo ? '🎬' : '🖼️';
     cap.innerHTML = (altText && altText.trim())
-      ? `<span class="lb-project">${title}</span><span class="lb-sep">·</span><span class="lb-alt">${altText}</span>`
-      : `<span class="lb-project">${title}</span>`;
+      ? `<span class="modal-title-icon">${icon}</span><span class="lb-project">${title}</span><span class="lb-sep">-</span><span class="lb-alt">${altText}</span>`
+      : `<span class="modal-title-icon">${icon}</span><span class="lb-project">${title}</span>`;
   }
 
   modal.classList.add('active');

@@ -149,7 +149,11 @@
 }
 
 .github-glass {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
   text-decoration: none;
   color: inherit;
   transition:
@@ -172,17 +176,18 @@
 
 .github-stats-fallback {
   display: none;
-  min-height: 110px;
+  min-height: 160px;
   width: 100%;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 16px;
+  padding: 20px 24px;
   font-size: 12px;
   line-height: 1.4;
   color: var(--ink-muted);
-  opacity: 0.8;
+  opacity: 0.9;
+  flex: 1;
 }
 
 .github-fallback-icon {
@@ -198,7 +203,7 @@
 }
 
 .github-stats-loading {
-  min-height: 110px;
+  min-height: 160px;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -209,6 +214,35 @@
   font-size: 0.78rem;
   font-weight: 700;
   text-shadow: var(--ink-emboss);
+  flex: 1;
+}
+
+.duolingo-stats-loading,
+.duolingo-stats-fallback {
+  min-height: 160px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 24px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+  flex: 1;
+}
+
+.duolingo-stats-loading {
+  gap: 9px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-shadow: var(--ink-emboss);
+}
+
+.duolingo-stats-fallback {
+  display: none;
+  opacity: 0.9;
 }
 
 .github-loading-spinner {
@@ -218,36 +252,12 @@
   border-top-color: var(--aero-blue-dark);
   border-radius: 50%;
   animation: githubStatsSpin 0.8s linear infinite;
+  flex-shrink: 0;
 }
 
 [data-theme="dark"] .github-loading-spinner {
   border-top-color: var(--aero-blue-bright);
 }
-
-@media (min-width: 901px) {
-
-  .github-stats-fallback,
-  .github-stats-loading {
-    transform: translateY(45px);
-  }
-}
-
-@media (min-width: 601px) and (max-width: 900px) {
-
-  .github-stats-fallback,
-  .github-stats-loading {
-    transform: translateY(14px);
-  }
-}
-
-@media (max-width: 600px) {
-
-  .github-stats-fallback,
-  .github-stats-loading {
-    transform: none;
-  }
-}
-
 
 @keyframes githubStatsSpin {
   to {
@@ -298,6 +308,33 @@
   color: var(--ink-title);
   text-shadow: var(--ink-emboss);
   text-transform: uppercase;
+}
+
+.github-graph-loading,
+.github-graph-fallback {
+  min-height: 90px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px 20px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+}
+
+.github-graph-loading {
+  gap: 9px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-shadow: var(--ink-emboss);
+}
+
+.github-graph-fallback {
+  display: none;
+  opacity: 0.9;
 }
 
 .github-graph-card img {
@@ -633,6 +670,26 @@
   .widgets-row {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .github-stats-fallback,
+  .duolingo-stats-fallback {
+    min-height: 140px;
+    padding: 14px 16px;
+    font-size: 11.5px;
+  }
+
+  .github-stats-loading,
+  .duolingo-stats-loading {
+    min-height: 140px;
+    font-size: 0.74rem;
+  }
+
+  .github-graph-loading,
+  .github-graph-fallback {
+    min-height: 80px;
+    padding: 12px 14px;
+    font-size: 11.5px;
   }
 
   .duolingo-username {

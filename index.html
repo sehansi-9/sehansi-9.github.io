@@ -287,11 +287,11 @@
 
                 <img id="githubStats"
                   src="https://streak-stats.demolab.com/?user=sehansi-9&theme=default&hide_border=true&background=00000000&ring=0284c7&fire=0284c7&currStreakNum=0284c7"
-                  alt="sehansi-9's GitHub Streak Stats"
-                  onload="this.style.display='block'; document.getElementById('githubStatsLoading').style.display='none';"
-                  onerror="this.style.display='none'; document.getElementById('githubStatsLoading').style.display='none'; this.nextElementSibling.style.display='flex';">
+                  alt="sehansi-9's GitHub Streak Stats" style="display:none;"
+                  onload="this.style.display='block'; var l = document.getElementById('githubStatsLoading'); if(l) l.style.display='none'; var f = document.getElementById('githubStatsFallback'); if(f) f.style.display='none';"
+                  onerror="this.style.display='none'; var l = document.getElementById('githubStatsLoading'); if(l) l.style.display='none'; var f = document.getElementById('githubStatsFallback'); if(f) f.style.display='flex';">
 
-                <div class="github-stats-fallback">
+                <div class="github-stats-fallback" id="githubStatsFallback">
                   <span class="github-fallback-icon">↗</span>
                   <span>GitHub streak stats are temporarily unavailable</span>
                 </div>
@@ -300,8 +300,22 @@
               </a>
               <div class="duolingo-glass">
                 <div class="duolingo-glass-shine"></div>
+
+                <div class="duolingo-stats-loading" id="duolingoStatsLoading">
+                  <span class="github-loading-spinner"></span>
+                  <span>Loading Duolingo stats...</span>
+                </div>
+
                 <img id="duolingoStats" src="https://duolingo-stats-card.vercel.app/api?username=sehansi.p&theme=light"
-                  alt="Duolingo Stats">
+                  alt="Duolingo Stats" style="display:none;"
+                  onload="this.style.display='block'; var l = document.getElementById('duolingoStatsLoading'); if(l) l.style.display='none'; var f = document.getElementById('duolingoStatsFallback'); if(f) f.style.display='none';"
+                  onerror="this.style.display='none'; var l = document.getElementById('duolingoStatsLoading'); if(l) l.style.display='none'; var f = document.getElementById('duolingoStatsFallback'); if(f) f.style.display='flex';">
+
+                <div class="duolingo-stats-fallback" id="duolingoStatsFallback">
+                  <span class="github-fallback-icon">🦉</span>
+                  <span>Duolingo stats are temporarily unavailable</span>
+                </div>
+
                 <div class="duolingo-username">duolingo: @sehansi.p</div>
               </div>
             </div>
@@ -311,7 +325,7 @@
             <div class="aero-pill-row" onclick="switchAeroTab('projects')">
               <div class="row-thumb-wrap">
                 <img src="https://drive.google.com/thumbnail?id=18VtLLeFPw1GKG7EMp7WF7sKe44IwN-Vl&sz=w800 "
-                  alt="OpenGIN Bot" class="row-thumb-img">
+                  onerror="this.src='assets/images/favicon.svg'" alt="OpenGIN Bot" class="row-thumb-img">
               </div>
               <div class="row-info-col">
                 <div class="row-title">OpenGIN Bot - AI Graph Reasoning Agent</div>
@@ -366,8 +380,21 @@
                 <span class="github-graph-title"> GitHub Activity</span>
                 <span class="duolingo-username" style="position: static; padding: 3px 8px;">sehansi-9</span>
               </div>
+
+              <div class="github-graph-loading" id="githubGraphLoading">
+                <span class="github-loading-spinner"></span>
+                <span>Loading contribution graph...</span>
+              </div>
+
               <img id="githubGraph" src="https://ghchart.rshah.org/0284c7/sehansi-9"
-                alt="sehansi-9's GitHub Commit Graph">
+                alt="sehansi-9's GitHub Commit Graph" style="display:none;"
+                onload="this.style.display='block'; var l = document.getElementById('githubGraphLoading'); if(l) l.style.display='none'; var f = document.getElementById('githubGraphFallback'); if(f) f.style.display='none';"
+                onerror="this.style.display='none'; var l = document.getElementById('githubGraphLoading'); if(l) l.style.display='none'; var f = document.getElementById('githubGraphFallback'); if(f) f.style.display='flex';">
+
+              <div class="github-graph-fallback" id="githubGraphFallback">
+                <span class="github-fallback-icon">📊</span>
+                <span>GitHub contribution graph is temporarily unavailable</span>
+              </div>
             </a>
           </div>
 
@@ -581,19 +608,32 @@
 
   <div id="projectModal" class="proj-modal" role="dialog" aria-modal="true" onclick="closeProjectModal(event)">
     <div class="proj-modal-panel">
-      <button class="proj-modal-close" onclick="closeProjectModal()">&times;</button>
+      <div class="modal-titlebar">
+        <div class="modal-title-text" id="projectModalTitle">
+          <span class="modal-title-icon">🗂️</span>
+          <span class="lb-project">Project Details</span>
+        </div>
+        <button class="proj-modal-close" onclick="closeProjectModal()" aria-label="Close">&times;</button>
+      </div>
       <div id="projModalInner"></div>
     </div>
   </div>
 
   <div id="lightboxModal" class="lightbox" onclick="closeLightbox(event)">
-    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
     <div class="lightbox-content">
-      <img id="lightboxImg" src="" alt="Enlarged view">
-      <div id="lightboxVideoWrap" class="lightbox-video-wrap" style="display:none;">
-        <iframe id="lightboxIframe" src="" allow="autoplay; fullscreen" allowfullscreen frameborder="0"></iframe>
+      <div class="modal-titlebar">
+        <div id="lightboxCaption" class="lightbox-caption modal-title-text">
+          <span class="modal-title-icon">🖼️</span>
+          <span class="lb-project">Windows Photo Viewer</span>
+        </div>
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
       </div>
-      <div id="lightboxCaption" class="lightbox-caption"></div>
+      <div class="lightbox-body">
+        <img id="lightboxImg" src="" alt="error loading">
+        <div id="lightboxVideoWrap" class="lightbox-video-wrap" style="display:none;">
+          <iframe id="lightboxIframe" src="" allow="autoplay; fullscreen" allowfullscreen frameborder="0"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 
