@@ -706,13 +706,6 @@ const WATCHED = {
 
   sliceOfLife: [
     {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhlsz1hgvV5-9cH1w1uB9LfJWqXWQt_bbTLGyBz6rj3Q&s=10",
-      year: "2011",
-      type: "Anime Film: Studio Ghibli",
-      title: "From Up on Poppy Hill",
-      category: "Romance"
-    },
-    {
       img: "https://m.media-amazon.com/images/M/MV5BMTU4NDg0MzkzNV5BMl5BanBnXkFtZTgwODA3Mzc1MDE@._V1_.jpg",
       year: "2013",
       type: "Anime Film: Studio Ghibli",
@@ -746,7 +739,21 @@ const WATCHED = {
       type: "Anime Series",
       title: "Haikyuu!!",
       category: "Coming-of-age"
-    }
+    },
+    {
+      img: "https://cdng.europosters.eu/pod_public/1300/324147.jpg",
+      year: "2016",
+      type: "Anime Film",
+      title: "Your Name",
+      category: "Fantasy"
+    },
+    {
+      img: "https://static.wikia.nocookie.net/makotoshinkai/images/7/7c/Suzume_no_Tojimari_2nd_poster.jpg/revision/latest?cb=20220408234725",
+      year: "2022",
+      type: "Anime Film",
+      title: "Suzume",
+      category: "Adventure"
+    },
 
   ],
 
