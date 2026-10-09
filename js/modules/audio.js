@@ -21,7 +21,7 @@ function startBackgroundMusic() {
     const music = document.getElementById('aeroBackgroundMusic');
     if (!music) return;
 
-    music.volume = 0.20;
+    music.volume = 0.40;
 
     music.play().then(() => {
         removeMusicGestureListener();
@@ -114,15 +114,9 @@ function playAeroChime(type = 'chime') {
             osc.stop(now + 0.13);
 
         } else if (type === 'click') {
-            const clickSound = new Audio(
-                'https://sfxmint.com/dl/office-mouse-click-01.wav'
-            );
-
-            clickSound.volume = 0.35;
+            const clickSound = new Audio('assets/audio/click.wav');
+            clickSound.volume = 0.40;
             clickSound.play().catch(() => { });
-
-            return;
-
         } else {
             osc.type = 'sine';
             osc.frequency.setValueAtTime(523.25, now);
