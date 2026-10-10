@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "name": "Guestbook System Test",
+    "message": "TEMPORARY INTEGRATION TEST — close without merging.",
+    "theme": "aero",
+    "color": "#00AEEF",
+    "sticker": "star",
+    "layout": "cards",
+    "createdAt": "2026-10-10T13:31:04.530Z"
+  }
+]
