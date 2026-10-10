@@ -57,7 +57,7 @@ function filterAeroWriting(cat) {
 
 
 function getProjectIcon(icon) {
-  const map = { bot: '🤖', globe: '🌐', heart: '❤️', cpu: '⚡', cat: '🐱' };
+  const map = { bot: '🤖', globe: '🌐', heart: '❤️', cpu: '⚡', cat: '🐱', 'status-tracker': '🗓️', 'git-pull-request': '🔄' };
   return map[icon] || '📁';
 }
 
