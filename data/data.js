@@ -373,8 +373,9 @@ const PROJECTS = [
       },
       snapshots: [
         { src: "https://drive.google.com/thumbnail?id=1iV2SUV_yKL0fJMA3ZetnC4IhfM20nHXK&sz=w1600", alt: "Bot Verification with Turnstile" },
+        { src: "https://drive.google.com/thumbnail?id=1vf7c3zvQguwzZFY8Yu7eVuJ-XkX5uBlF&sz=w1600", alt: "Pipeline Architecture" },
         { src: "https://drive.google.com/thumbnail?id=1PhAFcSrHzB-jzcZk6Z-XHDhOtD32T8xN&sz=w1600", alt: "Pipeline with Cloudflare" },
-        { src: "https://drive.google.com/thumbnail?id=1rmUUT9gQvw6YwD8C26yyav84ZiYBZJgJ&sz=w1600", alt: "GitHub Actions" }
+        { src: "https://drive.google.com/thumbnail?id=1rmUUT9gQvw6YwD8C26yyav84ZiYBZJgJ&sz=w1600", alt: "GitHub Actions" },
       ]
     }
   },
