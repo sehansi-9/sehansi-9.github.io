@@ -636,6 +636,138 @@
 
             </div>
 
+            <section class="bento-guestbook" id="guestbookWidget">
+              <div class="guestbook-shell">
+                <header class="guestbook-header">
+                  <div>
+                    <span class="guestbook-eyebrow">✳ COMMUNITY CORNER</span>
+                    <h2>Guestbook <span>✿</span></h2>
+                    <p>Leave a little note on this corner of the internet.</p>
+                  </div>
+                  <div class="guestbook-count">
+                    <strong id="guestbookCount">0</strong>
+                    <small>notes</small>
+                  </div>
+                </header>
+
+                <div class="guestbook-toolbar">
+                  <label>
+                    <span class="guestbook-label">Browse notes</span>
+                    <select id="guestbookLayoutFilter">
+                      <option value="all">All styles</option>
+                      <option value="cards">Glass cards</option>
+                      <option value="sticky-notes">Sticky notes</option>
+                      <option value="guestbook">Classic guestbook</option>
+                    </select>
+                  </label>
+                  <button id="guestbookRefresh" type="button">↻ Refresh</button>
+                </div>
+
+                <p id="guestbookListStatus" class="guestbook-status" role="status">
+                  Loading approved notes…
+                </p>
+                <div id="guestbookEntries" class="guestbook-entries" aria-label="Approved guestbook entries"></div>
+
+                <details class="guestbook-compose">
+                  <summary>＋ Leave a note <span>Make it yours ↘</span></summary>
+
+                  <form id="guestbookForm">
+                    <p class="guestbook-intro">
+                      Your note will be reviewed before it appears publicly.
+                      Please don't include private information.
+                    </p>
+
+                    <div class="guestbook-form-grid">
+                      <label>
+                        <span class="guestbook-label">Name</span>
+                        <input id="guestbookName" name="name" maxlength="32" autocomplete="nickname"
+                          placeholder="What should we call you?" required>
+                      </label>
+
+                      <label>
+                        <span class="guestbook-label">Accent colour</span>
+                        <input id="guestbookColor" name="color" type="color" value="#8dd9c5">
+                      </label>
+
+                      <label class="guestbook-message-field">
+                        <span class="guestbook-label">Message</span>
+                        <textarea id="guestbookMessage" name="message" maxlength="500" rows="4" placeholder="Say hello…"
+                          required></textarea>
+                        <small><span id="guestbookMessageCount">0</span>/500</small>
+                      </label>
+
+                      <label>
+                        <span class="guestbook-label">Theme</span>
+                        <select id="guestbookTheme" name="theme">
+                          <option value="aero">Frutiger Aero</option>
+                          <option value="pastel">Soft pastel</option>
+                          <option value="dark">Midnight glass</option>
+                          <option value="classic">Classic paper</option>
+                        </select>
+                      </label>
+
+                      <label>
+                        <span class="guestbook-label">Sticker</span>
+                        <select id="guestbookSticker" name="sticker">
+                          <option value="none">None</option>
+                          <option value="flower">Flower ✿</option>
+                          <option value="star">Star ✦</option>
+                          <option value="heart">Heart ♡</option>
+                          <option value="cat">Cat ฅ</option>
+                          <option value="cloud">Cloud ☁</option>
+                        </select>
+                      </label>
+
+                      <label>
+                        <span class="guestbook-label">Entry layout</span>
+                        <select id="guestbookLayout" name="layout">
+                          <option value="cards">Glass cards</option>
+                          <option value="sticky-notes">Sticky notes</option>
+                          <option value="guestbook">Classic guestbook</option>
+                        </select>
+                      </label>
+                    </div>
+
+                    <div class="guestbook-preview">
+                      <span class="guestbook-eyebrow">LIVE PREVIEW</span>
+                      <article id="guestbookPreview" class="guestbook-entry guestbook-theme-aero">
+                        <div class="guestbook-entry-top">
+                          <span id="guestbookPreviewSticker">✿</span>
+                          <small>just now</small>
+                        </div>
+                        <h3 id="guestbookPreviewName">Your name</h3>
+                        <p id="guestbookPreviewMessage">Your message will look like this…</p>
+                        <span class="guestbook-accent"></span>
+                      </article>
+                    </div>
+
+                    <div class="guestbook-captcha">
+                      <span class="guestbook-label">Human verification</span>
+                      <div id="guestbookTurnstile"></div>
+                      <small id="guestbookCaptchaHint">
+                        Turnstile needs to be configured before submissions can be enabled.
+                      </small>
+                    </div>
+
+                    <div class="guestbook-submit-row">
+                      <p id="guestbookSubmitNote">
+                        Submissions are paused while the widget is being tested.
+                      </p>
+                      <button id="guestbookSubmit" type="submit" disabled>
+                        Send for review ↗
+                      </button>
+                    </div>
+                    <p id="guestbookFormStatus" role="status" aria-live="polite"></p>
+                  </form>
+                </details>
+
+                <footer class="guestbook-footer">
+                  ◌ Only approved notes appear here.
+                </footer>
+              </div>
+            </section>
+
+
             <div class="aero-watched-layout">
               <div class="watched-content-header">
                 <div class="aero-section-title-wrap">
@@ -700,6 +832,7 @@
   <script src="js/modules/widgets.js"></script>
   <script src="js/app.js?v=2"></script>
   <script src="js/modules/clippy.js"></script>
+  <script src="js/modules/guestbook.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       setTimeout(function () {
