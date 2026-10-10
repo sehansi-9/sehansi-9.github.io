@@ -15,14 +15,21 @@ jobs:
   validate:
     name: guestbook-guard
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout PR
+      - name: Skip non-guestbook PRs
+        if: ${{ !startsWith(github.head_ref, 'guestbook/') }}
+        run: echo "Regular portfolio PR; guestbook restrictions do not apply."
+
+      - name: Checkout guestbook PR
+        if: ${{ startsWith(github.head_ref, 'guestbook/') }}
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
 
       - name: Verify changed files
+        if: ${{ startsWith(github.head_ref, 'guestbook/') }}
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
@@ -36,19 +43,22 @@ jobs:
             --jq '.[].filename')"
 
           if [ "$files" != "data/guestbook.json" ]; then
-            echo "Rejected: PR must change only data/guestbook.json."
+            echo "Rejected: guestbook PRs may change only data/guestbook.json."
             printf 'Changed files:\n%s\n' "$files"
             exit 1
           fi
 
       - name: Validate guestbook JSON
+        if: ${{ startsWith(github.head_ref, 'guestbook/') }}
         run: |
           python - <<'PY'
           import json
           import re
+          from datetime import datetime
           from pathlib import Path
 
           path = Path("data/guestbook.json")
+
           if not path.is_file():
               raise SystemExit("Guestbook file is missing.")
 
@@ -80,25 +90,40 @@ jobs:
               if set(entry) != allowed_keys:
                   raise SystemExit(f"Entry {i} has missing or extra fields.")
 
-              if not isinstance(entry["id"], str) or not re.fullmatch(
-                  r"[a-f0-9-]{16,64}", entry["id"]
+              entry_id = entry["id"]
+              if not isinstance(entry_id, str) or not re.fullmatch(
+                  r"[a-f0-9-]{16,64}", entry_id
               ):
                   raise SystemExit(f"Entry {i} has an invalid ID.")
 
-              if entry["id"] in seen_ids:
+              if entry_id in seen_ids:
                   raise SystemExit(f"Duplicate ID in entry {i}.")
-              seen_ids.add(entry["id"])
+              seen_ids.add(entry_id)
 
-              if not isinstance(entry["name"], str) or not 1 <= len(entry["name"].strip()) <= 32:
-                  raise SystemExit(f"Entry {i} has an invalid name.")
+              for field, limit in (("name", 32), ("message", 500)):
+                  value = entry[field]
+                  if (
+                      not isinstance(value, str)
+                      or not 1 <= len(value.strip()) <= limit
+                  ):
+                      raise SystemExit(f"Entry {i} has an invalid {field}.")
 
-              if not isinstance(entry["message"], str) or not 1 <= len(entry["message"].strip()) <= 500:
-                  raise SystemExit(f"Entry {i} has an invalid message.")
-
-              if not isinstance(entry["createdAt"], str) or len(entry["createdAt"]) > 40:
+              timestamp = entry["createdAt"]
+              if not isinstance(timestamp, str) or len(timestamp) > 40:
                   raise SystemExit(f"Entry {i} has an invalid timestamp.")
 
-              if entry["theme"] not in themes:
+              try:
+                  parsed = datetime.fromisoformat(
+                      timestamp.replace("Z", "+00:00")
+                  )
+                  if parsed.tzinfo is None:
+                      raise ValueError("Timezone is missing")
+              except ValueError:
+                  raise SystemExit(
+                      f"Entry {i} must have an ISO timestamp with a timezone."
+                  )
+
+              if not isinstance(entry["theme"], str) or entry["theme"] not in themes:
                   raise SystemExit(f"Entry {i} has an invalid theme.")
 
               if not isinstance(entry["color"], str) or not re.fullmatch(
@@ -106,10 +131,10 @@ jobs:
               ):
                   raise SystemExit(f"Entry {i} has an invalid colour.")
 
-              if entry["sticker"] not in stickers:
+              if not isinstance(entry["sticker"], str) or entry["sticker"] not in stickers:
                   raise SystemExit(f"Entry {i} has an invalid sticker.")
 
-              if entry["layout"] not in layouts:
+              if not isinstance(entry["layout"], str) or entry["layout"] not in layouts:
                   raise SystemExit(f"Entry {i} has an invalid layout.")
 
           print(f"Validated {len(entries)} guestbook entries.")
