@@ -857,15 +857,33 @@
 
 @media (max-width: 600px) {
   .aero-bento-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-      "weather weather"
-      "clock calendar"
-      "music music"
-      "bubbles bubbles"
-      "minesweeper minesweeper"
-      "pond pond";
-    gap: 14px;
+      "weather weather weather weather weather weather weather weather weather weather weather weather"
+      "clock clock clock clock clock clock calendar calendar calendar calendar calendar calendar"
+      "music music music music music music music music music music music music"
+      "minesweeper minesweeper minesweeper minesweeper minesweeper minesweeper minesweeper minesweeper bubbles bubbles bubbles bubbles"
+      "pond pond pond pond pond pond pond pond pond pond pond pond";
+    gap: 12px;
+  }
+
+  .bento-bubbles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .bento-bubbles .bento-card-body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bento-bubbles .bento-body {
+    align-items: center;
   }
 
   .bento-card {
