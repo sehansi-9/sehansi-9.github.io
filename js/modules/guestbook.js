@@ -59,6 +59,14 @@
 
             if (!name || !message) return null;
 
+            let stickerKey = "none";
+            if (raw.sticker && Object.hasOwn(STICKERS, raw.sticker)) {
+                stickerKey = raw.sticker;
+            } else if (typeof raw.sticker === "string") {
+                const found = Object.entries(STICKERS).find(([k, v]) => v === raw.sticker);
+                if (found) stickerKey = found[0];
+            }
+
             return {
                 id: typeof raw.id === "string" ? raw.id : "",
                 name,
@@ -66,19 +74,21 @@
                 createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
                 theme: THEMES.includes(raw.theme) ? raw.theme : "aero",
                 color: validColor(raw.color) ? raw.color : "#8dd9c5",
-                sticker: Object.hasOwn(STICKERS, raw.sticker) ? raw.sticker : "none",
+                sticker: stickerKey,
                 layout: LAYOUTS.includes(raw.layout) ? raw.layout : "cards"
             };
         }
 
         function formatDate(dateString) {
             const date = new Date(dateString);
-            if (Number.isNaN(date.getTime())) return "Guestbook note";
+            if (Number.isNaN(date.getTime())) return "Just now";
 
-            return date.toLocaleDateString(undefined, {
+            return date.toLocaleString(undefined, {
                 year: "numeric",
                 month: "short",
-                day: "numeric"
+                day: "numeric",
+                hour: "numeric",
+                minute: "2-digit"
             });
         }
 
@@ -122,7 +132,8 @@
                 top.className = "guestbook-entry-top";
 
                 const sticker = document.createElement("span");
-                sticker.textContent = STICKERS[entry.sticker];
+                const stickerChar = STICKERS[entry.sticker] || (entry.sticker && entry.sticker !== "none" ? entry.sticker : "");
+                sticker.textContent = stickerChar;
                 sticker.setAttribute("aria-hidden", "true");
 
                 const date = document.createElement("small");
@@ -154,7 +165,7 @@
         async function loadEntries() {
             const refresh = $("guestbookRefresh");
             refresh.disabled = true;
-            listStatus.textContent = "Loading approved notes…";
+            listStatus.textContent = "Loading notes…";
 
             try {
                 const response = await fetch(CONFIG.entriesUrl, {
@@ -175,8 +186,8 @@
                 renderEntries();
 
                 listStatus.textContent = approvedEntries.length
-                    ? `Showing ${approvedEntries.length} approved note${approvedEntries.length === 1 ? "" : "s"}.`
-                    : "No approved notes yet. Be the first to leave one!";
+                    ? ""
+                    : "No notes yet. Be the first to leave one!";
 
             } catch (error) {
                 console.error("[Guestbook] Could not load entries:", error);
@@ -325,8 +336,6 @@
                 return;
             }
 
-            // The Worker creates id and createdAt.
-            // turnstileToken is verification data, not a guestbook schema field.
             const payload = {
                 name: $("guestbookName").value.trim(),
                 message: $("guestbookMessage").value.trim(),
@@ -339,7 +348,7 @@
 
             submitButton.disabled = true;
             submitButton.textContent = "Sending…";
-            setFormStatus("Sending your note for review…");
+            setFormStatus("Sending your note…");
 
             try {
                 const response = await fetch(CONFIG.workerUrl, {
@@ -363,7 +372,7 @@
                 }
 
                 setFormStatus(
-                    "Your note was submitted for review. Thank you for stopping by!"
+                    "Your note was submitted. It may take a bit to appear. Refresh to see the newest notes! Thank you for stopping by!"
                 );
 
                 form.reset();
