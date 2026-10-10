@@ -982,24 +982,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 4px;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 .pond-stats {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .pond-stat-pill {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   color: var(--aero-blue-dark);
   background: var(--tag-bg);
   border: 1px solid var(--tag-border);
-  padding: 3px 8px;
+  padding: 3px 7px;
   border-radius: 999px;
+  white-space: nowrap;
 }
 
 [data-theme="dark"] .pond-stat-pill {
@@ -1009,21 +1013,23 @@
 .pond-btn-group {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
 .pond-action-btn {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 11px;
+  gap: 3px;
+  font-size: 10.5px;
   font-weight: 700;
   color: var(--aero-blue-dark);
   background: linear-gradient(180deg, #ffffff 0%, rgba(224, 242, 254, 0.9) 100%);
   border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 999px;
-  padding: 4px 10px;
+  padding: 3px 8px;
   cursor: pointer;
+  white-space: nowrap;
   box-shadow: 0 2px 5px rgba(2, 132, 199, 0.2), inset 0 1px 1px #ffffff;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
