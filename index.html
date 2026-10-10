@@ -640,7 +640,6 @@
               <div class="guestbook-shell">
                 <header class="guestbook-header">
                   <div>
-                    <span class="guestbook-eyebrow">✳ COMMUNITY CORNER</span>
                     <h2>Guestbook <span>✿</span></h2>
                     <p>Leave a little note on this corner of the internet.</p>
                   </div>
@@ -651,15 +650,6 @@
                 </header>
 
                 <div class="guestbook-toolbar">
-                  <label>
-                    <span class="guestbook-label">Browse notes</span>
-                    <select id="guestbookLayoutFilter">
-                      <option value="all">All styles</option>
-                      <option value="cards">Glass cards</option>
-                      <option value="sticky-notes">Sticky notes</option>
-                      <option value="guestbook">Classic guestbook</option>
-                    </select>
-                  </label>
                   <button id="guestbookRefresh" type="button">↻ Refresh</button>
                 </div>
 
@@ -673,7 +663,7 @@
 
                   <form id="guestbookForm">
                     <p class="guestbook-intro">
-                      Your note will be reviewed before it appears publicly.
+                      Your note will appear publicly.
                       Please don't include private information.
                     </p>
 
@@ -717,15 +707,6 @@
                           <option value="cloud">Cloud ☁</option>
                         </select>
                       </label>
-
-                      <label>
-                        <span class="guestbook-label">Entry layout</span>
-                        <select id="guestbookLayout" name="layout">
-                          <option value="cards">Glass cards</option>
-                          <option value="sticky-notes">Sticky notes</option>
-                          <option value="guestbook">Classic guestbook</option>
-                        </select>
-                      </label>
                     </div>
 
                     <div class="guestbook-preview">
@@ -745,16 +726,14 @@
                       <span class="guestbook-label">Human verification</span>
                       <div id="guestbookTurnstile"></div>
                       <small id="guestbookCaptchaHint">
-                        Turnstile needs to be configured before submissions can be enabled.
                       </small>
                     </div>
 
                     <div class="guestbook-submit-row">
                       <p id="guestbookSubmitNote">
-                        Submissions are paused while the widget is being tested.
                       </p>
                       <button id="guestbookSubmit" type="submit" disabled>
-                        Send for review ↗
+                        Send ↗
                       </button>
                     </div>
                     <p id="guestbookFormStatus" role="status" aria-live="polite"></p>
@@ -762,7 +741,6 @@
                 </details>
 
                 <footer class="guestbook-footer">
-                  ◌ Only approved notes appear here.
                 </footer>
               </div>
             </section>
