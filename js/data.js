@@ -209,6 +209,65 @@ const PROJECTS = [
     }
   },
   {
+    title: "RTI Tracker Internal Tool",
+    org: "Lanka Data Foundation",
+    date: "Mar 2026 – May 2026",
+    category: "tools",
+    icon: "file-text",
+    color: "#8bcfc4ff",
+    desc: "Contributed to a full-stack internal governance tool for managing Right to Information requests. Developed a reusable template manager with drag-and-drop recipient variables, document formatting and Markdown-to-PDF generation, frontend integrations, and Playwright-based end-to-end testing.",
+    tags: ["React", "Python", "TypeScript", "TanStack Query", "Playwright"],
+    links: [
+      {
+        label: "View Repository ↗",
+        url: "https://github.com/LDFLK/RTI-Tracker/"
+      }
+    ],
+    detail: {
+      problem: "Lanka Data Foundation relies on Right to Information (RTI) requests to obtain government data used to inform citizens about governance. Managing request generation, approvals, incoming information, re-requests, appeals, and acknowledgements requires a structured workflow for the Governance and Policy team. The RTI Tracker supports this process through a React-based interface and a data ingestion and read architecture.",
+      approach: [
+        {
+          heading: "Template Manager System",
+          body: "Developed a template management system that allows the Policy Team to configure reusable RTI request templates through a word-editor-like interface. Implemented drag-and-drop variable placeholders for recipient details so that similar requests can be prepared for multiple government bodies using reusable templates."
+        },
+        {
+          heading: "Document Formatting & PDF Generation",
+          body: "Integrated document-formatting tools and a Markdown-to-PDF generation system to support the preparation of structured RTI request documents."
+        },
+        {
+          heading: "RTI Status Management APIs",
+          body: "Developed backend APIs for managing RTI request statuses, contributing to the tracking of requests throughout the administrative workflow."
+        },
+        {
+          heading: "Frontend & Backend Integration",
+          body: "Contributed to frontend wireups and full-stack integrations."
+        },
+        {
+          heading: "End-to-End Testing",
+          body: "Introduced Playwright-based end-to-end testing workflows for frontend modules, gaining practical experience with API mocking, testing strategies, and validating integrated application workflows."
+        },
+      ],
+      highlights: [
+        "Built a reusable RTI template manager with configurable document structures and drag-and-drop recipient variables",
+        "Integrated document formatting and Markdown-to-PDF generation",
+        "Developed backend APIs for RTI request status management",
+        "Contributed to frontend integrations in a React-based application",
+        "Introduced Playwright end-to-end testing workflows for frontend modules",
+        "Worked with authentication flows, API mocking, and full-stack integration",
+        "Contributed to an internal tool supporting governance data collection and RTI request workflows"
+      ],
+      stack: {
+        backend: ["Python", "Fast APIs"],
+        frontend: ["React", "TypeScript", "Playwright", "Drag-and-Drop"]
+      },
+      snapshots: [
+        { src: "https://drive.google.com/thumbnail?id=1neCI3hN48C_fC17j-uoB-1wVqF3baLXS&sz=w1600", alt: "RTI Template Manager" },
+        { src: "https://drive.google.com/thumbnail?id=1OpQNcJx7hEExU9poUbHkAnCC8DPMCgnT&sz=w1600", alt: "RTI Template Editor Mechanism" },
+        { src: "https://drive.google.com/thumbnail?id=1xf5hlfuqTv9gcFlGQzzzhbESZEGuPYzl&sz=w1600", alt: "RTI Status Manager" }
+      ]
+    }
+  },
+  {
     title: "Concurrent Ticket Management System",
     date: "Nov 2024 – Dec 2024",
     category: "tools",

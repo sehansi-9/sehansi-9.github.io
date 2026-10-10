@@ -447,9 +447,6 @@
   z-index: 2;
 }
 
-/* =========================================
-   Aero Minesweeper Widget
-   ========================================= */
 .bento-minesweeper {
   grid-area: minesweeper;
   display: flex;
@@ -918,11 +915,17 @@
     text-shadow: var(--ink-emboss);
     text-transform: uppercase;
   }
+
+  .bento-pond {
+    height: auto;
+    min-height: 250px;
+  }
+
+  .pond-canvas-wrap {
+    min-height: 190px;
+  }
 }
 
-/* =========================================
-   Aquazone Desktop Garden / Fish Pond Widget
-   ========================================= */
 .bento-pond {
   grid-area: pond;
   display: flex;
