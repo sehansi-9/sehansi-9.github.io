@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "ad6f1540-086a-4627-8c26-50dd2ec232c8",
+    "name": "sehansi",
+    "message": "hello friends! hope you are having a fun time!",
+    "createdAt": "2026-10-10T17:08:34.216Z",
+    "theme": "aero",
+    "color": "#8dd9c5",
+    "sticker": "none",
+    "layout": "cards"
+  }
+]
