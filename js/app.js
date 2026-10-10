@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof filterAeroWriting === 'function') filterAeroWriting('all');
     if (typeof renderAeroWatched === 'function') renderAeroWatched();
     if (typeof initAeroBubbles === 'function') initAeroBubbles();
+    if (typeof initMinesweeper === 'function') initMinesweeper();
+    if (typeof initPondWidget === 'function') initPondWidget();
 
     if (typeof updateClock === 'function') {
         updateClock();

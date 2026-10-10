@@ -114,9 +114,14 @@ function playAeroChime(type = 'chime') {
             osc.stop(now + 0.13);
 
         } else if (type === 'click') {
-            const clickSound = new Audio('assets/audio/click.wav');
-            clickSound.volume = 0.40;
+            const clickSound = new Audio('assets/audio/click.mp3');
+            clickSound.volume = 0.60;
             clickSound.play().catch(() => { });
+        } else if (type === 'explosion') {
+            const explosionSound = new Audio('assets/audio/explosion.wav');
+            explosionSound.volume = 0.4;
+            explosionSound.play().catch(() => { });
+
         } else {
             osc.type = 'sine';
             osc.frequency.setValueAtTime(523.25, now);

@@ -269,7 +269,7 @@
                 <p class="intro-body">
                   Welcome to my corner on the web! I'm a Computer Science undergraduate, building mindful AI systems,
                   open data platforms, and social-impact technology. Click through
-                  the tabs above or the buttons on the left to explore my projects, writing, events, and background!
+                  to explore my projects, writing, events, and background! Also, Clippy is here to help navigate you!
                 </p>
               </div>
             </div>
@@ -568,13 +568,68 @@
                 <div class="calendar-days" id="calendarDays"></div>
               </div>
 
-
               <div class="bento-card bento-bubbles" onclick="spawnBubbleBurst()">
                 <div class="bento-glass-shine"></div>
                 <div class="bento-card-body" style="margin-top: 15px;">
                   <div class="bento-icon-sphere">🫧</div>
                   <div class="bento-body">
                     <div class="bento-title">Click for bubbles!!!</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bento-minesweeper" id="minesweeperWidget">
+                <div class="bento-header">
+                  <div class="ms-mode-switch" role="group" aria-label="Action Mode">
+                    <button class="ms-mode-tab active" id="msModeDig" onclick="setMinesweeperMode('dig')"
+                      title="Dig / Reveal (Left-Click)">
+                      <span>⛏️ Dig</span>
+                    </button>
+                    <button class="ms-mode-tab" id="msModeFlag" onclick="setMinesweeperMode('flag')"
+                      title="Flag Mine (Right-Click)">
+                      <span>🚩 Flag</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="ms-control-bar">
+                  <div class="ms-digit-display" id="msMinesDisplay" title="Mines Remaining">010</div>
+                  <button class="ms-face-btn" id="msFaceBtn" onclick="resetMinesweeper()" title="New Game"
+                    aria-label="Restart Game">
+                    <span class="ms-face-icon" id="msFaceIcon">🙂</span>
+                  </button>
+                  <div class="ms-digit-display" id="msTimerDisplay" title="Elapsed Time">000</div>
+                </div>
+
+                <div class="ms-board-container">
+                  <div class="ms-grid" id="msGrid" role="grid" aria-label="Minesweeper Board"></div>
+                </div>
+
+                <div class="bento-card-footer ms-card-footer">
+                  <span class="ms-status-text" id="msStatusText">Left-click: Reveal · Right-click: Flag</span>
+                </div>
+              </div>
+
+              <div class="bento-card bento-pond" id="pondWidget">
+                <div class="bento-glass-shine"></div>
+
+                <div class="pond-canvas-wrap">
+                  <canvas id="pondCanvas"></canvas>
+                  <div class="pond-hint">Tap water to feed &amp; make ripples! 💧</div>
+                </div>
+
+                <div class="bento-card-footer pond-footer">
+                  <div class="pond-stats">
+                    <span class="pond-stat-pill" id="pondFishStatus">🐟 4 Fish</span>
+                    <span class="pond-stat-pill" id="pondCleanStatus">🌿 Clean Pond</span>
+                  </div>
+                  <div class="pond-btn-group">
+                    <button class="pond-action-btn" id="pondFeedBtn" onclick="feedPondFish()" title="Feed Fish">
+                      <span>🍞 Feed</span>
+                    </button>
+                    <button class="pond-action-btn" id="pondAddBtn" onclick="addPondFish()" title="Add New Fish">
+                      <span>➕ Fish</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -652,7 +707,7 @@
 
         const originalUpdatePosition = window.neko.updatePosition.bind(window.neko);
         const PAD = 10;
-        const AVOID_SELECTORS = ['.clippy-chips', '#clippyForm', '#clippyResults'];
+        const AVOID_SELECTORS = ['.clippy-chips', '#clippyForm', '#clippyResults', '#pondCanvas'];
 
         function avoidClippy() {
           const neko = window.neko;

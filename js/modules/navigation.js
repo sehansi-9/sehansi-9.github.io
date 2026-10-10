@@ -102,6 +102,10 @@ function switchAeroTab(tabId, event, updateHash = true) {
         filterAeroWriting(currentWritingFilter);
     }
 
+    if (tabId === 'widgets' && typeof resizePondCanvas === 'function') {
+        setTimeout(resizePondCanvas, 50);
+    }
+
     const canvas = document.getElementById('windowContentCanvas');
 
     if (canvas) {
