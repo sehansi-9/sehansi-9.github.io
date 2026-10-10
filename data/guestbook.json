@@ -8,5 +8,15 @@
     "color": "#8dd9c5",
     "sticker": "none",
     "layout": "cards"
+  },
+  {
+    "id": "bb1c4003-67ce-4f6a-afa5-892c741dbaed",
+    "name": "tip!",
+    "message": "you can try different themes!",
+    "createdAt": "2026-10-10T17:21:52.838Z",
+    "theme": "pastel",
+    "color": "#d78cd9",
+    "sticker": "flower",
+    "layout": "cards"
   }
 ]
