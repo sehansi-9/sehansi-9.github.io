@@ -1,0 +1,116 @@
+
+name: Guestbook Guard
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validate:
+    name: guestbook-guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+
+      - name: Verify changed files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+
+          files="$(gh api \
+            "repos/$REPO/pulls/$PR_NUMBER/files" \
+            --paginate \
+            --jq '.[].filename')"
+
+          if [ "$files" != "data/guestbook.json" ]; then
+            echo "Rejected: PR must change only data/guestbook.json."
+            printf 'Changed files:\n%s\n' "$files"
+            exit 1
+          fi
+
+      - name: Validate guestbook JSON
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          path = Path("data/guestbook.json")
+          if not path.is_file():
+              raise SystemExit("Guestbook file is missing.")
+
+          try:
+              entries = json.loads(path.read_text(encoding="utf-8"))
+          except Exception as exc:
+              raise SystemExit(f"Invalid JSON: {exc}")
+
+          if not isinstance(entries, list):
+              raise SystemExit("Guestbook must be a JSON array.")
+
+          if len(entries) > 10000:
+              raise SystemExit("Too many entries.")
+
+          allowed_keys = {
+              "id", "name", "message", "createdAt",
+              "theme", "color", "sticker", "layout"
+          }
+
+          themes = {"aero", "pastel", "dark", "classic"}
+          stickers = {"none", "flower", "star", "heart", "cat", "cloud"}
+          layouts = {"cards", "sticky-notes", "guestbook"}
+          seen_ids = set()
+
+          for i, entry in enumerate(entries):
+              if not isinstance(entry, dict):
+                  raise SystemExit(f"Entry {i} must be an object.")
+
+              if set(entry) != allowed_keys:
+                  raise SystemExit(f"Entry {i} has missing or extra fields.")
+
+              if not isinstance(entry["id"], str) or not re.fullmatch(
+                  r"[a-f0-9-]{16,64}", entry["id"]
+              ):
+                  raise SystemExit(f"Entry {i} has an invalid ID.")
+
+              if entry["id"] in seen_ids:
+                  raise SystemExit(f"Duplicate ID in entry {i}.")
+              seen_ids.add(entry["id"])
+
+              if not isinstance(entry["name"], str) or not 1 <= len(entry["name"].strip()) <= 32:
+                  raise SystemExit(f"Entry {i} has an invalid name.")
+
+              if not isinstance(entry["message"], str) or not 1 <= len(entry["message"].strip()) <= 500:
+                  raise SystemExit(f"Entry {i} has an invalid message.")
+
+              if not isinstance(entry["createdAt"], str) or len(entry["createdAt"]) > 40:
+                  raise SystemExit(f"Entry {i} has an invalid timestamp.")
+
+              if entry["theme"] not in themes:
+                  raise SystemExit(f"Entry {i} has an invalid theme.")
+
+              if not isinstance(entry["color"], str) or not re.fullmatch(
+                  r"#[0-9a-fA-F]{6}", entry["color"]
+              ):
+                  raise SystemExit(f"Entry {i} has an invalid colour.")
+
+              if entry["sticker"] not in stickers:
+                  raise SystemExit(f"Entry {i} has an invalid sticker.")
+
+              if entry["layout"] not in layouts:
+                  raise SystemExit(f"Entry {i} has an invalid layout.")
+
+          print(f"Validated {len(entries)} guestbook entries.")
+          PY
