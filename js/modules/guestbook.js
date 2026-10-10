@@ -2,15 +2,13 @@
 (() => {
     "use strict";
 
-    // SAFETY SWITCH: keep false until the frontend and Turnstile are verified.
-    const FRONTEND_SUBMISSIONS_ENABLED = false;
+    const FRONTEND_SUBMISSIONS_ENABLED = true;
 
     const CONFIG = {
         entriesUrl: "/data/guestbook.json",
         workerUrl: "https://sehansi-guestbook.sehansiperera567.workers.dev/submit",
 
-        // Replace with your PUBLIC Cloudflare Turnstile site key.
-        // Never put TURNSTILE_SECRET or GITHUB_TOKEN here.
+
         turnstileSiteKey: "0x4AAAAAAFTDZ_jD9YDlYk_u"
     };
 
