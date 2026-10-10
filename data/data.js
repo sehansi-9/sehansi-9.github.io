@@ -213,7 +213,7 @@ const PROJECTS = [
     org: "Lanka Data Foundation",
     date: "Mar 2026 – May 2026",
     category: "tools",
-    icon: "file-text",
+    icon: "status-tracker",
     color: "#8bcfc4ff",
     desc: "Contributed to a full-stack internal governance tool for managing Right to Information requests. Developed a reusable template manager with drag-and-drop recipient variables, document formatting and Markdown-to-PDF generation, frontend integrations, and Playwright-based end-to-end testing.",
     tags: ["React", "Python", "TypeScript", "TanStack Query", "Playwright"],
@@ -315,6 +315,66 @@ const PROJECTS = [
         { src: "https://drive.google.com/thumbnail?id=14oQDUwd8GVYvsNAz88XyNEFpgykgZbia&sz=w1600", alt: "Angular Realtime Dashboard" },
         { src: "https://drive.google.com/thumbnail?id=1m2-X3iSMwfBjYRwsLDsA7gfIXqy_xfzN&sz=w1600", alt: "Sequence Diagram" },
         { src: "https://drive.google.com/thumbnail?id=1aUa7-ZkMyNsG0-pQRe6fZ_YUKCizB6jR&sz=w1600", alt: "Transaction Logs" }
+      ]
+    }
+  },
+  {
+    title: "Automated Serverless Guestbook & PR Workflow",
+    date: "Oct 2026",
+    category: "tools",
+    icon: "git-pull-request",
+    color: "#80c9dfff",
+    desc: "Built a serverless guestbook submission pipeline integrating Cloudflare Workers, Turnstile bot verification, and GitHub Actions to validate JSON changes, automatically create pull requests, and merge qualifying submissions while keeping portfolio changes under manual review.",
+    tags: ["Cloudflare Workers", "GitHub Actions", "GitHub API", "JavaScript", "CI/CD"],
+    links: [
+      { label: "View Repository ↗", url: "https://github.com/sehansi-9/sehansi-9.github.io" }
+    ],
+    detail: {
+      problem: "A public portfolio guestbook needs to accept visitor submissions without exposing repository credentials or allowing arbitrary changes to stored entries. The challenge was building a lightweight, database-free workflow that automates submissions while preserving existing data and keeping unrelated portfolio changes under manual review.",
+      approach: [
+        {
+          heading: "Serverless Submission API",
+          body: "Implemented a Cloudflare Worker to process guestbook submissions, validate input fields and allowed display options, enforce request-origin restrictions, and keep repository credentials in server-side secrets rather than exposing them to the browser."
+        },
+        {
+          heading: "Bot Verification with Turnstile",
+          body: "Integrated Cloudflare Turnstile server-side verification before accepting submissions, adding a bot-protection layer to the public guestbook endpoint."
+        },
+        {
+          heading: "Automated GitHub Pull Request Creation",
+          body: "Integrated the GitHub REST API to retrieve the current guestbook data, append one new entry, create a uniquely named guestbook branch, commit the updated JSON file, and open a pull request automatically."
+        },
+        {
+          heading: "Append-Only Data Validation",
+          body: "Built a GitHub Actions validation workflow that restricts guestbook pull requests to data/guestbook.json, validates the JSON structure and entry fields, and verifies that all existing entries remain unchanged while exactly one new entry is appended."
+        },
+        {
+          heading: "Conditional Automatic Merging",
+          body: "Configured a separate GitHub Actions job to automatically squash-merge qualifying guestbook pull requests after validation succeeds, while keeping ordinary portfolio pull requests outside the guestbook auto-merge flow."
+        },
+        {
+          heading: "Frontend Integration",
+          body: "Connected the portfolio guestbook interface to the Worker endpoint and verified the complete submission-to-merge workflow, including the new entry appearing on the frontend after refreshing."
+        }
+      ],
+      highlights: [
+        "End-to-end serverless submission pipeline without a dedicated database service",
+        "Server-side Turnstile verification and secret-based GitHub API authentication",
+        "Automated branch creation, JSON commits, and pull request creation",
+        "Append-only validation designed to prevent deletion or modification of existing entries through qualifying guestbook PRs",
+        "Conditional CI-driven auto-merging for guestbook submissions",
+        "Separate handling of automated guestbook changes and manually reviewed portfolio updates"
+      ],
+      stack: {
+        backend: ["Cloudflare Workers", "JavaScript", "GitHub REST API"],
+        automation: ["GitHub Actions", "Git", "CI/CD"],
+        security: ["Cloudflare Turnstile", "Server-side secrets"],
+        frontend: ["HTML", "CSS", "JavaScript", "JSON"]
+      },
+      snapshots: [
+        { src: "https://drive.google.com/thumbnail?id=1iV2SUV_yKL0fJMA3ZetnC4IhfM20nHXK&sz=w1600", alt: "Bot Verification with Turnstile" },
+        { src: "https://drive.google.com/thumbnail?id=1PhAFcSrHzB-jzcZk6Z-XHDhOtD32T8xN&sz=w1600", alt: "Pipeline with Cloudflare" },
+        { src: "https://drive.google.com/thumbnail?id=1rmUUT9gQvw6YwD8C26yyav84ZiYBZJgJ&sz=w1600", alt: "GitHub Actions" }
       ]
     }
   },
