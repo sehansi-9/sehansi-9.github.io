@@ -26,6 +26,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Verify changed files
@@ -48,94 +49,102 @@ jobs:
             exit 1
           fi
 
+
       - name: Validate guestbook JSON
         if: ${{ startsWith(github.head_ref, 'guestbook/') }}
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           python - <<'PY'
           import json
           import re
+          import subprocess
           from datetime import datetime
           from pathlib import Path
 
           path = Path("data/guestbook.json")
 
+          def load_json(text, label):
+              try:
+                  return json.loads(text)
+              except Exception as exc:
+                  raise SystemExit(f"{label} is invalid JSON: {exc}")
+
           if not path.is_file():
               raise SystemExit("Guestbook file is missing.")
 
-          try:
-              entries = json.loads(path.read_text(encoding="utf-8"))
-          except Exception as exc:
-              raise SystemExit(f"Invalid JSON: {exc}")
+          base_text = subprocess.run(
+              ["git", "show", f"{__import__('os').environ['BASE_SHA']}:data/guestbook.json"],
+              check=True, capture_output=True, text=True
+          ).stdout
 
-          if not isinstance(entries, list):
+          before = load_json(base_text, "Base guestbook")
+          after = load_json(path.read_text(encoding="utf-8"), "PR guestbook")
+
+          if not isinstance(before, list) or not isinstance(after, list):
               raise SystemExit("Guestbook must be a JSON array.")
 
-          if len(entries) > 10000:
-              raise SystemExit("Too many entries.")
+          if len(before) >= 10000 or len(after) > 10000:
+              raise SystemExit("Guestbook entry limit exceeded.")
 
+          if len(after) != len(before) + 1 or after[:-1] != before:
+              raise SystemExit(
+                  "Rejected: PR must preserve all existing entries and append exactly one."
+              )
+
+          entry = after[-1]
           allowed_keys = {
               "id", "name", "message", "createdAt",
               "theme", "color", "sticker", "layout"
           }
 
-          themes = {"aero", "pastel", "dark", "classic"}
-          stickers = {"none", "flower", "star", "heart", "cat", "cloud"}
-          layouts = {"cards", "sticky-notes", "guestbook"}
-          seen_ids = set()
+          if not isinstance(entry, dict) or set(entry) != allowed_keys:
+              raise SystemExit("New entry has missing or extra fields.")
 
-          for i, entry in enumerate(entries):
-              if not isinstance(entry, dict):
-                  raise SystemExit(f"Entry {i} must be an object.")
+          if not isinstance(entry["id"], str) or not re.fullmatch(
+              r"[a-f0-9-]{36}", entry["id"]
+          ):
+              raise SystemExit("Invalid entry ID.")
 
-              if set(entry) != allowed_keys:
-                  raise SystemExit(f"Entry {i} has missing or extra fields.")
+          if any(item.get("id") == entry["id"] for item in before):
+              raise SystemExit("Duplicate entry ID.")
 
-              entry_id = entry["id"]
-              if not isinstance(entry_id, str) or not re.fullmatch(
-                  r"[a-f0-9-]{16,64}", entry_id
+          for field, limit in (("name", 32), ("message", 500)):
+              value = entry[field]
+              if (
+                  not isinstance(value, str)
+                  or not 1 <= len(value.strip()) <= limit
               ):
-                  raise SystemExit(f"Entry {i} has an invalid ID.")
+                  raise SystemExit(f"Invalid {field}.")
 
-              if entry_id in seen_ids:
-                  raise SystemExit(f"Duplicate ID in entry {i}.")
-              seen_ids.add(entry_id)
+          timestamp = entry["createdAt"]
+          if not isinstance(timestamp, str) or len(timestamp) > 40:
+              raise SystemExit("Invalid timestamp.")
 
-              for field, limit in (("name", 32), ("message", 500)):
-                  value = entry[field]
-                  if (
-                      not isinstance(value, str)
-                      or not 1 <= len(value.strip()) <= limit
-                  ):
-                      raise SystemExit(f"Entry {i} has an invalid {field}.")
+          try:
+              parsed = datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
+              if parsed.tzinfo is None:
+                  raise ValueError("Timezone missing")
+          except ValueError:
+              raise SystemExit("Timestamp must be ISO format with a timezone.")
 
-              timestamp = entry["createdAt"]
-              if not isinstance(timestamp, str) or len(timestamp) > 40:
-                  raise SystemExit(f"Entry {i} has an invalid timestamp.")
+          if entry["theme"] not in {"aero", "pastel", "dark", "classic"}:
+              raise SystemExit("Invalid theme.")
 
-              try:
-                  parsed = datetime.fromisoformat(
-                      timestamp.replace("Z", "+00:00")
-                  )
-                  if parsed.tzinfo is None:
-                      raise ValueError("Timezone is missing")
-              except ValueError:
-                  raise SystemExit(
-                      f"Entry {i} must have an ISO timestamp with a timezone."
-                  )
+          if not isinstance(entry["color"], str) or not re.fullmatch(
+              r"#[0-9a-fA-F]{6}", entry["color"]
+          ):
+              raise SystemExit("Invalid colour.")
 
-              if not isinstance(entry["theme"], str) or entry["theme"] not in themes:
-                  raise SystemExit(f"Entry {i} has an invalid theme.")
+          if entry["sticker"] not in {
+              "none", "flower", "star", "heart", "cat", "cloud"
+          }:
+              raise SystemExit("Invalid sticker.")
 
-              if not isinstance(entry["color"], str) or not re.fullmatch(
-                  r"#[0-9a-fA-F]{6}", entry["color"]
-              ):
-                  raise SystemExit(f"Entry {i} has an invalid colour.")
+          if entry["layout"] not in {
+              "cards", "sticky-notes", "guestbook"
+          }:
+              raise SystemExit("Invalid layout.")
 
-              if not isinstance(entry["sticker"], str) or entry["sticker"] not in stickers:
-                  raise SystemExit(f"Entry {i} has an invalid sticker.")
-
-              if not isinstance(entry["layout"], str) or entry["layout"] not in layouts:
-                  raise SystemExit(f"Entry {i} has an invalid layout.")
-
-          print(f"Validated {len(entries)} guestbook entries.")
+          print("Guestbook PR validated: exactly one new entry appended.")
           PY
