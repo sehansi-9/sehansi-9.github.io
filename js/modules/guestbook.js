@@ -83,16 +83,11 @@
         }
 
         function renderEntries() {
-            const selectedLayout = $("guestbookLayoutFilter").value;
-
-            const visibleEntries = selectedLayout === "all"
-                ? approvedEntries
-                : approvedEntries.filter((entry) => entry.layout === selectedLayout);
+            const visibleEntries = approvedEntries;
 
             $("guestbookCount").textContent = String(approvedEntries.length);
 
-            entriesEl.className = "guestbook-entries guestbook-layout-" +
-                (selectedLayout === "all" ? "cards" : selectedLayout);
+            entriesEl.className = "guestbook-entries guestbook-layout-cards";
 
             entriesEl.replaceChildren();
 
@@ -109,7 +104,7 @@
 
                 detail.textContent = approvedEntries.length
                     ? "Choose another layout to see more notes."
-                    : "Approved messages will appear here after review.";
+                    : "Messages will appear here";
 
                 empty.append(heading, detail);
                 entriesEl.append(empty);
@@ -188,7 +183,7 @@
                 approvedEntries = [];
                 renderEntries();
                 listStatus.textContent =
-                    "Couldn't load the guestbook. Check that data/guestbook.json is published.";
+                    "Couldn't load the guestbook.";
             } finally {
                 refresh.disabled = false;
             }
@@ -231,7 +226,7 @@
 
             $("guestbookSubmitNote").textContent =
                 FRONTEND_SUBMISSIONS_ENABLED
-                    ? "Your note will be sent for review before appearing publicly."
+                    ? "be respectful ;)"
                     : "Submissions are paused while the widget is being tested.";
         }
 
@@ -338,7 +333,7 @@
                 theme: $("guestbookTheme").value,
                 color: $("guestbookColor").value,
                 sticker: $("guestbookSticker").value,
-                layout: $("guestbookLayout").value,
+                layout: $("guestbookLayout") ? $("guestbookLayout").value : "cards",
                 turnstileToken
             };
 
@@ -405,7 +400,8 @@
             $(id).addEventListener("change", updatePreview);
         });
 
-        $("guestbookLayoutFilter").addEventListener("change", renderEntries);
+        const layoutFilter = $("guestbookLayoutFilter");
+        if (layoutFilter) layoutFilter.addEventListener("change", renderEntries);
         $("guestbookRefresh").addEventListener("click", loadEntries);
         form.addEventListener("submit", submitEntry);
 
