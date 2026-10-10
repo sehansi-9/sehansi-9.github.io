@@ -6,6 +6,7 @@ on:
     branches:
       - main
     types: [opened, synchronize, reopened, edited]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -18,11 +19,11 @@ jobs:
 
     steps:
       - name: Skip non-guestbook PRs
-        if: ${{ !startsWith(github.head_ref, 'guestbook/') }}
+        if: ${{ !startsWith(github.head_ref || '', 'guestbook/') }}
         run: echo "Regular portfolio PR; guestbook restrictions do not apply."
 
       - name: Checkout guestbook PR
-        if: ${{ startsWith(github.head_ref, 'guestbook/') }}
+        if: ${{ startsWith(github.head_ref || '', 'guestbook/') }}
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -30,7 +31,7 @@ jobs:
           persist-credentials: false
 
       - name: Verify changed files
-        if: ${{ startsWith(github.head_ref, 'guestbook/') }}
+        if: ${{ startsWith(github.head_ref || '', 'guestbook/') }}
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
@@ -49,14 +50,14 @@ jobs:
             exit 1
           fi
 
-
       - name: Validate guestbook JSON
-        if: ${{ startsWith(github.head_ref, 'guestbook/') }}
+        if: ${{ startsWith(github.head_ref || '', 'guestbook/') }}
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           python - <<'PY'
           import json
+          import os
           import re
           import subprocess
           from datetime import datetime
@@ -74,7 +75,7 @@ jobs:
               raise SystemExit("Guestbook file is missing.")
 
           base_text = subprocess.run(
-              ["git", "show", f"{__import__('os').environ['BASE_SHA']}:data/guestbook.json"],
+              ["git", "show", f"{os.environ['BASE_SHA']}:data/guestbook.json"],
               check=True, capture_output=True, text=True
           ).stdout
 
@@ -106,7 +107,10 @@ jobs:
           ):
               raise SystemExit("Invalid entry ID.")
 
-          if any(item.get("id") == entry["id"] for item in before):
+          if any(
+              isinstance(item, dict) and item.get("id") == entry["id"]
+              for item in before
+          ):
               raise SystemExit("Duplicate entry ID.")
 
           for field, limit in (("name", 32), ("message", 500)):
@@ -148,3 +152,30 @@ jobs:
 
           print("Guestbook PR validated: exactly one new entry appended.")
           PY
+
+  auto-merge:
+    name: Auto-merge guestbook PR
+    needs: validate
+    if: >-
+      github.event_name == 'pull_request' &&
+      startsWith(github.head_ref, 'guestbook/') &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Merge validated PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+
+          gh pr merge "$PR_NUMBER" \
+            --repo "$REPO" \
+            --squash \
+            --delete-branch
