@@ -924,8 +924,11 @@ function initPondWidget() {
 
     updatePondUI();
 
-    if (pondAnimId) cancelAnimationFrame(pondAnimId);
-    renderPondLoop();
+    stopPondAnimation();
+    drawPond();
+    if (typeof activeTabId !== 'undefined' && activeTabId === 'widgets') {
+        startPondAnimation();
+    }
 }
 
 function resizePondCanvas() {
@@ -934,6 +937,8 @@ function resizePondCanvas() {
     if (!wrap) return;
 
     const rect = wrap.getBoundingClientRect();
+    if (rect.width === 0 && pondW > 0) return;
+
     const dpr = window.devicePixelRatio || 1;
 
     pondW = rect.width || 300;
@@ -943,10 +948,13 @@ function resizePondCanvas() {
     pondCanvas.height = pondH * dpr;
 
     if (pondCtx) {
-        pondCtx.scale(dpr, dpr);
+        pondCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
     generatePondPlants();
+    if (!pondAnimId) {
+        drawPond();
+    }
 }
 
 function generatePondPlants() {
@@ -1051,6 +1059,27 @@ function updatePondUI() {
         }
     }
 }
+
+function startPondAnimation() {
+    if (pondAnimId) return;
+    if (!pondCanvas || !pondCtx) return;
+    pondAnimId = requestAnimationFrame(renderPondLoop);
+}
+
+function stopPondAnimation() {
+    if (pondAnimId) {
+        cancelAnimationFrame(pondAnimId);
+        pondAnimId = null;
+    }
+}
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        stopPondAnimation();
+    } else if (typeof activeTabId !== 'undefined' && activeTabId === 'widgets') {
+        startPondAnimation();
+    }
+});
 
 function renderPondLoop() {
     pondTime++;
