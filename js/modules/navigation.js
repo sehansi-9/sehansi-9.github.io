@@ -102,8 +102,17 @@ function switchAeroTab(tabId, event, updateHash = true) {
         filterAeroWriting(currentWritingFilter);
     }
 
-    if (tabId === 'widgets' && typeof resizePondCanvas === 'function') {
-        setTimeout(resizePondCanvas, 50);
+    if (tabId === 'widgets') {
+        if (typeof resizePondCanvas === 'function') {
+            setTimeout(resizePondCanvas, 50);
+        }
+        if (typeof startPondAnimation === 'function') {
+            startPondAnimation();
+        }
+    } else {
+        if (typeof stopPondAnimation === 'function') {
+            stopPondAnimation();
+        }
     }
 
     const canvas = document.getElementById('windowContentCanvas');
