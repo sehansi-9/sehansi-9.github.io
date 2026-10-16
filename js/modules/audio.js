@@ -162,3 +162,48 @@ function toggleAeroAudio() {
         }
     }
 }
+
+
+let spotifyEmbedController = null;
+let audioWasEnabledBeforeSpotify = false;
+
+window.onSpotifyIframeApiReady = (IFrameAPI) => {
+    const element = document.getElementById('spotifyPlaylist');
+
+    IFrameAPI.createController(
+        element,
+        {
+            uri: 'spotify:playlist:7wZlqHKERUiMedrMn4swhp',
+            width: '100%',
+            height: '152'
+        },
+        (controller) => {
+            spotifyEmbedController = controller;
+
+            controller.addListener('playback_update', (event) => {
+                const music = document.getElementById('aeroBackgroundMusic');
+                const isPlaying = !event.data.isPaused;
+
+                if (isPlaying && isSoundEnabled) {
+                    audioWasEnabledBeforeSpotify = true;
+                    isSoundEnabled = false;
+
+                    localStorage.setItem('aero_sound', 'false');
+                    setSoundIcons(false);
+
+                    removeMusicGestureListener();
+
+                    if (music) {
+                        music.pause();
+                    }
+                }
+            });
+        }
+    );
+};
+
+const spotifyApiScript = document.createElement('script');
+spotifyApiScript.src = 'https://open.spotify.com/embed/iframe-api/v1';
+spotifyApiScript.async = true;
+document.head.appendChild(spotifyApiScript);
+
