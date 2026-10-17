@@ -1375,3 +1375,159 @@ function drawSingleFish(fish) {
 
     pondCtx.restore();
 }
+
+let currentBucketFilter = 'all';
+
+function getBucketListData() {
+    if (typeof BUCKET_LIST !== 'undefined' && Array.isArray(BUCKET_LIST)) {
+        return BUCKET_LIST;
+    }
+    if (typeof window !== 'undefined' && Array.isArray(window.BUCKET_LIST)) {
+        return window.BUCKET_LIST;
+    }
+    return [];
+}
+
+function escapeBucketHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function updateBucketListStats(items) {
+    const total = items.length;
+    const completed = items.filter(item => item.status === 'completed').length;
+    const inProgress = items.filter(item => item.status === 'in-progress').length;
+    const planned = items.filter(item => item.status === 'planned').length;
+    const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+    const countAllEl = document.getElementById('countAll');
+    const countCompletedEl = document.getElementById('countCompleted');
+    const countInProgressEl = document.getElementById('countInProgress');
+    const countPlannedEl = document.getElementById('countPlanned');
+
+    if (countAllEl) countAllEl.textContent = total;
+    if (countCompletedEl) countCompletedEl.textContent = completed;
+    if (countInProgressEl) countInProgressEl.textContent = inProgress;
+    if (countPlannedEl) countPlannedEl.textContent = planned;
+
+    const statsCountEl = document.getElementById('bucketStatsCount');
+    const statsPctEl = document.getElementById('bucketStatsPct');
+    const progressFillEl = document.getElementById('bucketProgressFill');
+
+    if (statsCountEl) statsCountEl.textContent = `${completed} / ${total}`;
+    if (statsPctEl) statsPctEl.textContent = `(${percentage}%)`;
+    if (progressFillEl) progressFillEl.style.width = `${percentage}%`;
+}
+
+function renderBucketList(filter = 'all') {
+    currentBucketFilter = filter;
+    const listContainer = document.getElementById('bucket-list');
+    if (!listContainer) return;
+
+    const allItems = getBucketListData();
+    updateBucketListStats(allItems);
+
+    listContainer.innerHTML = '';
+
+    const filteredItems = filter === 'all'
+        ? allItems
+        : allItems.filter(item => item.status === filter);
+
+    if (filteredItems.length === 0) {
+        const filterLabels = {
+            'all': 'goals',
+            'completed': 'completed goals',
+            'in-progress': 'in-progress goals',
+            'planned': 'planned goals'
+        };
+        const label = filterLabels[filter] || 'items';
+
+        listContainer.innerHTML = `
+            <div class="bucket-empty-state">
+                <span class="bucket-empty-icon">🧭</span>
+                <h4 class="bucket-empty-title">No ${label} found</h4>
+                <p class="bucket-empty-text">Update <code>data/data.js</code> to add more milestones to your bucket list!</p>
+            </div>
+        `;
+        return;
+    }
+
+    filteredItems.forEach(item => {
+        const itemElement = document.createElement('article');
+        const statusClass = escapeBucketHtml(item.status || 'planned');
+        itemElement.className = `bucket-item ${statusClass}`;
+
+        let statusIndicatorHtml = '';
+        if (item.status === 'completed') {
+            statusIndicatorHtml = `
+                <div class="status-indicator" title="Status: Completed">
+                    <span class="status-check" aria-hidden="true">✓</span>
+                </div>
+            `;
+        } else if (item.status === 'in-progress') {
+            statusIndicatorHtml = `
+                <div class="status-indicator" title="Status: In Progress">
+                    <span class="status-pulse-dot" aria-hidden="true"></span>
+                </div>
+            `;
+        } else {
+            statusIndicatorHtml = `
+                <div class="status-indicator" title="Status: Planned">
+                    <span class="status-plan-icon" aria-hidden="true"></span>
+                </div>
+            `;
+        }
+
+        itemElement.innerHTML = `
+            ${statusIndicatorHtml}
+            <div class="item-content">
+                <h3 class="item-title">${escapeBucketHtml(item.title)}</h3>
+            </div>
+        `;
+        listContainer.appendChild(itemElement);
+    });
+}
+
+function initBucketList() {
+    const filterButtons = document.querySelectorAll('.bucket-filter-bar .filter-btn, .filter-container .filter-btn');
+
+    filterButtons.forEach(button => {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+
+        newButton.addEventListener('click', (e) => {
+            const btn = e.currentTarget;
+            const targetFilter = btn.dataset.filter || 'all';
+
+            document.querySelectorAll('.bucket-filter-bar .filter-btn, .filter-container .filter-btn').forEach(b => {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+
+            if (typeof playAeroChime === 'function') {
+                playAeroChime('click');
+            }
+
+            renderBucketList(targetFilter);
+        });
+    });
+
+    renderBucketList(currentBucketFilter);
+}
+
+if (typeof window !== 'undefined') {
+    window.initBucketList = initBucketList;
+    window.renderBucketList = renderBucketList;
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBucketList);
+} else {
+    initBucketList();
+}
+

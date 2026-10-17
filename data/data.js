@@ -476,7 +476,7 @@ const EDUCATION = [
     sections: [
       {
         label: "Activities:",
-        tags: ["Quiz Combine", "23rd Colombo Girl Guide", "Junior Dancing Troupe"]
+        tags: ["Quiz Combine", "23rd Colombo Girl Guide", "Junior Dancing Troupe", "Orchestra (Violin)"]
       },
       {
         label: "Positions:",
@@ -901,3 +901,59 @@ const WATCHED = {
     }
   ],
 };
+
+const BUCKET_LIST = [
+  {
+    title: "Complete A/Ls in Mathematics Stream",
+    status: "completed"
+  },
+  {
+    title: "Attend a Bump of Chicken concert in Japan",
+    status: "planned"
+  },
+  {
+    title: "Photograph the Northern Lights",
+    status: "planned"
+  },
+  {
+    title: "Visit Nepal",
+    status: "completed"
+  },
+  {
+    title: "Publish first-author research in AI",
+    status: "in-progress"
+  },
+  {
+    title: "Get my first internship experience in SWE",
+    status: "completed"
+  },
+  {
+    title: "Build and ship an impactful open-data platform",
+    status: "completed"
+  },
+  {
+    title: "Attend an international tech conference",
+    status: "completed"
+  },
+  {
+    title: "Complete my Bachelor's Degree",
+    status: "in-progress"
+  },
+  {
+    title: "Study Japanese to N4-N3 level",
+    status: "in-progress"
+  },
+  {
+    title: "Open a Cafe & Bakery by the sea-side",
+    status: "planned"
+  },
+  {
+    title: "Build a Buddhist Monastry",
+    status: "planned"
+  }
+];
+
+if (typeof window !== 'undefined') {
+  window.BUCKET_LIST = BUCKET_LIST;
+}
+

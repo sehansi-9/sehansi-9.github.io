@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof initAeroBubbles === 'function') initAeroBubbles();
     if (typeof initMinesweeper === 'function') initMinesweeper();
     if (typeof initPondWidget === 'function') initPondWidget();
+    if (typeof initBucketList === 'function') initBucketList();
 
     if (typeof updateClock === 'function') {
         updateClock();

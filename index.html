@@ -746,7 +746,51 @@
                 </footer>
               </div>
             </section>
+            <section class="bucket-list-card" id="bucketListCard">
+              <div class="bucket-card-shine" aria-hidden="true"></div>
 
+              <div class="bucket-list-header">
+                <div class="bucket-header-main">
+                  <div class="bucket-title-wrap">
+                    <h2 class="bucket-title">My Bucket List</h2>
+                  </div>
+                </div>
+
+                <div class="bucket-stats-pill" id="bucketStatsPill" title="Completion Progress">
+                  <div class="bucket-stats-text">
+                    <span class="bucket-stats-label">Progress</span>
+                    <span class="bucket-stats-numbers">
+                      <strong id="bucketStatsCount">0 / 0</strong>
+                      <span class="bucket-stats-pct" id="bucketStatsPct">(0%)</span>
+                    </span>
+                  </div>
+                  <div class="bucket-progress-track">
+                    <div class="bucket-progress-fill" id="bucketProgressFill" style="width: 0%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filter-container bucket-filter-bar" role="tablist" aria-label="Filter bucket list items">
+                <button class="filter-btn active" data-filter="all" type="button">
+                  <span>All</span>
+                  <span class="bucket-badge-count" id="countAll">0</span>
+                </button>
+                <button class="filter-btn" data-filter="completed" type="button">
+                  <span>✓ Completed</span>
+                  <span class="bucket-badge-count" id="countCompleted">0</span>
+                </button>
+                <button class="filter-btn" data-filter="in-progress" type="button">
+                  <span>In Progress</span>
+                  <span class="bucket-badge-count" id="countInProgress">0</span>
+                </button>
+                <button class="filter-btn" data-filter="planned" type="button">
+                  <span>Planned</span>
+                  <span class="bucket-badge-count" id="countPlanned">0</span>
+                </button>
+              </div>
+
+              <div id="bucket-list" class="list-grid bucket-list-grid" aria-live="polite"></div>
+            </section>
 
             <div class="aero-watched-layout">
               <div class="watched-content-header">
