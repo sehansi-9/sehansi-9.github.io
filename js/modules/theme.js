@@ -57,7 +57,7 @@ function updateDuolingoTheme(isDark) {
     if (isDark === undefined) isDark = localStorage.getItem('theme') === 'dark';
 
     const targetSrc = isDark
-        ? `https://duolingo-stats-card.vercel.app/api?username=${DUOLINGO_USER}&theme=tokyonight`
+        ? `https://duolingo-stats-card.vercel.app/api?username=${DUOLINGO_USER}&theme=beach`
         : `https://duolingo-stats-card.vercel.app/api?username=${DUOLINGO_USER}&theme=light`;
 
     if (duolingoStats.src !== targetSrc && duolingoStats.getAttribute('src') !== targetSrc) {
