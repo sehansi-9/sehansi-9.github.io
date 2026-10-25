@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof renderAeroExperience === 'function') renderAeroExperience();
     if (typeof renderAeroEducation === 'function') renderAeroEducation();
     if (typeof renderAeroCertifications === 'function') renderAeroCertifications();
+    if (typeof renderAeroFunFacts === 'function') renderAeroFunFacts();
     if (typeof renderAeroEvents === 'function') renderAeroEvents();
     if (typeof renderAeroWriting === 'function') renderAeroWriting();
     if (typeof filterAeroAbout === 'function') filterAeroAbout('experience');
@@ -31,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof initAeroBubbles === 'function') initAeroBubbles();
     if (typeof initMinesweeper === 'function') initMinesweeper();
     if (typeof initPondWidget === 'function') initPondWidget();
-    if (typeof initBucketList === 'function') initBucketList();
 
     if (typeof updateClock === 'function') {
         updateClock();

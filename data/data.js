@@ -528,6 +528,33 @@ const CERTIFICATIONS = [
   }
 ];
 
+const FUN_FACTS = [
+  {
+    title: "Yes, I actually make art using Powerpoint",
+    desc: "Started as a fun hobby, somehow it evolved into me winning 1st place in the Senior Category (Solo) at the All-Island Virtual Wesak Competition 2020 organized by Dialog Axiata PLC. Also animated the mascot of Project Resilify and designed the mascot of Lanka Data Foundation :)"
+  },
+  {
+    title: "J-Rock keeps me going",
+    desc: "Big fan of Japanese rock band BUMP OF CHICKEN (like, HUGE). Also listens to RADWIMPS, SPYAIR, ONE OK ROCK, Hitsujibungaku, [Alexandros], Kinoko Teikoku, SEKAI NO OWARI and many more."
+  },
+  {
+    title: "Violinist & Traditional Dancer",
+    desc: "Was a violinist in the Musaeus College Arts Day Orchestra and was a part of the school's Junior Traditional Kandyan Dancing troupe for zonal (winners-2016) and national level dancing competitions."
+  },
+  {
+    title: "Girl Guiding and Scout life",
+    desc: "Served as Patrol Vice-Leader, participating in outdoor expeditions, camping, and community service initiatives."
+  },
+  {
+    title: "Self studying Japanese",
+    desc: "Want to get hit by that Nihongo jouzu desu ne at least once in my life, kidding, actually wanted to understand the lyrics of my beloved J-Rock songs",
+  }
+];
+
+if (typeof window !== 'undefined') {
+  window.FUN_FACTS = FUN_FACTS;
+}
+
 const EVENTS = [
   {
     src: "https://drive.google.com/thumbnail?id=1pjWqsPbdQvAJTqNYpjElDKO7nIdAw6n3&sz=w1600",
@@ -874,6 +901,13 @@ const WATCHED = {
       title: "Suzume",
       category: "Adventure"
     },
+    {
+      img: "https://m.media-amazon.com/images/M/MV5BYjkzZDRiNjgtNDIyNy00NTIxLWE2NTMtMTU4YmU4Mzk1OGU3XkEyXkFqcGc@._V1_.jpg",
+      year: "2022",
+      type: "Chinese Drama",
+      title: "Lighter & Princess",
+      category: "Romance"
+    },
 
   ],
 
@@ -901,59 +935,4 @@ const WATCHED = {
     }
   ],
 };
-
-const BUCKET_LIST = [
-  {
-    title: "Complete A/Ls in Mathematics Stream",
-    status: "completed"
-  },
-  {
-    title: "Attend a Bump of Chicken concert in Japan",
-    status: "planned"
-  },
-  {
-    title: "Photograph the Northern Lights",
-    status: "planned"
-  },
-  {
-    title: "Visit Nepal",
-    status: "completed"
-  },
-  {
-    title: "Publish first-author research in AI",
-    status: "in-progress"
-  },
-  {
-    title: "Get my first internship experience in SWE",
-    status: "completed"
-  },
-  {
-    title: "Build and ship an impactful open-data platform",
-    status: "completed"
-  },
-  {
-    title: "Attend an international tech conference",
-    status: "completed"
-  },
-  {
-    title: "Complete my Bachelor's Degree",
-    status: "in-progress"
-  },
-  {
-    title: "Study Japanese to N4-N3 level",
-    status: "in-progress"
-  },
-  {
-    title: "Open a Cafe & Bakery by the sea-side",
-    status: "planned"
-  },
-  {
-    title: "Build a Buddhist Monastry",
-    status: "planned"
-  }
-];
-
-if (typeof window !== 'undefined') {
-  window.BUCKET_LIST = BUCKET_LIST;
-}
 

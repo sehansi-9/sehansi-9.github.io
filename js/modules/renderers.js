@@ -32,17 +32,21 @@ function filterAeroProjects(cat) {
 function filterAeroAbout(cat) {
   currentAboutFilter = cat;
   _chime();
+  const normalized = (cat === 'fun-facts' || cat === 'facts') ? 'facts' : cat;
   document.querySelectorAll('[data-about]').forEach(b => {
-    b.classList.toggle('active', b.getAttribute('data-about') === cat);
+    const attr = b.getAttribute('data-about');
+    const normAttr = (attr === 'fun-facts' || attr === 'facts') ? 'facts' : attr;
+    b.classList.toggle('active', normAttr === normalized);
   });
 
   const sections = {
     experience: document.getElementById('about-section-experience'),
     education: document.getElementById('about-section-education'),
     certs: document.getElementById('about-section-certs'),
+    facts: document.getElementById('about-section-facts'),
   };
   Object.entries(sections).forEach(([key, el]) => {
-    if (el) el.style.display = (cat === key) ? 'flex' : 'none';
+    if (el) el.style.display = (normalized === key) ? 'flex' : 'none';
   });
 }
 
@@ -159,6 +163,23 @@ function renderAeroCertifications() {
       <div class="row-action-arrow">↗</div>
     </a>
   `).join('');
+}
+
+function renderAeroFunFacts() {
+  const container = document.getElementById('aero-facts-container') || document.getElementById('about-section-facts');
+  if (!container || typeof FUN_FACTS === 'undefined') return;
+
+  container.innerHTML = `
+    <div class="aero-pill-row aero-pill-row--static" style="padding: 14px 20px;">
+      <ul class="cs-highlights-list" style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; line-height: 1.55; color: var(--ink-body); width: 100%;">
+        ${FUN_FACTS.map(f => {
+          if (typeof f === 'string') return `<li>${f}</li>`;
+          if (f.title && f.desc) return `<li><strong>${f.title}:</strong> ${f.desc}</li>`;
+          return `<li>${f.desc || f.title || ''}</li>`;
+        }).join('')}
+      </ul>
+    </div>
+  `;
 }
 
 function renderAeroEvents() {

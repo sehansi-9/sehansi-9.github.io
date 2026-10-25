@@ -160,6 +160,29 @@
       });
     }
 
+    if (typeof FUN_FACTS !== 'undefined' && Array.isArray(FUN_FACTS)) {
+      FUN_FACTS.forEach(fact => {
+        const textBlocks = [];
+        if (fact.desc) textBlocks.push(fact.desc);
+        if (fact.tag) textBlocks.push(fact.tag);
+
+        const fullSearchContent = [fact.title || '', ...textBlocks].join(' ').toLowerCase();
+
+        index.push({
+          category: 'Fun Facts',
+          categoryOrder: 6,
+          title: fact.title,
+          defaultSubtitle: 'About Sehansi',
+          textBlocks,
+          searchText: fullSearchContent,
+          action: () => {
+            if (typeof switchAeroTab === 'function') switchAeroTab('about');
+            if (typeof filterAeroAbout === 'function') filterAeroAbout('facts');
+          }
+        });
+      });
+    }
+
     if (typeof EVENTS !== 'undefined' && Array.isArray(EVENTS)) {
       EVENTS.forEach(ev => {
         const textBlocks = [];
@@ -178,7 +201,7 @@
           action: () => {
             if (typeof switchAeroTab === 'function') switchAeroTab('events');
             if (typeof openAeroLightbox === 'function') {
-              openAeroLightbox(ev.src, ev.title, ev.alt || '');
+              openAeroLightbox(ev.src, ev.title || '');
             }
           }
         });
