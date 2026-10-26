@@ -615,6 +615,12 @@ const EVENTS = [
     alt: "Quiz Competitions - Brainstorm",
     title: "Quiz Competitions - Brainstorm (2017 & 2019)",
     desc: "Emerged champions at 2017 Junior Category and 2nd Runner up at 2019 Senior Category at Brainstorm, the annual Table Quiz Competition organized by the Quiz Combine of Musaeus College"
+  },
+  {
+    src: "https://drive.google.com/thumbnail?id=1RAnSWpPw82dY9Sg3bdoKXCaX9TN8wbjg&sz=w1600",
+    alt: "Rathnapura Camp - 2018",
+    title: "Rathnapura Camp - 2018",
+    desc: "3 day camp and hike at Rathnapura organised by the 23rd Colombo Girl Guides",
   }
 ];
 
