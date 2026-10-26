@@ -575,6 +575,12 @@ const EVENTS = [
     desc: "Project 'Resilify' was selected to be presented at the annual tech exhibition organised by Informatics Institute of Technology"
   },
   {
+    src: "https://drive.google.com/thumbnail?id=1wwaur8CALVNEtM6_XY0_mTYAbeaZI4go&sz=w1600",
+    alt: "SLIIT Codefest - DevQuest Hackathon",
+    title: "DevQuest - 2024",
+    desc: "Participated in the 9 hour online DevQuest Hackathon in SLIIT Codefest"
+  },
+  {
     src: "https://drive.google.com/thumbnail?id=1FjadNaYhuhC7p-iGoWdztajwwKn3NZJ_&sz=w1600",
     alt: "Cutting Edge 2024 Logistics Team",
     title: "Cutting Edge - Jul 2024",
@@ -615,6 +621,12 @@ const EVENTS = [
     alt: "Quiz Competitions - Brainstorm",
     title: "Quiz Competitions - Brainstorm (2017 & 2019)",
     desc: "Emerged champions at 2017 Junior Category and 2nd Runner up at 2019 Senior Category at Brainstorm, the annual Table Quiz Competition organized by the Quiz Combine of Musaeus College"
+  },
+  {
+    src: "https://drive.google.com/thumbnail?id=1RAnSWpPw82dY9Sg3bdoKXCaX9TN8wbjg&sz=w1600",
+    alt: "Rathnapura Camp - 2018",
+    title: "Rathnapura Camp - 2018",
+    desc: "3 day camp and hike at Rathnapura organised by the 23rd Colombo Girl Guides",
   }
 ];
 
