@@ -535,7 +535,7 @@ const FUN_FACTS = [
   },
   {
     title: "J-Rock keeps me going",
-    desc: "Big fan of Japanese rock band BUMP OF CHICKEN (like, HUGE). Also listens to RADWIMPS, SPYAIR, ONE OK ROCK, Hitsujibungaku, [Alexandros], Kinoko Teikoku, SEKAI NO OWARI and many more."
+    desc: "Big fan of Japanese rock band BUMP OF CHICKEN (like, HUGE). Also listen to RADWIMPS, SPYAIR, ONE OK ROCK, Hitsujibungaku, [Alexandros], Spitz, Sakanaction, the pillows and many more."
   },
   {
     title: "Violinist & Traditional Dancer",
