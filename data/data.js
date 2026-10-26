@@ -575,6 +575,12 @@ const EVENTS = [
     desc: "Project 'Resilify' was selected to be presented at the annual tech exhibition organised by Informatics Institute of Technology"
   },
   {
+    src: "https://drive.google.com/thumbnail?id=1wwaur8CALVNEtM6_XY0_mTYAbeaZI4go&sz=w1600",
+    alt: "SLIIT Codefest - DevQuest Hackathon",
+    title: "DevQuest - 2024",
+    desc: "Participated in the 9 hour online DevQuest Hackathon in SLIIT Codefest"
+  },
+  {
     src: "https://drive.google.com/thumbnail?id=1FjadNaYhuhC7p-iGoWdztajwwKn3NZJ_&sz=w1600",
     alt: "Cutting Edge 2024 Logistics Team",
     title: "Cutting Edge - Jul 2024",
