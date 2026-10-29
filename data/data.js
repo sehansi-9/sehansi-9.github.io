@@ -542,10 +542,6 @@ const FUN_FACTS = [
     desc: "Was a violinist in the Musaeus College Arts Day Orchestra and was a part of the school's Junior Traditional Kandyan Dancing troupe for zonal (winners-2016) and national level dancing competitions."
   },
   {
-    title: "Girl Guiding and Scout life",
-    desc: "Served as Patrol Vice-Leader, participating in outdoor expeditions, camping, and community service initiatives."
-  },
-  {
     title: "Self studying Japanese",
     desc: "Want to get hit by that Nihongo jouzu desu ne at least once in my life, kidding, actually wanted to understand the lyrics of my beloved J-Rock songs",
   }
