@@ -139,7 +139,8 @@ const PROJECTS = [
     tags: ["Flutter", "Rive Animations", "Python"],
     links: [
       { label: "View Social Platform ↗", url: "https://www.instagram.com/resilify_/" },
-      { label: "View Repository ↗", url: "https://github.com/Resilify" }
+      { label: "View Repository ↗", url: "https://github.com/Resilify" },
+      { label: "View on SDGP.LK ↗", url: "https://www.sdgp.lk/project/a97414c0-50d4-4db5-ad2e-f19c0c5859c1" }
     ],
     detail: {
       problem: "Loop Tape Exposure & Response Prevention (ERP) is a technique where OCD patients record an intrusive thought out loud and listen to it on repeat until anxiety naturally habituates. Practicing ERP alone is emotionally taxing, tedious, and prone to high drop-out rates. Resilify transforms this clinical exercise into a gamified, supportive experience that keeps patients motivated, tracks therapy adherence accurately, and rewards session persistence.",
