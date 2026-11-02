@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -265,11 +265,9 @@
                   alt="Sehansi Perera" class="intro-avatar-img">
               </div>
               <div class="intro-text-col">
-                <div class="intro-heading">Sehansi Says:</div>
+                <div class="intro-heading"><span id="typingText"></span><span class="typing-cursor"
+                    aria-hidden="true"></span></div>
                 <p class="intro-body">
-                  Welcome to my corner on the web! I'm a Computer Science undergraduate, building mindful AI systems,
-                  open data platforms, and social-impact technology. Click through
-                  to explore my projects, writing, events, and background! Also, Clippy is here to help navigate you!
                 </p>
               </div>
             </div>
@@ -319,6 +317,7 @@
                 <div class="duolingo-username">duolingo: @sehansi.p</div>
               </div>
             </div>
+
             <div class="highlights">HIGHLIGHTS</div>
 
             <div class="aero-pill-row" onclick="switchAeroTab('projects')">
@@ -813,7 +812,8 @@
   <script src="js/modules/navigation.js"></script>
   <script src="js/modules/renderers.js"></script>
   <script src="js/modules/widgets.js"></script>
-  <script src="js/app.js?v=2"></script>
+  <script src="js/modules/home-dynamics.js"></script>
+  <script src="js/app.js?v=3"></script>
   <script src="js/modules/clippy.js"></script>
   <script src="js/modules/guestbook.js"></script>
   <script>
