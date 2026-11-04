@@ -324,58 +324,78 @@
 
             <div class="highlights">HIGHLIGHTS</div>
 
-            <div class="aero-pill-row" onclick="switchAeroTab('projects')">
-              <div class="row-thumb-wrap">
-                <img src="https://drive.google.com/thumbnail?id=18VtLLeFPw1GKG7EMp7WF7sKe44IwN-Vl&sz=w800 "
-                  onerror="this.src='assets/images/favicon.svg'" alt="OpenGIN Bot" class="row-thumb-img">
-              </div>
-              <div class="row-info-col">
-                <div class="row-title">OpenGIN Bot - AI Graph Reasoning Agent</div>
-                <div class="row-desc">LangGraph-powered LLM agent querying government temporal graph data with reduced
-                  token consumption.</div>
-                <div class="row-tags">
-                  <span class="row-tag">LangGraph</span>
-                  <span class="row-tag">FastAPI</span>
+            <div class="hl-bento-grid">
+              <div class="hl-bento-tile hl-bento-tile--bot" onclick="openAeroProjectDetail(0)" title="OpenGIN Bot">
+                <div class="hl-bot-thumb-frame">
+                  <img src="https://drive.google.com/thumbnail?id=1XI7Z5Vtto8Cunq4VbPtPXLVKFW42_BYx&sz=w800"
+                    onerror="this.src='assets/images/favicon.svg'" alt="OpenGIN Bot Architecture"
+                    class="hl-bento-media">
+                </div>
+                <div class="hl-bot-content">
+                  <div class="hl-bot-header">
+                    <span class="hl-bot-title">OpenGIN Bot</span>
+                    <span class="hl-badge-arrow">➔</span>
+                  </div>
+                  <div class="hl-bot-badge">AI Graph Reasoning Agent</div>
+                  <div id="bot-des" class="hl-bot-desc">LangGraph-powered LLM agent querying government temporal graph
+                    data with
+                    reduced token consumption.</div>
+                  <div class="hl-bot-tags">
+                    <span class="hl-bot-tag">LangGraph</span>
+                    <span class="hl-bot-tag">FastAPI</span>
+                  </div>
                 </div>
               </div>
-              <div class="row-action-arrow">➔</div>
+
+              <div class="hl-bento-tile hl-bento-tile--xplore" onclick="openAeroProjectDetail(1)" title="OpenGINXplore">
+                <div class="hl-xplore-info">
+                  <div class="hl-bot-header">
+                    <span class="hl-bot-title">OpenGINXplore</span>
+                    <span class="hl-badge-arrow">➔</span>
+                  </div>
+                  <div class="hl-bot-badge">Government Data Platform</div>
+                  <div class="hl-bot-desc">Interactive temporal administrative structure and data
+                    visualization of Sri Lanka.</div>
+                  <div class="hl-bot-tags">
+                    <span class="hl-bot-tag">React</span>
+                    <span class="hl-bot-tag">3D Network Graph</span>
+                    <span class="hl-bot-tag">Open Data</span>
+                  </div>
+                </div>
+                <div class="hl-xplore-frames-row">
+                  <div class="hl-xplore-frame" title="3D Network View">
+                    <img loading="lazy"
+                      src="https://drive.google.com/thumbnail?id=1T9bQiSMrJ7aii585AwcOMoz_7-8vJAx_&sz=w1600"
+                      alt="OpenGINXplore 3D Network View" class="hl-bento-media"
+                      onerror="this.src='assets/images/favicon.svg'">
+                  </div>
+                  <div class="hl-xplore-frame" title="Temporal Data View">
+                    <img loading="lazy"
+                      src="https://drive.google.com/thumbnail?id=1C4h2o_EU5xCQGPVzDotk7vZG2kNiXXQK&sz=w1600"
+                      alt="OpenGINXplore Temporal Data View" class="hl-bento-media"
+                      onerror="this.src='assets/images/favicon.svg'">
+                  </div>
+                </div>
+              </div>
+
+              <div class="hl-bento-tile hl-bento-tile--resilify" onclick="openAeroProjectDetail(2)" title="Resilify">
+                <div class="hl-resilify-info">
+                  <div class="hl-bot-header">
+                    <span class="hl-bot-title">Resilify</span>
+                    <span class="hl-badge-arrow">➔</span>
+                  </div>
+                  <div class="hl-bot-badge">OCD ERP Therapy Assistant</div>
+                </div>
+                <div class="hl-resilify-frame">
+                  <img loading="lazy"
+                    src="https://drive.google.com/thumbnail?id=1uT2NMk1pm3PsevQFGnm0B0hfi6w83yws&sz=w1600"
+                    alt="Resilify" class="hl-bento-media hl-bento-media--phone"
+                    onerror="this.src='assets/images/favicon.svg'">
+                </div>
+              </div>
             </div>
 
-            <div class="aero-pill-row" onclick="switchAeroTab('projects')">
-              <div class="row-thumb-wrap">
-                <img loading="lazy"
-                  src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*VecS2jEs2t4N0ihV4CkORA.png"
-                  onerror="this.src='assets/images/favicon.svg'" alt="OpenGINXplore" class="row-thumb-img">
-              </div>
-              <div class="row-info-col">
-                <div class="row-title">OpenGINXplore - Temporal Government Data Platform</div>
-                <div class="row-desc">Interactive 3D network &amp; temporal administrative structure visualization of
-                  Sri Lanka.</div>
-                <div class="row-tags">
-                  <span class="row-tag">React</span>
-                  <span class="row-tag">3D Network Graph</span>
-                  <span class="row-tag">Open Data</span>
-                </div>
-              </div>
-              <div class="row-action-arrow">➔</div>
-            </div>
 
-            <div class="aero-pill-row" onclick="switchAeroTab('writing')">
-              <div class="row-thumb-wrap">
-                <img loading="lazy" src="https://miro.medium.com/v2/resize:fit:975/1*SED2hZEJbBY1n60cyOYvUQ.png"
-                  onerror="this.src='assets/images/favicon.svg'" alt="Writing" class="row-thumb-img">
-              </div>
-              <div class="row-info-col">
-                <div class="row-title">How IBM's Influence Keeps Humanity Closer to the Future of Space Travel</div>
-                <div class="row-desc">A look at IBM's quieter role in space exploration; from Apollo-era computing to
-                  CIMON</div>
-                <div class="row-tags">
-                  <span class="row-tag">Medium Article</span>
-                  <span class="row-tag">Space Tech</span>
-                </div>
-              </div>
-              <div class="row-action-arrow">➔</div>
-            </div>
             <a class="github-graph-card" href="https://github.com/sehansi-9" target="_blank" rel="noopener noreferrer">
               <div class="duolingo-glass-shine"></div>
               <div class="github-graph-header">
