@@ -648,6 +648,22 @@ const BLOG = {
   ],
   life: [
     {
+      url: "https://medium.com/@sehansi/identifying-the-strawman-the-lifebuoy-of-media-illiteracy-f13a12c2262e?sharedUserId=sehansi",
+      img: "https://cdn-images-1.medium.com/max/1024/0*eULl79mXf1qYDbBR",
+      date: "Nov 2026",
+      meta: "Nov 2026 · 3 min read",
+      title: "Identifying the Strawman: The Lifebuoy of Media Illiteracy",
+      desc: "How the strawman fallacy shapes modern discourse, swaying public opinion in online spaces, and why spotting it is essential for digital media literacy."
+    },
+    {
+      url: "https://medium.com/@sehansi/the-nepal-i-remember-a-journey-from-ten-years-ago-feae653bcd89?sharedUserId=sehansi",
+      img: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*DubyHiPRI4n6Fgz0fgebEg.png",
+      date: "Nov 2026",
+      meta: "Nov 2026 · 12 min read",
+      title: "The Nepal I Remember: A Journey from Ten Years Ago",
+      desc: "Memories and reflections from a first trip outside Sri Lanka in 2016"
+    },
+    {
       url: "https://medium.com/@sehansi/exiting-the-singularity-of-samsara-d20ae5000c83",
       img: "https://miro.medium.com/v2/resize:fit:1100/format:webp/0*e8jArH-FvaPpOBcW",
       date: "September 2026",
